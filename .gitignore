@@ -1,0 +1,25 @@
+# data (서버에서 스크립트로 다운로드)
+data/
+!data/.gitkeep
+
+# 대용량 중간 산출물 (텐서 덤프 등) — csv/png/md 결과물은 커밋한다
+results/**/*.pt
+results/**/*.npy
+results/**/*.npz
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+
+# HF cache
+.cache/
+hf_cache/
+
+# macOS
+.DS_Store
+
+# logs는 커밋 (재현성 기록) — 단 대용량 스트림 로그 제외
+logs/**/*.out.gz

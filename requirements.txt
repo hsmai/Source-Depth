@@ -1,0 +1,14 @@
+# Phase 0 feasibility — 서버 설치 시 실제 설치 버전을 REPORT.md에 기록할 것
+# torch는 서버 CUDA 버전에 맞춰 설치 (3090 → CUDA 11.8/12.x wheel)
+torch>=2.4
+transformers>=4.49          # Qwen2.5-VL 지원 버전
+qwen-vl-utils
+accelerate
+pillow
+numpy
+pandas
+scipy
+statsmodels                 # McNemar 검정
+matplotlib
+tqdm
+requests                    # COCO 이미지 개별 다운로드
