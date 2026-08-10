@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N 1_8_isangmin_sd_smoke
+#PBS -q [QUEUE_NAME]
+#PBS -l select=1:ncpus=8:ngpus=1
+#PBS -l walltime=00:30:00
+#PBS -j oe
+#PBS -o /home1/isangmin/sourcedepth/logs/
+# [제출 전 필수] docs/05 §4.2 — queue명·GPU 키워드·노드 고정(host=pleiades3 등) 확정 전 제출 금지.
+# [제출 전 필수] mkdir -p /home1/isangmin/sourcedepth/logs
+# Torque 계열이면 select 문법 무효 → 기존 사용자 스크립트 형식을 따를 것.
+
+cd /home1/isangmin/sourcedepth
+
+source /home1/isangmin/miniconda3/etc/profile.d/conda.sh
+conda activate sourcedepth
+set -euo pipefail            # conda activate 이후에 적용 (activate가 set -u에 깨지는 사례 흔함)
+
+export HF_HOME=/home1/isangmin/.cache/huggingface
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+
+python scripts/00_smoke_test.py --seed 42
+
+date

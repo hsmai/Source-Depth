@@ -1,0 +1,25 @@
+#!/bin/bash
+#PBS -N 1_8_isangmin_sd_sanity
+#PBS -q [QUEUE_NAME]
+#PBS -l select=1:ncpus=8:ngpus=1
+#PBS -l walltime=02:00:00
+#PBS -j oe
+#PBS -o /home1/isangmin/sourcedepth/logs/
+# [선행 조건] Job 0 (sd_smoke) 전 항목 통과 후 제출. docs/05 §4.2 확인 사항 동일 적용.
+
+cd /home1/isangmin/sourcedepth
+
+source /home1/isangmin/miniconda3/etc/profile.d/conda.sh
+conda activate sourcedepth
+set -euo pipefail
+
+export HF_HOME=/home1/isangmin/.cache/huggingface
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+
+python scripts/02_sanity_checks.py --seed 42
+
+date

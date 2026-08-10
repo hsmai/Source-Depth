@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -N 1_8_isangmin_sd_mainA
+#PBS -q [QUEUE_NAME]
+#PBS -l select=1:ncpus=8:ngpus=1
+#PBS -l walltime=06:00:00
+#PBS -j oe
+#PBS -o /home1/isangmin/sourcedepth/logs/
+# [선행 조건] sanity 3종 통과(results/SANITY_PASSED)를 사람이 확인한 후에만 제출.
+# [필수] walltime은 Job 0의 문항당 시간 실측으로 보정 후 확정 (docs/05 §5).
+# 폴백 노드 사용 시: Node 4 → ncpus=4 + job명 1_4_isangmin_sd_mainA / Node 1 → ncpus=4 동일.
+
+cd /home1/isangmin/sourcedepth
+
+source /home1/isangmin/miniconda3/etc/profile.d/conda.sh
+conda activate sourcedepth
+set -euo pipefail
+
+export HF_HOME=/home1/isangmin/.cache/huggingface
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+
+# Phase 1: 본실험 shard 0 (checkpoint/resume 내장)
+python scripts/03_run_main.py --pairs results/pairs.csv --shard 0 --num-shards 2 --resume --seed 42
+
+# Phase 2: M 조건 attention 프로파일링 shard 0 (eager + output_attentions, batch 1)
+python scripts/04_run_attention_profile.py --pairs results/pairs.csv --shard 0 --num-shards 2 --resume --seed 42
+
+date
