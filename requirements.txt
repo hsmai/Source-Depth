@@ -1,14 +1,9 @@
-# Phase 0 feasibility — 서버 설치 시 실제 설치 버전을 REPORT.md에 기록할 것
-# torch는 서버 CUDA 버전에 맞춰 설치 (3090 → CUDA 11.8/12.x wheel)
-torch>=2.4
-transformers>=4.49          # Qwen2.5-VL 지원 버전
-qwen-vl-utils
-accelerate
-pillow
-numpy
-pandas
+# Phase 0 — 서버 실측 고정 버전 (2026-08-11, venv overlay on conda env qwen-omni)
+# base env 상속: torch 2.5.1+cu121, transformers 4.52.3, accelerate 1.14.0,
+#                numpy 2.2.6, pillow 12.2.0, matplotlib 3.10.9
+# venv 추가 설치:
+statsmodels==0.14.6
+pandas==2.3.3
 scipy
-statsmodels                 # McNemar 검정
-matplotlib
-tqdm
-requests                    # COCO 이미지 개별 다운로드
+qwen-vl-utils==0.0.14
+requests
