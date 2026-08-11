@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_ext
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=03:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 3B 확장 실험 (A6000): (a) L 그리드 세분화 {2,6,10,14,18,22} — 곡선 해상도용 탐색 분석
+#                      (b) 순서 뒤집기 프로파일링 — ③ position bias 분리
+# 판정(REPORT)은 사전 등록 L_GRID로만 계산됨 (05_analyze의 judge_ls 분리)
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+trap 'python scripts/05_analyze.py || true' EXIT
+
+date; nvidia-smi || true; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+python scripts/03_run_main.py --extra-l 2 6 10 14 18 22
+python scripts/04_run_attention_profile.py --swap
+date
