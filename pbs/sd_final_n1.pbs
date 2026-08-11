@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_final
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=03:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 순서 뒤집기 검증 결과(위치 무관 신호는 layer 20~22에서만 존재) 반영 후속:
+#   11 : J20x28 / J22x28 / J24x28 — 현실적 컨트롤러 작동점에서의 배분 성능 (resume로 신규 조건만)
+#   12 : CLIP baseline — 위치 편향이 없는 외부 선택기와의 비교 (offline 경로 문제 수정)
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 11 allocation 추가 작동점 (3B) ====="; python scripts/11_allocation.py || echo "11-3B FAILED"
+echo "===== 12 clip baseline ====="; python scripts/12_clip_baseline.py || echo "12 FAILED"
+echo "===== 11 allocation 추가 작동점 (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/11_allocation.py || echo "11-7B FAILED"
+echo "===== 13 alpha knob 갱신 ====="; python scripts/13_alpha_knob.py || echo "13 FAILED"
+date

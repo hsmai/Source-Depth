@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_md
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# PART D 사전 등록 실패 대응 (b): distractor 2장으로 증가.
+# 7B에서 ①(문제 실재)이 FAIL했으므로 사전 등록된 절차대로 실행 — 결과를 보고 벤치를 바꾸는 것이 아님.
+# 7B 먼저(문제가 사라진 쪽), 이어서 3B(비교 기준선) 순으로 실행.
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 14 multi-distractor (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/14_multi_distractor.py || echo "14-7B FAILED"
+echo "===== 14 multi-distractor (3B, 비교 기준선) ====="
+python scripts/14_multi_distractor.py || echo "14-3B FAILED"
+date

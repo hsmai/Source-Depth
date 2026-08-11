@@ -31,13 +31,25 @@ def main():
     if not torch.cuda.is_available():
         blocked("12_clip", "GPU 없음", {})
     torch.manual_seed(SEED)
+    import glob
+    import os
+
     from transformers import CLIPModel, CLIPProcessor
+
+    # HF_HUB_OFFLINE에서 repo id로 로드하면 hub API를 치려다 실패 → 스냅샷 경로 직접 지정
+    hf_home = os.environ.get("HF_HOME", os.path.expanduser("~/.cache/huggingface"))
+    cands = glob.glob(os.path.join(
+        hf_home, "hub", "models--openai--clip-vit-base-patch32", "snapshots", "*"))
+    if not cands:
+        blocked("12_clip", "CLIP 스냅샷 미발견", {"hf_home": hf_home})
+    local = cands[0]
 
     rows = pd.read_csv(PAIRS_CSV).to_dict("records")
     with stage("12_clip_baseline"):
-        # torch 2.5.x + transformers 4.52는 .bin 로딩을 거부 → safetensors 강제
-        model = CLIPModel.from_pretrained(CLIP_ID, use_safetensors=True).to(DEV).eval()
-        proc = CLIPProcessor.from_pretrained(CLIP_ID)
+        # torch 2.5.x + transformers 4.52는 .bin 로딩을 거부 → 사전 변환한 safetensors 사용
+        model = CLIPModel.from_pretrained(local, use_safetensors=True,
+                                          local_files_only=True).to(DEV).eval()
+        proc = CLIPProcessor.from_pretrained(local, local_files_only=True)
 
         hit = 0
         margins = []

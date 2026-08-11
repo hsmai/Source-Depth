@@ -35,7 +35,11 @@ DEV = "cuda:0"
 OUT = RESULTS_DIR / f"alloc_results{TAG}.jsonl"
 
 REL_LS = [12, 16, 20, 24, 28, 32]          # (a) 관련 이미지 depth 요구량
-JOINT = [(4, 32), (4, 28), (4, 24), (8, 28)]   # (b) (distractor L1, relevant L2)
+# (b) (distractor L1, relevant L2)
+#  - (4,·)/(8,·): oracle 상한 — 컨트롤러가 즉시 판단 가능하다고 가정한 이상적 배분
+#  - (20,·)/(22,·)/(24,·): **현실적 작동점** — 위치 무관 컨트롤러 신호가 실제로 나타나는
+#    layer 20~22에서 판단한 뒤 그 지점부터 차단 (순서 뒤집기 검증 결과 반영)
+JOINT = [(4, 32), (4, 28), (4, 24), (8, 28), (20, 28), (22, 28), (24, 28)]
 VTW_KS = [8, 16, 24, 28]                   # (c) uniform withdrawal (VTW 실용 K=16 포함)
 
 
