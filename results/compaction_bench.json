@@ -1,0 +1,18 @@
+{
+ "L4": {
+  "n": 40,
+  "ttft_full_ms_median": 510.2,
+  "ttft_compact_ms_median": 460.8,
+  "ttft_reduction_pct": 9.7,
+  "pred_agree_vs_masked": 1.0,
+  "max_yes_no_logit_diff": 0.25
+ },
+ "L8": {
+  "n": 40,
+  "ttft_full_ms_median": 508.9,
+  "ttft_compact_ms_median": 466.2,
+  "ttft_reduction_pct": 8.4,
+  "pred_agree_vs_masked": 1.0,
+  "max_yes_no_logit_diff": 0.25
+ }
+}

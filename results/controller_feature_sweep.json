@@ -1,0 +1,229 @@
+{
+ "n": 600,
+ "layers_stored": 24,
+ "heads": 16,
+ "per_layer": {
+  "1": {
+   "mean_head": 0.035,
+   "best_head": 0.7983,
+   "top3_heads": 0.555,
+   "max_minus_max": 0.1717,
+   "cumulative_mean": 0.035
+  },
+  "2": {
+   "mean_head": 0.2467,
+   "best_head": 0.8467,
+   "top3_heads": 0.8683,
+   "max_minus_max": 0.595,
+   "cumulative_mean": 0.1133
+  },
+  "3": {
+   "mean_head": 0.39,
+   "best_head": 0.83,
+   "top3_heads": 0.7867,
+   "max_minus_max": 0.765,
+   "cumulative_mean": 0.2167
+  },
+  "4": {
+   "mean_head": 0.155,
+   "best_head": 0.8483,
+   "top3_heads": 0.6,
+   "max_minus_max": 0.2717,
+   "cumulative_mean": 0.19
+  },
+  "5": {
+   "mean_head": 0.325,
+   "best_head": 0.9833,
+   "top3_heads": 0.92,
+   "max_minus_max": 0.02,
+   "cumulative_mean": 0.1983
+  },
+  "6": {
+   "mean_head": 0.1583,
+   "best_head": 0.7617,
+   "top3_heads": 0.75,
+   "max_minus_max": 0.12,
+   "cumulative_mean": 0.195
+  },
+  "7": {
+   "mean_head": 0.5067,
+   "best_head": 0.81,
+   "top3_heads": 0.7367,
+   "max_minus_max": 0.64,
+   "cumulative_mean": 0.2267
+  },
+  "8": {
+   "mean_head": 0.725,
+   "best_head": 0.9983,
+   "top3_heads": 0.9983,
+   "max_minus_max": 0.4117,
+   "cumulative_mean": 0.2733
+  },
+  "9": {
+   "mean_head": 0.3417,
+   "best_head": 0.9717,
+   "top3_heads": 0.9867,
+   "max_minus_max": 0.2617,
+   "cumulative_mean": 0.285
+  },
+  "10": {
+   "mean_head": 0.7483,
+   "best_head": 0.9817,
+   "top3_heads": 0.9083,
+   "max_minus_max": 0.7483,
+   "cumulative_mean": 0.3533
+  },
+  "11": {
+   "mean_head": 0.5933,
+   "best_head": 1.0,
+   "top3_heads": 0.9433,
+   "max_minus_max": 0.46,
+   "cumulative_mean": 0.3633
+  },
+  "12": {
+   "mean_head": 0.75,
+   "best_head": 1.0,
+   "top3_heads": 0.98,
+   "max_minus_max": 0.74,
+   "cumulative_mean": 0.405
+  },
+  "13": {
+   "mean_head": 0.6483,
+   "best_head": 0.8967,
+   "top3_heads": 0.9033,
+   "max_minus_max": 0.4933,
+   "cumulative_mean": 0.455
+  },
+  "14": {
+   "mean_head": 0.77,
+   "best_head": 0.9883,
+   "top3_heads": 0.9967,
+   "max_minus_max": 0.4683,
+   "cumulative_mean": 0.4817
+  },
+  "15": {
+   "mean_head": 0.4083,
+   "best_head": 0.8567,
+   "top3_heads": 0.8817,
+   "max_minus_max": 0.4167,
+   "cumulative_mean": 0.4767
+  },
+  "16": {
+   "mean_head": 0.0233,
+   "best_head": 0.9967,
+   "top3_heads": 0.9967,
+   "max_minus_max": 0.0183,
+   "cumulative_mean": 0.455
+  },
+  "17": {
+   "mean_head": 0.6633,
+   "best_head": 0.95,
+   "top3_heads": 0.9283,
+   "max_minus_max": 0.715,
+   "cumulative_mean": 0.4583
+  },
+  "18": {
+   "mean_head": 0.5217,
+   "best_head": 0.9967,
+   "top3_heads": 0.9183,
+   "max_minus_max": 0.3783,
+   "cumulative_mean": 0.47
+  },
+  "19": {
+   "mean_head": 0.295,
+   "best_head": 0.9917,
+   "top3_heads": 0.975,
+   "max_minus_max": 0.165,
+   "cumulative_mean": 0.4633
+  },
+  "20": {
+   "mean_head": 0.35,
+   "best_head": 1.0,
+   "top3_heads": 0.9,
+   "max_minus_max": 0.5867,
+   "cumulative_mean": 0.4583
+  },
+  "21": {
+   "mean_head": 0.99,
+   "best_head": 1.0,
+   "top3_heads": 1.0,
+   "max_minus_max": 0.9983,
+   "cumulative_mean": 0.4983
+  },
+  "22": {
+   "mean_head": 0.9,
+   "best_head": 0.965,
+   "top3_heads": 0.9767,
+   "max_minus_max": 0.9233,
+   "cumulative_mean": 0.6033
+  },
+  "23": {
+   "mean_head": 0.6017,
+   "best_head": 0.8167,
+   "top3_heads": 0.8283,
+   "max_minus_max": 0.61,
+   "cumulative_mean": 0.6067
+  },
+  "24": {
+   "mean_head": 0.0217,
+   "best_head": 0.785,
+   "top3_heads": 0.6617,
+   "max_minus_max": 0.005,
+   "cumulative_mean": 0.5633
+  }
+ },
+ "top5_overall": [
+  {
+   "acc": 1.0,
+   "layer": 21,
+   "feature": "top3_heads"
+  },
+  {
+   "acc": 1.0,
+   "layer": 21,
+   "feature": "best_head"
+  },
+  {
+   "acc": 1.0,
+   "layer": 20,
+   "feature": "best_head"
+  },
+  {
+   "acc": 1.0,
+   "layer": 12,
+   "feature": "best_head"
+  },
+  {
+   "acc": 1.0,
+   "layer": 11,
+   "feature": "best_head"
+  }
+ ],
+ "top5_layer_le14": [
+  {
+   "acc": 1.0,
+   "layer": 12,
+   "feature": "best_head"
+  },
+  {
+   "acc": 1.0,
+   "layer": 11,
+   "feature": "best_head"
+  },
+  {
+   "acc": 0.9983,
+   "layer": 8,
+   "feature": "top3_heads"
+  },
+  {
+   "acc": 0.9983,
+   "layer": 8,
+   "feature": "best_head"
+  },
+  {
+   "acc": 0.9967,
+   "layer": 14,
+   "feature": "top3_heads"
+  }
+ ]
+}

@@ -24,6 +24,7 @@ export PYTHONHASHSEED=42
 
 date; nvidia-smi || true
 echo "===== 11 allocation (A1) ====="; python scripts/11_allocation.py || echo "11 FAILED"
+echo "===== 08b headwise SWAP (position bias 판별) ====="; python scripts/08_headwise_profile.py --swap || echo "08b FAILED"
 echo "===== 12 clip baseline (S2) ====="; python scripts/12_clip_baseline.py || echo "12 FAILED"
 echo "===== 13 alpha knob (A4) ====="; python scripts/13_alpha_knob.py || echo "13 FAILED"
 echo "===== 10 charts ====="; python scripts/10_gate_charts.py || echo "10 FAILED"

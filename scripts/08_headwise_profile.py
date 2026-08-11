@@ -12,13 +12,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+import argparse
+
 import numpy as np
 import pandas as pd
 import torch
 
-from sourcedepth.config import (COCO_IMG_DIR, PAIRS_CSV, RESULTS_DIR, SEED)
+from sourcedepth.config import (COCO_IMG_DIR, PAIRS_CSV, PROMPT_MULTI_SECOND,
+                                RESULTS_DIR, SEED)
 from sourcedepth.data.download import image_path
-from sourcedepth.eval.loop import questions_for
+from sourcedepth.eval.loop import obj_phrase, questions_for
 from sourcedepth.model.inputs import build_inputs, find_vision_spans
 from sourcedepth.model.load import (load_model_and_processor, num_layers,
                                     resolve_decoder_layers, vision_token_ids)
@@ -26,20 +29,31 @@ from sourcedepth.runlog import append_jsonl, blocked, dump_env, read_jsonl, stag
 
 DEV = "cuda:0"
 OUT = RESULTS_DIR / "headwise_profile.jsonl"
+OUT_SWAP = RESULTS_DIR / "headwise_profile_swapped.jsonl"
 SWEEP_OUT = RESULTS_DIR / "controller_feature_sweep.json"
+SWEEP_SWAP = RESULTS_DIR / "controller_swap_check.json"
 MAX_LAYER_1IDX = 24   # 저장 상한 (관심 구간 1..24)
 
 
-def profile(model, processor, rows, vs, ve, pad, n_layers):
-    done = {r["question_id"] for r in read_jsonl(OUT)}
+def profile(model, processor, rows, vs, ve, pad, n_layers, swap=False):
+    """swap=True: [distractor, relevant] 순서 + 'second image' 질문. 저장은 항상
+    [관련, distractor] 의미 순서 → 같은 head가 '질문이 가리키는 이미지'를 따라가는지 판별."""
+    out_path = OUT_SWAP if swap else OUT
+    done = {r["question_id"] for r in read_jsonl(out_path)}
     todo = [r for r in rows if r["question_id"] not in done]
-    print(f"headwise profiling: {len(todo)}/{len(rows)} to run")
+    print(f"headwise profiling (swap={swap}): {len(todo)}/{len(rows)} to run")
     for k, row in enumerate(todo):
-        q_multi, _ = questions_for(row)
-        inp = build_inputs(processor, [image_path(int(row["image1_id"]), COCO_IMG_DIR),
-                                       image_path(int(row["image2_id"]), COCO_IMG_DIR)],
-                           q_multi, DEV)
-        (s1, e1), (s2, e2) = find_vision_spans(inp["input_ids"], vs, ve, pad)
+        im1 = image_path(int(row["image1_id"]), COCO_IMG_DIR)
+        im2 = image_path(int(row["image2_id"]), COCO_IMG_DIR)
+        if swap:
+            q = PROMPT_MULTI_SECOND.format(obj=obj_phrase(row["article"], row["object"]))
+            inp = build_inputs(processor, [im2, im1], q, DEV)
+            spans = find_vision_spans(inp["input_ids"], vs, ve, pad)
+            (s1, e1), (s2, e2) = spans[1], spans[0]     # 관련=두 번째 위치
+        else:
+            q_multi, _ = questions_for(row)
+            inp = build_inputs(processor, [im1, im2], q_multi, DEV)
+            (s1, e1), (s2, e2) = find_vision_spans(inp["input_ids"], vs, ve, pad)
         with torch.no_grad():
             out = model(**inp, use_cache=False, output_attentions=True)
         per_layer = []
@@ -48,8 +62,8 @@ def profile(model, processor, rows, vs, ve, pad, n_layers):
             m1 = w[:, s1:e1 + 1].sum(-1)                          # (heads,)
             m2 = w[:, s2:e2 + 1].sum(-1)
             per_layer.append([m1.tolist(), m2.tolist()])
-        append_jsonl(OUT, {"question_id": row["question_id"], "cell": int(row["cell"]),
-                           "heads": per_layer})
+        append_jsonl(out_path, {"question_id": row["question_id"], "cell": int(row["cell"]),
+                                "swapped": swap, "heads": per_layer})
         if (k + 1) % 100 == 0:
             print(f"  {k + 1}/{len(todo)}")
 
@@ -114,20 +128,57 @@ def sweep():
     print("top5 layer<=14:", summary["top5_layer_le14"])
 
 
+def swap_check():
+    """같은 head가 순서를 뒤집어도 '질문이 가리키는 이미지'를 따라가는가 (position bias 판별)."""
+    a, b = read_jsonl(OUT), read_jsonl(OUT_SWAP)
+    if not a or not b:
+        print("swap_check skip: 데이터 부족"); return
+    common = sorted(set(r["question_id"] for r in a) & set(r["question_id"] for r in b))
+    ia = {r["question_id"]: r for r in a}
+    ib = {r["question_id"]: r for r in b}
+    L = len(a[0]["heads"]); H = len(a[0]["heads"][0][0])
+    da = np.array([[np.array(ia[q]["heads"][l][0]) - np.array(ia[q]["heads"][l][1])
+                    for l in range(L)] for q in common])
+    db = np.array([[np.array(ib[q]["heads"][l][0]) - np.array(ib[q]["heads"][l][1])
+                    for l in range(L)] for q in common])
+    out = {}
+    for l in range(L):
+        h = int(np.argmax((da[:, l, :] > 0).mean(0)))     # 원본에서 고른 head
+        out[l + 1] = {"head": h,
+                      "acc_original": round(float((da[:, l, h] > 0).mean()), 4),
+                      "acc_swapped": round(float((db[:, l, h] > 0).mean()), 4),
+                      "best_head_swapped_acc": round(float((db[:, l, :] > 0).mean(0).max()), 4)}
+    SWEEP_SWAP.write_text(json.dumps({"n": len(common), "per_layer": out}, indent=1))
+    print("=== position-bias 판별 (원본에서 고른 head를 순서 뒤집기에 그대로 적용) ===")
+    for l in sorted(out):
+        o = out[l]
+        if l in (2, 5, 8, 11, 12, 14, 21):
+            print(f"  layer {l:>2} h{o['head']:>2}: 원본 {o['acc_original']:.3f} → "
+                  f"뒤집기 {o['acc_swapped']:.3f} (뒤집기 최적head {o['best_head_swapped_acc']:.3f})")
+
+
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--swap", action="store_true")
+    ap.add_argument("--sweep-only", action="store_true")
+    args = ap.parse_args()
+
     dump_env("08_headwise")
-    if not torch.cuda.is_available():
-        blocked("08_headwise", "GPU 없음", {})
-    torch.manual_seed(SEED)
     rows = pd.read_csv(PAIRS_CSV).to_dict("records")
-    with stage("08_headwise_profile"):
-        model, processor = load_model_and_processor()
-        n_layers = num_layers(model)
-        resolve_decoder_layers(model)
-        vs, ve, pad = vision_token_ids(processor)
-        profile(model, processor, rows, vs, ve, pad, n_layers)
+    if not args.sweep_only:
+        if not torch.cuda.is_available():
+            blocked("08_headwise", "GPU 없음", {})
+        torch.manual_seed(SEED)
+        with stage("08_headwise_profile"):
+            model, processor = load_model_and_processor()
+            n_layers = num_layers(model)
+            resolve_decoder_layers(model)
+            vs, ve, pad = vision_token_ids(processor)
+            profile(model, processor, rows, vs, ve, pad, n_layers, swap=args.swap)
     with stage("08_feature_sweep"):
-        sweep()
+        if not args.swap:
+            sweep()
+        swap_check()
 
 
 if __name__ == "__main__":

@@ -46,15 +46,21 @@ def fig3():
     df = pd.read_csv(RESULTS_DIR / "results.csv")
     dis = df[df["cell"] == 1].to_dict("records")
     dis_acc, dis_m = acc_by_L(dis)
-    rb_acc, rb_m = acc_by_L(rel, cell="RB")
+    # R1 = 질의 객체가 image1에만 존재, 질문 "in both images?", 정답 no.
+    # 정답하려면 image2를 반드시 확인해야 하므로 relational 의존성의 clean probe.
+    # (RB는 image1만 보고도 'yes'로 맞출 수 있어 교란됨 — 실측으로 확인)
+    rb_acc, rb_m = acc_by_L(rel, cell="R1")
 
     fig, ax = plt.subplots(figsize=(8.5, 5))
     xs_d = sorted(dis_acc)
     ax.plot(xs_d, [dis_acc[x] for x in xs_d], "o-", color="tab:blue", lw=2.2, ms=7,
-            label="Unary + distractor (cell 1): blocking HELPS")
+            label="Unary + distractor: blocking HELPS  (+21%p at L=4)")
     xs_r = sorted(rb_acc)
     ax.plot(xs_r, [rb_acc[x] for x in xs_r], "s--", color="tab:red", lw=2.2, ms=7,
-            label="Relational 'in both images': blocking HURTS")
+            label="Relational 'in both?': blocking HURTS  (−51%p at L=4)")
+    ax.axvspan(19, 25, color="tab:orange", alpha=0.12)
+    ax.annotate("both effects switch on\nin the same band (L≈20–24)", (22, 0.45),
+                ha="center", fontsize=8.5, color="darkorange")
     if dis_m is not None:
         ax.axhline(dis_m, color="tab:blue", ls=":", alpha=0.55, lw=1.3)
         ax.annotate(f"M (no blocking) {dis_m:.2f}", (24.4, dis_m), fontsize=8,
