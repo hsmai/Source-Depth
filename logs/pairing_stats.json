@@ -1,0 +1,42 @@
+{
+ "stats": {
+  "per_cell_target": 160,
+  "per_cell_built": {
+   "1": 160,
+   "2": 160,
+   "3": 160,
+   "4": 160
+  },
+  "skipped": {
+   "deferred_unbalanced": 124,
+   "quota_after_balanced_pass": 0
+  },
+  "n_unbalanced": 0,
+  "shortfall": {
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0
+  }
+ },
+ "final_per_cell": {
+  "1": 150,
+  "2": 150,
+  "3": 150,
+  "4": 150
+ },
+ "n_unique_images": 955,
+ "supercategory_dist": {
+  "vehicle": 150,
+  "furniture": 138,
+  "kitchen": 86,
+  "sports": 51,
+  "accessory": 41,
+  "electronic": 33,
+  "food": 30,
+  "indoor": 27,
+  "outdoor": 19,
+  "animal": 16,
+  "appliance": 9
+ }
+}

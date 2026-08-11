@@ -1,0 +1,601 @@
+question_id,cell,gt,article,object,category_id,supercategory,image1_id,image1_file,image2_id,image2_file,pope_split,assignment
+2650,1,no,a,dining table,67,furniture,429580,COCO_val2014_000000429580.jpg,448309,COCO_val2014_000000448309.jpg,adversarial,balanced
+2678,1,no,a,car,3,vehicle,224155,COCO_val2014_000000224155.jpg,342403,COCO_val2014_000000342403.jpg,adversarial,balanced
+2170,1,no,a,car,3,vehicle,252135,COCO_val2014_000000252135.jpg,58539,COCO_val2014_000000058539.jpg,adversarial,balanced
+1022,1,no,a,skis,35,sports,449432,COCO_val2014_000000449432.jpg,129886,COCO_val2014_000000129886.jpg,adversarial,balanced
+562,1,no,a,dining table,67,furniture,209755,COCO_val2014_000000209755.jpg,378284,COCO_val2014_000000378284.jpg,adversarial,balanced
+596,1,no,a,handbag,31,accessory,105732,COCO_val2014_000000105732.jpg,333665,COCO_val2014_000000333665.jpg,adversarial,balanced
+88,1,no,a,truck,8,vehicle,219622,COCO_val2014_000000219622.jpg,453841,COCO_val2014_000000453841.jpg,adversarial,balanced
+724,1,no,a,car,3,vehicle,538054,COCO_val2014_000000538054.jpg,46805,COCO_val2014_000000046805.jpg,adversarial,balanced
+1384,1,no,a,dining table,67,furniture,534516,COCO_val2014_000000534516.jpg,469936,COCO_val2014_000000469936.jpg,adversarial,balanced
+2274,1,no,a,chair,62,furniture,68418,COCO_val2014_000000068418.jpg,96183,COCO_val2014_000000096183.jpg,adversarial,balanced
+244,1,no,a,truck,8,vehicle,574057,COCO_val2014_000000574057.jpg,109900,COCO_val2014_000000109900.jpg,adversarial,balanced
+2916,1,no,a,spoon,50,kitchen,190788,COCO_val2014_000000190788.jpg,63726,COCO_val2014_000000063726.jpg,adversarial,balanced
+252,1,no,a,chair,62,furniture,456178,COCO_val2014_000000456178.jpg,168683,COCO_val2014_000000168683.jpg,adversarial,balanced
+2148,1,no,a,handbag,31,accessory,156704,COCO_val2014_000000156704.jpg,244815,COCO_val2014_000000244815.jpg,adversarial,balanced
+538,1,no,a,car,3,vehicle,498374,COCO_val2014_000000498374.jpg,395801,COCO_val2014_000000395801.jpg,adversarial,balanced
+1444,1,no,a,mouse,74,electronic,407386,COCO_val2014_000000407386.jpg,160811,COCO_val2014_000000160811.jpg,adversarial,balanced
+1268,1,no,a,traffic light,10,outdoor,244455,COCO_val2014_000000244455.jpg,365611,COCO_val2014_000000365611.jpg,adversarial,balanced
+1932,1,no,a,spoon,50,kitchen,356424,COCO_val2014_000000356424.jpg,487159,COCO_val2014_000000487159.jpg,adversarial,balanced
+610,1,no,a,bus,6,vehicle,520524,COCO_val2014_000000520524.jpg,170232,COCO_val2014_000000170232.jpg,adversarial,balanced
+594,1,no,a,truck,8,vehicle,557016,COCO_val2014_000000557016.jpg,400815,COCO_val2014_000000400815.jpg,adversarial,balanced
+2642,1,no,a,dining table,67,furniture,429706,COCO_val2014_000000429706.jpg,440023,COCO_val2014_000000440023.jpg,adversarial,balanced
+1470,1,no,a,dining table,67,furniture,391735,COCO_val2014_000000391735.jpg,98029,COCO_val2014_000000098029.jpg,adversarial,balanced
+2640,1,no,a,dining table,67,furniture,16451,COCO_val2014_000000016451.jpg,95062,COCO_val2014_000000095062.jpg,adversarial,balanced
+2164,1,no,a,baseball glove,40,sports,155131,COCO_val2014_000000155131.jpg,576652,COCO_val2014_000000576652.jpg,adversarial,balanced
+1942,1,no,a,knife,49,kitchen,172342,COCO_val2014_000000172342.jpg,541562,COCO_val2014_000000541562.jpg,adversarial,balanced
+832,1,no,a,dining table,67,furniture,167110,COCO_val2014_000000167110.jpg,532129,COCO_val2014_000000532129.jpg,adversarial,balanced
+320,1,no,a,car,3,vehicle,538236,COCO_val2014_000000538236.jpg,436808,COCO_val2014_000000436808.jpg,adversarial,balanced
+266,1,no,a,traffic light,10,outdoor,454642,COCO_val2014_000000454642.jpg,514016,COCO_val2014_000000514016.jpg,adversarial,balanced
+1462,1,no,a,bicycle,2,vehicle,115626,COCO_val2014_000000115626.jpg,340588,COCO_val2014_000000340588.jpg,adversarial,balanced
+2396,1,no,a,car,3,vehicle,288576,COCO_val2014_000000288576.jpg,368302,COCO_val2014_000000368302.jpg,adversarial,balanced
+2306,1,no,a,car,3,vehicle,579277,COCO_val2014_000000579277.jpg,77061,COCO_val2014_000000077061.jpg,adversarial,balanced
+1210,1,no,a,dining table,67,furniture,124930,COCO_val2014_000000124930.jpg,502749,COCO_val2014_000000502749.jpg,adversarial,balanced
+1072,1,no,a,car,3,vehicle,134075,COCO_val2014_000000134075.jpg,34900,COCO_val2014_000000034900.jpg,adversarial,balanced
+2098,1,no,a,truck,8,vehicle,114941,COCO_val2014_000000114941.jpg,563275,COCO_val2014_000000563275.jpg,adversarial,balanced
+2912,1,no,a,car,3,vehicle,190788,COCO_val2014_000000190788.jpg,35282,COCO_val2014_000000035282.jpg,adversarial,balanced
+534,1,no,a,chair,62,furniture,427113,COCO_val2014_000000427113.jpg,419860,COCO_val2014_000000419860.jpg,adversarial,balanced
+2194,1,no,a,chair,62,furniture,372819,COCO_val2014_000000372819.jpg,569839,COCO_val2014_000000569839.jpg,adversarial,balanced
+888,1,no,a,truck,8,vehicle,87435,COCO_val2014_000000087435.jpg,421499,COCO_val2014_000000421499.jpg,adversarial,balanced
+184,1,no,a,motorcycle,4,vehicle,291936,COCO_val2014_000000291936.jpg,70321,COCO_val2014_000000070321.jpg,adversarial,balanced
+1744,1,no,a,frisbee,34,sports,343401,COCO_val2014_000000343401.jpg,510585,COCO_val2014_000000510585.jpg,adversarial,balanced
+1114,1,no,a,cup,47,kitchen,378873,COCO_val2014_000000378873.jpg,64703,COCO_val2014_000000064703.jpg,adversarial,balanced
+2296,1,no,a,car,3,vehicle,390157,COCO_val2014_000000390157.jpg,409856,COCO_val2014_000000409856.jpg,adversarial,balanced
+2926,1,no,a,chair,62,furniture,377951,COCO_val2014_000000377951.jpg,397318,COCO_val2014_000000397318.jpg,adversarial,balanced
+2704,1,no,a,bicycle,2,vehicle,163814,COCO_val2014_000000163814.jpg,556205,COCO_val2014_000000556205.jpg,adversarial,balanced
+2118,1,no,a,tv,72,electronic,382617,COCO_val2014_000000382617.jpg,553847,COCO_val2014_000000553847.jpg,adversarial,balanced
+2670,1,no,a,handbag,31,accessory,123570,COCO_val2014_000000123570.jpg,556064,COCO_val2014_000000556064.jpg,adversarial,balanced
+56,1,no,a,handbag,31,accessory,17708,COCO_val2014_000000017708.jpg,192128,COCO_val2014_000000192128.jpg,adversarial,balanced
+2026,1,no,a,traffic light,10,outdoor,91954,COCO_val2014_000000091954.jpg,479030,COCO_val2014_000000479030.jpg,adversarial,balanced
+1496,1,no,a,baseball bat,39,sports,554328,COCO_val2014_000000554328.jpg,517938,COCO_val2014_000000517938.jpg,adversarial,balanced
+826,1,no,a,car,3,vehicle,327532,COCO_val2014_000000327532.jpg,484301,COCO_val2014_000000484301.jpg,adversarial,balanced
+1014,1,no,a,truck,8,vehicle,273450,COCO_val2014_000000273450.jpg,209782,COCO_val2014_000000209782.jpg,adversarial,balanced
+2858,1,no,a,car,3,vehicle,560744,COCO_val2014_000000560744.jpg,453310,COCO_val2014_000000453310.jpg,adversarial,balanced
+2580,1,no,a,dog,18,animal,516601,COCO_val2014_000000516601.jpg,468902,COCO_val2014_000000468902.jpg,adversarial,balanced
+2638,1,no,a,car,3,vehicle,16451,COCO_val2014_000000016451.jpg,359925,COCO_val2014_000000359925.jpg,adversarial,balanced
+2960,1,no,a,bowl,51,kitchen,3845,COCO_val2014_000000003845.jpg,312192,COCO_val2014_000000312192.jpg,adversarial,balanced
+2472,1,no,a,dining table,67,furniture,458325,COCO_val2014_000000458325.jpg,245447,COCO_val2014_000000245447.jpg,adversarial,balanced
+2032,1,no,a,car,3,vehicle,454607,COCO_val2014_000000454607.jpg,245013,COCO_val2014_000000245013.jpg,adversarial,balanced
+2230,1,no,a,chair,62,furniture,233521,COCO_val2014_000000233521.jpg,275268,COCO_val2014_000000275268.jpg,adversarial,balanced
+804,1,no,a,traffic light,10,outdoor,147289,COCO_val2014_000000147289.jpg,373060,COCO_val2014_000000373060.jpg,adversarial,balanced
+2482,1,no,a,dining table,67,furniture,38645,COCO_val2014_000000038645.jpg,234934,COCO_val2014_000000234934.jpg,adversarial,balanced
+2744,1,no,a,couch,63,furniture,233426,COCO_val2014_000000233426.jpg,31043,COCO_val2014_000000031043.jpg,adversarial,balanced
+2526,1,no,a,bottle,44,kitchen,209290,COCO_val2014_000000209290.jpg,176841,COCO_val2014_000000176841.jpg,adversarial,balanced
+616,1,no,a,dining table,67,furniture,580294,COCO_val2014_000000580294.jpg,516244,COCO_val2014_000000516244.jpg,adversarial,balanced
+434,1,no,a,handbag,31,accessory,564336,COCO_val2014_000000564336.jpg,579415,COCO_val2014_000000579415.jpg,adversarial,balanced
+120,1,no,a,couch,63,furniture,381895,COCO_val2014_000000381895.jpg,32375,COCO_val2014_000000032375.jpg,adversarial,balanced
+2146,1,no,a,kite,38,sports,156704,COCO_val2014_000000156704.jpg,108528,COCO_val2014_000000108528.jpg,adversarial,balanced
+1166,1,no,a,car,3,vehicle,327038,COCO_val2014_000000327038.jpg,293794,COCO_val2014_000000293794.jpg,adversarial,balanced
+710,1,no,a,dining table,67,furniture,239130,COCO_val2014_000000239130.jpg,178795,COCO_val2014_000000178795.jpg,adversarial,balanced
+1208,1,no,a,car,3,vehicle,124930,COCO_val2014_000000124930.jpg,89743,COCO_val2014_000000089743.jpg,adversarial,balanced
+406,1,no,a,truck,8,vehicle,528905,COCO_val2014_000000528905.jpg,200717,COCO_val2014_000000200717.jpg,adversarial,balanced
+2824,1,no,a,dining table,67,furniture,230175,COCO_val2014_000000230175.jpg,495533,COCO_val2014_000000495533.jpg,adversarial,balanced
+1182,1,no,a,dining table,67,furniture,184338,COCO_val2014_000000184338.jpg,22112,COCO_val2014_000000022112.jpg,adversarial,balanced
+66,1,no,a,cup,47,kitchen,574692,COCO_val2014_000000574692.jpg,293548,COCO_val2014_000000293548.jpg,adversarial,balanced
+2866,1,no,a,baseball glove,40,sports,45685,COCO_val2014_000000045685.jpg,84031,COCO_val2014_000000084031.jpg,adversarial,balanced
+2872,1,no,a,bowl,51,kitchen,434179,COCO_val2014_000000434179.jpg,369185,COCO_val2014_000000369185.jpg,adversarial,balanced
+70,1,no,a,car,3,vehicle,353180,COCO_val2014_000000353180.jpg,45864,COCO_val2014_000000045864.jpg,adversarial,balanced
+210,1,no,a,chair,62,furniture,553165,COCO_val2014_000000553165.jpg,162092,COCO_val2014_000000162092.jpg,adversarial,balanced
+1314,1,no,a,cup,47,kitchen,333237,COCO_val2014_000000333237.jpg,527219,COCO_val2014_000000527219.jpg,adversarial,balanced
+2528,1,no,a,car,3,vehicle,564511,COCO_val2014_000000564511.jpg,506707,COCO_val2014_000000506707.jpg,adversarial,balanced
+2394,1,no,a,bottle,44,kitchen,84410,COCO_val2014_000000084410.jpg,73536,COCO_val2014_000000073536.jpg,adversarial,balanced
+12,1,no,a,handbag,31,accessory,210789,COCO_val2014_000000210789.jpg,298197,COCO_val2014_000000298197.jpg,adversarial,balanced
+2012,1,no,a,dining table,67,furniture,501294,COCO_val2014_000000501294.jpg,91654,COCO_val2014_000000091654.jpg,adversarial,balanced
+2064,1,no,a,bus,6,vehicle,262736,COCO_val2014_000000262736.jpg,408840,COCO_val2014_000000408840.jpg,adversarial,balanced
+400,1,no,a,car,3,vehicle,21645,COCO_val2014_000000021645.jpg,300000,COCO_val2014_000000300000.jpg,adversarial,balanced
+1502,1,no,a,bowl,51,kitchen,384040,COCO_val2014_000000384040.jpg,424247,COCO_val2014_000000424247.jpg,adversarial,balanced
+998,1,no,a,bowl,51,kitchen,468934,COCO_val2014_000000468934.jpg,191359,COCO_val2014_000000191359.jpg,adversarial,balanced
+802,1,no,a,truck,8,vehicle,147289,COCO_val2014_000000147289.jpg,497791,COCO_val2014_000000497791.jpg,adversarial,balanced
+2318,1,no,a,dining table,67,furniture,553992,COCO_val2014_000000553992.jpg,556064,COCO_val2014_000000556064.jpg,adversarial,balanced
+2680,1,no,a,sink,81,appliance,224155,COCO_val2014_000000224155.jpg,81315,COCO_val2014_000000081315.jpg,adversarial,balanced
+2276,1,no,a,skis,35,sports,368541,COCO_val2014_000000368541.jpg,209989,COCO_val2014_000000209989.jpg,adversarial,balanced
+828,1,no,a,baseball glove,40,sports,327532,COCO_val2014_000000327532.jpg,243875,COCO_val2014_000000243875.jpg,adversarial,balanced
+1128,1,no,a,fork,48,kitchen,11241,COCO_val2014_000000011241.jpg,170716,COCO_val2014_000000170716.jpg,adversarial,balanced
+440,1,no,a,dining table,67,furniture,231589,COCO_val2014_000000231589.jpg,120357,COCO_val2014_000000120357.jpg,adversarial,balanced
+82,1,no,a,bowl,51,kitchen,569839,COCO_val2014_000000569839.jpg,143445,COCO_val2014_000000143445.jpg,adversarial,balanced
+884,1,no,a,bicycle,2,vehicle,87435,COCO_val2014_000000087435.jpg,13177,COCO_val2014_000000013177.jpg,adversarial,balanced
+1806,1,no,a,handbag,31,accessory,465418,COCO_val2014_000000465418.jpg,124614,COCO_val2014_000000124614.jpg,adversarial,balanced
+600,1,no,a,snowboard,36,sports,105732,COCO_val2014_000000105732.jpg,29138,COCO_val2014_000000029138.jpg,adversarial,balanced
+2350,1,no,a,dining table,67,furniture,477598,COCO_val2014_000000477598.jpg,445371,COCO_val2014_000000445371.jpg,adversarial,balanced
+2674,1,no,a,baseball glove,40,sports,365317,COCO_val2014_000000365317.jpg,395291,COCO_val2014_000000395291.jpg,adversarial,balanced
+72,1,no,a,traffic light,10,outdoor,353180,COCO_val2014_000000353180.jpg,577355,COCO_val2014_000000577355.jpg,adversarial,balanced
+1154,1,no,a,couch,63,furniture,376959,COCO_val2014_000000376959.jpg,319743,COCO_val2014_000000319743.jpg,adversarial,balanced
+2682,1,no,a,dining table,67,furniture,224155,COCO_val2014_000000224155.jpg,312298,COCO_val2014_000000312298.jpg,adversarial,balanced
+2928,1,no,a,car,3,vehicle,377951,COCO_val2014_000000377951.jpg,67502,COCO_val2014_000000067502.jpg,adversarial,balanced
+2690,1,no,a,dining table,67,furniture,265472,COCO_val2014_000000265472.jpg,162829,COCO_val2014_000000162829.jpg,adversarial,balanced
+984,1,no,a,cup,47,kitchen,197219,COCO_val2014_000000197219.jpg,355430,COCO_val2014_000000355430.jpg,adversarial,balanced
+8,1,no,a,car,3,vehicle,210789,COCO_val2014_000000210789.jpg,437859,COCO_val2014_000000437859.jpg,adversarial,balanced
+368,1,no,a,chair,62,furniture,354088,COCO_val2014_000000354088.jpg,386912,COCO_val2014_000000386912.jpg,adversarial,balanced
+678,1,no,a,bed,65,furniture,370900,COCO_val2014_000000370900.jpg,357391,COCO_val2014_000000357391.jpg,adversarial,balanced
+1138,1,no,a,car,3,vehicle,246145,COCO_val2014_000000246145.jpg,431023,COCO_val2014_000000431023.jpg,adversarial,balanced
+2322,1,no,a,couch,63,furniture,553992,COCO_val2014_000000553992.jpg,450596,COCO_val2014_000000450596.jpg,adversarial,balanced
+2352,1,no,an,orange,55,food,477598,COCO_val2014_000000477598.jpg,199969,COCO_val2014_000000199969.jpg,adversarial,balanced
+1916,1,no,a,dining table,67,furniture,196462,COCO_val2014_000000196462.jpg,429261,COCO_val2014_000000429261.jpg,adversarial,balanced
+2222,1,no,a,car,3,vehicle,579415,COCO_val2014_000000579415.jpg,348793,COCO_val2014_000000348793.jpg,adversarial,balanced
+2796,1,no,a,dog,18,animal,514248,COCO_val2014_000000514248.jpg,307341,COCO_val2014_000000307341.jpg,adversarial,balanced
+180,1,no,a,dining table,67,furniture,288639,COCO_val2014_000000288639.jpg,11537,COCO_val2014_000000011537.jpg,adversarial,balanced
+92,1,no,a,cup,47,kitchen,300368,COCO_val2014_000000300368.jpg,273494,COCO_val2014_000000273494.jpg,adversarial,balanced
+1112,1,no,a,car,3,vehicle,378873,COCO_val2014_000000378873.jpg,571865,COCO_val2014_000000571865.jpg,adversarial,balanced
+2998,1,no,a,cup,47,kitchen,277289,COCO_val2014_000000277289.jpg,24104,COCO_val2014_000000024104.jpg,adversarial,balanced
+232,1,no,a,car,3,vehicle,31773,COCO_val2014_000000031773.jpg,320171,COCO_val2014_000000320171.jpg,adversarial,balanced
+770,1,no,a,car,3,vehicle,203479,COCO_val2014_000000203479.jpg,389401,COCO_val2014_000000389401.jpg,adversarial,balanced
+668,1,no,a,car,3,vehicle,237767,COCO_val2014_000000237767.jpg,157756,COCO_val2014_000000157756.jpg,adversarial,balanced
+552,1,no,a,dining table,67,furniture,81336,COCO_val2014_000000081336.jpg,438788,COCO_val2014_000000438788.jpg,adversarial,balanced
+928,1,no,a,truck,8,vehicle,102906,COCO_val2014_000000102906.jpg,259216,COCO_val2014_000000259216.jpg,adversarial,balanced
+698,1,no,a,car,3,vehicle,93946,COCO_val2014_000000093946.jpg,175867,COCO_val2014_000000175867.jpg,adversarial,balanced
+1192,1,no,a,car,3,vehicle,498100,COCO_val2014_000000498100.jpg,357542,COCO_val2014_000000357542.jpg,adversarial,balanced
+1478,1,no,a,backpack,27,accessory,463542,COCO_val2014_000000463542.jpg,383322,COCO_val2014_000000383322.jpg,adversarial,balanced
+2646,1,no,a,car,3,vehicle,429706,COCO_val2014_000000429706.jpg,152336,COCO_val2014_000000152336.jpg,adversarial,balanced
+2066,1,no,a,car,3,vehicle,76416,COCO_val2014_000000076416.jpg,159320,COCO_val2014_000000159320.jpg,adversarial,balanced
+1418,1,no,a,traffic light,10,outdoor,424585,COCO_val2014_000000424585.jpg,451228,COCO_val2014_000000451228.jpg,adversarial,balanced
+2054,1,no,a,bowl,51,kitchen,167724,COCO_val2014_000000167724.jpg,195179,COCO_val2014_000000195179.jpg,adversarial,balanced
+1948,1,no,a,dining table,67,furniture,384970,COCO_val2014_000000384970.jpg,411564,COCO_val2014_000000411564.jpg,adversarial,balanced
+2250,1,no,a,cup,47,kitchen,240434,COCO_val2014_000000240434.jpg,512495,COCO_val2014_000000512495.jpg,adversarial,balanced
+2966,1,no,a,cup,47,kitchen,122962,COCO_val2014_000000122962.jpg,96183,COCO_val2014_000000096183.jpg,adversarial,balanced
+2388,1,no,a,handbag,31,accessory,61507,COCO_val2014_000000061507.jpg,156292,COCO_val2014_000000156292.jpg,adversarial,balanced
+2028,1,no,a,bus,6,vehicle,91954,COCO_val2014_000000091954.jpg,24195,COCO_val2014_000000024195.jpg,adversarial,balanced
+2544,1,no,a,dog,18,animal,462805,COCO_val2014_000000462805.jpg,255664,COCO_val2014_000000255664.jpg,adversarial,balanced
+1200,1,no,a,book,84,indoor,375909,COCO_val2014_000000375909.jpg,262938,COCO_val2014_000000262938.jpg,adversarial,balanced
+1820,1,no,a,chair,62,furniture,436127,COCO_val2014_000000436127.jpg,166003,COCO_val2014_000000166003.jpg,adversarial,balanced
+196,1,no,a,couch,63,furniture,526321,COCO_val2014_000000526321.jpg,161877,COCO_val2014_000000161877.jpg,adversarial,balanced
+2190,1,no,a,spoon,50,kitchen,332908,COCO_val2014_000000332908.jpg,181576,COCO_val2014_000000181576.jpg,adversarial,balanced
+2668,1,no,a,truck,8,vehicle,123570,COCO_val2014_000000123570.jpg,263594,COCO_val2014_000000263594.jpg,adversarial,balanced
+740,1,no,a,dining table,67,furniture,65001,COCO_val2014_000000065001.jpg,16030,COCO_val2014_000000016030.jpg,adversarial,balanced
+982,1,no,a,backpack,27,accessory,197219,COCO_val2014_000000197219.jpg,54593,COCO_val2014_000000054593.jpg,adversarial,balanced
+1804,1,no,a,dining table,67,furniture,465418,COCO_val2014_000000465418.jpg,82889,COCO_val2014_000000082889.jpg,adversarial,balanced
+886,1,no,a,dining table,67,furniture,87435,COCO_val2014_000000087435.jpg,281809,COCO_val2014_000000281809.jpg,adversarial,balanced
+2248,1,no,a,car,3,vehicle,240434,COCO_val2014_000000240434.jpg,423804,COCO_val2014_000000423804.jpg,adversarial,balanced
+502,1,no,a,car,3,vehicle,199764,COCO_val2014_000000199764.jpg,436808,COCO_val2014_000000436808.jpg,adversarial,balanced
+2232,1,no,a,dining table,67,furniture,233521,COCO_val2014_000000233521.jpg,116132,COCO_val2014_000000116132.jpg,adversarial,balanced
+2278,1,no,a,car,3,vehicle,368541,COCO_val2014_000000368541.jpg,35599,COCO_val2014_000000035599.jpg,adversarial,balanced
+144,1,no,a,dining table,67,furniture,542145,COCO_val2014_000000542145.jpg,556641,COCO_val2014_000000556641.jpg,adversarial,balanced
+1153,2,yes,a,chair,62,furniture,376959,COCO_val2014_000000376959.jpg,459382,COCO_val2014_000000459382.jpg,adversarial,balanced
+579,2,yes,a,car,3,vehicle,287305,COCO_val2014_000000287305.jpg,235296,COCO_val2014_000000235296.jpg,adversarial,balanced
+1501,2,yes,a,spoon,50,kitchen,384040,COCO_val2014_000000384040.jpg,293574,COCO_val2014_000000293574.jpg,adversarial,balanced
+41,2,yes,a,fork,48,kitchen,265719,COCO_val2014_000000265719.jpg,12268,COCO_val2014_000000012268.jpg,adversarial,balanced
+2005,2,yes,a,bird,16,animal,263594,COCO_val2014_000000263594.jpg,391144,COCO_val2014_000000391144.jpg,adversarial,balanced
+1319,2,yes,a,chair,62,furniture,526368,COCO_val2014_000000526368.jpg,202928,COCO_val2014_000000202928.jpg,adversarial,balanced
+691,2,yes,a,tv,72,electronic,366141,COCO_val2014_000000366141.jpg,298197,COCO_val2014_000000298197.jpg,adversarial,balanced
+1437,2,yes,a,scissors,87,indoor,511622,COCO_val2014_000000511622.jpg,223764,COCO_val2014_000000223764.jpg,adversarial,balanced
+1973,2,yes,a,truck,8,vehicle,44801,COCO_val2014_000000044801.jpg,447602,COCO_val2014_000000447602.jpg,adversarial,balanced
+1819,2,yes,a,clock,85,indoor,436127,COCO_val2014_000000436127.jpg,481313,COCO_val2014_000000481313.jpg,adversarial,balanced
+2757,2,yes,a,bottle,44,kitchen,536073,COCO_val2014_000000536073.jpg,402528,COCO_val2014_000000402528.jpg,adversarial,balanced
+541,2,yes,a,truck,8,vehicle,13348,COCO_val2014_000000013348.jpg,86468,COCO_val2014_000000086468.jpg,adversarial,balanced
+843,2,yes,a,chair,62,furniture,443240,COCO_val2014_000000443240.jpg,465549,COCO_val2014_000000465549.jpg,adversarial,balanced
+763,2,yes,a,toaster,80,appliance,518177,COCO_val2014_000000518177.jpg,19036,COCO_val2014_000000019036.jpg,adversarial,balanced
+2323,2,yes,a,vase,86,indoor,243158,COCO_val2014_000000243158.jpg,392228,COCO_val2014_000000392228.jpg,adversarial,balanced
+385,2,yes,a,spoon,50,kitchen,350898,COCO_val2014_000000350898.jpg,204471,COCO_val2014_000000204471.jpg,adversarial,balanced
+827,2,yes,a,sports ball,37,sports,327532,COCO_val2014_000000327532.jpg,363343,COCO_val2014_000000363343.jpg,adversarial,balanced
+2597,2,yes,a,cell phone,77,electronic,299986,COCO_val2014_000000299986.jpg,466229,COCO_val2014_000000466229.jpg,adversarial,balanced
+401,2,yes,a,couch,63,furniture,21645,COCO_val2014_000000021645.jpg,514914,COCO_val2014_000000514914.jpg,adversarial,balanced
+533,2,yes,a,clock,85,indoor,427113,COCO_val2014_000000427113.jpg,328805,COCO_val2014_000000328805.jpg,adversarial,balanced
+2507,2,yes,a,bicycle,2,vehicle,73182,COCO_val2014_000000073182.jpg,154816,COCO_val2014_000000154816.jpg,adversarial,balanced
+2865,2,yes,a,sports ball,37,sports,45685,COCO_val2014_000000045685.jpg,275863,COCO_val2014_000000275863.jpg,adversarial,balanced
+2301,2,yes,a,sports ball,37,sports,298633,COCO_val2014_000000298633.jpg,283947,COCO_val2014_000000283947.jpg,adversarial,balanced
+1519,2,yes,a,potted plant,64,furniture,365822,COCO_val2014_000000365822.jpg,20781,COCO_val2014_000000020781.jpg,adversarial,balanced
+1259,2,yes,a,skis,35,sports,295377,COCO_val2014_000000295377.jpg,256702,COCO_val2014_000000256702.jpg,adversarial,balanced
+2481,2,yes,a,cup,47,kitchen,38645,COCO_val2014_000000038645.jpg,141673,COCO_val2014_000000141673.jpg,adversarial,balanced
+65,2,yes,a,bottle,44,kitchen,574692,COCO_val2014_000000574692.jpg,115866,COCO_val2014_000000115866.jpg,adversarial,balanced
+1503,2,yes,a,dining table,67,furniture,384040,COCO_val2014_000000384040.jpg,385962,COCO_val2014_000000385962.jpg,adversarial,balanced
+2057,2,yes,a,bottle,44,kitchen,167724,COCO_val2014_000000167724.jpg,95620,COCO_val2014_000000095620.jpg,adversarial,balanced
+2043,2,yes,a,bench,15,outdoor,560064,COCO_val2014_000000560064.jpg,126046,COCO_val2014_000000126046.jpg,adversarial,balanced
+2293,2,yes,a,wine glass,46,kitchen,390157,COCO_val2014_000000390157.jpg,85674,COCO_val2014_000000085674.jpg,adversarial,balanced
+1111,2,yes,a,truck,8,vehicle,378873,COCO_val2014_000000378873.jpg,419281,COCO_val2014_000000419281.jpg,adversarial,balanced
+1253,2,yes,a,sandwich,54,food,388983,COCO_val2014_000000388983.jpg,260230,COCO_val2014_000000260230.jpg,adversarial,balanced
+2599,2,yes,a,vase,86,indoor,521643,COCO_val2014_000000521643.jpg,65520,COCO_val2014_000000065520.jpg,adversarial,balanced
+2975,2,yes,a,tennis racket,43,sports,15738,COCO_val2014_000000015738.jpg,537710,COCO_val2014_000000537710.jpg,adversarial,balanced
+1179,2,yes,a,bed,65,furniture,184338,COCO_val2014_000000184338.jpg,65124,COCO_val2014_000000065124.jpg,adversarial,balanced
+913,2,yes,a,sink,81,appliance,539251,COCO_val2014_000000539251.jpg,575356,COCO_val2014_000000575356.jpg,adversarial,balanced
+1123,2,yes,a,bowl,51,kitchen,11241,COCO_val2014_000000011241.jpg,76525,COCO_val2014_000000076525.jpg,adversarial,balanced
+83,2,yes,a,hot dog,58,food,569839,COCO_val2014_000000569839.jpg,76518,COCO_val2014_000000076518.jpg,adversarial,balanced
+2291,2,yes,a,dining table,67,furniture,21327,COCO_val2014_000000021327.jpg,73738,COCO_val2014_000000073738.jpg,adversarial,balanced
+1715,2,yes,a,sports ball,37,sports,239773,COCO_val2014_000000239773.jpg,145208,COCO_val2014_000000145208.jpg,adversarial,balanced
+2377,2,yes,a,traffic light,10,outdoor,256906,COCO_val2014_000000256906.jpg,504977,COCO_val2014_000000504977.jpg,adversarial,balanced
+2565,2,yes,a,kite,38,sports,156282,COCO_val2014_000000156282.jpg,384723,COCO_val2014_000000384723.jpg,adversarial,balanced
+2997,2,yes,a,bowl,51,kitchen,277289,COCO_val2014_000000277289.jpg,112298,COCO_val2014_000000112298.jpg,adversarial,balanced
+1595,2,yes,an,elephant,22,animal,485485,COCO_val2014_000000485485.jpg,427034,COCO_val2014_000000427034.jpg,adversarial,balanced
+2837,2,yes,a,cup,47,kitchen,399702,COCO_val2014_000000399702.jpg,532126,COCO_val2014_000000532126.jpg,adversarial,balanced
+1885,2,yes,a,banana,52,food,312406,COCO_val2014_000000312406.jpg,168175,COCO_val2014_000000168175.jpg,adversarial,balanced
+365,2,yes,a,broccoli,56,food,575755,COCO_val2014_000000575755.jpg,330237,COCO_val2014_000000330237.jpg,adversarial,balanced
+1453,2,yes,a,sink,81,appliance,18918,COCO_val2014_000000018918.jpg,493843,COCO_val2014_000000493843.jpg,adversarial,balanced
+2595,2,yes,a,bench,15,outdoor,299986,COCO_val2014_000000299986.jpg,405135,COCO_val2014_000000405135.jpg,adversarial,balanced
+1431,2,yes,a,sink,81,appliance,17379,COCO_val2014_000000017379.jpg,260330,COCO_val2014_000000260330.jpg,adversarial,balanced
+609,2,yes,a,bicycle,2,vehicle,520524,COCO_val2014_000000520524.jpg,558558,COCO_val2014_000000558558.jpg,adversarial,balanced
+2007,2,yes,a,truck,8,vehicle,263594,COCO_val2014_000000263594.jpg,390298,COCO_val2014_000000390298.jpg,adversarial,balanced
+1387,2,yes,a,bowl,51,kitchen,123017,COCO_val2014_000000123017.jpg,535952,COCO_val2014_000000535952.jpg,adversarial,balanced
+1525,2,yes,a,baseball glove,40,sports,524979,COCO_val2014_000000524979.jpg,207003,COCO_val2014_000000207003.jpg,adversarial,balanced
+1271,2,yes,a,bicycle,2,vehicle,244455,COCO_val2014_000000244455.jpg,572980,COCO_val2014_000000572980.jpg,adversarial,balanced
+1603,2,yes,a,bird,16,animal,472143,COCO_val2014_000000472143.jpg,516396,COCO_val2014_000000516396.jpg,adversarial,balanced
+149,2,yes,a,car,3,vehicle,218224,COCO_val2014_000000218224.jpg,256195,COCO_val2014_000000256195.jpg,adversarial,balanced
+1741,2,yes,a,car,3,vehicle,343401,COCO_val2014_000000343401.jpg,92335,COCO_val2014_000000092335.jpg,adversarial,balanced
+1613,2,yes,a,bottle,44,kitchen,236023,COCO_val2014_000000236023.jpg,208050,COCO_val2014_000000208050.jpg,adversarial,balanced
+2991,2,yes,a,broccoli,56,food,361430,COCO_val2014_000000361430.jpg,568630,COCO_val2014_000000568630.jpg,adversarial,balanced
+35,2,yes,a,bed,65,furniture,283412,COCO_val2014_000000283412.jpg,252629,COCO_val2014_000000252629.jpg,adversarial,balanced
+2483,2,yes,a,potted plant,64,furniture,38645,COCO_val2014_000000038645.jpg,443952,COCO_val2014_000000443952.jpg,adversarial,balanced
+2667,2,yes,a,car,3,vehicle,123570,COCO_val2014_000000123570.jpg,298699,COCO_val2014_000000298699.jpg,adversarial,balanced
+509,2,yes,a,toilet,70,furniture,148766,COCO_val2014_000000148766.jpg,100711,COCO_val2014_000000100711.jpg,adversarial,balanced
+1897,2,yes,an,orange,55,food,31971,COCO_val2014_000000031971.jpg,551849,COCO_val2014_000000551849.jpg,adversarial,balanced
+2639,2,yes,a,handbag,31,accessory,16451,COCO_val2014_000000016451.jpg,495546,COCO_val2014_000000495546.jpg,adversarial,balanced
+2567,2,yes,an,umbrella,28,accessory,156282,COCO_val2014_000000156282.jpg,357354,COCO_val2014_000000357354.jpg,adversarial,balanced
+2717,2,yes,a,train,7,vehicle,318550,COCO_val2014_000000318550.jpg,249158,COCO_val2014_000000249158.jpg,adversarial,balanced
+2719,2,yes,a,bowl,51,kitchen,367528,COCO_val2014_000000367528.jpg,12669,COCO_val2014_000000012669.jpg,adversarial,balanced
+839,2,yes,a,bowl,51,kitchen,300876,COCO_val2014_000000300876.jpg,313627,COCO_val2014_000000313627.jpg,adversarial,balanced
+2619,2,yes,a,suitcase,33,accessory,222118,COCO_val2014_000000222118.jpg,201526,COCO_val2014_000000201526.jpg,adversarial,balanced
+1671,2,yes,a,laptop,73,electronic,97994,COCO_val2014_000000097994.jpg,36660,COCO_val2014_000000036660.jpg,adversarial,balanced
+1935,2,yes,a,bottle,44,kitchen,505335,COCO_val2014_000000505335.jpg,332916,COCO_val2014_000000332916.jpg,adversarial,balanced
+237,2,yes,a,backpack,27,accessory,500257,COCO_val2014_000000500257.jpg,151742,COCO_val2014_000000151742.jpg,adversarial,balanced
+561,2,yes,a,bowl,51,kitchen,209755,COCO_val2014_000000209755.jpg,52700,COCO_val2014_000000052700.jpg,adversarial,balanced
+715,2,yes,a,spoon,50,kitchen,226097,COCO_val2014_000000226097.jpg,72656,COCO_val2014_000000072656.jpg,adversarial,balanced
+485,2,yes,a,sheep,20,animal,318204,COCO_val2014_000000318204.jpg,476109,COCO_val2014_000000476109.jpg,adversarial,balanced
+1585,2,yes,a,bowl,51,kitchen,198312,COCO_val2014_000000198312.jpg,142879,COCO_val2014_000000142879.jpg,adversarial,balanced
+275,2,yes,a,skis,35,sports,205729,COCO_val2014_000000205729.jpg,343524,COCO_val2014_000000343524.jpg,adversarial,balanced
+2123,2,yes,a,couch,63,furniture,467887,COCO_val2014_000000467887.jpg,214919,COCO_val2014_000000214919.jpg,adversarial,balanced
+1853,2,yes,a,laptop,73,electronic,286342,COCO_val2014_000000286342.jpg,451234,COCO_val2014_000000451234.jpg,adversarial,balanced
+2371,2,yes,a,backpack,27,accessory,325347,COCO_val2014_000000325347.jpg,279138,COCO_val2014_000000279138.jpg,adversarial,balanced
+1877,2,yes,a,spoon,50,kitchen,147165,COCO_val2014_000000147165.jpg,215244,COCO_val2014_000000215244.jpg,adversarial,balanced
+2803,2,yes,a,chair,62,furniture,575355,COCO_val2014_000000575355.jpg,479011,COCO_val2014_000000479011.jpg,adversarial,balanced
+505,2,yes,a,vase,86,indoor,148766,COCO_val2014_000000148766.jpg,207306,COCO_val2014_000000207306.jpg,adversarial,balanced
+1335,2,yes,a,cell phone,77,electronic,299074,COCO_val2014_000000299074.jpg,506178,COCO_val2014_000000506178.jpg,adversarial,balanced
+1709,2,yes,a,couch,63,furniture,301575,COCO_val2014_000000301575.jpg,484842,COCO_val2014_000000484842.jpg,adversarial,balanced
+189,2,yes,a,bicycle,2,vehicle,63953,COCO_val2014_000000063953.jpg,255482,COCO_val2014_000000255482.jpg,adversarial,balanced
+1999,2,yes,a,traffic light,10,outdoor,308907,COCO_val2014_000000308907.jpg,180830,COCO_val2014_000000180830.jpg,adversarial,balanced
+2403,2,yes,a,boat,9,vehicle,328301,COCO_val2014_000000328301.jpg,182785,COCO_val2014_000000182785.jpg,adversarial,balanced
+2085,2,yes,a,couch,63,furniture,433574,COCO_val2014_000000433574.jpg,120356,COCO_val2014_000000120356.jpg,adversarial,balanced
+1505,2,yes,a,knife,49,kitchen,384040,COCO_val2014_000000384040.jpg,206147,COCO_val2014_000000206147.jpg,adversarial,balanced
+335,2,yes,a,bottle,44,kitchen,217397,COCO_val2014_000000217397.jpg,261185,COCO_val2014_000000261185.jpg,adversarial,balanced
+2573,2,yes,a,skis,35,sports,52689,COCO_val2014_000000052689.jpg,149005,COCO_val2014_000000149005.jpg,adversarial,balanced
+137,2,yes,a,laptop,73,electronic,516916,COCO_val2014_000000516916.jpg,147958,COCO_val2014_000000147958.jpg,adversarial,balanced
+229,2,yes,a,tv,72,electronic,31773,COCO_val2014_000000031773.jpg,431746,COCO_val2014_000000431746.jpg,adversarial,balanced
+1651,2,yes,a,baseball glove,40,sports,199122,COCO_val2014_000000199122.jpg,178807,COCO_val2014_000000178807.jpg,adversarial,balanced
+2681,2,yes,a,cell phone,77,electronic,224155,COCO_val2014_000000224155.jpg,116252,COCO_val2014_000000116252.jpg,adversarial,balanced
+343,2,yes,a,traffic light,10,outdoor,54025,COCO_val2014_000000054025.jpg,14880,COCO_val2014_000000014880.jpg,adversarial,balanced
+1839,2,yes,a,sports ball,37,sports,333756,COCO_val2014_000000333756.jpg,31542,COCO_val2014_000000031542.jpg,adversarial,balanced
+917,2,yes,a,potted plant,64,furniture,539251,COCO_val2014_000000539251.jpg,312746,COCO_val2014_000000312746.jpg,adversarial,balanced
+1993,2,yes,a,truck,8,vehicle,172648,COCO_val2014_000000172648.jpg,403862,COCO_val2014_000000403862.jpg,adversarial,balanced
+1375,2,yes,a,backpack,27,accessory,37900,COCO_val2014_000000037900.jpg,73521,COCO_val2014_000000073521.jpg,adversarial,balanced
+1549,2,yes,a,truck,8,vehicle,15338,COCO_val2014_000000015338.jpg,193717,COCO_val2014_000000193717.jpg,adversarial,balanced
+99,2,yes,a,remote,75,electronic,482476,COCO_val2014_000000482476.jpg,489207,COCO_val2014_000000489207.jpg,adversarial,balanced
+2689,2,yes,a,banana,52,food,265472,COCO_val2014_000000265472.jpg,314125,COCO_val2014_000000314125.jpg,adversarial,balanced
+1281,2,yes,a,clock,85,indoor,98493,COCO_val2014_000000098493.jpg,115846,COCO_val2014_000000115846.jpg,adversarial,balanced
+555,2,yes,a,bowl,51,kitchen,190185,COCO_val2014_000000190185.jpg,477195,COCO_val2014_000000477195.jpg,adversarial,balanced
+2657,2,yes,a,fork,48,kitchen,283168,COCO_val2014_000000283168.jpg,18461,COCO_val2014_000000018461.jpg,adversarial,balanced
+585,2,yes,a,toilet,70,furniture,257327,COCO_val2014_000000257327.jpg,264161,COCO_val2014_000000264161.jpg,adversarial,balanced
+1359,2,yes,a,train,7,vehicle,505542,COCO_val2014_000000505542.jpg,438185,COCO_val2014_000000438185.jpg,adversarial,balanced
+2713,2,yes,a,traffic light,10,outdoor,318550,COCO_val2014_000000318550.jpg,276413,COCO_val2014_000000276413.jpg,adversarial,balanced
+931,2,yes,a,vase,86,indoor,327771,COCO_val2014_000000327771.jpg,255827,COCO_val2014_000000255827.jpg,adversarial,balanced
+1629,2,yes,a,sandwich,54,food,183965,COCO_val2014_000000183965.jpg,66360,COCO_val2014_000000066360.jpg,adversarial,balanced
+339,2,yes,a,bed,65,furniture,60213,COCO_val2014_000000060213.jpg,279491,COCO_val2014_000000279491.jpg,adversarial,balanced
+1797,2,yes,a,bottle,44,kitchen,100238,COCO_val2014_000000100238.jpg,523660,COCO_val2014_000000523660.jpg,adversarial,balanced
+1659,2,yes,a,cake,61,food,442809,COCO_val2014_000000442809.jpg,469936,COCO_val2014_000000469936.jpg,adversarial,balanced
+2525,2,yes,a,dining table,67,furniture,209290,COCO_val2014_000000209290.jpg,241301,COCO_val2014_000000241301.jpg,adversarial,balanced
+1861,2,yes,a,wine glass,46,kitchen,405740,COCO_val2014_000000405740.jpg,402077,COCO_val2014_000000402077.jpg,adversarial,balanced
+1415,2,yes,a,bench,15,outdoor,200583,COCO_val2014_000000200583.jpg,404718,COCO_val2014_000000404718.jpg,adversarial,balanced
+2951,2,yes,a,vase,86,indoor,401398,COCO_val2014_000000401398.jpg,348015,COCO_val2014_000000348015.jpg,adversarial,balanced
+1565,2,yes,an,umbrella,28,accessory,408757,COCO_val2014_000000408757.jpg,574769,COCO_val2014_000000574769.jpg,adversarial,balanced
+1185,2,yes,a,dining table,67,furniture,175437,COCO_val2014_000000175437.jpg,557239,COCO_val2014_000000557239.jpg,adversarial,balanced
+2103,2,yes,a,laptop,73,electronic,493753,COCO_val2014_000000493753.jpg,324322,COCO_val2014_000000324322.jpg,adversarial,balanced
+2735,2,yes,a,potted plant,64,furniture,214421,COCO_val2014_000000214421.jpg,145318,COCO_val2014_000000145318.jpg,adversarial,balanced
+1413,2,yes,a,boat,9,vehicle,200583,COCO_val2014_000000200583.jpg,266831,COCO_val2014_000000266831.jpg,adversarial,balanced
+2973,2,yes,a,sports ball,37,sports,15738,COCO_val2014_000000015738.jpg,515350,COCO_val2014_000000515350.jpg,adversarial,balanced
+2121,2,yes,a,mouse,74,electronic,467887,COCO_val2014_000000467887.jpg,375875,COCO_val2014_000000375875.jpg,adversarial,balanced
+2501,2,yes,a,remote,75,electronic,378751,COCO_val2014_000000378751.jpg,93140,COCO_val2014_000000093140.jpg,adversarial,balanced
+757,2,yes,a,traffic light,10,outdoor,44520,COCO_val2014_000000044520.jpg,316658,COCO_val2014_000000316658.jpg,adversarial,balanced
+1305,2,yes,an,orange,55,food,355342,COCO_val2014_000000355342.jpg,260618,COCO_val2014_000000260618.jpg,adversarial,balanced
+2727,2,yes,a,car,3,vehicle,252911,COCO_val2014_000000252911.jpg,382848,COCO_val2014_000000382848.jpg,adversarial,balanced
+1879,2,yes,a,truck,8,vehicle,495311,COCO_val2014_000000495311.jpg,44065,COCO_val2014_000000044065.jpg,adversarial,balanced
+2075,2,yes,a,motorcycle,4,vehicle,541783,COCO_val2014_000000541783.jpg,510169,COCO_val2014_000000510169.jpg,adversarial,balanced
+2881,2,yes,a,car,3,vehicle,69863,COCO_val2014_000000069863.jpg,452122,COCO_val2014_000000452122.jpg,adversarial,balanced
+749,2,yes,a,vase,86,indoor,482275,COCO_val2014_000000482275.jpg,266487,COCO_val2014_000000266487.jpg,adversarial,balanced
+1443,2,yes,a,laptop,73,electronic,407386,COCO_val2014_000000407386.jpg,568281,COCO_val2014_000000568281.jpg,adversarial,balanced
+2523,2,yes,a,fork,48,kitchen,209290,COCO_val2014_000000209290.jpg,468505,COCO_val2014_000000468505.jpg,adversarial,balanced
+1461,2,yes,a,motorcycle,4,vehicle,115626,COCO_val2014_000000115626.jpg,314836,COCO_val2014_000000314836.jpg,adversarial,balanced
+411,2,yes,a,bed,65,furniture,239347,COCO_val2014_000000239347.jpg,41846,COCO_val2014_000000041846.jpg,adversarial,balanced
+705,2,yes,a,bench,15,outdoor,32610,COCO_val2014_000000032610.jpg,106335,COCO_val2014_000000106335.jpg,adversarial,balanced
+1007,2,yes,a,bottle,44,kitchen,189694,COCO_val2014_000000189694.jpg,311378,COCO_val2014_000000311378.jpg,adversarial,balanced
+689,2,yes,an,airplane,5,vehicle,69196,COCO_val2014_000000069196.jpg,44061,COCO_val2014_000000044061.jpg,adversarial,balanced
+507,2,yes,a,bowl,51,kitchen,148766,COCO_val2014_000000148766.jpg,534335,COCO_val2014_000000534335.jpg,adversarial,balanced
+2163,2,yes,a,sports ball,37,sports,155131,COCO_val2014_000000155131.jpg,296994,COCO_val2014_000000296994.jpg,adversarial,balanced
+2387,2,yes,a,suitcase,33,accessory,61507,COCO_val2014_000000061507.jpg,261603,COCO_val2014_000000261603.jpg,adversarial,balanced
+2077,2,yes,a,bowl,51,kitchen,445200,COCO_val2014_000000445200.jpg,173091,COCO_val2014_000000173091.jpg,adversarial,balanced
+991,2,yes,a,backpack,27,accessory,506483,COCO_val2014_000000506483.jpg,336793,COCO_val2014_000000336793.jpg,adversarial,balanced
+2289,2,yes,a,pizza,59,food,21327,COCO_val2014_000000021327.jpg,556183,COCO_val2014_000000556183.jpg,adversarial,balanced
+366,3,no,a,knife,49,kitchen,575755,COCO_val2014_000000575755.jpg,106909,COCO_val2014_000000106909.jpg,adversarial,balanced
+1902,3,no,a,tv,72,electronic,31971,COCO_val2014_000000031971.jpg,158222,COCO_val2014_000000158222.jpg,adversarial,balanced
+2732,3,no,a,chair,62,furniture,214421,COCO_val2014_000000214421.jpg,555239,COCO_val2014_000000555239.jpg,adversarial,balanced
+2048,3,no,a,handbag,31,accessory,348469,COCO_val2014_000000348469.jpg,148392,COCO_val2014_000000148392.jpg,adversarial,balanced
+2238,3,no,a,couch,63,furniture,355256,COCO_val2014_000000355256.jpg,476035,COCO_val2014_000000476035.jpg,adversarial,balanced
+940,3,no,a,car,3,vehicle,280734,COCO_val2014_000000280734.jpg,156685,COCO_val2014_000000156685.jpg,adversarial,balanced
+1796,3,no,a,car,3,vehicle,100238,COCO_val2014_000000100238.jpg,7386,COCO_val2014_000000007386.jpg,adversarial,balanced
+1048,3,no,a,truck,8,vehicle,205206,COCO_val2014_000000205206.jpg,381709,COCO_val2014_000000381709.jpg,adversarial,balanced
+2930,3,no,a,car,3,vehicle,533201,COCO_val2014_000000533201.jpg,440037,COCO_val2014_000000440037.jpg,adversarial,balanced
+2502,3,no,a,dining table,67,furniture,378751,COCO_val2014_000000378751.jpg,387470,COCO_val2014_000000387470.jpg,adversarial,balanced
+958,3,no,a,car,3,vehicle,489728,COCO_val2014_000000489728.jpg,581394,COCO_val2014_000000581394.jpg,adversarial,balanced
+1506,3,no,a,cake,61,food,384040,COCO_val2014_000000384040.jpg,64779,COCO_val2014_000000064779.jpg,adversarial,balanced
+1232,3,no,a,potted plant,64,furniture,49473,COCO_val2014_000000049473.jpg,116479,COCO_val2014_000000116479.jpg,adversarial,balanced
+1536,3,no,a,cup,47,kitchen,70813,COCO_val2014_000000070813.jpg,187348,COCO_val2014_000000187348.jpg,adversarial,balanced
+22,3,no,a,vase,86,indoor,211674,COCO_val2014_000000211674.jpg,486568,COCO_val2014_000000486568.jpg,adversarial,balanced
+288,3,no,a,dining table,67,furniture,329717,COCO_val2014_000000329717.jpg,534271,COCO_val2014_000000534271.jpg,adversarial,balanced
+650,3,no,a,car,3,vehicle,414516,COCO_val2014_000000414516.jpg,519027,COCO_val2014_000000519027.jpg,adversarial,balanced
+1728,3,no,a,vase,86,indoor,473199,COCO_val2014_000000473199.jpg,206757,COCO_val2014_000000206757.jpg,adversarial,balanced
+46,3,no,a,book,84,indoor,461331,COCO_val2014_000000461331.jpg,351096,COCO_val2014_000000351096.jpg,adversarial,balanced
+1408,3,no,a,dining table,67,furniture,511341,COCO_val2014_000000511341.jpg,251655,COCO_val2014_000000251655.jpg,adversarial,balanced
+2446,3,no,a,cup,47,kitchen,238029,COCO_val2014_000000238029.jpg,163473,COCO_val2014_000000163473.jpg,adversarial,balanced
+1108,3,no,a,tennis racket,43,sports,40361,COCO_val2014_000000040361.jpg,48917,COCO_val2014_000000048917.jpg,adversarial,balanced
+2612,3,no,a,handbag,31,accessory,415727,COCO_val2014_000000415727.jpg,185125,COCO_val2014_000000185125.jpg,adversarial,balanced
+350,3,no,a,car,3,vehicle,84447,COCO_val2014_000000084447.jpg,419856,COCO_val2014_000000419856.jpg,adversarial,balanced
+2242,3,no,a,couch,63,furniture,304819,COCO_val2014_000000304819.jpg,556420,COCO_val2014_000000556420.jpg,adversarial,balanced
+1148,3,no,a,car,3,vehicle,529668,COCO_val2014_000000529668.jpg,62459,COCO_val2014_000000062459.jpg,adversarial,balanced
+2820,3,no,a,tennis racket,43,sports,559547,COCO_val2014_000000559547.jpg,491058,COCO_val2014_000000491058.jpg,adversarial,balanced
+1428,3,no,a,dining table,67,furniture,100215,COCO_val2014_000000100215.jpg,221536,COCO_val2014_000000221536.jpg,adversarial,balanced
+1832,3,no,a,bottle,44,kitchen,349936,COCO_val2014_000000349936.jpg,238708,COCO_val2014_000000238708.jpg,adversarial,balanced
+2084,3,no,a,car,3,vehicle,433574,COCO_val2014_000000433574.jpg,107800,COCO_val2014_000000107800.jpg,adversarial,balanced
+2850,3,no,a,bowl,51,kitchen,264155,COCO_val2014_000000264155.jpg,46732,COCO_val2014_000000046732.jpg,adversarial,balanced
+2500,3,no,a,book,84,indoor,378751,COCO_val2014_000000378751.jpg,568111,COCO_val2014_000000568111.jpg,adversarial,balanced
+1660,3,no,a,dining table,67,furniture,442809,COCO_val2014_000000442809.jpg,157053,COCO_val2014_000000157053.jpg,adversarial,balanced
+1380,3,no,a,cup,47,kitchen,37900,COCO_val2014_000000037900.jpg,60823,COCO_val2014_000000060823.jpg,adversarial,balanced
+2880,3,no,a,chair,62,furniture,8749,COCO_val2014_000000008749.jpg,474519,COCO_val2014_000000474519.jpg,adversarial,balanced
+2268,3,no,a,dining table,67,furniture,235541,COCO_val2014_000000235541.jpg,511895,COCO_val2014_000000511895.jpg,adversarial,balanced
+2630,3,no,a,chair,62,furniture,117527,COCO_val2014_000000117527.jpg,39399,COCO_val2014_000000039399.jpg,adversarial,balanced
+1076,3,no,an,orange,55,food,227204,COCO_val2014_000000227204.jpg,213156,COCO_val2014_000000213156.jpg,adversarial,balanced
+846,3,no,a,book,84,indoor,443240,COCO_val2014_000000443240.jpg,135914,COCO_val2014_000000135914.jpg,adversarial,balanced
+2570,3,no,a,car,3,vehicle,52689,COCO_val2014_000000052689.jpg,455040,COCO_val2014_000000455040.jpg,adversarial,balanced
+714,3,no,a,truck,8,vehicle,239130,COCO_val2014_000000239130.jpg,307074,COCO_val2014_000000307074.jpg,adversarial,balanced
+26,3,no,a,bus,6,vehicle,458338,COCO_val2014_000000458338.jpg,561766,COCO_val2014_000000561766.jpg,adversarial,balanced
+2692,3,no,a,cup,47,kitchen,265472,COCO_val2014_000000265472.jpg,580608,COCO_val2014_000000580608.jpg,adversarial,balanced
+2076,3,no,a,bicycle,2,vehicle,541783,COCO_val2014_000000541783.jpg,59455,COCO_val2014_000000059455.jpg,adversarial,balanced
+1608,3,no,a,bottle,44,kitchen,472143,COCO_val2014_000000472143.jpg,139260,COCO_val2014_000000139260.jpg,adversarial,balanced
+2676,3,no,a,chair,62,furniture,365317,COCO_val2014_000000365317.jpg,440299,COCO_val2014_000000440299.jpg,adversarial,balanced
+2530,3,no,a,dining table,67,furniture,564511,COCO_val2014_000000564511.jpg,497281,COCO_val2014_000000497281.jpg,adversarial,balanced
+2156,3,no,a,car,3,vehicle,279499,COCO_val2014_000000279499.jpg,330604,COCO_val2014_000000330604.jpg,adversarial,balanced
+1574,3,no,a,dining table,67,furniture,204100,COCO_val2014_000000204100.jpg,515904,COCO_val2014_000000515904.jpg,adversarial,balanced
+1874,3,no,a,bottle,44,kitchen,147165,COCO_val2014_000000147165.jpg,459825,COCO_val2014_000000459825.jpg,adversarial,balanced
+430,3,no,a,baseball glove,40,sports,80022,COCO_val2014_000000080022.jpg,376545,COCO_val2014_000000376545.jpg,adversarial,balanced
+364,3,no,a,bowl,51,kitchen,575755,COCO_val2014_000000575755.jpg,165029,COCO_val2014_000000165029.jpg,adversarial,balanced
+1944,3,no,a,banana,52,food,172342,COCO_val2014_000000172342.jpg,350457,COCO_val2014_000000350457.jpg,adversarial,balanced
+136,3,no,a,book,84,indoor,516916,COCO_val2014_000000516916.jpg,355214,COCO_val2014_000000355214.jpg,adversarial,balanced
+2628,3,no,a,couch,63,furniture,514292,COCO_val2014_000000514292.jpg,406201,COCO_val2014_000000406201.jpg,adversarial,balanced
+2894,3,no,a,dog,18,animal,429913,COCO_val2014_000000429913.jpg,515050,COCO_val2014_000000515050.jpg,adversarial,balanced
+2740,3,no,a,car,3,vehicle,50627,COCO_val2014_000000050627.jpg,346482,COCO_val2014_000000346482.jpg,adversarial,balanced
+334,3,no,a,cup,47,kitchen,217397,COCO_val2014_000000217397.jpg,214349,COCO_val2014_000000214349.jpg,adversarial,balanced
+2710,3,no,a,traffic light,10,outdoor,505933,COCO_val2014_000000505933.jpg,344844,COCO_val2014_000000344844.jpg,adversarial,balanced
+1170,3,no,a,dining table,67,furniture,327038,COCO_val2014_000000327038.jpg,241,COCO_val2014_000000000241.jpg,adversarial,balanced
+540,3,no,a,vase,86,indoor,498374,COCO_val2014_000000498374.jpg,7795,COCO_val2014_000000007795.jpg,adversarial,balanced
+1924,3,no,a,dining table,67,furniture,276693,COCO_val2014_000000276693.jpg,167898,COCO_val2014_000000167898.jpg,adversarial,balanced
+2320,3,no,a,car,3,vehicle,553992,COCO_val2014_000000553992.jpg,20410,COCO_val2014_000000020410.jpg,adversarial,balanced
+994,3,no,a,dining table,67,furniture,506483,COCO_val2014_000000506483.jpg,397042,COCO_val2014_000000397042.jpg,adversarial,balanced
+2440,3,no,a,car,3,vehicle,267684,COCO_val2014_000000267684.jpg,146837,COCO_val2014_000000146837.jpg,adversarial,balanced
+2378,3,no,a,backpack,27,accessory,256906,COCO_val2014_000000256906.jpg,300353,COCO_val2014_000000300353.jpg,adversarial,balanced
+124,3,no,a,bottle,44,kitchen,336872,COCO_val2014_000000336872.jpg,469356,COCO_val2014_000000469356.jpg,adversarial,balanced
+1258,3,no,a,car,3,vehicle,295377,COCO_val2014_000000295377.jpg,527644,COCO_val2014_000000527644.jpg,adversarial,balanced
+1410,3,no,a,chair,62,furniture,511341,COCO_val2014_000000511341.jpg,403295,COCO_val2014_000000403295.jpg,adversarial,balanced
+2578,3,no,a,car,3,vehicle,516601,COCO_val2014_000000516601.jpg,450711,COCO_val2014_000000450711.jpg,adversarial,balanced
+218,3,no,a,dining table,67,furniture,498759,COCO_val2014_000000498759.jpg,534857,COCO_val2014_000000534857.jpg,adversarial,balanced
+646,3,no,a,motorcycle,4,vehicle,382670,COCO_val2014_000000382670.jpg,427870,COCO_val2014_000000427870.jpg,adversarial,balanced
+2434,3,no,a,bicycle,2,vehicle,446651,COCO_val2014_000000446651.jpg,32456,COCO_val2014_000000032456.jpg,adversarial,balanced
+898,3,no,a,traffic light,10,outdoor,354398,COCO_val2014_000000354398.jpg,501898,COCO_val2014_000000501898.jpg,adversarial,balanced
+730,3,no,a,car,3,vehicle,114710,COCO_val2014_000000114710.jpg,488270,COCO_val2014_000000488270.jpg,adversarial,balanced
+728,3,no,a,handbag,31,accessory,114710,COCO_val2014_000000114710.jpg,198448,COCO_val2014_000000198448.jpg,adversarial,balanced
+986,3,no,a,spoon,50,kitchen,460931,COCO_val2014_000000460931.jpg,267664,COCO_val2014_000000267664.jpg,adversarial,balanced
+1542,3,no,a,chair,62,furniture,318209,COCO_val2014_000000318209.jpg,325992,COCO_val2014_000000325992.jpg,adversarial,balanced
+1156,3,no,a,car,3,vehicle,376959,COCO_val2014_000000376959.jpg,467848,COCO_val2014_000000467848.jpg,adversarial,balanced
+1602,3,no,a,dining table,67,furniture,309371,COCO_val2014_000000309371.jpg,333888,COCO_val2014_000000333888.jpg,adversarial,balanced
+438,3,no,a,tv,72,electronic,564336,COCO_val2014_000000564336.jpg,317763,COCO_val2014_000000317763.jpg,adversarial,balanced
+432,3,no,a,chair,62,furniture,80022,COCO_val2014_000000080022.jpg,281019,COCO_val2014_000000281019.jpg,adversarial,balanced
+1740,3,no,a,bird,16,animal,431615,COCO_val2014_000000431615.jpg,265059,COCO_val2014_000000265059.jpg,adversarial,balanced
+2366,3,no,a,dining table,67,furniture,337502,COCO_val2014_000000337502.jpg,307611,COCO_val2014_000000307611.jpg,adversarial,balanced
+1282,3,no,a,dining table,67,furniture,98493,COCO_val2014_000000098493.jpg,435807,COCO_val2014_000000435807.jpg,adversarial,balanced
+2784,3,no,a,tv,72,electronic,79213,COCO_val2014_000000079213.jpg,54924,COCO_val2014_000000054924.jpg,adversarial,balanced
+1008,3,no,a,dining table,67,furniture,189694,COCO_val2014_000000189694.jpg,251572,COCO_val2014_000000251572.jpg,adversarial,balanced
+2566,3,no,a,surfboard,42,sports,156282,COCO_val2014_000000156282.jpg,66568,COCO_val2014_000000066568.jpg,adversarial,balanced
+2038,3,no,a,car,3,vehicle,363908,COCO_val2014_000000363908.jpg,383163,COCO_val2014_000000383163.jpg,adversarial,balanced
+276,3,no,a,snowboard,36,sports,205729,COCO_val2014_000000205729.jpg,228297,COCO_val2014_000000228297.jpg,adversarial,balanced
+1604,3,no,a,boat,9,vehicle,472143,COCO_val2014_000000472143.jpg,350157,COCO_val2014_000000350157.jpg,adversarial,balanced
+504,3,no,a,cup,47,kitchen,199764,COCO_val2014_000000199764.jpg,208566,COCO_val2014_000000208566.jpg,adversarial,balanced
+2512,3,no,a,truck,8,vehicle,246928,COCO_val2014_000000246928.jpg,406119,COCO_val2014_000000406119.jpg,adversarial,balanced
+1054,3,no,a,car,3,vehicle,18150,COCO_val2014_000000018150.jpg,267862,COCO_val2014_000000267862.jpg,adversarial,balanced
+1712,3,no,a,dog,18,animal,239773,COCO_val2014_000000239773.jpg,237566,COCO_val2014_000000237566.jpg,adversarial,balanced
+1290,3,no,a,truck,8,vehicle,201148,COCO_val2014_000000201148.jpg,202810,COCO_val2014_000000202810.jpg,adversarial,balanced
+1460,3,no,a,car,3,vehicle,115626,COCO_val2014_000000115626.jpg,305978,COCO_val2014_000000305978.jpg,adversarial,balanced
+2082,3,no,a,chair,62,furniture,445200,COCO_val2014_000000445200.jpg,450100,COCO_val2014_000000450100.jpg,adversarial,balanced
+1738,3,no,a,dining table,67,furniture,431615,COCO_val2014_000000431615.jpg,373713,COCO_val2014_000000373713.jpg,adversarial,balanced
+1900,3,no,a,dining table,67,furniture,31971,COCO_val2014_000000031971.jpg,542095,COCO_val2014_000000542095.jpg,adversarial,balanced
+1830,3,no,a,baseball glove,40,sports,198397,COCO_val2014_000000198397.jpg,400062,COCO_val2014_000000400062.jpg,adversarial,balanced
+2938,3,no,a,tv,72,electronic,235203,COCO_val2014_000000235203.jpg,135478,COCO_val2014_000000135478.jpg,adversarial,balanced
+2314,3,no,a,dining table,67,furniture,42685,COCO_val2014_000000042685.jpg,540645,COCO_val2014_000000540645.jpg,adversarial,balanced
+2982,3,no,a,tv,72,electronic,497599,COCO_val2014_000000497599.jpg,40821,COCO_val2014_000000040821.jpg,adversarial,balanced
+570,3,no,a,bus,6,vehicle,227227,COCO_val2014_000000227227.jpg,392382,COCO_val2014_000000392382.jpg,adversarial,balanced
+822,3,no,a,backpack,27,accessory,500473,COCO_val2014_000000500473.jpg,307842,COCO_val2014_000000307842.jpg,adversarial,balanced
+916,3,no,a,car,3,vehicle,539251,COCO_val2014_000000539251.jpg,105611,COCO_val2014_000000105611.jpg,adversarial,balanced
+806,3,no,a,dining table,67,furniture,102439,COCO_val2014_000000102439.jpg,180045,COCO_val2014_000000180045.jpg,adversarial,balanced
+2572,3,no,a,dining table,67,furniture,52689,COCO_val2014_000000052689.jpg,463842,COCO_val2014_000000463842.jpg,adversarial,balanced
+2448,3,no,a,bottle,44,kitchen,238029,COCO_val2014_000000238029.jpg,52835,COCO_val2014_000000052835.jpg,adversarial,balanced
+2474,3,no,a,dining table,67,furniture,388237,COCO_val2014_000000388237.jpg,436875,COCO_val2014_000000436875.jpg,adversarial,balanced
+10,3,no,a,dining table,67,furniture,210789,COCO_val2014_000000210789.jpg,411943,COCO_val2014_000000411943.jpg,adversarial,balanced
+2192,3,no,a,car,3,vehicle,372819,COCO_val2014_000000372819.jpg,452122,COCO_val2014_000000452122.jpg,adversarial,balanced
+428,3,no,a,car,3,vehicle,80022,COCO_val2014_000000080022.jpg,147494,COCO_val2014_000000147494.jpg,adversarial,balanced
+1562,3,no,a,car,3,vehicle,408757,COCO_val2014_000000408757.jpg,319830,COCO_val2014_000000319830.jpg,adversarial,balanced
+2144,3,no,a,car,3,vehicle,156704,COCO_val2014_000000156704.jpg,581394,COCO_val2014_000000581394.jpg,adversarial,balanced
+424,3,no,a,car,3,vehicle,249715,COCO_val2014_000000249715.jpg,357860,COCO_val2014_000000357860.jpg,adversarial,balanced
+1474,3,no,a,car,3,vehicle,236370,COCO_val2014_000000236370.jpg,515360,COCO_val2014_000000515360.jpg,adversarial,balanced
+1610,3,no,a,car,3,vehicle,236023,COCO_val2014_000000236023.jpg,211054,COCO_val2014_000000211054.jpg,adversarial,balanced
+2354,3,no,a,dining table,67,furniture,44993,COCO_val2014_000000044993.jpg,303726,COCO_val2014_000000303726.jpg,adversarial,balanced
+1696,3,no,a,car,3,vehicle,348524,COCO_val2014_000000348524.jpg,86133,COCO_val2014_000000086133.jpg,adversarial,balanced
+944,3,no,a,car,3,vehicle,111817,COCO_val2014_000000111817.jpg,352491,COCO_val2014_000000352491.jpg,adversarial,balanced
+1678,3,no,a,dining table,67,furniture,246999,COCO_val2014_000000246999.jpg,323507,COCO_val2014_000000323507.jpg,adversarial,balanced
+1010,3,no,a,dining table,67,furniture,273450,COCO_val2014_000000273450.jpg,329373,COCO_val2014_000000329373.jpg,adversarial,balanced
+150,3,no,a,bus,6,vehicle,218224,COCO_val2014_000000218224.jpg,545000,COCO_val2014_000000545000.jpg,adversarial,balanced
+2900,3,no,a,dining table,67,furniture,554002,COCO_val2014_000000554002.jpg,255631,COCO_val2014_000000255631.jpg,adversarial,balanced
+1102,3,no,a,carrot,57,food,316700,COCO_val2014_000000316700.jpg,198367,COCO_val2014_000000198367.jpg,adversarial,balanced
+574,3,no,a,dining table,67,furniture,397705,COCO_val2014_000000397705.jpg,451877,COCO_val2014_000000451877.jpg,adversarial,balanced
+2160,3,no,a,handbag,31,accessory,279499,COCO_val2014_000000279499.jpg,436582,COCO_val2014_000000436582.jpg,adversarial,balanced
+2762,3,no,a,sports ball,37,sports,579231,COCO_val2014_000000579231.jpg,109503,COCO_val2014_000000109503.jpg,adversarial,balanced
+774,3,no,a,bottle,44,kitchen,203479,COCO_val2014_000000203479.jpg,84463,COCO_val2014_000000084463.jpg,adversarial,balanced
+1370,3,no,a,bowl,51,kitchen,280810,COCO_val2014_000000280810.jpg,165014,COCO_val2014_000000165014.jpg,adversarial,balanced
+2726,3,no,a,dining table,67,furniture,252911,COCO_val2014_000000252911.jpg,142537,COCO_val2014_000000142537.jpg,adversarial,balanced
+142,3,no,a,cup,47,kitchen,542145,COCO_val2014_000000542145.jpg,440067,COCO_val2014_000000440067.jpg,adversarial,balanced
+1570,3,no,a,truck,8,vehicle,550691,COCO_val2014_000000550691.jpg,502963,COCO_val2014_000000502963.jpg,adversarial,balanced
+2632,3,no,a,car,3,vehicle,117527,COCO_val2014_000000117527.jpg,383389,COCO_val2014_000000383389.jpg,adversarial,balanced
+156,3,no,a,snowboard,36,sports,297078,COCO_val2014_000000297078.jpg,198043,COCO_val2014_000000198043.jpg,adversarial,balanced
+2698,3,no,a,handbag,31,accessory,550514,COCO_val2014_000000550514.jpg,495020,COCO_val2014_000000495020.jpg,adversarial,balanced
+2216,3,no,a,skis,35,sports,394535,COCO_val2014_000000394535.jpg,75032,COCO_val2014_000000075032.jpg,adversarial,balanced
+1962,3,no,a,couch,63,furniture,418471,COCO_val2014_000000418471.jpg,29563,COCO_val2014_000000029563.jpg,adversarial,balanced
+638,3,no,a,bowl,51,kitchen,387098,COCO_val2014_000000387098.jpg,241124,COCO_val2014_000000241124.jpg,adversarial,balanced
+1368,3,no,a,bicycle,2,vehicle,115636,COCO_val2014_000000115636.jpg,209901,COCO_val2014_000000209901.jpg,adversarial,balanced
+28,3,no,a,dining table,67,furniture,458338,COCO_val2014_000000458338.jpg,369826,COCO_val2014_000000369826.jpg,adversarial,balanced
+1404,3,no,a,truck,8,vehicle,463522,COCO_val2014_000000463522.jpg,556246,COCO_val2014_000000556246.jpg,adversarial,balanced
+18,3,no,a,truck,8,vehicle,429109,COCO_val2014_000000429109.jpg,464824,COCO_val2014_000000464824.jpg,adversarial,balanced
+2756,3,no,a,dining table,67,furniture,536073,COCO_val2014_000000536073.jpg,142484,COCO_val2014_000000142484.jpg,adversarial,balanced
+546,3,no,a,backpack,27,accessory,13348,COCO_val2014_000000013348.jpg,560349,COCO_val2014_000000560349.jpg,adversarial,balanced
+1254,3,no,a,fork,48,kitchen,388983,COCO_val2014_000000388983.jpg,185201,COCO_val2014_000000185201.jpg,adversarial,balanced
+628,3,no,a,handbag,31,accessory,94944,COCO_val2014_000000094944.jpg,487002,COCO_val2014_000000487002.jpg,adversarial,balanced
+342,3,no,a,tv,72,electronic,60213,COCO_val2014_000000060213.jpg,179112,COCO_val2014_000000179112.jpg,adversarial,balanced
+2827,4,yes,a,backpack,27,accessory,159969,COCO_val2014_000000159969.jpg,331777,COCO_val2014_000000331777.jpg,adversarial,balanced
+967,4,yes,a,teddy bear,88,indoor,358255,COCO_val2014_000000358255.jpg,383494,COCO_val2014_000000383494.jpg,adversarial,balanced
+161,4,yes,a,couch,63,furniture,33270,COCO_val2014_000000033270.jpg,102446,COCO_val2014_000000102446.jpg,adversarial,balanced
+2047,4,yes,a,bird,16,animal,348469,COCO_val2014_000000348469.jpg,284594,COCO_val2014_000000284594.jpg,adversarial,balanced
+2135,4,yes,a,fire hydrant,11,outdoor,125524,COCO_val2014_000000125524.jpg,112928,COCO_val2014_000000112928.jpg,adversarial,balanced
+1793,4,yes,a,car,3,vehicle,1171,COCO_val2014_000000001171.jpg,178939,COCO_val2014_000000178939.jpg,adversarial,balanced
+1751,4,yes,a,dining table,67,furniture,246199,COCO_val2014_000000246199.jpg,463640,COCO_val2014_000000463640.jpg,adversarial,balanced
+1587,4,yes,a,couch,63,furniture,198312,COCO_val2014_000000198312.jpg,136718,COCO_val2014_000000136718.jpg,adversarial,balanced
+2729,4,yes,a,boat,9,vehicle,252911,COCO_val2014_000000252911.jpg,385586,COCO_val2014_000000385586.jpg,adversarial,balanced
+535,4,yes,a,sink,81,appliance,498374,COCO_val2014_000000498374.jpg,271206,COCO_val2014_000000271206.jpg,adversarial,balanced
+2505,4,yes,a,handbag,31,accessory,73182,COCO_val2014_000000073182.jpg,560677,COCO_val2014_000000560677.jpg,adversarial,balanced
+1777,4,yes,a,truck,8,vehicle,245448,COCO_val2014_000000245448.jpg,566249,COCO_val2014_000000566249.jpg,adversarial,balanced
+2641,4,yes,a,tv,72,electronic,429706,COCO_val2014_000000429706.jpg,491856,COCO_val2014_000000491856.jpg,adversarial,balanced
+795,4,yes,a,cat,17,animal,303099,COCO_val2014_000000303099.jpg,297085,COCO_val2014_000000297085.jpg,adversarial,balanced
+2133,4,yes,a,bus,6,vehicle,125524,COCO_val2014_000000125524.jpg,121152,COCO_val2014_000000121152.jpg,adversarial,balanced
+1491,4,yes,a,backpack,27,accessory,302405,COCO_val2014_000000302405.jpg,29059,COCO_val2014_000000029059.jpg,adversarial,balanced
+1677,4,yes,a,clock,85,indoor,246999,COCO_val2014_000000246999.jpg,204943,COCO_val2014_000000204943.jpg,adversarial,balanced
+431,4,yes,a,tennis racket,43,sports,80022,COCO_val2014_000000080022.jpg,565203,COCO_val2014_000000565203.jpg,adversarial,balanced
+2409,4,yes,a,fork,48,kitchen,307262,COCO_val2014_000000307262.jpg,561823,COCO_val2014_000000561823.jpg,adversarial,balanced
+1135,4,yes,a,chair,62,furniture,246145,COCO_val2014_000000246145.jpg,490022,COCO_val2014_000000490022.jpg,adversarial,balanced
+183,4,yes,a,bicycle,2,vehicle,291936,COCO_val2014_000000291936.jpg,579036,COCO_val2014_000000579036.jpg,adversarial,balanced
+447,4,yes,a,clock,85,indoor,465275,COCO_val2014_000000465275.jpg,294,COCO_val2014_000000000294.jpg,adversarial,balanced
+1,4,yes,a,snowboard,36,sports,310196,COCO_val2014_000000310196.jpg,220382,COCO_val2014_000000220382.jpg,adversarial,balanced
+1967,4,yes,a,dining table,67,furniture,379404,COCO_val2014_000000379404.jpg,371694,COCO_val2014_000000371694.jpg,adversarial,balanced
+2097,4,yes,a,train,7,vehicle,114941,COCO_val2014_000000114941.jpg,577924,COCO_val2014_000000577924.jpg,adversarial,balanced
+2369,4,yes,an,oven,79,appliance,337502,COCO_val2014_000000337502.jpg,195179,COCO_val2014_000000195179.jpg,adversarial,balanced
+1055,4,yes,a,couch,63,furniture,18150,COCO_val2014_000000018150.jpg,442875,COCO_val2014_000000442875.jpg,adversarial,balanced
+2157,4,yes,a,bus,6,vehicle,279499,COCO_val2014_000000279499.jpg,480657,COCO_val2014_000000480657.jpg,adversarial,balanced
+2843,4,yes,a,sports ball,37,sports,555538,COCO_val2014_000000555538.jpg,76956,COCO_val2014_000000076956.jpg,adversarial,balanced
+1343,4,yes,a,suitcase,33,accessory,120648,COCO_val2014_000000120648.jpg,124803,COCO_val2014_000000124803.jpg,adversarial,balanced
+347,4,yes,a,backpack,27,accessory,54025,COCO_val2014_000000054025.jpg,128920,COCO_val2014_000000128920.jpg,adversarial,balanced
+2625,4,yes,a,teddy bear,88,indoor,514292,COCO_val2014_000000514292.jpg,391154,COCO_val2014_000000391154.jpg,adversarial,balanced
+2079,4,yes,a,broccoli,56,food,445200,COCO_val2014_000000445200.jpg,13428,COCO_val2014_000000013428.jpg,adversarial,balanced
+2781,4,yes,a,couch,63,furniture,79213,COCO_val2014_000000079213.jpg,470746,COCO_val2014_000000470746.jpg,adversarial,balanced
+775,4,yes,a,handbag,31,accessory,551881,COCO_val2014_000000551881.jpg,432330,COCO_val2014_000000432330.jpg,adversarial,balanced
+467,4,yes,a,scissors,87,indoor,131018,COCO_val2014_000000131018.jpg,266443,COCO_val2014_000000266443.jpg,adversarial,balanced
+1167,4,yes,a,spoon,50,kitchen,327038,COCO_val2014_000000327038.jpg,39502,COCO_val2014_000000039502.jpg,adversarial,balanced
+1047,4,yes,a,train,7,vehicle,205206,COCO_val2014_000000205206.jpg,275791,COCO_val2014_000000275791.jpg,adversarial,balanced
+2207,4,yes,a,tennis racket,43,sports,23084,COCO_val2014_000000023084.jpg,226967,COCO_val2014_000000226967.jpg,adversarial,balanced
+2453,4,yes,a,dining table,67,furniture,294475,COCO_val2014_000000294475.jpg,226903,COCO_val2014_000000226903.jpg,adversarial,balanced
+1955,4,yes,an,apple,53,food,572260,COCO_val2014_000000572260.jpg,114504,COCO_val2014_000000114504.jpg,adversarial,balanced
+1537,4,yes,a,sandwich,54,food,318209,COCO_val2014_000000318209.jpg,191342,COCO_val2014_000000191342.jpg,adversarial,balanced
+377,4,yes,a,handbag,31,accessory,311327,COCO_val2014_000000311327.jpg,432106,COCO_val2014_000000432106.jpg,adversarial,balanced
+2445,4,yes,a,wine glass,46,kitchen,238029,COCO_val2014_000000238029.jpg,526536,COCO_val2014_000000526536.jpg,adversarial,balanced
+2955,4,yes,a,sports ball,37,sports,323752,COCO_val2014_000000323752.jpg,383223,COCO_val2014_000000383223.jpg,adversarial,balanced
+947,4,yes,a,cake,61,food,111817,COCO_val2014_000000111817.jpg,70201,COCO_val2014_000000070201.jpg,adversarial,balanced
+1173,4,yes,a,cup,47,kitchen,513136,COCO_val2014_000000513136.jpg,387098,COCO_val2014_000000387098.jpg,adversarial,balanced
+21,4,yes,a,potted plant,64,furniture,211674,COCO_val2014_000000211674.jpg,420120,COCO_val2014_000000420120.jpg,adversarial,balanced
+1571,4,yes,a,bus,6,vehicle,550691,COCO_val2014_000000550691.jpg,559113,COCO_val2014_000000559113.jpg,adversarial,balanced
+2063,4,yes,a,car,3,vehicle,262736,COCO_val2014_000000262736.jpg,369751,COCO_val2014_000000369751.jpg,adversarial,balanced
+2513,4,yes,a,bed,65,furniture,246928,COCO_val2014_000000246928.jpg,512479,COCO_val2014_000000512479.jpg,adversarial,balanced
+2669,4,yes,an,umbrella,28,accessory,123570,COCO_val2014_000000123570.jpg,248284,COCO_val2014_000000248284.jpg,adversarial,balanced
+751,4,yes,a,toothbrush,90,indoor,140983,COCO_val2014_000000140983.jpg,14352,COCO_val2014_000000014352.jpg,adversarial,balanced
+733,4,yes,a,chair,62,furniture,113701,COCO_val2014_000000113701.jpg,146112,COCO_val2014_000000146112.jpg,adversarial,balanced
+1949,4,yes,a,car,3,vehicle,384970,COCO_val2014_000000384970.jpg,343643,COCO_val2014_000000343643.jpg,adversarial,balanced
+685,4,yes,a,backpack,27,accessory,69196,COCO_val2014_000000069196.jpg,198530,COCO_val2014_000000198530.jpg,adversarial,balanced
+2189,4,yes,an,oven,79,appliance,332908,COCO_val2014_000000332908.jpg,511430,COCO_val2014_000000511430.jpg,adversarial,balanced
+2009,4,yes,a,car,3,vehicle,263594,COCO_val2014_000000263594.jpg,178331,COCO_val2014_000000178331.jpg,adversarial,balanced
+225,4,yes,a,fork,48,kitchen,360600,COCO_val2014_000000360600.jpg,465346,COCO_val2014_000000465346.jpg,adversarial,balanced
+2347,4,yes,a,dog,18,animal,477598,COCO_val2014_000000477598.jpg,288579,COCO_val2014_000000288579.jpg,adversarial,balanced
+2589,4,yes,a,sports ball,37,sports,142056,COCO_val2014_000000142056.jpg,213403,COCO_val2014_000000213403.jpg,adversarial,balanced
+215,4,yes,a,car,3,vehicle,170517,COCO_val2014_000000170517.jpg,105647,COCO_val2014_000000105647.jpg,adversarial,balanced
+2539,4,yes,a,snowboard,36,sports,462805,COCO_val2014_000000462805.jpg,249672,COCO_val2014_000000249672.jpg,adversarial,balanced
+1697,4,yes,a,skis,35,sports,348524,COCO_val2014_000000348524.jpg,477534,COCO_val2014_000000477534.jpg,adversarial,balanced
+663,4,yes,a,bicycle,2,vehicle,245642,COCO_val2014_000000245642.jpg,319607,COCO_val2014_000000319607.jpg,adversarial,balanced
+399,4,yes,a,clock,85,indoor,21645,COCO_val2014_000000021645.jpg,51540,COCO_val2014_000000051540.jpg,adversarial,balanced
+2191,4,yes,a,dog,18,animal,372819,COCO_val2014_000000372819.jpg,269344,COCO_val2014_000000269344.jpg,adversarial,balanced
+1065,4,yes,a,sports ball,37,sports,278771,COCO_val2014_000000278771.jpg,363831,COCO_val2014_000000363831.jpg,adversarial,balanced
+1247,4,yes,a,bowl,51,kitchen,383185,COCO_val2014_000000383185.jpg,215213,COCO_val2014_000000215213.jpg,adversarial,balanced
+855,4,yes,a,dining table,67,furniture,270609,COCO_val2014_000000270609.jpg,33835,COCO_val2014_000000033835.jpg,adversarial,balanced
+1825,4,yes,a,chair,62,furniture,198397,COCO_val2014_000000198397.jpg,546569,COCO_val2014_000000546569.jpg,adversarial,balanced
+2027,4,yes,a,car,3,vehicle,91954,COCO_val2014_000000091954.jpg,176037,COCO_val2014_000000176037.jpg,adversarial,balanced
+1869,4,yes,a,surfboard,42,sports,304387,COCO_val2014_000000304387.jpg,542938,COCO_val2014_000000542938.jpg,adversarial,balanced
+2609,4,yes,a,kite,38,sports,574454,COCO_val2014_000000574454.jpg,163057,COCO_val2014_000000163057.jpg,adversarial,balanced
+2791,4,yes,a,car,3,vehicle,514248,COCO_val2014_000000514248.jpg,94795,COCO_val2014_000000094795.jpg,adversarial,balanced
+1919,4,yes,a,cup,47,kitchen,196462,COCO_val2014_000000196462.jpg,427341,COCO_val2014_000000427341.jpg,adversarial,balanced
+1061,4,yes,a,chair,62,furniture,303534,COCO_val2014_000000303534.jpg,545564,COCO_val2014_000000545564.jpg,adversarial,balanced
+227,4,yes,a,knife,49,kitchen,360600,COCO_val2014_000000360600.jpg,111104,COCO_val2014_000000111104.jpg,adversarial,balanced
+2355,4,yes,a,bowl,51,kitchen,44993,COCO_val2014_000000044993.jpg,472364,COCO_val2014_000000472364.jpg,adversarial,balanced
+1067,4,yes,a,bottle,44,kitchen,278771,COCO_val2014_000000278771.jpg,315195,COCO_val2014_000000315195.jpg,adversarial,balanced
+603,4,yes,a,couch,63,furniture,534121,COCO_val2014_000000534121.jpg,473632,COCO_val2014_000000473632.jpg,adversarial,balanced
+497,4,yes,a,handbag,31,accessory,69189,COCO_val2014_000000069189.jpg,550051,COCO_val2014_000000550051.jpg,adversarial,balanced
+669,4,yes,a,remote,75,electronic,237767,COCO_val2014_000000237767.jpg,271728,COCO_val2014_000000271728.jpg,adversarial,balanced
+1619,4,yes,a,skis,35,sports,214244,COCO_val2014_000000214244.jpg,417339,COCO_val2014_000000417339.jpg,adversarial,balanced
+553,4,yes,a,dog,18,animal,190185,COCO_val2014_000000190185.jpg,329687,COCO_val2014_000000329687.jpg,adversarial,balanced
+977,4,yes,a,bicycle,2,vehicle,178078,COCO_val2014_000000178078.jpg,337083,COCO_val2014_000000337083.jpg,adversarial,balanced
+2335,4,yes,a,car,3,vehicle,405762,COCO_val2014_000000405762.jpg,27484,COCO_val2014_000000027484.jpg,adversarial,balanced
+315,4,yes,a,car,3,vehicle,354229,COCO_val2014_000000354229.jpg,168330,COCO_val2014_000000168330.jpg,adversarial,balanced
+1739,4,yes,a,boat,9,vehicle,431615,COCO_val2014_000000431615.jpg,46497,COCO_val2014_000000046497.jpg,adversarial,balanced
+569,4,yes,a,car,3,vehicle,227227,COCO_val2014_000000227227.jpg,423804,COCO_val2014_000000423804.jpg,adversarial,balanced
+395,4,yes,a,toilet,70,furniture,170365,COCO_val2014_000000170365.jpg,80172,COCO_val2014_000000080172.jpg,adversarial,balanced
+1645,4,yes,a,chair,62,furniture,281028,COCO_val2014_000000281028.jpg,59598,COCO_val2014_000000059598.jpg,adversarial,balanced
+1083,4,yes,a,sports ball,37,sports,124629,COCO_val2014_000000124629.jpg,571219,COCO_val2014_000000571219.jpg,adversarial,balanced
+2769,4,yes,a,cow,21,animal,92624,COCO_val2014_000000092624.jpg,419386,COCO_val2014_000000419386.jpg,adversarial,balanced
+841,4,yes,a,tv,72,electronic,443240,COCO_val2014_000000443240.jpg,164170,COCO_val2014_000000164170.jpg,adversarial,balanced
+599,4,yes,a,skis,35,sports,105732,COCO_val2014_000000105732.jpg,326542,COCO_val2014_000000326542.jpg,adversarial,balanced
+1845,4,yes,a,clock,85,indoor,474741,COCO_val2014_000000474741.jpg,523660,COCO_val2014_000000523660.jpg,adversarial,balanced
+845,4,yes,a,couch,63,furniture,443240,COCO_val2014_000000443240.jpg,523174,COCO_val2014_000000523174.jpg,adversarial,balanced
+49,4,yes,a,backpack,27,accessory,544456,COCO_val2014_000000544456.jpg,424155,COCO_val2014_000000424155.jpg,adversarial,balanced
+1475,4,yes,a,book,84,indoor,236370,COCO_val2014_000000236370.jpg,436470,COCO_val2014_000000436470.jpg,adversarial,balanced
+549,4,yes,a,truck,8,vehicle,81336,COCO_val2014_000000081336.jpg,295055,COCO_val2014_000000295055.jpg,adversarial,balanced
+1817,4,yes,a,skis,35,sports,188958,COCO_val2014_000000188958.jpg,118606,COCO_val2014_000000118606.jpg,adversarial,balanced
+819,4,yes,a,broccoli,56,food,500473,COCO_val2014_000000500473.jpg,7398,COCO_val2014_000000007398.jpg,adversarial,balanced
+2243,4,yes,a,laptop,73,electronic,304819,COCO_val2014_000000304819.jpg,15074,COCO_val2014_000000015074.jpg,adversarial,balanced
+415,4,yes,a,tv,72,electronic,7320,COCO_val2014_000000007320.jpg,388481,COCO_val2014_000000388481.jpg,adversarial,balanced
+2783,4,yes,a,remote,75,electronic,79213,COCO_val2014_000000079213.jpg,107858,COCO_val2014_000000107858.jpg,adversarial,balanced
+2549,4,yes,a,bed,65,furniture,163575,COCO_val2014_000000163575.jpg,451155,COCO_val2014_000000451155.jpg,adversarial,balanced
+941,4,yes,a,dining table,67,furniture,280734,COCO_val2014_000000280734.jpg,299601,COCO_val2014_000000299601.jpg,adversarial,balanced
+2879,4,yes,a,dining table,67,furniture,8749,COCO_val2014_000000008749.jpg,557731,COCO_val2014_000000557731.jpg,adversarial,balanced
+2353,4,yes,a,banana,52,food,44993,COCO_val2014_000000044993.jpg,35368,COCO_val2014_000000035368.jpg,adversarial,balanced
+1313,4,yes,a,dining table,67,furniture,333237,COCO_val2014_000000333237.jpg,198464,COCO_val2014_000000198464.jpg,adversarial,balanced
+1829,4,yes,a,sports ball,37,sports,198397,COCO_val2014_000000198397.jpg,566543,COCO_val2014_000000566543.jpg,adversarial,balanced
+1371,4,yes,a,fork,48,kitchen,280810,COCO_val2014_000000280810.jpg,302077,COCO_val2014_000000302077.jpg,adversarial,balanced
+777,4,yes,a,potted plant,64,furniture,551881,COCO_val2014_000000551881.jpg,223671,COCO_val2014_000000223671.jpg,adversarial,balanced
+545,4,yes,an,airplane,5,vehicle,13348,COCO_val2014_000000013348.jpg,450483,COCO_val2014_000000450483.jpg,adversarial,balanced
+1463,4,yes,a,parking meter,14,outdoor,115626,COCO_val2014_000000115626.jpg,179265,COCO_val2014_000000179265.jpg,adversarial,balanced
+833,4,yes,a,skateboard,41,sports,167110,COCO_val2014_000000167110.jpg,262148,COCO_val2014_000000262148.jpg,adversarial,balanced
+557,4,yes,a,sandwich,54,food,190185,COCO_val2014_000000190185.jpg,394079,COCO_val2014_000000394079.jpg,adversarial,balanced
+679,4,yes,a,cake,61,food,94501,COCO_val2014_000000094501.jpg,423892,COCO_val2014_000000423892.jpg,adversarial,balanced
+197,4,yes,a,dining table,67,furniture,526321,COCO_val2014_000000526321.jpg,547196,COCO_val2014_000000547196.jpg,adversarial,balanced
+1963,4,yes,a,banana,52,food,379404,COCO_val2014_000000379404.jpg,122020,COCO_val2014_000000122020.jpg,adversarial,balanced
+615,4,yes,a,bowl,51,kitchen,580294,COCO_val2014_000000580294.jpg,69340,COCO_val2014_000000069340.jpg,adversarial,balanced
+873,4,yes,a,bottle,44,kitchen,424642,COCO_val2014_000000424642.jpg,440562,COCO_val2014_000000440562.jpg,adversarial,balanced
+1075,4,yes,a,banana,52,food,227204,COCO_val2014_000000227204.jpg,263178,COCO_val2014_000000263178.jpg,adversarial,balanced
+955,4,yes,a,bowl,51,kitchen,489728,COCO_val2014_000000489728.jpg,266176,COCO_val2014_000000266176.jpg,adversarial,balanced
+1691,4,yes,a,bicycle,2,vehicle,331366,COCO_val2014_000000331366.jpg,291936,COCO_val2014_000000291936.jpg,adversarial,balanced
+2033,4,yes,a,cell phone,77,electronic,454607,COCO_val2014_000000454607.jpg,483027,COCO_val2014_000000483027.jpg,adversarial,balanced
+1679,4,yes,a,couch,63,furniture,246999,COCO_val2014_000000246999.jpg,425151,COCO_val2014_000000425151.jpg,adversarial,balanced
+1857,4,yes,a,mouse,74,electronic,93948,COCO_val2014_000000093948.jpg,420156,COCO_val2014_000000420156.jpg,adversarial,balanced
+1121,4,yes,a,car,3,vehicle,574790,COCO_val2014_000000574790.jpg,189744,COCO_val2014_000000189744.jpg,adversarial,balanced
+741,4,yes,a,motorcycle,4,vehicle,65001,COCO_val2014_000000065001.jpg,12946,COCO_val2014_000000012946.jpg,adversarial,balanced
+1541,4,yes,a,dining table,67,furniture,318209,COCO_val2014_000000318209.jpg,570947,COCO_val2014_000000570947.jpg,adversarial,balanced
+959,4,yes,a,laptop,73,electronic,489728,COCO_val2014_000000489728.jpg,194434,COCO_val2014_000000194434.jpg,adversarial,balanced
+1775,4,yes,a,handbag,31,accessory,281766,COCO_val2014_000000281766.jpg,459103,COCO_val2014_000000459103.jpg,adversarial,balanced
+703,4,yes,a,backpack,27,accessory,32610,COCO_val2014_000000032610.jpg,390348,COCO_val2014_000000390348.jpg,adversarial,balanced
+1037,4,yes,a,remote,75,electronic,506178,COCO_val2014_000000506178.jpg,373111,COCO_val2014_000000373111.jpg,adversarial,balanced
+857,4,yes,a,chair,62,furniture,270609,COCO_val2014_000000270609.jpg,465404,COCO_val2014_000000465404.jpg,adversarial,balanced
+1243,4,yes,a,banana,52,food,383185,COCO_val2014_000000383185.jpg,259475,COCO_val2014_000000259475.jpg,adversarial,balanced
+2399,4,yes,a,frisbee,34,sports,288576,COCO_val2014_000000288576.jpg,460837,COCO_val2014_000000460837.jpg,adversarial,balanced
+1699,4,yes,a,sandwich,54,food,108189,COCO_val2014_000000108189.jpg,383979,COCO_val2014_000000383979.jpg,adversarial,balanced
+805,4,yes,a,tv,72,electronic,102439,COCO_val2014_000000102439.jpg,398567,COCO_val2014_000000398567.jpg,adversarial,balanced
+2357,4,yes,an,orange,55,food,44993,COCO_val2014_000000044993.jpg,254828,COCO_val2014_000000254828.jpg,adversarial,balanced
+2053,4,yes,an,oven,79,appliance,167724,COCO_val2014_000000167724.jpg,241645,COCO_val2014_000000241645.jpg,adversarial,balanced
+2101,4,yes,a,remote,75,electronic,493753,COCO_val2014_000000493753.jpg,460251,COCO_val2014_000000460251.jpg,adversarial,balanced
+221,4,yes,a,car,3,vehicle,498759,COCO_val2014_000000498759.jpg,499388,COCO_val2014_000000499388.jpg,adversarial,balanced
+2529,4,yes,a,wine glass,46,kitchen,564511,COCO_val2014_000000564511.jpg,208748,COCO_val2014_000000208748.jpg,adversarial,balanced
+1607,4,yes,a,dining table,67,furniture,472143,COCO_val2014_000000472143.jpg,277239,COCO_val2014_000000277239.jpg,adversarial,balanced
+1747,4,yes,a,banana,52,food,246199,COCO_val2014_000000246199.jpg,349402,COCO_val2014_000000349402.jpg,adversarial,balanced
+2467,4,yes,a,car,3,vehicle,458325,COCO_val2014_000000458325.jpg,61660,COCO_val2014_000000061660.jpg,adversarial,balanced
+145,4,yes,a,truck,8,vehicle,218224,COCO_val2014_000000218224.jpg,169111,COCO_val2014_000000169111.jpg,adversarial,balanced
