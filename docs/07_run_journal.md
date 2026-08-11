@@ -34,5 +34,23 @@ submit_chain.sh:
   smoke(1h) → sanity(3h, afterok) → main(12h, afterok: 03_run_main + 04_profile) → analyze(1h, afterany)
 ```
 - 게이트: SMOKE_PASSED/SANITY_PASSED flag + BLOCKED(exit 86) → afterok가 후속 job 자동 취소
-- analyze는 afterany — 어디서 멈췄든 `results/STATUS.md` 생성 보장
+- analyze는 afterany + **각 GPU job의 EXIT trap이 05_analyze 자체 실행** — 어디서 멈췄든 `results/STATUS.md` 생성 보장
 - 전 단계 (question, condition, template) 단위 resume — 강제 종료·양보 후 재제출만으로 복구
+
+### 제출 전 적대적 코드 리뷰 (6-agent workflow, finding 35건)
+- **Critical 2건**: ① profiler 질량 합 허용오차 1e-3이 bf16 반올림과 동일 스케일 → 야간 21,600회 체크 중 오탐 BLOCKED 확률 ≈ 1 (→ 2e-2 + 정규화로 수정) ② jsonl 잘린 행 뒤 append 시 레코드 무음 소실 (→ 개행 보정)
+- **긍정 확인**: transformers 4.52.3 원본 대조 결과 mask hook 경로 정확 — decoder layer는 attention_mask를 kwargs 4D로 받고, eager에서 None 불가, `model.language_model.layers` 경로 적중, 차단 열 softmax 질량 정확히 0
+- person supercategory confound (not-contains pool 부재로 64문항이 셀 1·4 쏠림) → **balanced 배정** 도입: gt-쌍 두 셀의 pool이 모두 존재할 때만 배정, 미달 시에만 unbalanced 2차 (실측: 600문항 전량 balanced 성공)
+- 나머지 high/medium 12건 반영 (fired 카운터 per-forward 검증, resume 페어링 일치 검사, stale flag 제거, 커버리지 전수 검사, partial profile 시 ③ 판정 유보 등)
+
+### 데이터 확정 (2026-08-11 13:44)
+- `pairs.csv`: 600문항 (셀당 150), **전부 adversarial split** (popular 보충 불필요), **전부 balanced 배정**
+- 이미지 1,002장 전수 다운로드·무결성 통과
+- POPE gt vs COCO annotation 불일치 36건(6%) — POPE gt 기준 유지, REPORT 한계 기록 예정
+
+### 체인 제출 (2026-08-11 13:47 KST)
+```
+99106 sd_smoke   (R 즉시 시작)  → 99107 sd_sanity (afterok)
+→ 99108 sd_main (afterok, 12h) → 99109 sd_analyze (afterany)
+```
+- 사용자 별도 프로젝트 job(G1C4, 99059)과 합산 2 GPU = token 2.0 ≤ 2.5 한도 내
