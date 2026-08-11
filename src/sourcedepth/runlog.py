@@ -16,8 +16,21 @@ def iso_now() -> str:
     return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
 
+_tail_checked: set = set()
+
+
 def append_jsonl(path, row: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
+    # 강제 종료로 잘린 마지막 행 뒤에 이어 붙으면 두 레코드가 무음 소실됨 —
+    # 프로세스당 1회, 파일 끝이 개행인지 확인하고 아니면 종결시킨다 (read_jsonl이 잘린 행 폐기)
+    if str(path) not in _tail_checked:
+        _tail_checked.add(str(path))
+        if path.exists() and path.stat().st_size > 0:
+            with open(path, "rb") as f:
+                f.seek(-1, os.SEEK_END)
+                if f.read(1) != b"\n":
+                    with open(path, "ab") as g:
+                        g.write(b"\n")
     with open(path, "a") as f:
         f.write(json.dumps(row, ensure_ascii=False) + "\n")
         f.flush()

@@ -51,14 +51,15 @@ def pipeline_status(template, n_rows, n_profile):
     print(f"STATUS.md written ({n_rows}/{EXPECTED} rows)")
 
 
-def fig1(pred, corr, path):
+def fig1(pred, corr, path, l_grid=None):
+    l_grid = l_grid or L_GRID
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.5), sharey=True)
     for ax, cell in zip(axes, (1, 2)):
-        accs = [accuracy(corr, f"T{L}", cell) for L in L_GRID]
+        accs = [accuracy(corr, f"T{L}", cell) for L in l_grid]
         m = accuracy(corr, "M", cell)
         t0 = accuracy(corr, "T0", cell)
         rel = accuracy(corr, "Trel8", cell)
-        ax.plot(L_GRID, accs, "o-", label="T(L)")
+        ax.plot(l_grid, accs, "o-", label="T(L)")
         ax.axhline(m, color="tab:red", ls="--", label="M (baseline)")
         ax.axhline(t0, color="tab:green", ls=":", label="T(0)")
         ax.plot([8], [rel], "x", color="tab:purple", ms=10, label="T-rel(8) neg. ctrl")
@@ -83,8 +84,8 @@ def fig2(profile_rows, pred, path, n_layers):
         s_from, m_to = FLIP_DIR[r.cell]
         if getattr(r, "M") == r.gt:
             groups["M correct"].append(pr["masses"])
-        elif getattr(r, "S") == s_from and getattr(r, "M") == m_to:
-            groups["flipped"].append(pr["masses"])
+        elif r.cell in (1, 2) and getattr(r, "S") == s_from and getattr(r, "M") == m_to:
+            groups["flipped"].append(pr["masses"])   # leak 측정 셀(1·2)의 방향성 flip만 (리뷰 지적)
     fig, ax = plt.subplots(figsize=(9, 5))
     xs = list(range(1, n_layers + 1))
     styles = {"M correct": "-", "flipped": "--"}
@@ -110,10 +111,24 @@ def fig2(profile_rows, pred, path, n_layers):
     return counts
 
 
+def _clean_nan(o):
+    if isinstance(o, dict):
+        return {k: _clean_nan(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_clean_nan(v) for v in o]
+    if isinstance(o, float) and o != o:
+        return None
+    return o
+
+
 def main():
     dump_env("05_analyze")
-    template = json.loads(TEMPLATE_CHOICE.read_text())["template"] \
-        if TEMPLATE_CHOICE.exists() else "primary"
+    template = "primary"
+    if TEMPLATE_CHOICE.exists():
+        try:                       # torn write여도 STATUS 생성은 보장 (리뷰 지적)
+            template = json.loads(TEMPLATE_CHOICE.read_text())["template"]
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"WARN: template_choice.json 손상 ({e}) — primary 가정")
     raw = [r for r in read_jsonl(RAW_RESULTS) if r.get("template") == template]
     seen, rows = set(), []
     for r in raw:                                  # 중복 방지 (resume 경계)
@@ -123,8 +138,17 @@ def main():
             rows.append(r)
     profile_rows = [r for r in read_jsonl(ATTN_PROFILE) if r.get("template") == template]
     pipeline_status(template, len(rows), len(profile_rows))
-    if len(rows) < EXPECTED:
-        print(f"결과 불완전 ({len(rows)}/{EXPECTED}) — REPORT 확정 불가, STATUS만 갱신")
+    # 완료성 = 행 수가 아니라 (question, 기본 조건) 전수 커버리지 (리뷰 지적: --extra-l 행이
+    # 수를 부풀려 미완료 데이터로 REPORT를 확정할 수 있음)
+    if not PAIRS_CSV.exists():
+        print("pairs.csv 부재 — REPORT 확정 불가")
+        return
+    pair_qids = list(pd.read_csv(PAIRS_CSV)["question_id"].astype(str))
+    have = {(str(r["question_id"]), r["condition"]) for r in rows}
+    missing = [(q, c) for q in pair_qids for c in CONDITIONS if (q, c) not in have]
+    if missing:
+        print(f"결과 불완전 (미비 {len(missing)}/{len(pair_qids) * len(CONDITIONS)} — "
+              f"예: {missing[:3]}) — REPORT 확정 불가, STATUS만 갱신")
         return
 
     with stage("05_analyze"):
@@ -133,8 +157,11 @@ def main():
         pred, corr = to_wide(df)
         n_layers = json.loads(SMOKE_FLAG.read_text())["num_hidden_layers"]
 
-        j = judge(pred, corr)
-        flops = flops_savings(df, n_layers)
+        # --extra-l(L 그리드 세분화) 실행분 포함 — 데이터에 실재하는 T(L) 조건을 전부 분석
+        det_ls = sorted({int(c[1:]) for c in df["condition"].unique()
+                         if c.startswith("T") and c[1:].isdigit() and int(c[1:]) > 0})
+        j = judge(pred, corr, l_grid=det_ls)
+        flops = flops_savings(df, n_layers, l_grid=det_ls)
 
         # 표 1
         t1 = []
@@ -161,9 +188,10 @@ def main():
         table1 = pd.DataFrame(t1)
         table1.to_csv(RESULTS_DIR / "table1.csv", index=False)
 
-        fig1(pred, corr, RESULTS_DIR / "fig1_accuracy_vs_L.png")
+        fig1(pred, corr, RESULTS_DIR / "fig1_accuracy_vs_L.png", l_grid=det_ls)
 
         ident, fig2_counts, mismatch = {}, {}, None
+        profile_complete = {str(r["question_id"]) for r in profile_rows} >= set(pair_qids)
         if profile_rows:
             import numpy as np
             arr = np.array([r["masses"] for r in profile_rows])
@@ -174,7 +202,8 @@ def main():
             m_pred = dict(zip(pred["question_id"], pred["M"]))
             mismatch = sum(1 for r in profile_rows
                            if m_pred.get(r["question_id"]) not in (None, r["pred_reprofile"]))
-        d3_pass = (ident.get(8, 0.0) >= IDENT_THRESH) if ident else None
+        # ③ 판정은 프로파일 전수(600) 완료 시에만 확정 (리뷰 지적: partial로 PASS/FAIL 금지)
+        d3_pass = (ident.get(8, 0.0) >= IDENT_THRESH) if (ident and profile_complete) else None
 
         # ---- REPORT.md ----
         smoke = json.loads(SMOKE_FLAG.read_text())
@@ -182,7 +211,13 @@ def main():
         ties = int(df["tie"].sum()) if "tie" in df else 0
         ls = j.get("L_star")
         envs = {p.name: json.loads(p.read_text()) for p in LOGS_DIR.glob("env_*.json")}
-        any_env = next(iter(envs.values()), {})
+        any_env = {}
+        for name in ("env_03_main.json", "env_00_smoke.json", "env_02_sanity.json"):
+            if name in envs and "unavailable" not in str(envs[name].get("nvidia_smi", "")):
+                any_env = envs[name]      # GPU 노드에서 기록된 env 우선 (리뷰 지적)
+                break
+        if not any_env and envs:
+            any_env = next(iter(envs.values()))
 
         def pf(x):
             return "PASS" if x is True else ("FAIL" if x is False else "INDETERMINATE")
@@ -260,7 +295,7 @@ def main():
                "- distractor 2장 확장 및 시각 유사 distractor (PART D 실패 대응 경로 — 이번 실행에서 미사용 시)"]
         (RESULTS_DIR / "REPORT.md").write_text("\n".join(rpt))
         (RESULTS_DIR / "judgments.json").write_text(
-            json.dumps(j, indent=1, ensure_ascii=False, default=str))
+            json.dumps(_clean_nan(j), indent=1, ensure_ascii=False, default=str))
         print("REPORT.md written")
         print("\n".join(concl))
 

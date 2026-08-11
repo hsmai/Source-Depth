@@ -8,17 +8,22 @@
 # 본 실험 (10조건 × 600) + attention 프로파일링 — 1 GPU, resume 내장.
 # 03은 SANITY_PASSED 없으면 즉시 BLOCKED 종료 (사전 게이트).
 
+set -eo pipefail
 ROOT=/home/isangmin/sourcedepth
 cd $ROOT
 source $ROOT/.venv/bin/activate
-set -euo pipefail
+set -u
 
 export HF_HOME=$ROOT/hf_cache
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export PYTHONHASHSEED=42
 
-date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+# 어디서 멈추든 (walltime kill 직전 TERM 포함 안 됨 — 그 경우도 다음 job의 trap이 커버)
+# 종료 시 STATUS.md + (완료 시) REPORT.md 생성
+trap 'python scripts/05_analyze.py || true' EXIT
+
+date; nvidia-smi || true; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
 python scripts/03_run_main.py
 python scripts/04_run_attention_profile.py
 date

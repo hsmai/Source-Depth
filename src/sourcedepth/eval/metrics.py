@@ -66,12 +66,13 @@ def mcnemar_p(corr: pd.DataFrame, cond: str, base: str = "M",
     return {"p": float(res.pvalue), "b_base_only": n10, "c_cond_only": n01}
 
 
-def flops_savings(df: pd.DataFrame, n_layers: int) -> dict:
+def flops_savings(df: pd.DataFrame, n_layers: int, l_grid=None) -> dict:
     """이론 FLOPs 절감 (A-1: 분모 = 실측 N). M layout 행에서 span·seq 사용."""
+    l_grid = l_grid or L_GRID
     m = df[df["condition"] == "M"].drop_duplicates("question_id")
     masked = m["img2_span"].apply(lambda s: s[1] - s[0] + 1)
     total = (m["seq_len"] * n_layers).sum()
-    return {f"T{L}": float((masked * (n_layers - L)).sum() / total) for L in L_GRID}
+    return {f"T{L}": float((masked * (n_layers - L)).sum() / total) for L in l_grid}
 
 
 def judge(pred: pd.DataFrame, corr: pd.DataFrame, l_grid=None) -> dict:

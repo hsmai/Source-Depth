@@ -7,10 +7,11 @@
 #PBS -o /home/isangmin/sourcedepth/logs/pbs/
 # CPU 전용 — afterany로 제출되어 파이프라인이 어디서 멈췄든 STATUS.md를 생성한다.
 
+set -eo pipefail
 ROOT=/home/isangmin/sourcedepth
 cd $ROOT
 source $ROOT/.venv/bin/activate
-set -euo pipefail
+set -u
 
 export PYTHONHASHSEED=42
 date

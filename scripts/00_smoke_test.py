@@ -58,6 +58,9 @@ def main():
         print(f"vision token ids: start={vs} end={ve} pad={pad}")
         attn_impl = getattr(model.config, "_attn_implementation", "?")
         print(f"attn_implementation = {attn_impl}")
+        if attn_impl != "eager":
+            blocked("00_smoke", "attn_implementation != eager (C-1 위반 — mask 주입·attn 추출 불가)",
+                    {"attn_impl": attn_impl})
 
     ctrl = KVBlockController(model, layers)
 
@@ -92,9 +95,11 @@ def main():
         ctrl.configure(n, sp2)
         ltn = model(**inp, use_cache=False).logits[0, -1].float()
         if not torch.equal(lm, ltn):
-            if not torch.allclose(lm, ltn, atol=1e-4):
+            # bf16 logit ulp가 ~0.06-0.125이므로 완충 임계는 그보다 커야 실행 가능 (리뷰 지적).
+            # hook이 실제 발화하면 이미지 하나가 통째로 차단되어 logit이 O(1) 이상 변한다.
+            if not torch.allclose(lm, ltn, atol=0.05, rtol=0):
                 blocked("00_smoke", "T(N) != M — hook 부작용 존재", {})
-            print("WARN: T(N) vs M bitwise 불일치, allclose 통과 (비결정성 허용 범위)")
+            print("WARN: T(N) vs M bitwise 불일치, allclose(0.05) 통과 (커널 비결정성 허용)")
         # (2) 직접 관측: T(8)에서 idx>=8 layer의 img2 질량 == 0 (구조적 차단의 결정적 증거)
         ctrl.reset_counter()
         ctrl.configure(8, sp2)
@@ -141,6 +146,9 @@ def main():
         med = statistics.median(times)
         est_main_h = 6000 * med / 1000 / 3600
         print(f"forward median {med:.0f}ms → 본실험 6,000 forwards ≈ {est_main_h:.1f}h (추정)")
+        if est_main_h > 10:
+            print(f"WARN: 추정 {est_main_h:.1f}h가 main walltime 12h에 근접/초과 — "
+                  f"resume 재제출 필요 가능성 (진행은 계속)")
         # resume 검증: 재실행 시 0 forward
         executed2 = run_eval(sample, CONDITIONS, model, processor, ctrl,
                              (vs, ve, pad), SMOKE_RESULTS, TEMPLATE_PRIMARY,

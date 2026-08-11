@@ -13,14 +13,18 @@ def masses_from_attentions(attentions, span1, span2) -> list[list[float]]:
         blocked("profiler", "attentions=None — eager 미적용 의심", {})
     out = []
     (s1, e1), (s2, e2) = span1, span2
+    # 허용오차 2e-2: bf16 저장 반올림(unit roundoff 2^-8) 누적 대비.
+    # 구조 오류(pre-softmax 오포착 → 합 O(10~10^3), span 오류)는 O(1) 이상 이탈해 여전히 잡힌다.
+    # (리뷰 지적: 1e-3은 반올림 노이즈와 같은 스케일 — 21,600회 체크에서 야간 오탐 BLOCKED 확률 高)
+    TOL = 2e-2
     for li, attn in enumerate(attentions):
         w = attn[0, :, -1, :].float()          # (heads, kv_len) — 마지막 프롬프트 토큰 행
         m1 = w[:, s1:e1 + 1].sum(-1).mean().item()
         m2 = w[:, s2:e2 + 1].sum(-1).mean().item()
         total = w.sum(-1).mean().item()
-        mt = total - m1 - m2
-        if abs(total - 1.0) > 1e-3:
+        if abs(total - 1.0) > TOL:
             blocked("profiler", "attention 행 질량 합 ≠ 1 (pre-softmax 오포착 또는 span 오류)",
                     {"layer": li, "total": total})
-        out.append([round(m1, 6), round(m2, 6), round(mt, 6)])
+        out.append([round(m1 / total, 6), round(m2 / total, 6),
+                    round((total - m1 - m2) / total, 6)])
     return out

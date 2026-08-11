@@ -92,20 +92,23 @@ def main():
         rng2 = random.Random(SEED)
         items20 = sample_cells(pairs, {1: 5, 2: 5, 3: 5, 4: 5}, rng2)
         template = TEMPLATE_PRIMARY
-        acc = grounding_check(items20, model, processor, template)
+        acc_primary = grounding_check(items20, model, processor, template)
+        acc_fb = None
         fallback_adopted = False
-        if acc < SANITY2_ACC:
-            print(f"primary 템플릿 게이트 실패 (acc={acc:.2f}) → fallback 시도 (C-4)")
+        if acc_primary < SANITY2_ACC:
+            print(f"primary 템플릿 게이트 실패 (acc={acc_primary:.2f}) → fallback 시도 (C-4)")
             template = TEMPLATE_FALLBACK
             acc_fb = grounding_check(items20, model, processor, template)
             if acc_fb < SANITY2_ACC:
                 blocked("02_sanity", "first-image grounding 실패 (fallback 포함)",
-                        {"acc_primary": acc, "acc_fallback": acc_fb})
+                        {"acc_primary": acc_primary, "acc_fallback": acc_fb})
             fallback_adopted = True
+        acc = acc_fb if fallback_adopted else acc_primary   # 채택 템플릿의 게이트 값 (리뷰 지적)
         TEMPLATE_CHOICE.write_text(json.dumps(
             {"template": template, "fallback_adopted": fallback_adopted,
-             "acc_gate": acc, "ts": iso_now()}))
-        print(f"template 확정: {template}")
+             "acc_gate": acc, "acc_primary": acc_primary, "acc_fallback": acc_fb,
+             "ts": iso_now()}))
+        print(f"template 확정: {template} (gate acc={acc:.2f})")
 
     # fallback 채택 시 토큰 probe 재확인 (03 §B-2 후속 처리)
     if fallback_adopted:
@@ -132,7 +135,8 @@ def main():
         rows = [r for r in read_jsonl(RAW_RESULTS) if r.get("template") == template]
         by_q = {}
         for r in rows:
-            by_q.setdefault(r["question_id"], {})[r["condition"]] = r["pred"]
+            by_q.setdefault(r["question_id"], {}).setdefault(r["condition"], r["pred"])
+            # setdefault = first-wins — 05_analyze의 중복 채택 정책과 통일 (리뷰 지적)
         qids = [s["question_id"] for s in items60]
         agree_list = [(q, by_q[q]["S"] == by_q[q]["T0"]) for q in qids]
         agree = sum(a for _, a in agree_list) / len(agree_list)

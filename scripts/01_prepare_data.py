@@ -31,6 +31,11 @@ def main():
               f"popular: {len(pop)} (parse fail {len(pop_fail)})")
         if adv_fail or pop_fail:
             print("PARSE FAILURES:", adv_fail[:5], pop_fail[:5])
+        for name, ok, fail in (("adversarial", adv, adv_fail), ("popular", pop, pop_fail)):
+            rate = len(fail) / max(1, len(ok) + len(fail))
+            if rate > 0.05:
+                blocked("01_prepare", f"POPE {name} 파싱 실패율 {rate:.1%} > 5% — 소스 포맷 변형 의심",
+                        {"examples": fail[:5]})
 
     with stage("01_pairing"):
         df, stats = build_pairs(adv, pop, idx, seed=SEED)
@@ -47,16 +52,20 @@ def main():
             df = df[~(df["image1_id"].isin(failed) | df["image2_id"].isin(failed))]
 
     with stage("01_finalize"):
+        import pandas as pd
         parts = []
         for c in CELL_SPEC:
             sub = df[df["cell"] == c]
             if len(sub) < N_PER_CELL:
                 blocked("01_prepare", f"셀 {c} 문항 부족: {len(sub)} < {N_PER_CELL}", {})
             parts.append(sub.head(N_PER_CELL))
-        final = __import__("pandas").concat(parts).reset_index(drop=True)
-        errors = verify_pairs(final, idx)
+        final = pd.concat(parts).reset_index(drop=True)
+        errors, warnings = verify_pairs(final, idx)
         if errors:
             blocked("01_prepare", "검증 pass 실패", {"errors": errors[:10]})
+        if warnings:
+            print(f"WARN: POPE gt vs COCO annotation 불일치 {len(warnings)}건 "
+                  f"(POPE gt 기준 유지, 로그만): {warnings[:3]}")
         for r in final.itertuples():   # 이미지 실재 재확인
             for iid in (r.image1_id, r.image2_id):
                 if not image_path(int(iid), COCO_IMG_DIR).exists():

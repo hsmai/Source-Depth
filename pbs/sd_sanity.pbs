@@ -6,16 +6,19 @@
 #PBS -j oe
 #PBS -o /home/isangmin/sourcedepth/logs/pbs/
 
+set -eo pipefail
 ROOT=/home/isangmin/sourcedepth
 cd $ROOT
 source $ROOT/.venv/bin/activate
-set -euo pipefail
+set -u
 
 export HF_HOME=$ROOT/hf_cache
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export PYTHONHASHSEED=42
 
-date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+trap 'python scripts/05_analyze.py || true' EXIT
+
+date; nvidia-smi || true; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
 python scripts/02_sanity_checks.py
 date

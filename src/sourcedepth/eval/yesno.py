@@ -29,9 +29,16 @@ def resolve_yes_no_ids(model, processor, probe_inputs: list, log_path=None):
             enc = tok.encode(s, add_special_tokens=False)
             if len(enc) == 1:
                 target.add(enc[0])
+    n_observed_hits = sum(1 for o in observed
+                          if o["first_tok"].strip().lower() in ("yes", "no"))
     if not yes_ids or not no_ids or (yes_ids & no_ids):
         blocked("yesno", "Yes/No 토큰 집합 확정 실패",
                 {"yes": sorted(yes_ids), "no": sorted(no_ids), "observed": observed})
+    if n_observed_hits == 0:
+        # variant 인코딩만으로 집합이 채워지는 경우 실제 모델 출력이 Yes/No 형식이
+        # 아닐 수 있다 (리뷰 지적) — 관측 0건이면 평가 형식 전제가 무너진 것
+        blocked("yesno", "생성 probe에서 Yes/No 첫 토큰이 한 번도 관측되지 않음",
+                {"observed": observed})
     payload = {"yes_ids": sorted(yes_ids), "no_ids": sorted(no_ids),
                "observed": observed, "ts": iso_now()}
     TOKEN_IDS_JSON.parent.mkdir(parents=True, exist_ok=True)

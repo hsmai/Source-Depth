@@ -45,6 +45,17 @@ def main():
     print(f"shard {args.shard}/{args.num_shards}: {len(rows)} items × {len(conds)} conds, "
           f"template={template}")
 
+    # 기존 결과와 현 pairs.csv의 페어링 일치 확인 — pairs 재생성 후 resume하면
+    # 같은 question_id가 다른 distractor를 가리켜 무음 혼합됨 (리뷰 지적)
+    expected_img2 = {r["question_id"]: int(r["image2_id"]) for r in pairs.to_dict("records")}
+    stale = [r for r in read_jsonl(RAW_RESULTS)
+             if r.get("template") == template and "image2_id" in r
+             and expected_img2.get(r["question_id"]) not in (None, r["image2_id"])]
+    if stale:
+        blocked("03_main", f"기존 raw_results {len(stale)}행이 현 pairs.csv와 다른 페어링 — "
+                "pairs 재생성 후 stale 결과 혼합 금지 (raw_results 정리 필요)",
+                {"sample": [(r['question_id'], r['image2_id']) for r in stale[:5]]})
+
     with stage(f"03_main_shard{args.shard}"):
         model, processor = load_model_and_processor()
         layers = resolve_decoder_layers(model)

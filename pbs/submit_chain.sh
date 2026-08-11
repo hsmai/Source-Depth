@@ -1,11 +1,13 @@
 #!/bin/bash
 # 자동 연쇄 제출: smoke → sanity(afterok) → main(afterok) → analyze(afterany)
-# afterok = 선행 job이 exit 0일 때만 실행 (sanity/BLOCKED 게이트가 코드 안에 있음)
-# afterany = 선행 job 종료 시 무조건 실행 (STATUS.md 생성 보장)
+# - afterok: 선행 job exit 0일 때만 실행. 선행 실패 시 PBS가 후속을 삭제할 수 있으므로
+#   각 GPU job이 EXIT trap으로 05_analyze를 자체 실행해 STATUS.md를 보장한다.
+# - stale flag 제거: 재제출 시 이전 실행의 SMOKE/SANITY_PASSED로 게이트가 무력화되는 것 방지.
 set -e
 ROOT=/home/isangmin/sourcedepth
 cd $ROOT
 mkdir -p logs/pbs
+rm -f results/SMOKE_PASSED results/SANITY_PASSED
 
 J0=$(qsub pbs/sd_smoke.pbs)
 echo "smoke   : $J0"
@@ -16,6 +18,6 @@ echo "main    : $J2 (afterok:$J1)"
 J3=$(qsub -W depend=afterany:$J2 pbs/sd_analyze.pbs)
 echo "analyze : $J3 (afterany:$J2)"
 echo
-qstat -u isangmin
+qstat -u isangmin || true
 echo
-echo "체인 제출 완료. 확인: qstat -u isangmin / 로그: logs/pbs/"
+echo "체인 제출 완료. 확인: qstat -u isangmin / 로그: logs/pbs/ / 상태: results/STATUS.md"

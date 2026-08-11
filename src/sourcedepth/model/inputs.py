@@ -38,6 +38,8 @@ def find_vision_spans(input_ids, vs_id: int, ve_id: int, pad_id: int,
     ends = [i for i, t in enumerate(ids) if t == ve_id]
     if len(starts) != len(ends) or any(s >= e for s, e in zip(starts, ends)):
         blocked("inputs", "vision start/end 쌍 불일치", {"starts": starts, "ends": ends})
+    if any(ends[i] >= starts[i + 1] for i in range(len(starts) - 1)):
+        blocked("inputs", "vision span 인터리빙 비정상", {"starts": starts, "ends": ends})
     if mode == "with_delimiters":
         spans = [(s, e) for s, e in zip(starts, ends)]
     else:  # "pad_only"

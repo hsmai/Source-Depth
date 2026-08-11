@@ -6,16 +6,20 @@
 #PBS -j oe
 #PBS -o /home/isangmin/sourcedepth/logs/pbs/
 
+set -eo pipefail                     # cd/activate 실패도 job 실패로 (리뷰 지적)
 ROOT=/home/isangmin/sourcedepth
 cd $ROOT
 source $ROOT/.venv/bin/activate
-set -euo pipefail
+set -u
 
 export HF_HOME=$ROOT/hf_cache
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export PYTHONHASHSEED=42
 
-date; nvidia-smi; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
+# job이 어떤 이유로 끝나든 STATUS.md 생성 (afterok 연쇄 삭제 대비 — 리뷰 지적)
+trap 'python scripts/05_analyze.py || true' EXIT
+
+date; nvidia-smi || true; echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
 python scripts/00_smoke_test.py
 date
