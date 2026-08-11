@@ -1,0 +1,6 @@
+POPE adversarial: 3000 (parse fail 0), popular: 3000 (parse fail 0)
+pairing stats: {"per_cell_target": 160, "per_cell_built": {"1": 160, "2": 160, "3": 160, "4": 160}, "skipped": {"deferred_unbalanced": 124, "quota_after_balanced_pass": 0}, "n_unbalanced": 0, "shortfall": {"1": 0, "2": 0, "3": 0, "4": 0}}
+downloading 1002 unique images ...
+images ok=1002 failed=0
+WARN: POPE gt vs COCO annotation 불일치 36건 (POPE gt 기준 유지, 로그만): ['763: POPE gt=yes vs COCO annotation=False', '2507: POPE gt=yes vs COCO annotation=False', '1179: POPE gt=yes vs COCO annotation=False']
+pairs.csv written: 600 rows -> /home/isangmin/sourcedepth/results/pairs.csv

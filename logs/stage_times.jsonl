@@ -1,0 +1,44 @@
+{"stage": "01_load_sources", "event": "start", "ts": "2026-08-11T13:08:24+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_load_sources", "event": "end", "ts": "2026-08-11T13:08:29+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 4}
+{"stage": "01_pairing", "event": "start", "ts": "2026-08-11T13:08:29+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_pairing", "event": "end", "ts": "2026-08-11T13:08:31+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 2}
+{"stage": "01_download_images", "event": "start", "ts": "2026-08-11T13:08:31+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_download_images", "event": "end", "ts": "2026-08-11T13:11:17+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 165}
+{"stage": "01_finalize", "event": "start", "ts": "2026-08-11T13:11:17+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_finalize", "event": "end", "ts": "2026-08-11T13:11:17+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 0}
+{"stage": "01_load_sources", "event": "start", "ts": "2026-08-11T13:17:46+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_load_sources", "event": "end", "ts": "2026-08-11T13:17:50+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 4}
+{"stage": "01_pairing", "event": "start", "ts": "2026-08-11T13:17:50+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_pairing", "event": "end", "ts": "2026-08-11T13:17:55+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 5}
+{"stage": "01_download_images", "event": "start", "ts": "2026-08-11T13:17:55+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_download_images", "event": "end", "ts": "2026-08-11T13:19:41+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 106}
+{"stage": "01_finalize", "event": "start", "ts": "2026-08-11T13:19:41+09:00", "host": "pleiades1", "pbs_job_id": ""}
+{"stage": "01_finalize", "event": "end", "ts": "2026-08-11T13:19:41+09:00", "host": "pleiades1", "pbs_job_id": "", "elapsed_s": 0}
+{"stage": "00_load_model", "event": "start", "ts": "2026-08-11T13:20:55+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_load_model", "event": "end", "ts": "2026-08-11T13:21:05+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 10}
+{"stage": "00_span_check", "event": "start", "ts": "2026-08-11T13:21:05+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_span_check", "event": "end", "ts": "2026-08-11T13:21:05+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 0}
+{"stage": "00_mask_verify", "event": "start", "ts": "2026-08-11T13:21:05+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_mask_verify", "event": "end", "ts": "2026-08-11T13:21:07+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 2}
+{"stage": "00_token_probe", "event": "start", "ts": "2026-08-11T13:21:07+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_token_probe", "event": "end", "ts": "2026-08-11T13:21:11+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 4}
+{"stage": "00_eval_50", "event": "start", "ts": "2026-08-11T13:21:11+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_eval_50", "event": "end", "ts": "2026-08-11T13:21:36+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 25}
+{"stage": "00_profiler_check", "event": "start", "ts": "2026-08-11T13:21:36+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_profiler_check", "event": "end", "ts": "2026-08-11T13:21:37+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 1}
+{"stage": "00_analyze_dryrun", "event": "start", "ts": "2026-08-11T13:21:37+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1"}
+{"stage": "00_analyze_dryrun", "event": "end", "ts": "2026-08-11T13:21:38+09:00", "host": "pleiades3", "pbs_job_id": "99106.pleiades1", "elapsed_s": 1}
+{"stage": "02_sanity2_grounding", "event": "start", "ts": "2026-08-11T13:21:57+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1"}
+{"stage": "02_sanity2_grounding", "event": "end", "ts": "2026-08-11T13:22:09+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1", "elapsed_s": 12}
+{"stage": "02_sanity1_t0_vs_s", "event": "start", "ts": "2026-08-11T13:22:09+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1"}
+{"stage": "02_sanity1_t0_vs_s", "event": "end", "ts": "2026-08-11T13:22:56+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1", "elapsed_s": 47}
+{"stage": "02_sanity3_s_acc", "event": "start", "ts": "2026-08-11T13:22:56+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1"}
+{"stage": "02_sanity3_s_acc", "event": "end", "ts": "2026-08-11T13:23:40+09:00", "host": "pleiades3", "pbs_job_id": "99107.pleiades1", "elapsed_s": 44}
+{"stage": "03_main_shard0", "event": "start", "ts": "2026-08-11T13:23:54+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1"}
+{"stage": "03_main_shard0", "event": "end", "ts": "2026-08-11T14:10:14+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1", "elapsed_s": 2780}
+{"stage": "04_profile_shard0", "event": "start", "ts": "2026-08-11T14:10:18+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1"}
+{"stage": "04_profile_shard0", "event": "end", "ts": "2026-08-11T14:15:47+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1", "elapsed_s": 329}
+{"stage": "05_analyze", "event": "start", "ts": "2026-08-11T14:15:51+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1"}
+{"stage": "05_analyze", "event": "end", "ts": "2026-08-11T14:15:52+09:00", "host": "pleiades3", "pbs_job_id": "99108.pleiades1", "elapsed_s": 1}
+{"stage": "05_analyze", "event": "start", "ts": "2026-08-11T14:16:02+09:00", "host": "pleiades3", "pbs_job_id": "99109.pleiades1"}
+{"stage": "05_analyze", "event": "end", "ts": "2026-08-11T14:16:02+09:00", "host": "pleiades3", "pbs_job_id": "99109.pleiades1", "elapsed_s": 1}

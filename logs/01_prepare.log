@@ -1,0 +1,5 @@
+POPE adversarial: 3000 (parse fail 0), popular: 3000 (parse fail 0)
+pairing stats: {"per_cell_target": 160, "per_cell_built": {"1": 160, "2": 160, "3": 160, "4": 160}, "skipped": {"empty_pool_cell2": 44, "empty_pool_cell3": 20}, "shortfall": {"1": 0, "2": 0, "3": 0, "4": 0}}
+downloading 1014 unique images ...
+images ok=1014 failed=0
+pairs.csv written: 600 rows -> /home/isangmin/sourcedepth/results/pairs.csv

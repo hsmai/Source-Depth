@@ -54,3 +54,9 @@ submit_chain.sh:
 → 99108 sd_main (afterok, 12h) → 99109 sd_analyze (afterany)
 ```
 - 사용자 별도 프로젝트 job(G1C4, 99059)과 합산 2 GPU = token 2.0 ≤ 2.5 한도 내
+
+### 결과 (2026-08-11 14:16 KST — 체인 제출 후 29분 만에 완주)
+- 판정: **① PASS · ② PASS (L*=4) · ②′ PASS · ②″ PASS · ③ FAIL (0.725 < 0.80)**
+- sanity: T0vsS 일치 0.983 / grounding 0.90 / S acc 0.855 — 전부 통과, fallback 미사용
+- BLOCKED 0건, 실행 GPU: RTX 3090 (pleiades3), 총 GPU 시간 ≈ 30분
+- 상세: results/REPORT.md · 그림은 영문 라벨로 재렌더 (서버 한글 폰트 부재)

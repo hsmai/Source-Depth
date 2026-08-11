@@ -1,0 +1,61 @@
+Tue Aug 11 13:20:50 KST 2026
+Tue Aug 11 13:20:50 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:61:00.0 Off |                  N/A |
+| 30%   35C    P8             22W /  350W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES=GPU-8db420b6-a0e2-9e38-b405-1154ae146a7a
+smoke sample: [1462, 691, 218, 2539, 2230]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.25s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+num_hidden_layers = 36 (브리프 전제 32와 비교 — REPORT 기록)
+vision token ids: start=151652 end=151653 pad=151655
+attn_implementation = eager
+# span check 2026-08-11T13:21:05+09:00 (첫 3개 샘플 수동 확인용 — 브리프 C-3)
+
+
+## 1462 seq_len=821
+- img1 span=(14, 406) (393 tokens): ...'<|im_end|>\n<|im_start|>user\n' | [393 tokens: first='<|vision_start|>' last='<|vision_end|>'] | '<|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|>'...
+- img2 span=(407, 799) (393 tokens): ...'<|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>' | [393 tokens: first='<|vision_start|>' last='<|vision_end|>'] | 'In the first image,'...
+
+## 691 seq_len=821
+- img1 span=(14, 406) (393 tokens): ...'<|im_end|>\n<|im_start|>user\n' | [393 tokens: first='<|vision_start|>' last='<|vision_end|>'] | '<|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|>'...
+- img2 span=(407, 799) (393 tokens): ...'<|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>' | [393 tokens: first='<|vision_start|>' last='<|vision_end|>'] | 'In the first image,'...
+
+## 218 seq_len=776
+- img1 span=(14, 360) (347 tokens): ...'<|im_end|>\n<|im_start|>user\n' | [347 tokens: first='<|vision_start|>' last='<|vision_end|>'] | '<|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|>'...
+- img2 span=(361, 753) (393 tokens): ...'<|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>' | [393 tokens: first='<|vision_start|>' last='<|vision_end|>'] | 'In the first image,'...
+mask verify OK: T(N)≡M, T(8) 구조 차단 확인, fired=28/28
+YES_IDS=[7414, 9454, 9693, 9834, 14004] NO_IDS=[902, 2152, 2308, 2753, 8996]
+forward median 516ms → 본실험 6,000 forwards ≈ 0.9h (추정)
+resume check OK (0 forward on rerun)
+profiler OK, peak VRAM 9.8 GiB
+analyze dry-run OK
+SMOKE PASSED
+Tue Aug 11 13:21:39 KST 2026
+STATUS.md written (0/6000 rows)
+결과 불완전 (미비 6000/6000 — 예: [('2650', 'S'), ('2650', 'M'), ('2650', 'T4')]) — REPORT 확정 불가, STATUS만 갱신

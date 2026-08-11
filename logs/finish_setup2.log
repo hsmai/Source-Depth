@@ -1,0 +1,16 @@
++ cd /home/isangmin/sourcedepth
++ export HF_HOME=/home/isangmin/sourcedepth/hf_cache
++ HF_HOME=/home/isangmin/sourcedepth/hf_cache
++ export HF_HUB_DOWNLOAD_TIMEOUT=30
++ HF_HUB_DOWNLOAD_TIMEOUT=30
++ /home/isangmin/sourcedepth/.venv/bin/python -c '
+from huggingface_hub import snapshot_download
+p = snapshot_download("Qwen/Qwen2.5-VL-3B-Instruct", max_workers=2)
+print("MODEL_OK:", p)'
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]/home/isangmin/sourcedepth/setup/finish_setup.sh: line 9: 3701864 Terminated              ~/sourcedepth/.venv/bin/python -c "
+from huggingface_hub import snapshot_download
+p = snapshot_download(\"Qwen/Qwen2.5-VL-3B-Instruct\", max_workers=2)
+print(\"MODEL_OK:\", p)"
++ mkdir -p data/pope data/coco/annotations data/coco/images
++ '[' -s data/pope/coco_pope_adversarial.json ']'
++ curl -sL -o data/pope/coco_pope_adversarial.json https://raw.githubusercontent.com/RUCAIBox/POPE/main/output/coco/coco_pope_adversarial.json

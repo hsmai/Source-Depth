@@ -1,0 +1,151 @@
+Tue Aug 11 13:23:51 KST 2026
+Tue Aug 11 13:23:51 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:61:00.0 Off |                  N/A |
+| 72%   54C    P8             30W /  350W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES=GPU-8db420b6-a0e2-9e38-b405-1154ae146a7a
+shard 0/1: 600 items × 10 conds, template=primary
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.26it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.23it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+executed 5696 forwards this run
+shard 0 complete: 6000 (question, condition) pairs present
+shard 0: 600/600 to profile (template=primary)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.19it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+  50/600 done
+  100/600 done
+  150/600 done
+  200/600 done
+  250/600 done
+  300/600 done
+  350/600 done
+  400/600 done
+  450/600 done
+  500/600 done
+  550/600 done
+  600/600 done
+profiling complete
+Tue Aug 11 14:15:48 KST 2026
+/home/isangmin/sourcedepth/scripts/05_analyze.py:72: UserWarning: Glyph 52264 (\N{HANGUL SYLLABLE CA}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:72: UserWarning: Glyph 45800 (\N{HANGUL SYLLABLE DAN}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:72: UserWarning: Glyph 44618 (\N{HANGUL SYLLABLE GIP}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:72: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:73: UserWarning: Glyph 52264 (\N{HANGUL SYLLABLE CA}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:73: UserWarning: Glyph 45800 (\N{HANGUL SYLLABLE DAN}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:73: UserWarning: Glyph 44618 (\N{HANGUL SYLLABLE GIP}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:73: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 54217 (\N{HANGUL SYLLABLE PYEONG}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 44512 (\N{HANGUL SYLLABLE GYUN}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 47560 (\N{HANGUL SYLLABLE MA}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 51648 (\N{HANGUL SYLLABLE JI}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 47561 (\N{HANGUL SYLLABLE MAG}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 54532 (\N{HANGUL SYLLABLE PEU}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 47212 (\N{HANGUL SYLLABLE ROM}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 53944 (\N{HANGUL SYLLABLE TEU}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 53664 (\N{HANGUL SYLLABLE TO}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 53360 (\N{HANGUL SYLLABLE KEUN}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 48324 (\N{HANGUL SYLLABLE BYEOL}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 48120 (\N{HANGUL SYLLABLE MI}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 51656 (\N{HANGUL SYLLABLE JIL}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 47049 (\N{HANGUL SYLLABLE RYANG}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 51312 (\N{HANGUL SYLLABLE JO}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 44148 (\N{HANGUL SYLLABLE GEON}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 51221 (\N{HANGUL SYLLABLE JEONG}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 45813 (\N{HANGUL SYLLABLE DAB}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 44288 (\N{HANGUL SYLLABLE GWAN}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:108: UserWarning: Glyph 47144 (\N{HANGUL SYLLABLE RYEON}) missing from font(s) DejaVu Sans.
+  fig.tight_layout()
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 54217 (\N{HANGUL SYLLABLE PYEONG}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 44512 (\N{HANGUL SYLLABLE GYUN}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 47560 (\N{HANGUL SYLLABLE MA}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 51648 (\N{HANGUL SYLLABLE JI}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 47561 (\N{HANGUL SYLLABLE MAG}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 54532 (\N{HANGUL SYLLABLE PEU}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 47212 (\N{HANGUL SYLLABLE ROM}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 53944 (\N{HANGUL SYLLABLE TEU}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 53664 (\N{HANGUL SYLLABLE TO}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 53360 (\N{HANGUL SYLLABLE KEUN}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 48324 (\N{HANGUL SYLLABLE BYEOL}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 48120 (\N{HANGUL SYLLABLE MI}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 51656 (\N{HANGUL SYLLABLE JIL}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 47049 (\N{HANGUL SYLLABLE RYANG}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 51312 (\N{HANGUL SYLLABLE JO}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 44148 (\N{HANGUL SYLLABLE GEON}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 51221 (\N{HANGUL SYLLABLE JEONG}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 45813 (\N{HANGUL SYLLABLE DAB}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 44288 (\N{HANGUL SYLLABLE GWAN}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+/home/isangmin/sourcedepth/scripts/05_analyze.py:109: UserWarning: Glyph 47144 (\N{HANGUL SYLLABLE RYEON}) missing from font(s) DejaVu Sans.
+  fig.savefig(path, dpi=150)
+STATUS.md written (6000/6000 rows)
+REPORT.md written
+distractor로 셀1 flip 21%·셀2 flip 13% 발생 (대조군 셀3 0%·셀4 5%)
+L*=4 차단으로 셀1 recovery 81%·셀2 25%, distractor 토큰 이론 FLOPs 절감 42.4%
+layer 8 attention top-1 식별률 72%

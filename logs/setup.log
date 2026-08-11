@@ -1,0 +1,12 @@
++ cd /home/isangmin/sourcedepth
++ BASE_PY=/home/isangmin/.conda/envs/qwen-omni/bin/python
++ /home/isangmin/.conda/envs/qwen-omni/bin/python -m venv --system-site-packages /home/isangmin/sourcedepth/.venv
++ tail -3
++ /home/isangmin/sourcedepth/.venv/bin/pip install --no-input statsmodels pandas scipy qwen-vl-utils requests
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: /home/isangmin/sourcedepth/.venv/bin/python -m pip install --upgrade pip
++ export HF_HOME=/home/isangmin/sourcedepth/hf_cache
++ HF_HOME=/home/isangmin/sourcedepth/hf_cache
++ /home/isangmin/sourcedepth/.venv/bin/python -
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files:   7%|▋         | 1/14 [00:00<00:03,  3.72it/s]

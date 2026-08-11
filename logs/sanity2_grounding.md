@@ -1,0 +1,22 @@
+# sanity 2 grounding — template=primary acc(cell3·4)=0.90 2026-08-11T13:22:09+09:00
+(주의: 셀 1·2의 오답은 본 연구가 측정하려는 leakage일 수 있음 — 게이트는 셀 3·4만 사용)
+- [cell 1] 552 | q='In the first image, is there a dining table? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=True | gen='No' → pred=no gt=no
+- [cell 1] 82 | q='In the first image, is there a bowl? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=True | gen='Yes' → pred=yes gt=no
+- [cell 1] 1384 | q='In the first image, is there a dining table? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=True | gen='No' → pred=no gt=no
+- [cell 1] 1166 | q='In the first image, is there a car? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=True | gen='No' → pred=no gt=no
+- [cell 1] 1112 | q='In the first image, is there a car? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=True | gen='No' → pred=no gt=no
+- [cell 2] 763 | q='In the first image, is there a toaster? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=False | gen='No' → pred=no gt=yes
+- [cell 2] 579 | q='In the first image, is there a car? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=False | gen='Yes' → pred=yes gt=yes
+- [cell 2] 2735 | q='In the first image, is there a potted plant? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=False | gen='Yes' → pred=yes gt=yes
+- [cell 2] 533 | q='In the first image, is there a clock? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=False | gen='No' → pred=no gt=yes
+- [cell 2] 2289 | q='In the first image, is there a pizza? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=False | gen='Yes' → pred=yes gt=yes
+- [cell 3] 142 | q='In the first image, is there a cup? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=False | gen='No' → pred=no gt=no
+- [cell 3] 136 | q='In the first image, is there a book? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=False | gen='No' → pred=no gt=no
+- [cell 3] 438 | q='In the first image, is there a tv? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=False | gen='No' → pred=no gt=no
+- [cell 3] 1156 | q='In the first image, is there a car? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=False | gen='No' → pred=no gt=no
+- [cell 3] 1258 | q='In the first image, is there a car? Answer with Yes or No.' | img1_has_obj=False img2_has_obj=False | gen='No' → pred=no gt=no
+- [cell 4] 2453 | q='In the first image, is there a dining table? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=True | gen='Yes' → pred=yes gt=yes
+- [cell 4] 197 | q='In the first image, is there a dining table? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=True | gen='No' → pred=no gt=yes
+- [cell 4] 2781 | q='In the first image, is there a couch? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=True | gen='Yes' → pred=yes gt=yes
+- [cell 4] 947 | q='In the first image, is there a cake? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=True | gen='Yes' → pred=yes gt=yes
+- [cell 4] 2641 | q='In the first image, is there a tv? Answer with Yes or No.' | img1_has_obj=True img2_has_obj=True | gen='Yes' → pred=yes gt=yes
