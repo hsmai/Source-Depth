@@ -346,8 +346,12 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
       { text: c[1], options: { fontSize: 10.5, color: C.gray } }],
       { x: 8.68, y: y + 0.1, w: 3.95, h: 1.0, fontFace: F, margin: 0, paraSpaceAfter: 4 });
   });
-  s.addText("특히 — 차단한 결과(92.0%)가 이미지를 1장만 준 경우(89.3%)보다도 높았습니다: \"얕게 차단하는 쪽이 더 싸면서 더 정확\"", {
-    x: 0.55, y: 5.5, w: 12.2, h: 0.65, fontFace: F, fontSize: 13, bold: true, color: C.blue, margin: 0 });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.32, w: 12.25, h: 1.12, rectRadius: 0.08,
+    fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText([
+    { text: "\"답을 '없다' 쪽으로 민 것 아닌가?\" — 아닙니다. 오염이 있던 문항군만 오르고, 없던 대조군은 오르지 않았습니다.", options: { bold: true, fontSize: 12.5, color: C.navy, breakLine: true } },
+    { text: "오염 유발 문항군 72.0% → 92.0% (+20.0%p)   vs   같은 정답('없다')이지만 오염 없는 대조군 98.0% → 96.0% (−2.0%p)", options: { fontSize: 12, color: C.gray } },
+  ], { x: 0.85, y: 5.44, w: 11.7, h: 0.95, fontFace: F, margin: 0, paraSpaceAfter: 5 });
   takeaway(s, "→ 차단은 오염을 부작용 없이 고친다 — 그리고 고치는 동시에 계산을 아낀다 (이 연구의 핵심 약속이 실측됨)");
   s.addNotes("회복 81% 대 부작용 3.7%, 22배입니다. 그리고 차단 결과가 이미지 1장만 준 것보다 높다는 것 — '얕게 차단하는 것이 더 싸면서 더 정확하다'는 제안서의 문장이 그대로 실측됐습니다.");
 }
@@ -542,6 +546,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     { text: "A1  전체 결과표 (조건 × 문항군)", options: { breakLine: true } },
     { text: "A2  '두 장 비교' 질문 3종 상세", options: { breakLine: true } },
     { text: "A3  반대 방향 오염과 margin 민감도", options: { breakLine: true } },
+    { text: "A3b 자체 반증 점검 (단일 이미지 비교)", options: { breakLine: true } },
     { text: "A4  층별 식별률 전체 곡선", options: { breakLine: true } },
     { text: "A5  층별 attention 분포", options: { breakLine: true } },
     { text: "A6  재현성·환경·한계", options: { breakLine: true } },
@@ -660,6 +665,34 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     { text: "따라서 본편은 셀1 + 인과 실험(역방향 차단)만으로 구성 — 약한 증거는 약하다고 표기하는 원칙", options: { bullet: true, bold: true } },
   ], { x: 0.9, y: 4.85, w: 11.5, h: 1.7, fontFace: F, fontSize: 12, color: C.navy,
     margin: 0, paraSpaceAfter: 8 });
+}
+
+// =====================================================================
+// A3b — 자체 반증: '단일 이미지보다 좋다'는 성립하지 않음
+// =====================================================================
+{
+  const s = pres.addSlide();
+  kicker(s, "APPENDIX A3b");
+  headline(s, "자체 반증 점검 — \"차단이 이미지 1장보다 낫다\"는 주장은 성립하지 않는다");
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 };
+  const cc = { fontSize: 11, color: C.navy, fill: { color: C.white } };
+  const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
+  const rows = [
+    [m("조건", hd), m("정답 '없다'\n셀1", hd), m("정답 '없다'\n셀3", hd), m("정답 '있다'\n셀2", hd), m("정답 '있다'\n셀4", hd), m("전체", hd), m("'있다' 응답률", hd)],
+    [m("이미지 1장 (S)", { bold: true }), m("0.893"), m("0.947"), m("0.740"), m("0.780"), m("0.840", { bold: true }), m("0.420")],
+    [m("4층부터 차단 (T4)", { bold: true }), m("0.920", { color: C.green }), m("0.960", { color: C.green }), m("0.720", { color: C.red }), m("0.767", { color: C.red }), m("0.842", { bold: true }), m("0.402")],
+    [m("완전 차단 (T0)", { bold: true }), m("0.933", { color: C.green }), m("0.953", { color: C.green }), m("0.720", { color: C.red }), m("0.773", { color: C.red }), m("0.845", { bold: true }), m("0.402")],
+    [m("16층부터 차단", { bold: true }), m("0.933", { color: C.green }), m("0.967", { color: C.green }), m("0.627", { color: C.red }), m("0.740", { color: C.red }), m("0.817", { bold: true }), m("0.367")],
+  ];
+  s.addTable(rows, { x: 0.55, y: 1.75, w: 12.25, rowH: [0.62, 0.44, 0.44, 0.44, 0.44], fontFace: F,
+    align: "center", valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addText([
+    { text: "관찰: 차단하면 정답이 '없다'인 문항군은 전부 오르고(초록), '있다'인 문항군은 전부 내린다(빨강) — 그리고 '있다' 응답률 자체가 감소", options: { bullet: true, breakLine: true } },
+    { text: "→ 이는 정확도 향상이 아니라 판정 기준이 '없다' 쪽으로 이동한 것. 전체 정답률은 84.0% vs 84.2%로 사실상 동일", options: { bullet: true, breakLine: true, bold: true } },
+    { text: "→ 따라서 \"단일 이미지보다 정확하다\"는 주장은 폐기. 올바른 서술은 \"차단이 멀티이미지 손실을 단일 이미지 수준으로 회복시킨다\"", options: { bullet: true, breakLine: true, bold: true } },
+    { text: "단, 본편의 핵심 주장(M → T4)은 무관하게 유효: 같은 layout·같은 프롬프트에서 오염 문항군만 +20%p, 오염 없는 대조군은 −2%p — 기준 이동이면 둘 다 올랐어야 함 (응답률 이동폭 3.8%p로는 20%p 설명 불가)", options: { bullet: true } },
+  ], { x: 0.55, y: 4.35, w: 12.25, h: 2.3, fontFace: F, fontSize: 11.5, color: C.navy,
+    margin: 0, paraSpaceAfter: 7 });
 }
 
 // =====================================================================
