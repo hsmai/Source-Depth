@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N 0_4_isangmin_sd_analyze
+#PBS -q pleiades3
+#PBS -l select=1:ncpus=4
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# CPU 전용 — afterany로 제출되어 파이프라인이 어디서 멈췄든 STATUS.md를 생성한다.
+
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -euo pipefail
+
+export PYTHONHASHSEED=42
+date
+python scripts/05_analyze.py
+date
