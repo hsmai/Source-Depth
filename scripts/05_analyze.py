@@ -19,7 +19,7 @@ import pandas as pd
 from sourcedepth.config import (ATTN_PROFILE, CONDITIONS, IDENT_THRESH, L_GRID,
                                 LOGS_DIR, N_PER_CELL, PAIRS_CSV,
                                 PROFILE_LAYERS_1IDX, RAW_RESULTS, RESULTS_DIR,
-                                SMOKE_FLAG, TEMPLATE_CHOICE)
+                                SMOKE_FLAG, TAG, TEMPLATE_CHOICE)
 from sourcedepth.eval.metrics import (FLIP_DIR, accuracy, flip_counts,
                                       flip_rate, flops_savings, judge,
                                       mcnemar_p, recovery_damage, to_wide)
@@ -47,8 +47,8 @@ def pipeline_status(template, n_rows, n_profile):
                      f"({s.get('elapsed_s', '')}s) {s.get('reason', '')}")
     blocked_md = LOGS_DIR / "BLOCKED.md"
     lines += ["", "## BLOCKED", "", blocked_md.read_text() if blocked_md.exists() else "없음"]
-    (RESULTS_DIR / "STATUS.md").write_text("\n".join(lines))
-    print(f"STATUS.md written ({n_rows}/{EXPECTED} rows)")
+    (RESULTS_DIR / f"STATUS{TAG}.md").write_text("\n".join(lines))
+    print(f"STATUS{TAG}.md written ({n_rows}/{EXPECTED} rows)")
 
 
 def fig1(pred, corr, path, l_grid=None):
@@ -153,14 +153,17 @@ def main():
 
     with stage("05_analyze"):
         df = pd.DataFrame(rows)
-        df.to_csv(RESULTS_DIR / "results.csv", index=False)
+        df.to_csv(RESULTS_DIR / f"results{TAG}.csv", index=False)
         pred, corr = to_wide(df)
         n_layers = json.loads(SMOKE_FLAG.read_text())["num_hidden_layers"]
 
-        # --extra-l(L 그리드 세분화) 실행분 포함 — 데이터에 실재하는 T(L) 조건을 전부 분석
+        # 곡선(fig1)·FLOPs는 데이터에 실재하는 모든 T(L)로 — 세분화 실행분 포함.
+        # 단 **판정 ②는 사전 등록 L_GRID로만** (세분화 L을 판정에 넣으면 탐색 공간이
+        # 넓어져 사전 등록 위반 — 세분화는 곡선 해상도용 탐색적 분석)
         det_ls = sorted({int(c[1:]) for c in df["condition"].unique()
                          if c.startswith("T") and c[1:].isdigit() and int(c[1:]) > 0})
-        j = judge(pred, corr, l_grid=det_ls)
+        judge_ls = [l for l in det_ls if l in L_GRID] or det_ls
+        j = judge(pred, corr, l_grid=judge_ls)
         flops = flops_savings(df, n_layers, l_grid=det_ls)
 
         # 표 1
@@ -186,9 +189,9 @@ def main():
                 row["p_pooled"] = f"{mc['p']:.2e}"
             t1.append(row)
         table1 = pd.DataFrame(t1)
-        table1.to_csv(RESULTS_DIR / "table1.csv", index=False)
+        table1.to_csv(RESULTS_DIR / f"table1{TAG}.csv", index=False)
 
-        fig1(pred, corr, RESULTS_DIR / "fig1_accuracy_vs_L.png", l_grid=det_ls)
+        fig1(pred, corr, RESULTS_DIR / f"fig1_accuracy_vs_L{TAG}.png", l_grid=det_ls)
 
         ident, fig2_counts, mismatch = {}, {}, None
         profile_complete = {str(r["question_id"]) for r in profile_rows} >= set(pair_qids)
@@ -197,8 +200,8 @@ def main():
             arr = np.array([r["masses"] for r in profile_rows])
             for l1 in PROFILE_LAYERS_1IDX:
                 ident[l1] = float((arr[:, l1 - 1, 0] > arr[:, l1 - 1, 1]).mean())
-            fig2_counts = fig2(profile_rows, pred, RESULTS_DIR / "fig2_attention_profile.png",
-                               n_layers)
+            fig2_counts = fig2(profile_rows, pred,
+                               RESULTS_DIR / f"fig2_attention_profile{TAG}.png", n_layers)
             m_pred = dict(zip(pred["question_id"], pred["M"]))
             mismatch = sum(1 for r in profile_rows
                            if m_pred.get(r["question_id"]) not in (None, r["pred_reprofile"]))
@@ -293,8 +296,8 @@ def main():
                "- per-token 평균 질량 기준 식별률 병기",
                "- Bonferroni 조정 p 참고치 병기",
                "- distractor 2장 확장 및 시각 유사 distractor (PART D 실패 대응 경로 — 이번 실행에서 미사용 시)"]
-        (RESULTS_DIR / "REPORT.md").write_text("\n".join(rpt))
-        (RESULTS_DIR / "judgments.json").write_text(
+        (RESULTS_DIR / f"REPORT{TAG}.md").write_text("\n".join(rpt))
+        (RESULTS_DIR / f"judgments{TAG}.json").write_text(
             json.dumps(_clean_nan(j), indent=1, ensure_ascii=False, default=str))
         print("REPORT.md written")
         print("\n".join(concl))

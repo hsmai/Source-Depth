@@ -8,6 +8,7 @@
   A-5 ② 분모 격차 < 0.05 → 판정 ② 전체 INDETERMINATE (PASS 격상 금지)
   A-6 ARTICLE_MODE = preserve_pope (POPE 원문 관사 보존)
 """
+import os
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -16,7 +17,9 @@ RESULTS_DIR = REPO_ROOT / "results"
 LOGS_DIR = REPO_ROOT / "logs"
 
 SEED = 42
-MODEL_ID = "Qwen/Qwen2.5-VL-3B-Instruct"
+# 모델 스위칭 (7B 재현 실험용): SD_MODEL_ID + SD_TAG(결과 파일 suffix, 예: "_7b")
+MODEL_ID = os.environ.get("SD_MODEL_ID", "Qwen/Qwen2.5-VL-3B-Instruct")
+TAG = os.environ.get("SD_TAG", "")
 
 L_GRID = [4, 8, 12, 16, 20, 24]
 L_GRID_FALLBACK = [2, 4, 6, 8, 10, 12]  # PART D ② 실패 대응 전용 (각 1회)
@@ -34,6 +37,8 @@ INDET_GAP = 0.05                     # A-5: |Acc(T0)-Acc(M)| < 5%p → 셀 판�
 # 프롬프트 (브리프 B-1/B-2 문구, {obj}에 관사 포함 객체구 삽입: "an orange")
 PROMPT_MULTI = "In the first image, is there {obj}? Answer with Yes or No."
 PROMPT_SINGLE = "In the image, is there {obj}? Answer with Yes or No."
+# 순서 뒤집기 대조 실행 전용 (탐색적 — ③ position bias 분리): [distractor, 원본] + "second image"
+PROMPT_MULTI_SECOND = "In the second image, is there {obj}? Answer with Yes or No."
 # sanity 2 실패 시에만 사용 (C-4 fallback). build_inputs가 라벨 텍스트를 삽입한다.
 TEMPLATE_PRIMARY = "primary"
 TEMPLATE_FALLBACK = "picture_labels"
@@ -44,14 +49,15 @@ COCO_INSTANCES = DATA_DIR / "coco" / "annotations" / "instances_val2014.json"
 COCO_IMG_DIR = DATA_DIR / "coco" / "images"
 COCO_IMG_URL = "http://images.cocodataset.org/val2014/COCO_val2014_{id:012d}.jpg"
 
-PAIRS_CSV = RESULTS_DIR / "pairs.csv"
-RAW_RESULTS = RESULTS_DIR / "raw_results.jsonl"
-SMOKE_RESULTS = RESULTS_DIR / "smoke_results.jsonl"
-ATTN_PROFILE = RESULTS_DIR / "attn_profile.jsonl"
-TOKEN_IDS_JSON = RESULTS_DIR / "token_ids.json"
-TEMPLATE_CHOICE = RESULTS_DIR / "template_choice.json"
-SANITY_FLAG = RESULTS_DIR / "SANITY_PASSED"
-SMOKE_FLAG = RESULTS_DIR / "SMOKE_PASSED"
+PAIRS_CSV = RESULTS_DIR / "pairs.csv"        # 모델 간 공유 (동일 데이터)
+RAW_RESULTS = RESULTS_DIR / f"raw_results{TAG}.jsonl"
+SMOKE_RESULTS = RESULTS_DIR / f"smoke_results{TAG}.jsonl"
+ATTN_PROFILE = RESULTS_DIR / f"attn_profile{TAG}.jsonl"
+ATTN_PROFILE_SWAPPED = RESULTS_DIR / f"attn_profile_swapped{TAG}.jsonl"
+TOKEN_IDS_JSON = RESULTS_DIR / f"token_ids{TAG}.json"
+TEMPLATE_CHOICE = RESULTS_DIR / f"template_choice{TAG}.json"
+SANITY_FLAG = RESULTS_DIR / f"SANITY_PASSED{TAG}"
+SMOKE_FLAG = RESULTS_DIR / f"SMOKE_PASSED{TAG}"
 
 # 판정 상수 (PART D 사전 등록 — 결과 보고 변경 금지)
 FLIP_THRESH = 0.10
