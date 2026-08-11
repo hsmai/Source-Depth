@@ -1,0 +1,30 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_gate2
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# A1(핵심) + S2 방어 + A4: per-image 차등 depth 실증 / CLIP baseline / risk-calibrated knob
+#   11_allocation : Rel{L} 관련이미지 depth 요구량 + J{L1}x{L2} 동시 차등 배분 + VTW{K} baseline
+#   12_clip       : "CLIP으로 고르면 되지 않나" 정면 비교
+#   13_alpha_knob : 실측 per-item 정오 기반 (오류율, 절감) Pareto — GPU 불필요
+#   10_gate_charts: 그림 재생성
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 11 allocation (A1) ====="; python scripts/11_allocation.py || echo "11 FAILED"
+echo "===== 12 clip baseline (S2) ====="; python scripts/12_clip_baseline.py || echo "12 FAILED"
+echo "===== 13 alpha knob (A4) ====="; python scripts/13_alpha_knob.py || echo "13 FAILED"
+echo "===== 10 charts ====="; python scripts/10_gate_charts.py || echo "10 FAILED"
+date
