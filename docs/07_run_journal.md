@@ -60,3 +60,8 @@ submit_chain.sh:
 - sanity: T0vsS 일치 0.983 / grounding 0.90 / S acc 0.855 — 전부 통과, fallback 미사용
 - BLOCKED 0건, 실행 GPU: RTX 3090 (pleiades3), 총 GPU 시간 ≈ 30분
 - 상세: results/REPORT.md · 그림은 영문 라벨로 재렌더 (서버 한글 폰트 부재)
+
+### 스토리지 사고·이전 (2026-08-11 17:55)
+- 확장 실험 도중 **/home이 클러스터 전체 100% 도달** (전일 265GB 여유 → 타 사용자 사용으로 소진). 7B 다운로드가 ENOSPC로 실패, 실행 중이던 결과 쓰기도 위험한 상태였음
+- 대응: ext job qhold → `~/sourcedepth` 전체를 **/data3/isangmin/sourcedepth**(726GB 여유, 전 노드 NFS 마운트·쓰기 확인)로 이전 후 symlink → PBS 절대경로·venv 그대로 동작 확인 → qrls
+- 7B 다운로드 /data3에서 재개. /home은 8.7GB만 확보된 임계 상태 — **연구실 공지 필요** (사용자 액션 아이템)
