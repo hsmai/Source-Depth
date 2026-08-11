@@ -1,0 +1,30 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd7b_core
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=06:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 7B에서 오염(POPE flip)이 거의 사라진 것이 확인됨(21.3% → 0.7%).
+# 그렇다면 본 연구의 두 핵심 주장이 7B에서도 성립하는지가 결정적 질문이 된다:
+#   07 relational : 질문 유형별 최적 depth가 정반대인가 (X자 교차) — 오염과 무관한 더 근본적 주장
+#   11 allocation : 이미지별 차등 배분이 동일 예산에서 일괄 차단을 이기는가 (효율 주장)
+# 결과 파일은 *_7b suffix로 분리되어 3B 결과를 건드리지 않음.
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct
+export SD_TAG=_7b
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 07 relational (7B) ====="; python scripts/07_relational.py || echo "07-7B FAILED"
+echo "===== 11 allocation (7B) ====="; python scripts/11_allocation.py || echo "11-7B FAILED"
+date

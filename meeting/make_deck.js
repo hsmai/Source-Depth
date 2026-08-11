@@ -766,5 +766,5 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     x: 0.55, y: 6.55, w: 12.2, h: 0.35, fontFace: F, fontSize: 10.5, color: C.gray, margin: 0 });
 }
 
-pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/SourceDepth_Phase0_meeting.pptx" })
+pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/_generated/deck_generated.pptx" })
   .then(() => console.log("DECK v2 WRITTEN"));

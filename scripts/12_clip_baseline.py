@@ -35,7 +35,8 @@ def main():
 
     rows = pd.read_csv(PAIRS_CSV).to_dict("records")
     with stage("12_clip_baseline"):
-        model = CLIPModel.from_pretrained(CLIP_ID).to(DEV).eval()
+        # torch 2.5.x + transformers 4.52는 .bin 로딩을 거부 → safetensors 강제
+        model = CLIPModel.from_pretrained(CLIP_ID, use_safetensors=True).to(DEV).eval()
         proc = CLIPProcessor.from_pretrained(CLIP_ID)
 
         hit = 0

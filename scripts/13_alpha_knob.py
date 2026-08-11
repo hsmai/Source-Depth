@@ -40,6 +40,7 @@ def scores_at(layer_1idx, feature, sweep):
         d = np.array([np.array(r["heads"][li][0]) - np.array(r["heads"][li][1]) for r in rows])
         best_head = int(np.argmax((d > 0).mean(0)))
     for r in rows:
+        qid = str(r["question_id"])          # results.csv 쪽이 str이라 반드시 통일
         m1 = np.array(r["heads"][li][0])
         m2 = np.array(r["heads"][li][1])
         if feature == "mean_head":
@@ -50,7 +51,7 @@ def scores_at(layer_1idx, feature, sweep):
             s = float(m1.max() - m2.max())
         else:
             s = float((m1 - m2).mean())
-        out[r["question_id"]] = s
+        out[qid] = s
     return out, best_head
 
 

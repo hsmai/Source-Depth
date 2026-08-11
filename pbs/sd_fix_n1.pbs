@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_fix
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=02:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# gate2에서 누락/실패한 3건 복구:
+#   08b : head 단위 순서뒤집기 (원 PBS 스크립트 편집이 제출 이후라 실행 안 됨)
+#   12  : CLIP baseline (torch 2.5 + .bin 로딩 거부 → use_safetensors=True로 수정)
+#   13  : α-knob (question_id 타입 불일치로 조합 0건 → str 통일로 수정)
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 08b headwise SWAP ====="; python scripts/08_headwise_profile.py --swap || echo "08b FAILED"
+echo "===== 12 clip baseline ====="; python scripts/12_clip_baseline.py || echo "12 FAILED"
+echo "===== 13 alpha knob ====="; python scripts/13_alpha_knob.py || echo "13 FAILED"
+echo "===== 10 charts ====="; python scripts/10_gate_charts.py || echo "10 FAILED"
+date

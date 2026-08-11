@@ -21,7 +21,7 @@ import pandas as pd
 import torch
 
 from sourcedepth.config import (COCO_IMG_DIR, PAIRS_CSV, RESULTS_DIR, SEED,
-                                TEMPLATE_CHOICE)
+                                TAG, TEMPLATE_CHOICE)
 from sourcedepth.data.download import image_path
 from sourcedepth.eval.loop import questions_for
 from sourcedepth.eval.yesno import load_yes_no_ids, predict
@@ -32,7 +32,7 @@ from sourcedepth.model.masking import KVBlockController
 from sourcedepth.runlog import append_jsonl, blocked, dump_env, iso_now, read_jsonl, stage
 
 DEV = "cuda:0"
-OUT = RESULTS_DIR / "alloc_results.jsonl"
+OUT = RESULTS_DIR / f"alloc_results{TAG}.jsonl"
 
 REL_LS = [12, 16, 20, 24, 28, 32]          # (a) 관련 이미지 depth 요구량
 JOINT = [(4, 32), (4, 28), (4, 24), (8, 28)]   # (b) (distractor L1, relevant L2)
@@ -119,7 +119,7 @@ def main():
 
     # 요약 (셀별 accuracy) + FLOPs 절감 병기
     res = read_jsonl(OUT)
-    base = pd.read_csv(RESULTS_DIR / "results.csv")
+    base = pd.read_csv(RESULTS_DIR / f"results{TAG}.csv")
     ref = {c: base[base["condition"] == c].groupby("cell")["correct"].mean().to_dict()
            for c in ("M", "T0", "T4")}
     rel_tok = pd.DataFrame(res)["rel_tokens"].median()

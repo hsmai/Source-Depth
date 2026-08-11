@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import torch
 
 from sourcedepth.config import (COCO_IMG_DIR, COCO_INSTANCES, LOGS_DIR,
-                                RESULTS_DIR, SEED)
+                                RESULTS_DIR, SEED, TAG)
 from sourcedepth.data.coco_index import build_indices
 from sourcedepth.data.download import image_path
 from sourcedepth.eval.yesno import load_yes_no_ids, predict
@@ -35,7 +35,7 @@ from sourcedepth.runlog import append_jsonl, blocked, dump_env, iso_now, read_js
 DEV = "cuda:0"
 N_REL = 100
 CONDS = ["M", "T4", "T8", "T12", "T16", "T20", "T24", "T0"]
-OUT = RESULTS_DIR / "rel_results.jsonl"
+OUT = RESULTS_DIR / f"rel_results{TAG}.jsonl"
 PAIRS_OUT = RESULTS_DIR / "rel_pairs.json"
 PROMPT_BOTH = "Is there {obj} in both images? Answer with Yes or No."
 VOWELS = "aeiou"
