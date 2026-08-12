@@ -1,31 +1,11 @@
-# STATUS — 2026-08-11T14:16:02+09:00
+# STATUS — 2026-08-11T22:28:42+09:00
 
 - template: primary
-- raw_results rows (현 template): 6000 / 6000
+- raw_results rows (현 template): 9600 / 6000
 - attn_profile rows: 600 / 600
 
 ## 단계 이벤트 로그 (stage_times.jsonl)
 
-- 2026-08-11T13:08:29+09:00 [start] 01_pairing (s) 
-- 2026-08-11T13:08:31+09:00 [end] 01_pairing (2s) 
-- 2026-08-11T13:08:31+09:00 [start] 01_download_images (s) 
-- 2026-08-11T13:11:17+09:00 [end] 01_download_images (165s) 
-- 2026-08-11T13:11:17+09:00 [start] 01_finalize (s) 
-- 2026-08-11T13:11:17+09:00 [end] 01_finalize (0s) 
-- 2026-08-11T13:17:46+09:00 [start] 01_load_sources (s) 
-- 2026-08-11T13:17:50+09:00 [end] 01_load_sources (4s) 
-- 2026-08-11T13:17:50+09:00 [start] 01_pairing (s) 
-- 2026-08-11T13:17:55+09:00 [end] 01_pairing (5s) 
-- 2026-08-11T13:17:55+09:00 [start] 01_download_images (s) 
-- 2026-08-11T13:19:41+09:00 [end] 01_download_images (106s) 
-- 2026-08-11T13:19:41+09:00 [start] 01_finalize (s) 
-- 2026-08-11T13:19:41+09:00 [end] 01_finalize (0s) 
-- 2026-08-11T13:20:55+09:00 [start] 00_load_model (s) 
-- 2026-08-11T13:21:05+09:00 [end] 00_load_model (10s) 
-- 2026-08-11T13:21:05+09:00 [start] 00_span_check (s) 
-- 2026-08-11T13:21:05+09:00 [end] 00_span_check (0s) 
-- 2026-08-11T13:21:05+09:00 [start] 00_mask_verify (s) 
-- 2026-08-11T13:21:07+09:00 [end] 00_mask_verify (2s) 
 - 2026-08-11T13:21:07+09:00 [start] 00_token_probe (s) 
 - 2026-08-11T13:21:11+09:00 [end] 00_token_probe (4s) 
 - 2026-08-11T13:21:11+09:00 [start] 00_eval_50 (s) 
@@ -46,6 +26,26 @@
 - 2026-08-11T14:15:47+09:00 [end] 04_profile_shard0 (329s) 
 - 2026-08-11T14:15:51+09:00 [start] 05_analyze (s) 
 - 2026-08-11T14:15:52+09:00 [end] 05_analyze (1s) 
+- 2026-08-11T14:16:02+09:00 [start] 05_analyze (s) 
+- 2026-08-11T14:16:02+09:00 [end] 05_analyze (1s) 
+- 2026-08-11T14:18:40+09:00 [start] 05_analyze (s) 
+- 2026-08-11T14:18:41+09:00 [end] 05_analyze (1s) 
+- 2026-08-11T20:13:09+09:00 [start] 07_relational (s) 
+- 2026-08-11T20:34:07+09:00 [end] 07_relational (1258s) 
+- 2026-08-11T20:34:10+09:00 [start] 08_headwise_profile (s) 
+- 2026-08-11T20:39:36+09:00 [end] 08_headwise_profile (327s) 
+- 2026-08-11T20:39:36+09:00 [start] 08_feature_sweep (s) 
+- 2026-08-11T20:39:37+09:00 [end] 08_feature_sweep (0s) 
+- 2026-08-11T20:39:39+09:00 [start] 09_compaction_bench (s) 
+- 2026-08-11T20:41:42+09:00 [end] 09_compaction_bench (123s) 
+- 2026-08-11T20:41:50+09:00 [start] 11_allocation (s) 
+- 2026-08-11T21:52:25+09:00 [end] 11_allocation (4235s) 
+- 2026-08-11T21:52:30+09:00 [start] 12_clip_baseline (s) 
+- 2026-08-11T21:52:30+09:00 [error] 12_clip_baseline (0s) 
+- 2026-08-11T21:52:41+09:00 [start] 03_main_shard0 (s) 
+- 2026-08-11T22:23:06+09:00 [end] 03_main_shard0 (1825s) 
+- 2026-08-11T22:23:09+09:00 [start] 04_profile_shard0 (s) 
+- 2026-08-11T22:28:39+09:00 [end] 04_profile_shard0 (330s) 
 
 ## BLOCKED
 

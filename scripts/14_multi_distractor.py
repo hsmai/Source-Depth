@@ -141,6 +141,9 @@ def main():
                 if cond == "S":
                     ctrl.disable()
                     inputs = in_s
+                elif cond == "M":
+                    ctrl.disable()          # 3장 전부 보이는 기준선
+                    inputs = in_m
                 else:
                     bf = 0 if cond == "T0" else int(cond[1:])
                     ctrl.configure_multi([(bf, sp[1]), (bf, sp[2])])  # 방해 2장 동시 차단

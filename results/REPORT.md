@@ -1,6 +1,6 @@
 # SourceDepth Phase 0 — Feasibility REPORT
 
-생성: 2026-08-11T14:18:41+09:00 · 설계: docs/01_feasibility_brief.md (frozen) · seed 42
+생성: 2026-08-11T22:28:43+09:00 · 설계: docs/01_feasibility_brief.md (frozen) · seed 42
 
 ## 실행 환경
 - GPU: NVIDIA GeForce RTX 3090, 24576 MiB
@@ -43,11 +43,17 @@ condition  acc_c1  acc_c2  acc_c3  acc_c4  acc_all  flip_c1  flip_c2  flip_c3  f
 
 ## 이론 FLOPs 절감 (A-1: (N−L)/N, N=36)
 {
+ "T2": 0.4505886741577287,
  "T4": 0.42408345803080344,
+ "T6": 0.39757824190387825,
  "T8": 0.371073025776953,
+ "T10": 0.3445678096500278,
  "T12": 0.31806259352310257,
+ "T14": 0.2915573773961774,
  "T16": 0.26505216126925213,
+ "T18": 0.23854694514232694,
  "T20": 0.21204172901540172,
+ "T22": 0.1855365128884765,
  "T24": 0.15903129676155128
 }
 - 최적 L* = 4 기준 절감: 0.42408345803080344
@@ -56,7 +62,7 @@ condition  acc_c1  acc_c2  acc_c3  acc_c4  acc_all  flip_c1  flip_c2  flip_c3  f
 distractor로 셀1 flip 21%·셀2 flip 13% 발생 (대조군 셀3 0%·셀4 5%) · L*=4 차단으로 셀1 recovery 81%·셀2 25%, distractor 토큰 이론 FLOPs 절감 42.4% · layer 8 attention top-1 식별률 72%
 
 ## 이상 징후
-- logit 동률(tie) 발생: 104건 (동률→no 사전 규정)
+- logit 동률(tie) 발생: 169건 (동률→no 사전 규정)
 - stage3 M 예측 vs stage4 재예측 불일치: 0건 (분류 단일 소스 = stage 3)
 - fig2 그룹 크기: {'M correct': 474, 'flipped': 51}
 

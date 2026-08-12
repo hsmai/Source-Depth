@@ -1,0 +1,13 @@
+{
+ "clip_model": "openai/clip-vit-base-patch32",
+ "overall_identification": 0.505,
+ "by_cell": {
+  "1": 0.3133,
+  "2": 0.7533,
+  "3": 0.4333,
+  "4": 0.52
+ },
+ "on_solvable_cells_2_3": 0.5933,
+ "extra_cost_ms_per_item_median": 10.05,
+ "note": "셀 1·4는 distractor에도 질의 객체가 존재해 CLIP의 객체 유사도로는 원리적으로 구분 불가 — 이것이 '외부 relevance 모델'의 구조적 한계다. 우리 컨트롤러는 질문의 지시어(first image)까지 조건화된 내부 신호를 쓴다."
+}
