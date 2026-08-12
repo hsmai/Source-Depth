@@ -59,12 +59,12 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     w: 11, h: 0.32, fontFace: F, fontSize: 11.5, bold: true, color: "8AA5BC", charSpacing: 1, margin: 0 });
   s.addText("이미지마다 계산 깊이를 다르게 주면,\n멀티이미지 환각이 줄고 계산도 준다", { x: 0.6, y: 1.15,
     w: 12.2, h: 1.9, fontFace: F, fontSize: 32, bold: true, color: C.white, margin: 0, lineSpacingMultiple: 1.15 });
-  s.addText("가설의 절반은 확인, 절반은 반증 — 그리고 반증된 쪽이 더 유용한 발견이었습니다.", {
+  s.addText("검증 실험 결과 보고 — 그리고 1주일 추가 검증 요청", {
     x: 0.6, y: 3.1, w: 12, h: 0.45, fontFace: F, fontSize: 15, color: "AFC6DA", margin: 0 });
   const cards = [
-    ["✓ 문제는 실재했다", "무관한 이미지 1장이 멀쩡하던 답의 21%를\n뒤집었고(대조군 0%), 4층 차단으로 81% 회복.\n반대로 정답 이미지를 자르면 0.79→0.50", "인과까지 확인 (p=4×10⁻³⁸)"],
-    ["✓ 배분이 예산보다 중요하다", "같은 계산량에서 배분만 바꿔\n3B +28.7%p / 7B +8.7%p.\n두 스케일 모두 재현", "단, 정답 이미지를 아는 조건(oracle)"],
-    ["✗ 그러나 스스로 판정하지 못한다", "\"어느 이미지가 관련인가\"를 판정 가능한\n시점이 개입이 유효한 시점보다 늦다.\n실제 컨트롤러를 끼우면 −1.5%p", "← 이 실패의 구조가 오늘의 핵심"],
+    ["가설의 앞부분은 확인됐다", "무관한 이미지가 답의 21%를 뒤집고(대조군 0%),\n차단으로 81%가 회복되며, 반대로 정답 이미지를\n자르면 0.79→0.50으로 붕괴한다", "인과까지 확인 · 3B"],
+    ["뒷부분은 제 손으로 반증했다", "\"이미지마다 다르게\"의 이득 상한은 +2.7%p였고,\n관련 이미지를 스스로 판정하는 시점이\n개입해야 하는 시점보다 늦다", "단, 좁은 조건에서의 결론"],
+    ["그런데 자리는 비어 있다", "가장 가까운 최근 연구를 원문 대조해 보니\ntraining-free 추론시 개입 · 환각 평가는\n다루지 않았고, 열린 질문을 남겼다", "→ 1주일만 더 검증하고 싶습니다"],
   ];
   cards.forEach((c, i) => {
     const x = 0.6 + i * 4.15, y = 3.85, w = 3.95, h = 2.85;
@@ -81,35 +81,32 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 }
 
 // =====================================================================
-// S2 — 오늘의 구조: 질문 3개
+// S2 — 오늘 보고의 구조
 // =====================================================================
 {
   const s = pres.addSlide();
-  kicker(s, "오늘 보고의 구조");
-  headline(s, "\"이 연구가 성립하는가\"를 세 가지 질문으로 나눠 검증했습니다");
-  const qs = [
-    ["Q1", "문제가 진짜 있는가?", "이미지를 하나 더 넣으면\n정말 답이 오염되는가", "✓ 그렇다", C.green, "슬라이드 5"],
-    ["Q2", "해법이 작동하는가?", "'중간부터 차단'이 오염을 고치는가,\n그 효과는 인과적인가", "✓ 그렇다", C.green, "슬라이드 6–8"],
-    ["Q3", "실제로 만들 수 있는가?", "무엇을 차단할지 스스로 알 수 있는가,\n실제로 빨라지는가", "✗ 아직 아니다\n— 그 이유를 규명", C.red, "슬라이드 12"],
+  kicker(s, "오늘 보고 순서");
+  headline(s, "실험 결과 → 해석 → 남은 질문 → 1주일 계획");
+  const steps = [
+    ["1", "무엇을 검증하려 했나", "이미지마다 계산 깊이를 다르게 주면\n환각이 줄고 계산도 준다는 가설", C.gray],
+    ["2", "무엇이 확인됐나", "문제 실재 · 개입 효과 · 인과\n(단, 정답 이미지를 아는 조건)", C.green],
+    ["3", "무엇이 무너졌나", "'이미지마다 다르게'의 이득 상한 +2.7%p\n판정 시점 > 개입 시점", C.red],
+    ["4", "그래서 무엇을 하려 하나", "가장 가까운 연구가 비워둔 자리 확인\n1주일 검증 후 진행/중단 확정", C.blue],
   ];
-  qs.forEach((q, i) => {
-    const x = 0.55 + i * 4.25, y = 1.75, w = 4.0, h = 4.4;
+  steps.forEach((t, i) => {
+    const x = 0.55 + i * 3.2, y = 1.85, w = 2.95, h = 3.9;
     s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1,
-      fill: { color: C.light }, line: { color: C.line, width: 1 } });
-    s.addShape(pres.shapes.OVAL, { x: x + 0.25, y: y + 0.25, w: 0.62, h: 0.62, fill: { color: C.navy } });
-    s.addText(q[0], { x: x + 0.25, y: y + 0.25, w: 0.62, h: 0.62, align: "center", valign: "middle",
-      fontFace: F, fontSize: 16, bold: true, color: C.white, margin: 0 });
-    s.addText(q[1], { x: x + 1.05, y: y + 0.33, w: w - 1.25, h: 0.5, fontFace: F, fontSize: 15.5,
+      fill: { color: C.light }, line: { color: t[3], width: 1.25 } });
+    s.addShape(pres.shapes.OVAL, { x: x + 0.2, y: y + 0.2, w: 0.5, h: 0.5, fill: { color: t[3] } });
+    s.addText(t[0], { x: x + 0.2, y: y + 0.2, w: 0.5, h: 0.5, align: "center", valign: "middle",
+      fontFace: F, fontSize: 15, bold: true, color: C.white, margin: 0 });
+    s.addText(t[1], { x: x + 0.2, y: y + 0.85, w: w - 0.4, h: 0.8, fontFace: F, fontSize: 13.5,
       bold: true, color: C.navy, margin: 0 });
-    s.addText(q[2], { x: x + 0.28, y: y + 1.15, w: w - 0.56, h: 1.0, fontFace: F, fontSize: 12.5,
+    s.addText(t[2], { x: x + 0.2, y: y + 1.7, w: w - 0.4, h: 1.9, fontFace: F, fontSize: 11.5,
       color: C.gray, margin: 0, lineSpacingMultiple: 1.2 });
-    s.addText(q[3], { x: x + 0.28, y: y + 2.35, w: w - 0.56, h: 1.15, fontFace: F, fontSize: 21,
-      bold: true, color: q[4], margin: 0, lineSpacingMultiple: 1.1 });
-    s.addText("답은 " + q[5] + "에서", { x: x + 0.28, y: y + 3.75, w: w - 0.56, h: 0.4, fontFace: F,
-      fontSize: 11, italic: true, color: C.gray, margin: 0 });
   });
-  takeaway(s, "→ 오늘의 핵심 메시지: 라우팅(무엇을 자를지 결정)은 결합(질문↔이미지 연결)보다 먼저 일어날 수 없다 — 그 시점을 처음 측정했습니다");
-  s.addNotes("발표 구조를 먼저 드립니다. 성립 여부를 세 질문으로 쪼갰고, 각 질문에 실험 숫자로 답한 뒤 마지막에 종합 결론과 다음 계획을 말씀드립니다.");
+  takeaway(s, "→ 오늘 요청드리는 것: 진행/중단을 확정하기 위한 1주일 (게이트 5개, GPU 1장, 기존 자산 재사용)");
+  s.addNotes("오늘은 결과를 자랑하러 온 게 아니라, 가설이 어디서 무너졌는지 보고드리고 1주일만 더 확인할 시간을 요청드리려고 왔습니다.");
 }
 
 // =====================================================================
@@ -427,7 +424,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 {
   const s = pres.addSlide();
   kicker(s, "질문 ③ — 실제로 만들 수 있는가?");
-  headline(s, "판정할 수 있게 되는 시점이, 개입이 유효한 시점보다 늦다");
+  headline(s, "판정 시점이 개입 시점보다 늦다 — 제가 시도한 신호 기준");
   // 좌: 순서 뒤집기
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.65, w: 6.0, h: 2.35, rectRadius: 0.1,
     fill: { color: C.lightred }, line: { color: C.red, width: 1.25 } });
@@ -467,7 +464,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
   s.addText("실제 컨트롤러를 끼우면:  0.882 × 0.812 + 0.118 × 0.50 = 0.775   vs   차단 없음 0.790   →  −1.5%p (이득이 아니라 손실)", {
     x: 0.85, y: 5.7, w: 11.7, h: 0.78, fontFace: F, fontSize: 12.5, bold: true, color: C.red,
     margin: 0, valign: "middle" });
-  takeaway(s, "→ 질문 ③의 답: 지금은 만들 수 없다. 그러나 '왜 만들 수 없는지'가 이 계열 전체에 적용되는 제약이다");
+  takeaway(s, "→ 단, 이것은 'training-free + 마지막 토큰 attention' 조건에서의 결론입니다. vision feature/hidden state/학습된 router는 아직 시도하지 않았습니다. // 그러나 '왜 만들 수 없는지'가 이 계열 전체에 적용되는 제약이다");
   s.addNotes("이 슬라이드가 오늘 발표의 핵심입니다. 실패를 보고하는 게 아니라, 실패의 구조적 이유를 규명한 것을 보고합니다. FastV 같은 기존 동적 pruning도 얕은 층 attention을 쓰는데, Feather the Throttle(ICCV25)이 그 신호가 위치 편향임을 토큰 단위로 보였고 저희가 이미지 단위로 확인했습니다. 즉 이건 우리 방법만의 문제가 아닙니다.");
 }
 
@@ -503,42 +500,73 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 }
 
 // =====================================================================
-// S13 — 종합 + 다음 (재작성)
+// S12b — 가장 가까운 연구를 원문 대조한 결과
+// =====================================================================
+{
+  const s = pres.addSlide();
+  kicker(s, "그러면 이 방향은 이미 누가 했나?");
+  headline(s, "가장 가까운 연구(2026.01)를 원문 대조 — 겹치는 부분이 생각보다 적었다");
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 };
+  const cc = { fontSize: 11, color: C.navy, fill: { color: C.white } };
+  const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
+  const rows = [
+    [m("", hd), m("그 연구 (MIMIC, arXiv 2601.07812)", hd), m("우리", hd)],
+    [m("적용 방식", { bold: true }), m("LoRA 파인튜닝 필수 (8×H100, 198K 합성데이터)"),
+     m("추론 시 개입 (training-free)", { bold: true, color: C.green })],
+    [m("마스킹 단독 효과", { bold: true }), m("+3.3점 (46.1→49.4, 동일조건 ablation)\n※ 26.4→49.4의 대부분은 데이터 기여"),
+     m("—")],
+    [m("환각 평가", { bold: true }), m("없음 (POPE 0회, 객체존재 실험 없음)"),
+     m("POPE 4셀 통제 설계", { bold: true, color: C.green })],
+    [m("이미지 장수", { bold: true }), m("중앙값 4~7장 (집계 태스크)"),
+     m("2장 (출처 귀속)", { bold: true, color: C.green })],
+    [m("일반화", { bold: true }), m("자체 벤치 밖에서는 오히려 하락\n(MuirBench 33.6→32.5, 평균 42.7→41.2)", { color: C.red }),
+     m("—")],
+  ];
+  s.addTable(rows, { x: 0.55, y: 1.75, w: 12.25, rowH: [0.45, 0.6, 0.72, 0.5, 0.5, 0.72], fontFace: F,
+    align: "center", valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.5, w: 12.25, h: 1.0, rectRadius: 0.08,
+    fill: { color: C.lightgreen }, line: { color: C.green, width: 1.25 } });
+  s.addText([
+    { text: "그리고 그들이 남긴 열린 질문이 우리 데이터와 정확히 맞물립니다.", options: { bold: true, fontSize: 12.5, color: C.green, breakLine: true } },
+    { text: "그들의 마스킹은 자체 벤치에서는 오르고 다른 벤치에서는 내려갑니다. \"언제 도움이 되고 언제 해가 되는가\"가 설명되지 않았는데, 우리는 질문 유형에 따라 부호가 뒤집히는 것을 이미 측정했습니다(슬라이드 10).", options: { fontSize: 11.5, color: C.navy } },
+  ], { x: 0.85, y: 5.6, w: 11.7, h: 0.85, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+  takeaway(s, "→ 방법 자리는 아직 비어 있습니다. 다만 그것을 확인하려면 1주일치 검증이 더 필요합니다");
+  s.addNotes("어제 저는 이 논문 때문에 자리가 찼다고 판단했었습니다. 그런데 원문 19페이지를 대조해 보니 핵심 수치를 제가 잘못 읽었더군요. 26.4에서 49.4는 마스킹이 아니라 대부분 학습 데이터가 만든 것이고, 동일 조건에서 마스킹 단독 효과는 3.3점입니다. 그리고 파인튜닝이 전제입니다. 이걸 확인하고 판단을 바꿨습니다.");
+}
+
+// =====================================================================
+// S13 — 1주일 검증 계획
 // =====================================================================
 {
   const s = pres.addSlide();
   s.background = { color: C.darkbg };
-  kicker(s, "결론과 결정 요청", true);
-  headline(s, "방법은 아직 없다 — 만든 것은 측정 도구와 제약 조건이다", true, 10.2);
-  const got = [
-    ["확인한 것", ["오염 실재·회복·인과 (3B, p=4×10⁻³⁸)", "배분 > 예산 (3B +28.7%p / 7B +8.7%p, oracle)", "질문 유형별 최적 깊이 상이 (양 스케일)", "결합(binding)이 일어나는 상대 깊이 ≈60%"], "8CE0B0"],
-    ["막힌 것", ["컨트롤러: 판정 시점(22층) > 개입 시점(16층)", "실제 끼우면 −1.5%p (이득 아님)", "7B·POPE에서 오염 미관측 (벤치 한계)", "실측 속도 9.7% (이론 42.4%)"], "FF8A80"],
-    ["즉시 검증 (2주)", ["★ 이미지 위치 50/50 균형화 재측정", "컨트롤러 end-to-end 실측", "질문 유형 게이트 정책 실측", "random 배분 대조군 · layer-0 상한"], "FFC94D"],
+  kicker(s, "요청", true);
+  headline(s, "1주일 안에 진행/중단을 확정하겠습니다 — 게이트 5개", true);
+  const gates = [
+    ["1", "위치 균형화 재측정", "관련 이미지가 항상 1번 자리였던 confound 제거.\n오늘 이미 실행 중", "배분 이득이 실재하는가"],
+    ["2", "컨트롤러 신호 확장", "attention 질량 대신 vision feature ·\nhidden state probe · 질문 토큰 attention", "얕은 층에서 판정 가능한가"],
+    ["3", "질문 유형 게이트", "질문 유형은 텍스트만으로 0층에서 판정 가능.\n게이트 적용 시 순이득 측정", "−51%p 실패를 회피할 수 있는가"],
+    ["4", "대조군 보강", "random 배분 · layer-0 완전 제거 상한", "배분 이득이 강건한가"],
+    ["5", "MIMIC 열린 질문", "마스킹이 언제 도움/해가 되는가를\n질문 유형 축으로 설명", "우리 기여가 성립하는가"],
   ];
-  got.forEach((g, i) => {
-    const x = 0.55 + i * 4.25, y = 1.7, w = 4.0, h = 3.5;
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1,
-      fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
-    s.addText(g[0], { x: x + 0.22, y: y + 0.18, w: w - 0.44, h: 0.4, fontFace: F, fontSize: 14.5,
-      bold: true, color: g[2], margin: 0 });
-    s.addText(g[1].map((t, k) => ({ text: t, options: { bullet: true, breakLine: k < g[1].length - 1 } })),
-      { x: x + 0.22, y: y + 0.68, w: w - 0.44, h: h - 0.9, fontFace: F, fontSize: 11,
-        color: "D7E4EF", margin: 0, paraSpaceAfter: 7 });
+  gates.forEach((g, i) => {
+    const y = 1.72 + i * 0.92;
+    s.addShape(pres.shapes.OVAL, { x: 0.6, y: y + 0.08, w: 0.46, h: 0.46, fill: { color: "7EC8F5" } });
+    s.addText(g[0], { x: 0.6, y: y + 0.08, w: 0.46, h: 0.46, align: "center", valign: "middle",
+      fontFace: F, fontSize: 13, bold: true, color: C.darkbg, margin: 0 });
+    s.addText(g[1], { x: 1.2, y: y, w: 2.9, h: 0.4, fontFace: F, fontSize: 12.5, bold: true,
+      color: C.white, margin: 0 });
+    s.addText(g[2], { x: 1.2, y: y + 0.36, w: 5.5, h: 0.55, fontFace: F, fontSize: 10.5,
+      color: "9FB8CE", margin: 0 });
+    s.addText("→ " + g[3], { x: 7.0, y: y + 0.06, w: 5.8, h: 0.5, fontFace: F, fontSize: 11.5,
+      color: "8CE0B0", margin: 0, valign: "middle" });
   });
-  s.addText("받고 싶은 결정", { x: 0.55, y: 5.4, w: 12.25, h: 0.35, fontFace: F, fontSize: 13.5,
-    bold: true, color: C.white, margin: 0 });
-  const dec = [
-    ["① 트랙", "(A) 제약·분석 논문  /  (B) risk-calibrated 배분  /  (C) 질문유형 게이트 method — 2주 후 재결정 전제"],
-    ["② 실험", "위 2주 게이트 6개 승인 (GPU 1장, 기존 자산 재사용)"],
-    ["③ 벤치", "POPE → MVH-Bench 이동 (7B baseline 64.1%, headroom 35%p)"],
-  ];
-  dec.forEach((d, i) => {
-    const y = 5.82 + i * 0.42;
-    s.addText([{ text: d[0] + "   ", options: { bold: true, fontSize: 11.5, color: "7EC8F5" } },
-      { text: d[1], options: { fontSize: 11.5, color: "D7E4EF" } }],
-      { x: 0.75, y, w: 12.0, h: 0.4, fontFace: F, margin: 0 });
-  });
-  s.addNotes("정리하면 — 방법을 만들었다고 말씀드릴 수 없습니다. 대신 이 방향이 왜 어려운지를 정확히 측정했고, 그 측정이 우리 방법만이 아니라 attention 기반 동적 pruning 계열 전체에 적용됩니다. 6개월을 걸기 전에 2주 게이트를 먼저 통과시키고 싶습니다.");
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 6.35, w: 12.25, h: 0.75, rectRadius: 0.08,
+    fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
+  s.addText("판정 기준을 미리 정해두겠습니다 — 게이트 1·2가 모두 실패하면 이 주제는 접고 다른 방향으로 넘어가겠습니다.  ·  GPU 1장, 기존 코드·데이터 재사용", {
+    x: 0.85, y: 6.35, w: 11.7, h: 0.75, fontFace: F, fontSize: 12, bold: true, color: "D7E4EF",
+    margin: 0, valign: "middle" });
+  s.addNotes("1주일이면 충분합니다. 인프라와 데이터가 이미 다 있어서 새로 만들 게 없습니다. 그리고 이번에도 판정 기준을 먼저 정해두고 들어가겠습니다 — 게이트 1과 2가 모두 실패하면 미련 없이 접겠습니다.");
 }
 
 // =====================================================================
