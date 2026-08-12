@@ -155,9 +155,9 @@ function foot(s, t, dark) {
     ["①", "스스로 판정하지 못한다",
      "8층에서 관련 이미지를 99.8% 맞히길래 됐다 싶었는데,\n이미지 순서를 뒤집으니 0.2%. 관련도가 아니라 '첫 번째'를 보던 것.\n순서를 뒤집어도 맞는 신호는 22층에서야 나오는데, 차단이 효과 있는 구간은 16층 이전.",
      "실제로 끼워보면 무개입 대비 −1.5%p"],
-    ["②", "문항마다 맞출 필요는 없었다",
-     "문항별 최적 깊이를 완벽히 안다고 가정해도 전역 최적 하나 대비 +2.7%p.\n문항의 66%는 어느 깊이에서 잘라도 정답. 단 '이미지 간' 차등은 유효(+30.7%p).",
-     "적응은 문항이 아니라 질문 유형 단위면 충분"],
+    ["②", "실제로는 별로 빨라지지 않았다",
+     "계산량 기준으로는 42% 절약인데, 실제 응답 시작 시간은 510ms → 461ms.\n이론치의 23%밖에 실현되지 않았다.",
+     "9.7% 단축으로는 쓸 이유가 없다"],
     ["③", "7B에서는 현상 자체가 옅다",
      "답 뒤집힘이 3B 21.3% → 7B 0.7%. 단일 이미지에서 이미 94.7%라 천장 효과.\n(문헌상 더 어려운 벤치에서는 7B도 −10.4%p로 남아 있음)",
      "벤치마크를 바꿔야 측정 가능"],
@@ -176,7 +176,7 @@ function foot(s, t, dark) {
     s.addText("→ " + f[3], { x: 9.6, y: y + 0.3, w: 3.05, h: 0.85, fontFace: F, fontSize: 11,
       bold: true, color: C.red, margin: 0 });
   });
-  takeaway(s, POSBAL.takeaway);
+  takeaway(s, "→ 다만 좋은 소식도 있습니다: 이미지 간 차등 배분 이득(+30.7%p)은 이미지 순서를 뒤집어도 80% 유지됐습니다 — 위치 때문에 생긴 착시가 아닙니다");
   s.addNotes("이 세 개가 오늘 보고의 중심입니다. 특히 첫 번째 — 순서를 뒤집었더니 신호가 무너진 것 — 은 제 방법만의 문제가 아니라 얕은 층 attention을 쓰는 기존 방법들에도 해당됩니다.");
 }
 
@@ -264,6 +264,30 @@ appendix("질문 유형에 따라 최적 깊이가 정반대 — 두 스케일 �
 appendix("같은 예산에서 배분만 바꿨을 때 (oracle 조건)",
   { img: "fig5_allocation_vs_uniform.png", x: 0.6, y: 1.6, w: 12.1, h: 4.3 },
   "차등 배분(방해 4층 + 대상 28층) vs 일괄 차단(둘 다 16층). 3B 50.5% 절감에서 0.837 vs 0.550, 7B 38.9%에서 0.802 vs 0.715. 기준선 0.790");
+{
+  const s = pres.addSlide();
+  kicker(s, "APPENDIX");
+  headline(s, "\"적응적\"이라는 표현은 못 쓴다 — 문항마다 깊이를 바꿀 필요가 없었다");
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11.5 };
+  const cc = { fontSize: 11.5, color: C.navy, fill: { color: C.white } };
+  const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
+  s.addTable([
+    [m("문항군", hd), m("모든 문항에 같은 층 하나", hd), m("문항마다 최적 층을 안다면", hd), m("차이", hd)],
+    [m("셀 1 (n=150)", { bold: true }), m("0.933"), m("0.960"), m("+2.7%p", { bold: true, color: C.red })],
+    [m("셀 2 (n=150)", { bold: true }), m("0.720"), m("0.747"), m("+2.7%p", { bold: true, color: C.red })],
+  ], { x: 1.6, y: 1.85, w: 10.1, h: 1.7, rowH: 0.55, fontFace: F, align: "center",
+       valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addText([
+    { text: "문항의 66%는 어느 층에서 끊어도 정답이라, 문항별로 최적화할 여지 자체가 거의 없다", options: { bullet: true, breakLine: true } },
+    { text: "즉 필요한 것은 '문항마다 조절하는 컨트롤러'가 아니라 '고정 스케줄 하나 + 어느 이미지가 방해인지'뿐이다", options: { bullet: true, breakLine: true } },
+    { text: "선행연구도 같은 방향 — γ-MoD(ICLR'25)는 깊이 여유도를 오프라인 50샘플로 한 번 정하고 고정한다", options: { bullet: true, breakLine: true } },
+    { text: "→ 나쁜 소식: 연구 이름의 \"적응적\"을 못 쓴다.  좋은 소식: 방법이 훨씬 단순해진다", options: { bullet: true, bold: true } },
+  ], { x: 1.0, y: 3.9, w: 11.4, h: 2.3, fontFace: F, fontSize: 12.5, color: C.navy,
+       margin: 0, paraSpaceAfter: 9 });
+  s.addText("※ '이미지 간' 차등(방해는 얕게, 관련은 깊게)은 이것과 별개이며 유효하다 — 본편 참조", {
+    x: 1.0, y: 6.3, w: 11.4, h: 0.4, fontFace: F, fontSize: 11, italic: true, color: C.gray, margin: 0 });
+}
+
 appendix("컨트롤러 신호를 층·head별로 전수 탐색한 결과",
   { img: "fig4_controller_feature_sweep.png", x: 0.8, y: 1.7, w: 11.7, h: 4.3 },
   "순서를 뒤집어도 맞는 head: 얕은 층 0.31~0.51(무작위), layer 22에서 0.882가 최고. 개입이 유효한 구간은 16층 이전");
