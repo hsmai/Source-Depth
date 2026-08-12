@@ -187,29 +187,30 @@ function foot(s, t, dark) {
   const s = pres.addSlide();
   kicker(s, "결과 ③ — 그러면 이미 누가 했나?");
   headline(s, "어제는 '이미 나왔다'고 판단했는데, 원문을 보니 제가 잘못 읽었습니다");
-  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 };
-  const cc = { fontSize: 11, color: C.navy, fill: { color: C.white } };
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 12.5 };
+  const cc = { fontSize: 13.5, color: C.navy, fill: { color: C.white } };
   const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
-  const rows = [
-    [m("", hd), m("가장 가까운 연구 (2026.01, arXiv 2601.07812)", hd), m("우리", hd)],
-    [m("적용 방식", { bold: true }), m("LoRA 파인튜닝 필수 · 8×H100 · 합성데이터 198K"),
-     m("추론 시 개입 (학습 없음)", { bold: true, color: C.green })],
-    [m("마스킹 단독 효과", { bold: true }), m("+3.3점 — 보고된 큰 향상은 대부분 데이터 기여"), m("—")],
-    [m("환각 평가", { bold: true }), m("없음 (POPE 언급 0회)"), m("POPE 4셀 통제 설계", { bold: true, color: C.green })],
-    [m("일반화", { bold: true }), m("자체 벤치 밖에서는 오히려 하락 (42.7→41.2)", { color: C.red }),
-     m("—")],
-  ];
-  s.addTable(rows, { x: 0.55, y: 1.8, w: 12.25, rowH: [0.45, 0.6, 0.5, 0.5, 0.5], fontFace: F,
-    align: "center", valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.65, w: 12.25, h: 1.55, rectRadius: 0.09,
+  s.addTable([
+    [m("", hd), m("MIMIC (CVPR 2026, arXiv 2601.07812)", hd), m("우리", hd)],
+    [m("학습", { bold: true, fontSize: 14 }),
+     m("필요  —  8×H100 · 합성데이터 198K", { bold: true, color: C.red }),
+     m("불필요  —  추론 중 개입만", { bold: true, color: C.green })],
+    [m("환각 평가", { bold: true, fontSize: 14 }),
+     m("안 함  —  POPE 언급 0회", { bold: true, color: C.red }),
+     m("주 평가 대상  —  POPE 4셀 통제 설계", { bold: true, color: C.green })],
+  ], { x: 0.55, y: 1.95, w: 12.25, rowH: [0.5, 0.9, 0.9], fontFace: F,
+       align: "center", valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.6, w: 12.25, h: 1.75, rectRadius: 0.09,
     fill: { color: C.lightgreen }, line: { color: C.green, width: 1.25 } });
   s.addText([
-    { text: "그들이 남긴 열린 질문이 우리 데이터와 맞물립니다", options: { bold: true, fontSize: 14, color: C.green, breakLine: true } },
-    { text: "그들의 마스킹은 자체 벤치에서는 오르고 다른 벤치에서는 내려가는데, 왜 그런지 설명이 없습니다.", options: { fontSize: 12, color: C.navy, breakLine: true } },
-    { text: "우리는 같은 개입이 질문 유형에 따라 부호가 뒤집히는 것을 이미 측정했습니다 — 단일이미지 질문에서 +21%p, 두 이미지 비교 질문에서 −51%p (3B 기준, 7B에서도 −41%p로 재현).", options: { fontSize: 12, color: C.navy } },
-  ], { x: 0.85, y: 4.78, w: 11.7, h: 1.35, fontFace: F, margin: 0, paraSpaceAfter: 5 });
-  takeaway(s, "→ training-free × 환각 × 질문 유형 조건부 — 이 칸은 아직 비어 있습니다. 다만 확인하려면 검증이 더 필요합니다");
-  s.addNotes("어제 저는 이 논문 때문에 접어야겠다고 판단했었습니다. 그런데 원문 19페이지를 직접 대조해 보니 핵심 수치를 잘못 읽었더군요. 보고된 큰 향상은 마스킹이 아니라 학습 데이터가 만든 것이고, 동일 조건에서 마스킹 단독 효과는 3.3점입니다. 게다가 파인튜닝이 전제입니다.");
+    { text: "그들이 설명하지 못한 것을, 우리는 이미 측정했습니다", options: { bold: true, fontSize: 15, color: C.green, breakLine: true } },
+    { text: "그들의 마스킹은 자체 벤치에서는 오르고 다른 벤치에서는 내려가는데, 왜 그런지 설명이 없습니다.", options: { fontSize: 13, color: C.navy, breakLine: true } },
+    { text: "우리 데이터에서는 질문 유형에 따라 부호가 뒤집힙니다 — 단일 이미지 질문 +21%p  ↔  두 이미지 비교 질문 −51%p (7B에서도 −41%p로 재현)", options: { fontSize: 13, bold: true, color: C.navy } },
+  ], { x: 0.9, y: 4.75, w: 11.6, h: 1.5, fontFace: F, margin: 0, paraSpaceAfter: 7 });
+
+  takeaway(s, "→ 학습 없이, 환각을 대상으로 하는 자리는 아직 비어 있습니다 — 다만 확인하려면 검증이 더 필요합니다");
+  s.addNotes("어제 저는 이 논문 때문에 접어야겠다고 판단했었습니다. 그런데 원문 19페이지를 직접 대조해 보니 핵심 수치를 잘못 읽었더군요. 26.4에서 49.4로 올랐다고 보고된 부분은 마스킹이 아니라 198K 합성 학습데이터가 만든 것이고, 동일 조건에서 마스킹 단독 효과는 3.3점입니다. 그리고 파인튜닝이 전제입니다. 덧붙이면 그들의 마스킹은 자체 벤치 밖에서는 오히려 평균이 42.7에서 41.2로 내려갑니다. 다루는 이미지 장수도 중앙값 4~7장의 집계 태스크라 저희 2장 출처 귀속과는 다릅니다.");
 }
 
 // =====================================================================
@@ -219,33 +220,45 @@ function foot(s, t, dark) {
   const s = pres.addSlide();
   s.background = { color: C.darkbg };
   kicker(s, "요청", true);
-  headline(s, "1주일 안에 진행/중단을 확정하겠습니다", true);
+  headline(s, "1주일 뒤에 진행/중단을 확정하겠습니다", true);
+
   const gates = [
-    ["1", "위치 균형화 재측정", POSBAL.gate1, "배분 이득이 실재하는가"],
-    ["2", "컨트롤러 신호 확장", "attention 질량 대신 vision feature · hidden state probe", "얕은 층에서 판정 가능한가"],
-    ["3", "질문 유형 게이트", "질문 유형은 텍스트만으로 0층에서 판정 가능", "−51%p 실패를 피할 수 있는가"],
-    ["4", "대조군 보강", "random 배분 · 완전 제거 상한", "이득이 강건한가"],
-    ["5", "선행연구 열린 질문", "마스킹이 언제 도움/해가 되는지 질문 유형 축으로", "우리 기여가 성립하는가"],
+    ["A", "깊이를 조절할 이유가 있는가?",
+     "방해 이미지를 0층에서 아예 지운 것과 직접 비교한다 (셀 2·3 대상)",
+     "아예 지우는 쪽이 같거나 더 좋으면  →  이 주제는 폐기"],
+    ["B", "어느 이미지가 방해인지 자동으로 알 수 있는가?",
+     "attention 대신 vision feature · hidden state로 16층 이전에서 판정",
+     "이미지 순서를 뒤집었을 때 유지되지 않으면  →  이 주제는 폐기"],
   ];
   gates.forEach((g, i) => {
-    const y = 1.72 + i * 0.86;
-    s.addShape(pres.shapes.OVAL, { x: 0.6, y: y + 0.06, w: 0.44, h: 0.44, fill: { color: "7EC8F5" } });
-    s.addText(g[0], { x: 0.6, y: y + 0.06, w: 0.44, h: 0.44, align: "center", valign: "middle",
-      fontFace: F, fontSize: 13, bold: true, color: C.darkbg, margin: 0 });
-    s.addText(g[1], { x: 1.18, y: y, w: 3.0, h: 0.4, fontFace: F, fontSize: 12.5, bold: true,
-      color: C.white, margin: 0 });
-    s.addText(g[2], { x: 1.18, y: y + 0.36, w: 5.7, h: 0.48, fontFace: F, fontSize: 10.3,
+    const y = 1.62 + i * 2.0;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 1.82, rectRadius: 0.09,
+      fill: { color: "1A3247" }, line: { color: "2E4E6B", width: 1.25 } });
+    s.addShape(pres.shapes.OVAL, { x: 0.95, y: y + 0.55, w: 0.72, h: 0.72, fill: { color: "7EC8F5" } });
+    s.addText(g[0], { x: 0.95, y: y + 0.55, w: 0.72, h: 0.72, align: "center", valign: "middle",
+      fontFace: F, fontSize: 22, bold: true, color: C.darkbg, margin: 0 });
+    s.addText("게이트 " + g[0], { x: 1.95, y: y + 0.24, w: 3.0, h: 0.3, fontFace: F, fontSize: 11,
+      bold: true, color: "7EC8F5", margin: 0 });
+    s.addText(g[1], { x: 1.95, y: y + 0.52, w: 10.0, h: 0.45, fontFace: F, fontSize: 18,
+      bold: true, color: C.white, margin: 0 });
+    s.addText(g[2], { x: 1.95, y: y + 1.02, w: 10.0, h: 0.32, fontFace: F, fontSize: 12.5,
       color: "9FB8CE", margin: 0 });
-    s.addText("→ " + g[3], { x: 7.1, y: y + 0.04, w: 5.7, h: 0.48, fontFace: F, fontSize: 11.5,
-      color: "8CE0B0", margin: 0, valign: "middle" });
+    s.addText([
+      { text: "실패 조건   ", options: { bold: true, fontSize: 12, color: "FF9E80" } },
+      { text: g[3], options: { bold: true, fontSize: 12.5, color: "FFC94D" } },
+    ], { x: 1.95, y: y + 1.38, w: 10.0, h: 0.34, fontFace: F, margin: 0 });
   });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 6.2, w: 12.25, h: 0.95, rectRadius: 0.08,
+
+  s.addText("그 외 보조 3건 — 질문 유형 게이트 · random 배분 대조군 · 선행연구가 남긴 열린 질문 검증", {
+    x: 0.55, y: 5.72, w: 12.25, h: 0.34, fontFace: F, fontSize: 12, color: "8AA5BC", margin: 0 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 6.22, w: 12.25, h: 0.95, rectRadius: 0.08,
     fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
   s.addText([
-    { text: "중단 규칙을 먼저 정해두겠습니다 — 게이트 1과 2가 모두 실패하면 이 주제는 접고 다른 방향으로 넘어가겠습니다.", options: { bold: true, fontSize: 12.5, color: "FFC94D", breakLine: true } },
+    { text: "중단 규칙을 먼저 정해두겠습니다 — A와 B가 모두 실패하면 이 주제는 접고 다른 방향으로 넘어가겠습니다.", options: { bold: true, fontSize: 12.5, color: "FFC94D", breakLine: true } },
     { text: "GPU 1장 · 기존 코드·데이터 전부 재사용 · 새로 만들 인프라 없음", options: { fontSize: 11, color: "9FB8CE" } },
-  ], { x: 0.85, y: 6.3, w: 11.7, h: 0.8, fontFace: F, margin: 0, paraSpaceAfter: 4 });
-  s.addNotes("1주일이면 충분합니다. 인프라와 데이터가 이미 다 있어서 새로 만들 게 없습니다. 그리고 이번에도 판정 기준을 먼저 정해두고 들어가겠습니다 — 게이트 1과 2가 모두 실패하면 미련 없이 접겠습니다.");
+  ], { x: 0.85, y: 6.32, w: 11.7, h: 0.8, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+  s.addNotes("게이트 A가 더 무겁습니다. 방해 이미지를 0층에서 그냥 지워버린 쪽이 깊이를 조절한 것보다 좋다면, 애초에 '깊이'라는 축을 쓸 이유가 없어집니다. 연구의 전제 자체가 걸린 시험이라 이걸 먼저 하겠습니다. 게이트 B는 자동화 가능성입니다 — 오늘 보고드린 위치 편향 문제를 다른 신호로 넘을 수 있는지 봅니다. 두 게이트 다 통과 기준 숫자는 실험 전에 먼저 못 박고 들어가겠습니다. 1주일이면 충분합니다. 인프라와 데이터가 이미 다 있어서 새로 만들 게 없습니다.");
 }
 
 // ===================== 부록 =====================
