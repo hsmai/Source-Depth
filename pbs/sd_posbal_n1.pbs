@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_posbal
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# ★ 1순위 게이트: 위치 confound 제거 재측정 (관련 이미지를 2번 자리로).
+# 이 결과 없이는 결과 3(+28.7%p)·결과 5(컨트롤러)의 어떤 수치도 방어 불가.
+# 3B 먼저(효과가 있는 쪽), 이어서 7B.
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 16 position-balanced (3B) ====="
+python scripts/16_position_balanced.py || echo "16-3B FAILED"
+echo "===== 16 position-balanced (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/16_position_balanced.py || echo "16-7B FAILED"
+date

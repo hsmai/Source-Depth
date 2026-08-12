@@ -59,12 +59,12 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     w: 11, h: 0.32, fontFace: F, fontSize: 11.5, bold: true, color: "8AA5BC", charSpacing: 1, margin: 0 });
   s.addText("이미지마다 계산 깊이를 다르게 주면,\n멀티이미지 환각이 줄고 계산도 준다", { x: 0.6, y: 1.15,
     w: 12.2, h: 1.9, fontFace: F, fontSize: 32, bold: true, color: C.white, margin: 0, lineSpacingMultiple: 1.15 });
-  s.addText("이 가설이 성립하는지 — 24시간 검증 실험에서 얻은 숫자로 보고드립니다.", {
+  s.addText("가설의 절반은 확인, 절반은 반증 — 그리고 반증된 쪽이 더 유용한 발견이었습니다.", {
     x: 0.6, y: 3.1, w: 12, h: 0.45, fontFace: F, fontSize: 15, color: "AFC6DA", margin: 0 });
   const cards = [
-    ["문제는 실재했습니다", "질문과 무관한 이미지 1장이\n멀쩡하던 답의 21%를 뒤집었습니다", "(같은 조건의 대조군에서는 0%)"],
-    ["해법도 작동했습니다", "4층 이후 그 이미지를 차단하는 것만으로\n뒤집힌 답의 81%가 되살아났습니다", "(부작용은 3.7% — 회복이 22배)"],
-    ["그리고 핵심 발견 —", "질문 종류에 따라 최적의 깊이가\n정반대라는 것을 확인했습니다", "(고정 깊이로는 불가능 → 적응 배분 필요)"],
+    ["✓ 문제는 실재했다", "무관한 이미지 1장이 멀쩡하던 답의 21%를\n뒤집었고(대조군 0%), 4층 차단으로 81% 회복.\n반대로 정답 이미지를 자르면 0.79→0.50", "인과까지 확인 (p=4×10⁻³⁸)"],
+    ["✓ 배분이 예산보다 중요하다", "같은 계산량에서 배분만 바꿔\n3B +28.7%p / 7B +8.7%p.\n두 스케일 모두 재현", "단, 정답 이미지를 아는 조건(oracle)"],
+    ["✗ 그러나 스스로 판정하지 못한다", "\"어느 이미지가 관련인가\"를 판정 가능한\n시점이 개입이 유효한 시점보다 늦다.\n실제 컨트롤러를 끼우면 −1.5%p", "← 이 실패의 구조가 오늘의 핵심"],
   ];
   cards.forEach((c, i) => {
     const x = 0.6 + i * 4.15, y = 3.85, w = 3.95, h = 2.85;
@@ -90,7 +90,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
   const qs = [
     ["Q1", "문제가 진짜 있는가?", "이미지를 하나 더 넣으면\n정말 답이 오염되는가", "✓ 그렇다", C.green, "슬라이드 5"],
     ["Q2", "해법이 작동하는가?", "'중간부터 차단'이 오염을 고치는가,\n그 효과는 인과적인가", "✓ 그렇다", C.green, "슬라이드 6–8"],
-    ["Q3", "실제로 만들 수 있는가?", "무엇을 차단할지 스스로 알 수 있는가,\n실제로 빨라지는가", "◐ 절반 확인\n(나머지 검증 중)", C.orange, "슬라이드 9"],
+    ["Q3", "실제로 만들 수 있는가?", "무엇을 차단할지 스스로 알 수 있는가,\n실제로 빨라지는가", "✗ 아직 아니다\n— 그 이유를 규명", C.red, "슬라이드 12"],
   ];
   qs.forEach((q, i) => {
     const x = 0.55 + i * 4.25, y = 1.75, w = 4.0, h = 4.4;
@@ -108,7 +108,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     s.addText("답은 " + q[5] + "에서", { x: x + 0.28, y: y + 3.75, w: w - 0.56, h: 0.4, fontFace: F,
       fontSize: 11, italic: true, color: C.gray, margin: 0 });
   });
-  takeaway(s, "→ 세 질문 전부 실측 숫자로 답합니다 — \"그래서 이 연구를 계속할 가치가 있는가\"가 오늘의 결론입니다 (마지막 슬라이드)");
+  takeaway(s, "→ 오늘의 핵심 메시지: 라우팅(무엇을 자를지 결정)은 결합(질문↔이미지 연결)보다 먼저 일어날 수 없다 — 그 시점을 처음 측정했습니다");
   s.addNotes("발표 구조를 먼저 드립니다. 성립 여부를 세 질문으로 쪼갰고, 각 질문에 실험 숫자로 답한 뒤 마지막에 종합 결론과 다음 계획을 말씀드립니다.");
 }
 
@@ -164,7 +164,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     { text: "기존 해법들은 계산을 '더' 써서 고칩니다 — 예: 이미지 N장이면 forward를 N+1번", options: { bullet: true } },
   ], { x: 7.05, y: 4.4, w: 5.55, h: 1.8, fontFace: F, fontSize: 12, color: C.navy,
     margin: 0, paraSpaceAfter: 8 });
-  takeaway(s, "→ 문제 상황: 이미지가 늘면 출처가 섞여 정답률이 크게 떨어진다 — 그리고 기존 해법은 전부 '계산을 더 쓰는' 방향이다");
+  takeaway(s, "→ 이미지가 늘면 출처가 섞여 정답률이 떨어진다 (단, 7B·이 벤치에서는 미관측 — 슬라이드 7) — 그리고 기존 해법은 전부 '계산을 더 쓰는' 방향이다");
   s.addNotes("문제 자체는 알려져 있습니다. 저희의 차별점은 '어느 깊이에서 섞이는가'를 재고, '계산을 줄이면서' 고치는 것입니다.");
 }
 
@@ -204,8 +204,8 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.65, w: 12.25, h: 0.85, rectRadius: 0.08,
     fill: { color: C.light }, line: { color: C.line, width: 1 } });
   s.addText([
-    { text: "이 차단은 '어림 억제'가 아닙니다 — 수학적으로 그 이미지가 없는 것과 동일합니다.  ", options: { bold: true, color: C.navy } },
-    { text: "한계도 있습니다: L층 이전에 이미 새어나간 정보는 못 막습니다 (실측해 보니 그 잔여분은 오답의 19% 이하였습니다).", options: { color: C.gray } },
+    { text: "차단된 층에서는 그 이미지를 전혀 참조할 수 없습니다 (근사 억제가 아님).  ", options: { bold: true, color: C.navy } },
+    { text: "L 이전에 새어나간 정보는 막지 못합니다 (실측 잔여분: 오답의 19% 이하).", options: { color: C.gray } },
   ], { x: 0.85, y: 5.65, w: 11.7, h: 0.85, fontFace: F, fontSize: 12, margin: 0, valign: "middle" });
   takeaway(s, "→ 가설: 무관한 이미지는 얕게, 필요한 이미지는 깊게 — \"이미지별로 다른 깊이\"가 정확도와 효율을 동시에 잡는다");
   s.addNotes("차단은 attention 계산에서 그 이미지 토큰을 제외하는 것이라, 수학적으로 '없는 것'과 동일합니다. 다만 차단 이전 층에서 이미 새어나간 정보는 못 막는데, 그 잔여분도 실측했고 오답의 19% 이하였습니다.");
@@ -289,39 +289,43 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 }
 
 // =====================================================================
-// S7 — Q1 결과
+// S7 — Q1 결과 (3B vs 7B 병렬)
 // =====================================================================
 {
   const s = pres.addSlide();
   kicker(s, "질문 ① — 문제가 진짜 있는가?");
-  headline(s, "방해 이미지에 '그 물건'이 있을 때만, 멀쩡하던 답이 뒤집혔다");
-  // 좌: 큰 막대 2개
-  s.addText("답이 뒤집힌 문항의 비율 (150문항 중)", { x: 0.7, y: 1.72, w: 5.2, h: 0.32,
-    fontFace: F, fontSize: 12.5, bold: true, color: C.navy, margin: 0 });
-  const yB = 4.9, hM = 2.5;
-  bar(s, 1.45, yB, 1.3, hM, 0.213 / 0.25, C.red, "21.3%", "방해 이미지에\n물건 있음 (오염 유발)");
-  bar(s, 3.75, yB, 1.3, hM, 0.003, C.gray, "0.0%", "물건 없음\n(대조군)");
-  s.addShape(pres.shapes.LINE, { x: 0.9, y: yB, w: 5.0, h: 0, line: { color: C.navy, width: 1.25 } });
-  // 우: '뒤집힘'이 무슨 뜻인지
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.6, y: 1.75, w: 6.2, h: 2.6, rectRadius: 0.1,
+  headline(s, "3B에서는 명확히 있다 — 그러나 7B·이 벤치에서는 사라진다");
+  // 좌: 3B
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.7, w: 6.0, h: 3.5, rectRadius: 0.1,
+    fill: { color: C.lightred }, line: { color: C.red, width: 1.25 } });
+  s.addText("Qwen2.5-VL-3B", { x: 0.85, y: 1.85, w: 5.4, h: 0.35, fontFace: F, fontSize: 14,
+    bold: true, color: C.navy, margin: 0 });
+  s.addText([{ text: "21.3%", options: { fontSize: 46, bold: true, color: C.red, breakLine: true } },
+    { text: "답이 뒤집힌 비율 (대조군 0.0%)", options: { fontSize: 12.5, color: C.navy, breakLine: true } },
+    { text: "단일 이미지 0.893 → 2장 0.720 (−17.3%p)", options: { fontSize: 12, color: C.gray } }],
+    { x: 0.85, y: 2.3, w: 5.4, h: 1.7, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+  s.addText("→ 오염이 실재하고, 차단으로 81%가 회복됨", { x: 0.85, y: 4.5, w: 5.4, h: 0.5,
+    fontFace: F, fontSize: 12.5, bold: true, color: C.red, margin: 0 });
+  // 우: 7B
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.8, y: 1.7, w: 6.0, h: 3.5, rectRadius: 0.1,
+    fill: { color: C.lightgray }, line: { color: C.gray, width: 1.25 } });
+  s.addText("Qwen2.5-VL-7B", { x: 7.1, y: 1.85, w: 5.4, h: 0.35, fontFace: F, fontSize: 14,
+    bold: true, color: C.navy, margin: 0 });
+  s.addText([{ text: "0.7%", options: { fontSize: 46, bold: true, color: C.gray, breakLine: true } },
+    { text: "거의 뒤집히지 않음", options: { fontSize: 12.5, color: C.navy, breakLine: true } },
+    { text: "단일 이미지 0.947 → 2장 0.967 (오히려 +2.0%p)", options: { fontSize: 12, color: C.gray } }],
+    { x: 7.1, y: 2.3, w: 5.4, h: 1.7, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+  s.addText("→ 단일 이미지에서 이미 94.7% — 천장이라 드러날 여지가 없음", { x: 7.1, y: 4.5, w: 5.4, h: 0.6,
+    fontFace: F, fontSize: 12.5, bold: true, color: C.gray, margin: 0 });
+  // 문헌 방어
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.35, w: 12.25, h: 1.15, rectRadius: 0.08,
     fill: { color: C.light }, line: { color: C.line, width: 1 } });
-  s.addText("\"답이 뒤집힌다\"는 것의 의미", { x: 6.9, y: 1.95, w: 5.6, h: 0.35,
-    fontFace: F, fontSize: 13, bold: true, color: C.navy, margin: 0 });
   s.addText([
-    { text: "이미지 1장일 때:   \"○○ 있나요?\" → \"없다\"  ", options: { fontSize: 13, color: C.navy } },
-    { text: "정답 ○", options: { fontSize: 13, bold: true, color: C.green, breakLine: true } },
-    { text: "방해 이미지 추가:  같은 질문 → \"있다\"  ", options: { fontSize: 13, color: C.navy } },
-    { text: "오답 ✗", options: { fontSize: 13, bold: true, color: C.red, breakLine: true } },
-    { text: "— 방해 이미지 속 물건을 '첫 번째 이미지에 있다'고 착각", options: { fontSize: 11.5, color: C.gray } },
-  ], { x: 6.9, y: 2.4, w: 5.7, h: 1.8, fontFace: F, margin: 0, paraSpaceAfter: 10 });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.6, y: 4.6, w: 6.2, h: 1.55, rectRadius: 0.1,
-    fill: { color: C.lightgray } });
-  s.addText([
-    { text: "대조군이 0%라는 것이 핵심입니다", options: { bold: true, fontSize: 13, color: C.navy, breakLine: true } },
-    { text: "방해 이미지에 물건이 없으면 답은 전혀 뒤집히지 않았습니다. 즉 뒤집힘은 우연도, 단순히 '이미지가 늘어서'도 아니고 — 정확히 그 물건이 넘어와서 생긴 오염입니다.", options: { fontSize: 11.5, color: C.gray } },
-  ], { x: 6.9, y: 4.72, w: 5.7, h: 1.35, fontFace: F, margin: 0, paraSpaceAfter: 5 });
-  takeaway(s, "→ 질문 ①의 답: 그렇다 — 오염은 실재한다 (뒤집힘 21.3% vs 대조군 0.0%, 우연으로 설명 불가)");
-  s.addNotes("대조군 0%가 이 슬라이드의 핵심입니다. 물건이 없으면 전혀 뒤집히지 않으니, 뒤집힘은 정확히 방해 이미지의 물건이 넘어와 생긴 오염입니다. 반대 방향 오염(있는 걸 없다고)도 쟀는데 약했고, 그 상세는 부록에 있습니다.");
+    { text: "그러면 7B에서는 문제가 없는가? — 문헌은 아니라고 말합니다.", options: { bold: true, fontSize: 12.5, color: C.navy, breakLine: true } },
+    { text: "FOCUS(2025) 부록: 같은 Qwen2.5-VL-7B에서 단일→멀티 −10.4%p  ·  MVH-Bench(2026): 7B 오답의 87~94%가 '다른 이미지에서 온 정보'  ·  GPT-4o도 같은 벤치에서 붕괴", options: { fontSize: 11.5, color: C.gray } },
+  ], { x: 0.85, y: 5.46, w: 11.7, h: 1.0, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+  takeaway(s, "→ 질문 ①의 답: 문제는 실재한다. 단 우리 벤치(POPE+방해 1장)는 7B에게 너무 쉬워 계측기로 부적합 — 벤치 이동이 필요");
+  s.addNotes("정직하게 말합니다. 7B에서 우리 벤치로는 안 잡힙니다. 이유는 천장 효과이고, 문헌은 더 어려운 벤치에서 7B도 무너진다고 보고합니다. 그래서 Phase 1의 과제 중 하나가 벤치 이동입니다.");
 }
 
 // =====================================================================
@@ -383,75 +387,88 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 }
 
 // =====================================================================
-// S10 — Q2 X자 ★
+// S10 — Q2 X자 (양 스케일)
 // =====================================================================
 {
   const s = pres.addSlide();
-  kicker(s, "질문 ② — 해법이 작동하는가?  (3/3: 오늘의 핵심 그림)");
-  headline(s, "같은 차단인데 — 한 장에 대한 질문은 좋아지고, 두 장을 비교하는 질문은 무너진다");
-  s.addImage({ path: R + "fig3_opposite_depth_policies.png", x: 1.55, y: 1.62, w: 7.5, h: 4.41 });
-  const notes = [
-    ["파란 곡선 ▲ +21%p", "\"1번 이미지에 ○○ 있나?\"\n— 일찍 차단할수록 정확", C.blue],
-    ["빨간 곡선 ▼ −51%p", "\"두 이미지 '모두'에 ○○ 있나?\"\n— 두 장을 봐야 하므로 차단하면 붕괴", C.red],
-    ["같은 구간(20~24층)에서 전환", "두 장을 잇는 계산과 오염이\n같은 층에서 일어난다는 뜻", C.orange],
-  ];
-  notes.forEach((n, i) => {
-    const y = 1.75 + i * 1.5;
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 9.25, y, w: 3.55, h: 1.35, rectRadius: 0.1,
-      fill: { color: C.white }, line: { color: n[2], width: 1.5 } });
-    s.addText([{ text: n[0], options: { bold: true, fontSize: 13.5, color: n[2], breakLine: true } },
-      { text: n[1], options: { fontSize: 10.5, color: C.gray } }],
-      { x: 9.45, y: y + 0.1, w: 3.2, h: 1.18, fontFace: F, margin: 0, paraSpaceAfter: 4 });
-  });
-  readNote(s, 1.55, 6.05, 8.5, "신규 300문항 실험 · 가로축 = 차단 시작 층 — 왼쪽(일찍 차단)에서 두 곡선의 격차가 72%p까지 벌어짐");
-  takeaway(s, "→ 하나의 고정 깊이로는 두 질문을 동시에 만족할 수 없다 — \"이미지·질문마다 다른 깊이\"가 유일한 해법 = 이 연구가 필요한 이유");
-  s.addNotes("오늘 가장 중요한 그림입니다. 같은 개입인데 질문 유형에 따라 +21과 -51로 완전히 반대입니다. 즉 어떤 고정 깊이를 골라도 한쪽을 망칩니다. 이미지와 질문마다 깊이를 다르게 주는 것 외에 해법이 없고, 그게 바로 이 연구입니다. 덤으로 — 두 전환이 같은 층에서 일어난다는 것도 발견했는데, 관계 추론과 출처 오염이 같은 계산의 양면이라는 뜻입니다.");
+  kicker(s, "질문 ② — (3/3) 질문 유형에 따라 최적 깊이가 갈린다");
+  headline(s, "같은 개입이 한쪽 질문에서는 무해하고, 다른 쪽에서는 붕괴시킨다 — 두 스케일 모두");
+  s.addImage({ path: R + "fig6_xcross_both_scales.png", x: 0.6, y: 1.62, w: 12.1, h: 4.15 });
+  s.addText([
+    { text: "3B: 단일이미지 질문 +21%p  vs  비교 질문 −51.0%p  (부호 역전)      ", options: { fontSize: 12.5, bold: true, color: C.navy } },
+    { text: "7B: −0.7%p  vs  −41.0%p  (부호는 같고 크기가 58배)", options: { fontSize: 12.5, bold: true, color: C.navy } },
+  ], { x: 0.6, y: 5.85, w: 12.1, h: 0.4, fontFace: F, margin: 0 });
+  s.addText("전환 구간이 두 모델에서 같은 상대 깊이(43~71%) — 스케일에 불변인 구조", {
+    x: 0.6, y: 6.22, w: 12.1, h: 0.35, fontFace: F, fontSize: 11.5, italic: true, color: C.gray, margin: 0 });
+  takeaway(s, "→ 하나의 고정 깊이로 두 질문 유형을 동시에 만족할 수 없다 — 단, 질문 유형은 텍스트만으로 사전 판정 가능하다");
+  s.addNotes("여기서 중요한 단서를 하나 답니다. relational 질문에서 -51%p는 치명적으로 보이지만, '이 질문이 비교형인가'는 텍스트만 보고 0층에서 판정할 수 있습니다. 즉 이 실패는 게이트로 회피 가능합니다. 반면 '어느 이미지가 관련인가'는 그렇지 않고, 그게 다음 슬라이드입니다.");
 }
 
 // =====================================================================
-// S11 — Q3 실용화
+// S10b — ★ 동일 예산 배분 대결 (신규)
+// =====================================================================
+{
+  const s = pres.addSlide();
+  kicker(s, "질문 ② — 그래서 얼마나 이득인가?");
+  tag(s, "oracle 조건", C.orange);
+  headline(s, "같은 계산량을 쓰면서 배분만 바꿔도 정확도가 크게 갈린다", false, 10.2);
+  s.addImage({ path: R + "fig5_allocation_vs_uniform.png", x: 0.6, y: 1.6, w: 12.1, h: 4.3 });
+  s.addText([
+    { text: "차등 배분(방해 4층 + 대상 28층)  vs  일괄 차단(둘 다 16층) — 같은 '이미지-레이어' 예산", options: { fontSize: 12.5, bold: true, color: C.navy, breakLine: true } },
+    { text: "3B: 50.5% 절감에서 0.837 vs 0.550 (+28.7%p)   ·   7B: 38.9% 절감에서 0.802 vs 0.715 (+8.7%p)   ·   차단 없음 기준선 0.790", options: { fontSize: 12, color: C.gray } },
+  ], { x: 0.6, y: 5.95, w: 12.1, h: 0.7, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+  takeaway(s, "→ 단, 이 수치는 '어느 쪽이 방해 이미지인지 아는' 조건입니다. 다음 슬라이드에서 그 조건이 실현 가능한지 봅니다");
+  s.addNotes("이 슬라이드의 마지막 한 줄이 가장 중요합니다. 지금까지 보여드린 모든 이득은 oracle 조건입니다. 그 조건이 실현 가능한지가 이 연구의 사활이고, 다음 슬라이드가 그 답입니다.");
+}
+
+// =====================================================================
+// S11 — 질문 ③ 컨트롤러: 실패, 그리고 그 실패가 발견
 // =====================================================================
 {
   const s = pres.addSlide();
   kicker(s, "질문 ③ — 실제로 만들 수 있는가?");
-  pendTag(s);
-  headline(s, "\"무엇을 차단할지\"는 8층에서 이미 알 수 있고, 속도 이득도 실측으로 확인했다", false, 10.2);
-  // 좌: 컨트롤러
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.72, w: 6.05, h: 3.4, rectRadius: 0.1,
-    fill: { color: C.light }, line: { color: C.line, width: 1 } });
-  s.addText("재료 1 — 판단 신호가 모델 안에 이미 있다", { x: 0.85, y: 1.9, w: 5.5, h: 0.4,
-    fontFace: F, fontSize: 14, bold: true, color: C.navy, margin: 0 });
+  headline(s, "판정할 수 있게 되는 시점이, 개입이 유효한 시점보다 늦다");
+  // 좌: 순서 뒤집기
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.65, w: 6.0, h: 2.35, rectRadius: 0.1,
+    fill: { color: C.lightred }, line: { color: C.red, width: 1.25 } });
+  s.addText("① 얕은 층 신호는 가짜였다", { x: 0.85, y: 1.8, w: 5.4, h: 0.35, fontFace: F,
+    fontSize: 14, bold: true, color: C.red, margin: 0 });
   s.addText([
-    { text: "질문과 관련된 이미지가 어느 쪽인지, 모델 내부의 attention 신호 하나로 ", options: { fontSize: 12.5, color: C.navy } },
-    { text: "8층에서 99.8% 식별", options: { fontSize: 12.5, bold: true, color: C.green } },
-    { text: " (600문항, 교차검증)", options: { fontSize: 11, color: C.gray, breakLine: true } },
-    { text: "· 별도 모델 불필요 — 어차피 하는 계산에서 공짜로 얻는 신호", options: { fontSize: 11.5, color: C.gray, breakLine: true } },
-    { text: "· 당초 '실패(72.5%)'로 보였던 건 신호 16개를 평균해 흐려진 탓 — 좋은 신호 1개만 고르면 충분했음", options: { fontSize: 11.5, color: C.gray } },
-  ], { x: 0.85, y: 2.35, w: 5.5, h: 1.6, fontFace: F, margin: 0, paraSpaceAfter: 6 });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.85, y: 4.05, w: 5.45, h: 0.92, rectRadius: 0.08,
+    { text: "8층에서 관련 이미지 식별 99.8%", options: { fontSize: 13, color: C.navy, breakLine: true } },
+    { text: "→ 이미지 순서를 뒤집자  0.2%", options: { fontSize: 15, bold: true, color: C.red, breakLine: true } },
+    { text: "즉 '관련도'가 아니라 '첫 번째 이미지'를 보던 head", options: { fontSize: 11.5, color: C.gray } },
+  ], { x: 0.85, y: 2.25, w: 5.4, h: 1.6, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+  // 우: 진짜 신호 위치
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.8, y: 1.65, w: 6.0, h: 2.35, rectRadius: 0.1,
     fill: { color: C.lightorange }, line: { color: C.orange, width: 1.25 } });
+  s.addText("② 진짜 신호는 훨씬 깊은 곳에", { x: 7.1, y: 1.8, w: 5.4, h: 0.35, fontFace: F,
+    fontSize: 14, bold: true, color: C.orange, margin: 0 });
   s.addText([
-    { text: "⚠ 미확정 — 지금 실험은 정답 이미지가 항상 '1번 자리'", options: { bold: true, fontSize: 11.5, color: C.orange, breakLine: true } },
-    { text: "이 신호가 '자리 선호'일 가능성을 밤새 검증 중 (자리를 뒤집은 대조 실험)", options: { fontSize: 10.5, color: C.navy } },
-  ], { x: 1.05, y: 4.14, w: 5.1, h: 0.8, fontFace: F, margin: 0, paraSpaceAfter: 3 });
-  // 우: 속도
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.8, y: 1.72, w: 6.0, h: 3.4, rectRadius: 0.1,
+    { text: "순서를 뒤집어도 맞는 head를 전수 탐색", options: { fontSize: 12, color: C.gray, breakLine: true } },
+    { text: "얕은 층(2~16): 0.31~0.51 = 무작위", options: { fontSize: 12.5, color: C.navy, breakLine: true } },
+    { text: "22층: 0.882  ← 여기서 처음 신뢰 가능", options: { fontSize: 14, bold: true, color: C.orange } },
+  ], { x: 7.1, y: 2.25, w: 5.4, h: 1.6, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+  // 시간 역전 도식
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.2, w: 12.25, h: 1.35, rectRadius: 0.1,
     fill: { color: C.light }, line: { color: C.line, width: 1 } });
-  s.addText("재료 2 — 실제로 빨라진다 (흉내 아님)", { x: 7.1, y: 1.9, w: 5.5, h: 0.4,
-    fontFace: F, fontSize: 14, bold: true, color: C.navy, margin: 0 });
-  s.addText([
-    { text: "방해 이미지 토큰을 실제로 삭제하는 구현을 만들어 실측 → 응답 시작 시간 ", options: { fontSize: 12.5, color: C.navy } },
-    { text: "9.7% 단축", options: { fontSize: 12.5, bold: true, color: C.green } },
-    { text: " (510→461ms)", options: { fontSize: 11, color: C.gray, breakLine: true } },
-    { text: "· 이론 상한은 42.4% — 격차의 원인 3가지를 규명했고 모두 해소 가능 (부록)", options: { fontSize: 11.5, color: C.gray, breakLine: true } },
-    { text: "· 정확도는 그대로: 마스킹 방식과 예측 100% 일치 확인", options: { fontSize: 11.5, color: C.gray } },
-  ], { x: 7.1, y: 2.35, w: 5.5, h: 1.6, fontFace: F, margin: 0, paraSpaceAfter: 6 });
-  s.addText("이론치만 보고하지 않고 실측을 먼저 했습니다 — 격차를 아는 것이 부풀리는 것보다 낫기 때문", {
-    x: 7.1, y: 4.2, w: 5.5, h: 0.7, fontFace: F, fontSize: 11, italic: true, color: C.gray, margin: 0 });
-  s.addText("두 재료가 합쳐지면: \"8층에서 판단 → 그 지점부터 방해 이미지 삭제\" — 추가 모델 없이 한 번의 forward 안에서 완결", {
-    x: 0.55, y: 5.35, w: 12.2, h: 0.75, fontFace: F, fontSize: 13.5, bold: true, color: C.navy, margin: 0 });
-  takeaway(s, "→ 질문 ③의 답: 실용화의 두 재료(판단 신호 · 속도 이득)는 확인 — '자리 편향' 검증 결과가 내일 아침 나온다");
-  s.addNotes("[내일 결과에 따라] 자리를 뒤집어도 유지되면: '관련도를 따라가는 신호'로 확정, 컨트롤러 실현 가능. 무너지면: 자리 선호였다는 것을 확정한 것이고, 깊은 층(21층, 99%)의 신호를 쓰는 설계로 전환 — 어느 쪽이든 다음 설계가 명확해집니다.");
+  s.addText("③ 그래서 시간 역전이 생긴다", { x: 0.85, y: 4.32, w: 5.0, h: 0.35, fontFace: F,
+    fontSize: 14, bold: true, color: C.navy, margin: 0 });
+  s.addShape(pres.shapes.LINE, { x: 1.0, y: 5.15, w: 8.6, h: 0, line: { color: C.navy, width: 2 } });
+  [["0층", 1.0, C.gray], ["16층\n개입 유효 한계", 4.3, C.blue], ["22층\n판정 가능 시작", 6.6, C.orange], ["36층", 9.4, C.gray]].forEach(t => {
+    s.addShape(pres.shapes.OVAL, { x: t[1] - 0.07, y: 5.08, w: 0.14, h: 0.14, fill: { color: t[2] } });
+    s.addText(t[0], { x: t[1] - 0.9, y: 4.62, w: 1.8, h: 0.5, align: "center", fontFace: F,
+      fontSize: 10.5, bold: true, color: t[2], margin: 0 });
+  });
+  s.addText("판정 가능 시점 > 개입 유효 시점\n= 이 계열 방법의 구조적 상한", { x: 10.0, y: 4.4, w: 2.7, h: 1.0,
+    fontFace: F, fontSize: 12, bold: true, color: C.red, margin: 0 });
+  // 실제 성능
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.7, w: 12.25, h: 0.78, rectRadius: 0.08,
+    fill: { color: C.lightred }, line: { color: C.red, width: 1.25 } });
+  s.addText("실제 컨트롤러를 끼우면:  0.882 × 0.812 + 0.118 × 0.50 = 0.775   vs   차단 없음 0.790   →  −1.5%p (이득이 아니라 손실)", {
+    x: 0.85, y: 5.7, w: 11.7, h: 0.78, fontFace: F, fontSize: 12.5, bold: true, color: C.red,
+    margin: 0, valign: "middle" });
+  takeaway(s, "→ 질문 ③의 답: 지금은 만들 수 없다. 그러나 '왜 만들 수 없는지'가 이 계열 전체에 적용되는 제약이다");
+  s.addNotes("이 슬라이드가 오늘 발표의 핵심입니다. 실패를 보고하는 게 아니라, 실패의 구조적 이유를 규명한 것을 보고합니다. FastV 같은 기존 동적 pruning도 얕은 층 attention을 쓰는데, Feather the Throttle(ICCV25)이 그 신호가 위치 편향임을 토큰 단위로 보였고 저희가 이미지 단위로 확인했습니다. 즉 이건 우리 방법만의 문제가 아닙니다.");
 }
 
 // =====================================================================
@@ -478,7 +495,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     align: "center", valign: "middle", border: { pt: 1.5, color: "FFFFFF" } });
   s.addText([
     { text: "가장 가까운 MVPruner(ECCV'26)도 이미지별로 '토큰 개수'를 조절할 뿐 — 모든 이미지가 끝까지 계산되고, 환각 문제는 다루지 않음", options: { bullet: true, breakLine: true } },
-    { text: "'깊이 절감'과 '환각 완화'는 각각 존재하지만, 둘을 이미지 단위로 결합한 연구는 확인되지 않음 — 넓은 주장은 버리고 이 칸만 주장", options: { bullet: true } },
+    { text: "'깊이 절감'과 '환각 완화'는 각각 존재하지만, FastV류는 얕은 층 attention으로 자르는데 그 신호가 위치 편향임이 토큰 단위로 보고됨(Feather the Throttle, ICCV'25) - 우리는 이미지 단위로 확인. 그리고 최근 연구가 layer 12~23에서 cross-image attention을 일괄 차단해 LLaVA-OV 7B 54.0->63.8을 얻음(컨트롤러 없이). 우리 차별점은 방법이 아니라 '왜 그 구간인가'의 규명 — 넓은 주장은 버리고 이 칸만 주장", options: { bullet: true } },
   ], { x: 0.55, y: 5.0, w: 12.25, h: 1.3, fontFace: F, fontSize: 12.5, color: C.navy,
     margin: 0, paraSpaceAfter: 8 });
   takeaway(s, "→ 단, '기존 연구의 조합'으로 보이지 않으려면 남은 관문(이미지별 차등 배분의 이득)을 실증해야 한다 — 그것이 다음 단계다");
@@ -486,49 +503,42 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
 }
 
 // =====================================================================
-// S13 — 종합 + 계획
+// S13 — 종합 + 다음 (재작성)
 // =====================================================================
 {
   const s = pres.addSlide();
-  kicker(s, "결론과 다음 계획");
-  pendTag(s);
-  headline(s, "성립 조건은 통과했다 — 6개월을 걸기 전에, 남은 관문 3개를 2~4주 안에 검증한다", false, 10.2);
-  // 좌: 3질문 답
-  s.addText("오늘의 세 질문, 세 답", { x: 0.55, y: 1.7, w: 6.0, h: 0.4, fontFace: F, fontSize: 14,
-    bold: true, color: C.navy, margin: 0 });
-  const ans = [
-    ["Q1", "문제가 진짜 있는가", "✓ 있다 — 오염 21.3% vs 대조군 0%", C.green],
-    ["Q2", "해법이 작동하는가", "✓ 한다 — 81% 회복 + 인과 확인 + X자 곡선", C.green],
-    ["Q3", "실제로 만들 수 있는가", "◐ 두 재료 확인 — 자리 편향 검증만 남음 (내일)", C.orange],
+  s.background = { color: C.darkbg };
+  kicker(s, "결론과 결정 요청", true);
+  headline(s, "방법은 아직 없다 — 만든 것은 측정 도구와 제약 조건이다", true, 10.2);
+  const got = [
+    ["확인한 것", ["오염 실재·회복·인과 (3B, p=4×10⁻³⁸)", "배분 > 예산 (3B +28.7%p / 7B +8.7%p, oracle)", "질문 유형별 최적 깊이 상이 (양 스케일)", "결합(binding)이 일어나는 상대 깊이 ≈60%"], "8CE0B0"],
+    ["막힌 것", ["컨트롤러: 판정 시점(22층) > 개입 시점(16층)", "실제 끼우면 −1.5%p (이득 아님)", "7B·POPE에서 오염 미관측 (벤치 한계)", "실측 속도 9.7% (이론 42.4%)"], "FF8A80"],
+    ["즉시 검증 (2주)", ["★ 이미지 위치 50/50 균형화 재측정", "컨트롤러 end-to-end 실측", "질문 유형 게이트 정책 실측", "random 배분 대조군 · layer-0 상한"], "FFC94D"],
   ];
-  ans.forEach((a, i) => {
-    const y = 2.2 + i * 1.15;
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 6.0, h: 1.0, rectRadius: 0.08,
-      fill: { color: i === 2 ? C.lightorange : C.lightgreen }, line: { color: a[3], width: 1.25 } });
-    s.addText([{ text: `${a[0]} · ${a[1]}`, options: { bold: true, fontSize: 12.5, color: C.navy, breakLine: true } },
-      { text: a[2], options: { fontSize: 12.5, bold: true, color: a[3] } }],
-      { x: 0.8, y: y + 0.1, w: 5.5, h: 0.85, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+  got.forEach((g, i) => {
+    const x = 0.55 + i * 4.25, y = 1.7, w = 4.0, h = 3.5;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1,
+      fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
+    s.addText(g[0], { x: x + 0.22, y: y + 0.18, w: w - 0.44, h: 0.4, fontFace: F, fontSize: 14.5,
+      bold: true, color: g[2], margin: 0 });
+    s.addText(g[1].map((t, k) => ({ text: t, options: { bullet: true, breakLine: k < g[1].length - 1 } })),
+      { x: x + 0.22, y: y + 0.68, w: w - 0.44, h: h - 0.9, fontFace: F, fontSize: 11,
+        color: "D7E4EF", margin: 0, paraSpaceAfter: 7 });
   });
-  // 우: 계획
-  s.addText("다음 계획 — 11월 CVPR 제출 역산", { x: 6.9, y: 1.7, w: 5.9, h: 0.4, fontFace: F,
-    fontSize: 14, bold: true, color: C.navy, margin: 0 });
-  const plan = [
-    ["지금~4주", "관문 3개 검증", "① 이미지별 '차등' 깊이의 이득 (밤새 1차 실측 중) ② 컨트롤러 완결(자리 뒤집기·외부 방법과 비교) ③ 속도 우위(커널 구현)"],
-    ["9~10월", "방법 확정·확장", "7B·타 모델 재현 → 표준 벤치마크 → 기존 방법들과 비교·ablation"],
-    ["11월", "제출", "CVPR — 실패 시 출구도 준비: '깊이와 환각의 인과' 분석 논문 (자산 전부 재사용)"],
+  s.addText("받고 싶은 결정", { x: 0.55, y: 5.4, w: 12.25, h: 0.35, fontFace: F, fontSize: 13.5,
+    bold: true, color: C.white, margin: 0 });
+  const dec = [
+    ["① 트랙", "(A) 제약·분석 논문  /  (B) risk-calibrated 배분  /  (C) 질문유형 게이트 method — 2주 후 재결정 전제"],
+    ["② 실험", "위 2주 게이트 6개 승인 (GPU 1장, 기존 자산 재사용)"],
+    ["③ 벤치", "POPE → MVH-Bench 이동 (7B baseline 64.1%, headroom 35%p)"],
   ];
-  plan.forEach((p, i) => {
-    const y = 2.2 + i * 1.15;
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.9, y, w: 5.9, h: 1.0, rectRadius: 0.08,
-      fill: { color: C.light }, line: { color: C.line, width: 1 } });
-    s.addText([{ text: `${p[0]} · ${p[1]}   `, options: { bold: true, fontSize: 12, color: C.blue } },
-      { text: p[2], options: { fontSize: 10.5, color: C.gray } }],
-      { x: 7.12, y: y + 0.08, w: 5.5, h: 0.88, fontFace: F, margin: 0 });
+  dec.forEach((d, i) => {
+    const y = 5.82 + i * 0.42;
+    s.addText([{ text: d[0] + "   ", options: { bold: true, fontSize: 11.5, color: "7EC8F5" } },
+      { text: d[1], options: { fontSize: 11.5, color: "D7E4EF" } }],
+      { x: 0.75, y, w: 12.0, h: 0.4, fontFace: F, margin: 0 });
   });
-  s.addText("판정 기준을 미리 동결하는 방식은 다음 단계에서도 유지합니다 — 실패하면 실패했다고 보고드리는 구조", {
-    x: 0.55, y: 5.85, w: 12.2, h: 0.4, fontFace: F, fontSize: 11.5, italic: true, color: C.gray, margin: 0 });
-  takeaway(s, "→ 오늘의 결론: 이 연구는 성립 근거를 '정량 수치'로 확보했다 — 관문 3개를 통과하면 CVPR, 못 하면 분석 논문으로 전환");
-  s.addNotes("정리합니다. 문제는 실재하고(21% vs 0%), 해법은 인과적으로 작동하며(81% 회복), 질문 유형에 따라 최적 깊이가 정반대라 적응 배분 외엔 답이 없습니다. 실용화 재료 둘 중 하나만 검증이 남았고 내일 아침 나옵니다. 6개월을 먼저 걸지 않고 관문 3개를 2~4주에 먼저 깨보겠습니다.");
+  s.addNotes("정리하면 — 방법을 만들었다고 말씀드릴 수 없습니다. 대신 이 방향이 왜 어려운지를 정확히 측정했고, 그 측정이 우리 방법만이 아니라 attention 기반 동적 pruning 계열 전체에 적용됩니다. 6개월을 걸기 전에 2주 게이트를 먼저 통과시키고 싶습니다.");
 }
 
 // =====================================================================
@@ -547,6 +557,7 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     { text: "A2  '두 장 비교' 질문 3종 상세", options: { breakLine: true } },
     { text: "A3  반대 방향 오염과 margin 민감도", options: { breakLine: true } },
     { text: "A3b 자체 반증 점검 (단일 이미지 비교)", options: { breakLine: true } },
+    { text: "A3c 배분의 상한 (+2.7%p)", options: { breakLine: true } },
     { text: "A4  층별 식별률 전체 곡선", options: { breakLine: true } },
     { text: "A5  층별 attention 분포", options: { breakLine: true } },
     { text: "A6  재현성·환경·한계", options: { breakLine: true } },
@@ -693,6 +704,33 @@ function bar(s, x, yBase, w, hMax, frac, color, valTxt, label) {
     { text: "단, 본편의 핵심 주장(M → T4)은 무관하게 유효: 같은 layout·같은 프롬프트에서 오염 문항군만 +20%p, 오염 없는 대조군은 −2%p — 기준 이동이면 둘 다 올랐어야 함 (응답률 이동폭 3.8%p로는 20%p 설명 불가)", options: { bullet: true } },
   ], { x: 0.55, y: 4.35, w: 12.25, h: 2.3, fontFace: F, fontSize: 11.5, color: C.navy,
     margin: 0, paraSpaceAfter: 7 });
+}
+
+// =====================================================================
+// A3c — 배분의 상한: 문항별 최적 깊이가 거의 다르지 않다
+// =====================================================================
+{
+  const s = pres.addSlide();
+  kicker(s, "APPENDIX A3c");
+  headline(s, "'이미지별 배분'의 상한 — 문항마다 최적 깊이를 완벽히 알아도 +2.7%p");
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 };
+  const cc = { fontSize: 11, color: C.navy, fill: { color: C.white } };
+  const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
+  const rows = [
+    [m("문항군", hd), m("전역 최적 1개 사용", hd), m("문항별 최적을 안다면", hd), m("상한 이득", hd), m("문항별 최적깊이 표준편차", hd)],
+    [m("셀 1 (n=150)", { bold: true }), m("0.933"), m("0.960"), m("+2.7%p", { bold: true, color: C.red }), m("2.6 (범위 16~24)")],
+    [m("셀 2 (n=150)", { bold: true }), m("0.720"), m("0.747"), m("+2.7%p", { bold: true, color: C.red }), m("5.6")],
+  ];
+  s.addTable(rows, { x: 0.55, y: 1.8, w: 12.25, rowH: 0.55, fontFace: F, align: "center",
+    valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addText([
+    { text: "셀 1의 66%는 어느 깊이에서 잘라도 정답 — 애초에 깊이에 무관한 문항이다", options: { bullet: true, breakLine: true } },
+    { text: "즉 깊이 요구는 개별 이미지/문항의 속성이 아니라 **질문 유형**의 속성이다 (셀1 vs 비교질문은 +21 vs −51%p로 극명)", options: { bullet: true, breakLine: true } },
+    { text: "선행연구도 같은 방향: γ-MoD(ICLR'25)는 depth 여유도를 오프라인 50샘플로 한 번 정하고 고정하며 'task가 달라도 대체로 일관'이라 보고", options: { bullet: true, breakLine: true } },
+    { text: "→ 함의: '이미지별 배분'이라는 표현은 과하다. 정확히는 '질문 유형별 깊이 정책' — 그리고 질문 유형은 텍스트만으로 0층에서 판정 가능하다", options: { bullet: true, bold: true } },
+  ], { x: 0.55, y: 3.75, w: 12.25, h: 2.5, fontFace: F, fontSize: 12, color: C.navy,
+    margin: 0, paraSpaceAfter: 9 });
+  s.addText("자체 사후 분석 (GPU 불필요) — 리뷰어가 지적하기 전에 우리가 먼저 계산한 것", { x: 0.55, y: 6.45, w: 12.2, h: 0.34, fontFace: F, fontSize: 10, color: C.gray, margin: 0 });
 }
 
 // =====================================================================
