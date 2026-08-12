@@ -51,7 +51,7 @@ function foot(s, t, dark) {
   s.addText("\"이미지마다 계산 깊이를 다르게 주면 환각이 줄고 계산도 준다\" — 3일간 6,000회 이상 측정한 결과", {
     x: 0.6, y: 2.65, w: 12.2, h: 0.4, fontFace: F, fontSize: 13.5, color: "AFC6DA", margin: 0 });
   const cards = [
-    ["✓ 확인된 것", "무관한 이미지가 답의 21%를 뒤집고(대조군 0%),\n차단하면 81%가 회복된다.\n이미지 간 차등 배분 이득 +30.7%p (위치 무관)", "인과까지 확인 (p=4×10⁻³⁸)", "8CE0B0"],
+    ["✓ 확인된 것", "무관한 이미지가 답의 21%를 뒤집고(대조군 0%),\n그 이미지를 차단하면 오답의 81%가 회복된다.\n반대로 정답 이미지를 자르면 0.79 → 0.50으로 붕괴", "부작용은 3.7%뿐 · p = 6×10⁻⁷ / 4×10⁻³⁸", "8CE0B0"],
     ["✗ 무너진 것", "관련 이미지를 스스로 판정하는 시점(22층)이\n개입해야 하는 시점(16층)보다 늦다.\n실제 컨트롤러를 끼우면 −1.5%p", "→ 자동화가 안 되면 쓸 수 없다", "FF8A80"],
     ["? 남은 것", "가장 가까운 연구를 원문 대조해 보니\ntraining-free 추론시 개입과 환각 평가는\n다루지 않았고, 열린 질문을 남겼다", "→ 1주일만 더 확인하고 싶습니다", "FFC94D"],
   ];
@@ -150,7 +150,7 @@ function foot(s, t, dark) {
 {
   const s = pres.addSlide();
   kicker(s, "결과 ② — 무너진 것 (오늘의 핵심)");
-  headline(s, "\"이미지마다 다르게\"라는 전제 자체가 성립하지 않았다");
+  headline(s, "어느 이미지가 방해인지 스스로 알아내지 못했고, 속도 이득도 실현되지 않았다");
   const fails = [
     ["①", "스스로 판정하지 못한다",
      "8층에서 관련 이미지를 99.8% 맞히길래 됐다 싶었는데,\n이미지 순서를 뒤집으니 0.2%. 관련도가 아니라 '첫 번째'를 보던 것.\n순서를 뒤집어도 맞는 신호는 22층에서야 나오는데, 차단이 효과 있는 구간은 16층 이전.",
@@ -176,8 +176,8 @@ function foot(s, t, dark) {
     s.addText("→ " + f[3], { x: 9.6, y: y + 0.3, w: 3.05, h: 0.85, fontFace: F, fontSize: 11,
       bold: true, color: C.red, margin: 0 });
   });
-  takeaway(s, "→ 다만 좋은 소식도 있습니다: 이미지 간 차등 배분 이득(+30.7%p)은 이미지 순서를 뒤집어도 80% 유지됐습니다 — 위치 때문에 생긴 착시가 아닙니다");
-  s.addNotes("이 세 개가 오늘 보고의 중심입니다. 특히 첫 번째 — 순서를 뒤집었더니 신호가 무너진 것 — 은 제 방법만의 문제가 아니라 얕은 층 attention을 쓰는 기존 방법들에도 해당됩니다.");
+  takeaway(s, "→ 다만 좋은 소식 하나: 계산량이 같을 때 \u0027방해 이미지를 먼저 끊는\u0027 배분이 \u0027둘 다 똑같이 끊는\u0027 것보다 나았고, 이미지 순서를 뒤집어도 그 이득의 80%가 유지됐습니다");
+  s.addNotes("이 세 개가 오늘 보고의 중심입니다. 특히 첫 번째 — 순서를 뒤집었더니 신호가 무너진 것 — 은 제 방법만의 문제가 아니라 얕은 층 attention을 쓰는 기존 방법들에도 해당됩니다. 두 번째는 더 단순합니다 — 계산량을 42% 줄여도 실제 응답 시간은 10%밖에 안 줄었습니다. 이론과 실측이 이만큼 벌어지면 효율성을 기여로 내세울 수 없습니다. 다만 아래 결론처럼, 같은 계산량 안에서 방해 이미지를 먼저 끊는 배분 자체는 순서를 뒤집어도 살아남았습니다.");
 }
 
 // =====================================================================
@@ -261,9 +261,35 @@ function appendix(title, imgs, notes) {
 appendix("질문 유형에 따라 최적 깊이가 정반대 — 두 스케일 모두",
   { img: "fig6_xcross_both_scales.png", x: 0.6, y: 1.6, w: 12.1, h: 4.15 },
   "R1: '두 이미지 모두에 X가 있나?' 정답 '아니오' — 2번 이미지를 반드시 확인해야 함. 3B 0.760→0.250(−51%p), 7B 0.950→0.540(−41%p)");
-appendix("같은 예산에서 배분만 바꿨을 때 (oracle 조건)",
-  { img: "fig5_allocation_vs_uniform.png", x: 0.6, y: 1.6, w: 12.1, h: 4.3 },
-  "차등 배분(방해 4층 + 대상 28층) vs 일괄 차단(둘 다 16층). 3B 50.5% 절감에서 0.837 vs 0.550, 7B 38.9%에서 0.802 vs 0.715. 기준선 0.790");
+{
+  const s = pres.addSlide();
+  kicker(s, "APPENDIX");
+  headline(s, "계산량은 똑같이 두고 배분만 바꿨을 때 (어느 쪽이 방해인지 아는 조건)");
+  const hd = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 12 };
+  const cc = { fontSize: 12, color: C.navy, fill: { color: C.white } };
+  const m = (t, o) => ({ text: t, options: Object.assign({}, cc, o || {}) });
+  s.addTable([
+    [m("", hd), m("방해 이미지", hd), m("정답 이미지", hd), m("총 계산량", hd), m("정확도", hd)],
+    [m("일괄 (기존 방식)", { bold: true }), m("16층까지"), m("16층까지"),
+     m("16 + 16 = 32", { bold: true }), m("0.550", { bold: true, color: C.red })],
+    [m("차등 (우리)", { bold: true }), m("4층까지만", { color: C.blue }), m("28층까지", { color: C.blue }),
+     m("4 + 28 = 32", { bold: true }), m("0.837", { bold: true, color: C.green })],
+  ], { x: 1.3, y: 1.95, w: 10.7, h: 1.8, rowH: 0.6, fontFace: F, align: "center",
+       valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addText([
+    { text: "총 계산량이 정확히 같은데 정확도는 28.7%p 차이난다 — 예산을 똑같이 나누는 것보다 필요한 쪽에 몰아주는 편이 낫다", options: { bullet: true, breakLine: true } },
+    { text: "이유는 단순하다: 일괄 방식은 정답 이미지까지 16층에서 잘라버려 정작 필요한 정보를 함께 날린다", options: { bullet: true, breakLine: true } },
+    { text: "이미지 순서를 뒤집어 재측정해도 이득의 80%가 유지됐다 (원순서 +34.2%p → 뒤집기 +27.3%p, 양방향 평균 +30.7%p)", options: { bullet: true, breakLine: true } },
+    { text: "7B에서도 같은 방향 — 38.9% 절감 구간에서 0.802 vs 0.715 (+8.7%p). 무개입 기준선은 0.790", options: { bullet: true, breakLine: true } },
+    { text: "한계: 비교 대상인 일괄 차단(0.550)이 무개입(0.790)보다도 낮은 약한 baseline이다. random 배분 대조군으로 보강해야 한다 (게이트 4)", options: { bullet: true, bold: true, color: C.red } },
+  ], { x: 0.9, y: 4.1, w: 11.6, h: 2.6, fontFace: F, fontSize: 12, color: C.navy,
+       margin: 0, paraSpaceAfter: 9 });
+  s.addText("※ 어느 쪽이 방해인지 미리 알려준 조건(oracle)에서의 상한값이다 — 이것을 자동 판정하는 부분이 무너진 지점(본편 4번 슬라이드)", {
+    x: 0.9, y: 6.85, w: 11.6, h: 0.4, fontFace: F, fontSize: 10.5, italic: true,
+    color: C.gray, margin: 0 });
+}
+
+
 {
   const s = pres.addSlide();
   kicker(s, "APPENDIX");
