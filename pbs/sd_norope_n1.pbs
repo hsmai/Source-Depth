@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_norope
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 컨트롤러 재측정 — RoPE 제거 기준 (docs/17_norope_prereg.md)
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+date; nvidia-smi || true
+echo "===== 스모크 8문항 (hook 발화·GQA repeat 경로 확인) ====="
+python scripts/19_controller_norope.py --limit 8
+echo "===== 스모크 통과 ====="
+echo "===== 19 no-RoPE 컨트롤러 (3B, 600문항 × 원순서/뒤집기) ====="
+python scripts/19_controller_norope.py || echo "19-3B FAILED"
+python scripts/20_norope_analyze.py || true
+date
