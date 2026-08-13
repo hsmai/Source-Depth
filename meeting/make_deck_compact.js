@@ -176,7 +176,7 @@ function foot(s, t, dark) {
     s.addText("→ " + f[3], { x: 9.6, y: y + 0.3, w: 3.05, h: 0.85, fontFace: F, fontSize: 11,
       bold: true, color: C.red, margin: 0 });
   });
-  takeaway(s, "→ 다만 좋은 소식 하나: 계산량이 같을 때 \u0027방해 이미지를 먼저 끊는\u0027 배분이 \u0027둘 다 똑같이 끊는\u0027 것보다 나았고, 이미지 순서를 뒤집어도 그 이득의 80%가 유지됐습니다");
+  takeaway(s, "→ 다만 좋은 소식 하나: 계산량이 같을 때 \u0027방해 이미지를 먼저 끊는\u0027 배분이 \u0027둘 다 똑같이 끊는\u0027 것보다 나았고, 이미지 순서를 뒤집어도 그 이득의 87%가 유지됐습니다 (600문항 최종)");
   s.addNotes("이 세 개가 오늘 보고의 중심입니다. 특히 첫 번째 — 순서를 뒤집었더니 신호가 무너진 것 — 은 제 방법만의 문제가 아니라 얕은 층 attention을 쓰는 기존 방법들에도 해당됩니다. 두 번째는 더 단순합니다 — 계산량을 42% 줄여도 실제 응답 시간은 10%밖에 안 줄었습니다. 이론과 실측이 이만큼 벌어지면 효율성을 기여로 내세울 수 없습니다. 다만 아래 결론처럼, 같은 계산량 안에서 방해 이미지를 먼저 끊는 배분 자체는 순서를 뒤집어도 살아남았습니다.");
 }
 
@@ -292,8 +292,8 @@ appendix("질문 유형에 따라 최적 깊이가 정반대 — 두 스케일 �
   s.addText([
     { text: "총 계산량이 정확히 같은데 정확도는 28.7%p 차이난다 — 예산을 똑같이 나누는 것보다 필요한 쪽에 몰아주는 편이 낫다", options: { bullet: true, breakLine: true } },
     { text: "이유는 단순하다: 일괄 방식은 정답 이미지까지 16층에서 잘라버려 정작 필요한 정보를 함께 날린다", options: { bullet: true, breakLine: true } },
-    { text: "이미지 순서를 뒤집어 재측정해도 이득의 80%가 유지됐다 (원순서 +34.2%p → 뒤집기 +27.3%p, 양방향 평균 +30.7%p)", options: { bullet: true, breakLine: true } },
-    { text: "7B에서도 같은 방향 — 38.9% 절감 구간에서 0.802 vs 0.715 (+8.7%p). 무개입 기준선은 0.790", options: { bullet: true, breakLine: true } },
+    { text: "이미지 순서를 뒤집어 재측정해도 이득의 87%가 유지됐다 (원순서 +28.7%p → 뒤집기 +24.8%p, 양방향 평균 +26.8%p, n=600)", options: { bullet: true, breakLine: true } },
+    { text: "7B에서도 같은 방향이고 유지율까지 동일 — +8.7%p → 뒤집기 +7.5%p (87%). 무개입 기준선은 0.790", options: { bullet: true, breakLine: true } },
     { text: "한계: 비교 대상인 일괄 차단(0.550)이 무개입(0.790)보다도 낮은 약한 baseline이다. random 배분 대조군으로 보강해야 한다 (게이트 4)", options: { bullet: true, bold: true, color: C.red } },
   ], { x: 0.9, y: 4.1, w: 11.6, h: 2.6, fontFace: F, fontSize: 12, color: C.navy,
        margin: 0, paraSpaceAfter: 9 });
