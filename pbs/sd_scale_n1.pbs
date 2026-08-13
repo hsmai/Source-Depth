@@ -20,6 +20,10 @@ export TRANSFORMERS_OFFLINE=1
 export PYTHONHASHSEED=42
 
 date; nvidia-smi || true
+echo "===== 스모크: 4문항으로 span/마스킹 경로 확인 (실패 시 즉시 중단) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/17_scale_auc.py --limit 4
+echo "===== 스모크 통과 ====="
+
 echo "===== 17 scale-AUC (7B) — 주 종점 ====="
 SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/17_scale_auc.py || echo "17-7B FAILED"
 echo "===== 17 scale-AUC (3B) — 부 종점 ====="
