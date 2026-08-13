@@ -94,7 +94,8 @@ def main():
     print(f"{len(rows)} 문항 × {len(todo_all)} 조건 = {len(rows) * len(todo_all)}회")
 
     with stage("17_scale_auc"):
-        model, processor = load_model_and_processor()
+        # 이미지 4장 × eager ViT = 단일 3GB 할당 → 24GB 카드에서 OOM. ViT만 SDPA로.
+        model, processor = load_model_and_processor(sdpa_vision=True)
         nlay = num_layers(model)
         ctrl = KVBlockController(model, resolve_decoder_layers(model))
         vs, ve, pad = vision_token_ids(processor)

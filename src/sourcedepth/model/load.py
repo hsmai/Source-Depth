@@ -15,12 +15,30 @@ _LAYER_PATHS = (
 )
 
 
-def load_model_and_processor(max_pixels: int | None = None):
+def load_model_and_processor(max_pixels: int | None = None, sdpa_vision: bool = False):
+    """sdpa_vision=True: LM은 eager(4D mask 주입에 필수) 유지, **vision tower만 SDPA**.
+
+    eager ViT는 이미지 patch 전체에 대한 attention 행렬을 통째로 materialize한다.
+    이미지 4장(~6,800 patch)이면 단일 할당이 ~3GB라 24GB 카드에서 7B와 함께 못 버틴다.
+    ViT는 마스크 주입 대상이 아니므로 SDPA로 바꿔도 실험 설계에 영향이 없다.
+    구버전 transformers는 dict 형태를 받지 않으므로 실패 시 조용히 eager로 되돌린다.
+    """
     from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-        MODEL_ID, torch_dtype=torch.bfloat16,
-        attn_implementation="eager",     # C-1 필수: 4D mask 주입 + attention 추출
-        device_map="cuda:0")
+    common = dict(torch_dtype=torch.bfloat16, device_map="cuda:0")
+    model = None
+    if sdpa_vision:
+        try:
+            model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+                MODEL_ID, attn_implementation={"text_config": "eager",
+                                               "vision_config": "sdpa"}, **common)
+            print("[load] vision tower=SDPA, LM=eager")
+        except Exception as e:                      # 버전 미지원 → eager 전체로 fallback
+            print(f"[load] per-subconfig attn 미지원 ({type(e).__name__}) — eager 전체로 진행")
+            model = None
+    if model is None:
+        model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+            MODEL_ID, attn_implementation="eager",   # C-1 필수: 4D mask 주입 + attention 추출
+            **common)
     model.eval()
     torch.set_grad_enabled(False)
     proc_kwargs = {"max_pixels": max_pixels} if max_pixels else {}

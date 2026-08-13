@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_sc7b
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# scale-AUC 7B 재실행 — vision tower만 SDPA (eager ViT가 이미지 4장에서 3GB 단일 할당 → OOM)
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+date; nvidia-smi || true
+echo "===== 스모크 8문항 (SDPA ViT 경로 + 메모리 확인) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/17_scale_auc.py --limit 8
+echo "===== 스모크 통과 ====="
+echo "===== 17 scale-AUC (7B) — 주 종점, 전량 ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/17_scale_auc.py || echo "17-7B FAILED"
+date
