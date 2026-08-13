@@ -111,39 +111,48 @@ def main():
             im1 = image_path(row["image1_id"], COCO_IMG_DIR)
             dis = [image_path(d, COCO_IMG_DIR) for d in row["distractors"]]
 
-            cache = {}   # n -> (inputs, spans)
+            # N별로 묶어서 입력을 한 벌만 GPU에 올린다. 여러 N을 동시에 들고 있으면
+            # pixel_values가 누적돼 7B+24GB에서 OOM (실측: 문항당 이미지 9장 분량).
+            by_n = {}
             for cond, n in todo:
-                t0 = time.time()
-                if cond == "S":
-                    ctrl.disable()
+                by_n.setdefault(n, []).append(cond)
+            for n in sorted(by_n):
+                if n == 0:
                     inputs = build_inputs(processor, [im1], q_single, DEV, template)
+                    sp = None
                 else:
-                    if n not in cache:
-                        inp = build_inputs(processor, [im1] + dis[:n], q_multi, DEV, template)
-                        sp = find_vision_spans(inp["input_ids"], vs, ve, pad)
-                        if len(sp) != n + 1:
-                            blocked("17_scale_auc",
-                                    f"span 수 불일치: N={n} 기대 {n+1}, 실제 {len(sp)}", {"qid": qid})
-                        cache[n] = (inp, sp)
-                    inputs, sp = cache[n]
-                    if cond == "M":
+                    inputs = build_inputs(processor, [im1] + dis[:n], q_multi, DEV, template)
+                    sp = find_vision_spans(inputs["input_ids"], vs, ve, pad)
+                    if len(sp) != n + 1:
+                        blocked("17_scale_auc",
+                                f"span 수 불일치: N={n} 기대 {n+1}, 실제 {len(sp)}", {"qid": qid})
+                for cond in by_n[n]:
+                    t0 = time.time()
+                    if cond in ("S", "M"):
                         ctrl.disable()
                     else:
                         bf = 0 if cond == "T0" else int(cond[1:])
                         ctrl.configure_multi([(bf, s) for s in sp[1:]])
-                try:
-                    out = model(**inputs, use_cache=False)
-                finally:
-                    ctrl.disable()
-                p = predict(out.logits[0, -1].float(), yes_ids, no_ids)
-                append_jsonl(OUT, {"question_id": qid, "cell": row["cell"],
-                                   "gt": row["gt"], "condition": cond, "n_dist": n,
-                                   **p, "correct": p["pred"] == row["gt"],
-                                   "n_layers": nlay,
-                                   "seq_len": int(inputs["input_ids"].shape[1]),
-                                   "elapsed_ms": int(1000 * (time.time() - t0)),
-                                   "ts": iso_now()})
-                executed += 1
+                    try:
+                        try:
+                            out = model(**inputs, use_cache=False)
+                        except torch.cuda.OutOfMemoryError:
+                            torch.cuda.empty_cache()          # 단편화 해소 후 1회 재시도
+                            out = model(**inputs, use_cache=False)
+                    finally:
+                        ctrl.disable()
+                    p = predict(out.logits[0, -1].float(), yes_ids, no_ids)
+                    append_jsonl(OUT, {"question_id": qid, "cell": row["cell"],
+                                       "gt": row["gt"], "condition": cond, "n_dist": n,
+                                       **p, "correct": p["pred"] == row["gt"],
+                                       "n_layers": nlay,
+                                       "seq_len": int(inputs["input_ids"].shape[1]),
+                                       "elapsed_ms": int(1000 * (time.time() - t0)),
+                                       "ts": iso_now()})
+                    executed += 1
+                    del out
+                del inputs, sp
+                torch.cuda.empty_cache()
             if executed and executed % 400 == 0:
                 print(f"  {executed}회 완료")
         print(f"executed {executed}")
