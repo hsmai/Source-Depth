@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_scale
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=06:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 판별력 손상이 출처 수 N에 비례하는가 — AUC 주 종점 (docs/16_scale_auc_prereg.md)
+# 7B 먼저(주 종점), 이어서 3B(부 종점).
+
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+
+date; nvidia-smi || true
+echo "===== 17 scale-AUC (7B) — 주 종점 ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/17_scale_auc.py || echo "17-7B FAILED"
+echo "===== 17 scale-AUC (3B) — 부 종점 ====="
+python scripts/17_scale_auc.py || echo "17-3B FAILED"
+date
