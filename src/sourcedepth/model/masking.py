@@ -27,7 +27,8 @@ class KVBlockController:
         self.layers = layers
         self.block_from: int | None = None   # None = 비활성 (S·M 조건)
         self.cols: tuple[int, int] | None = None
-        self.rules: list | None = None       # configure_multi 사용 시
+        self.rules: list | None = None       # configure_multi/pathway 사용 시
+        self.soft: list | None = None        # configure_soft 사용 시 (유한 음수 bias)
         self.fired = Counter()               # no-op 탐지용 발화 카운터 (03 §B-1)
         self.handles = [ly.register_forward_pre_hook(self._make(i), with_kwargs=True)
                         for i, ly in enumerate(layers)]
@@ -53,10 +54,18 @@ class KVBlockController:
         self.block_from, self.cols = None, None
         self.rules = list(rules)
 
+    def configure_soft(self, rules):
+        """rules = [(block_from, kspan, lam), ...] — 하드 차단(-inf) 대신 **유한한 음수 bias**.
+        softmax 전에 λ를 빼므로 해당 열의 가중치가 e^-λ 배로 줄되 0은 아니다.
+        λ=0 무개입, λ→∞ 하드 차단. 앞단 selector에는 없는 연속 축."""
+        self.block_from, self.cols, self.rules = None, None, None
+        self.soft = list(rules)
+
     def disable(self):
         self.block_from = None
         self.cols = None
         self.rules = None
+        self.soft = None
 
     def remove(self):
         for h in self.handles:
@@ -71,6 +80,22 @@ class KVBlockController:
 
     def _make(self, idx: int):
         def hook(module, args, kwargs):
+            if self.soft is not None:
+                act = [(k, l) for bf, k, l in self.soft if idx >= bf]
+                if not act:
+                    return None
+                mask, loc = _find_4d_mask(args, kwargs)
+                if mask is None:
+                    blocked("mask", "4D attention_mask 미발견", {"layer": idx})
+                m = mask.clone()
+                for (s_, e_), lam in act:
+                    m[:, :, :, s_:e_ + 1] -= lam
+                self.fired[idx] += 1
+                if loc[0] == "kw":
+                    kwargs[loc[1]] = m
+                else:
+                    args = tuple(m if i == loc[1] else a for i, a in enumerate(args))
+                return (args, kwargs)
             if self.rules is not None:
                 active = [(q, k) for bf, q, k in self.rules if idx >= bf]
                 if not active:
