@@ -188,24 +188,28 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
     [m("질문 유형", hd), m("예시", hd), m("이미지끼리 서로 못 보게 하면", hd), m("판정", hd)],
     [m("존재 확인 (any)", { bold: true }),
      m("\"이 중에 X가 있나?\"", { fontSize: 11 }),
-     m("3B +0.0009 · 7B −0.0022  (CI가 0 포함)"),
-     m("불필요", { bold: true, color: C.green })],
+     m("+0.0009 — 단 이 태스크는 AUC 0.99로 천장", { fontSize: 10.5 }),
+     m("판정 불가", { bold: true, color: C.gray })],
+    [m("존재 확인 (all)", { bold: true }),
+     m("\"모두 X를 담고 있나?\"", { fontSize: 11 }),
+     m("−0.0250  CI [−0.057, +0.009] — 0과 구분 안 됨 (AUC 0.65)", { fontSize: 10.5 }),
+     m("작은 비용", { bold: true, color: C.orange })],
     [m("비교 (both)", { bold: true }),
      m("\"둘 다 X가 있나?\"", { fontSize: 11 }),
-     m("3B R1 −12.0%p · 7B R1 −9.0%p · RB −16.0%p"),
+     m("3B R1 −12.0%p · 7B R1 −9.0%p · RB −16.0%p", { fontSize: 10.5 }),
      m("필요", { bold: true, color: C.red })],
-  ], { x: 0.55, y: 1.5, w: 12.25, rowH: [0.5, 0.62, 0.62], ...TBL });
+  ], { x: 0.55, y: 1.45, w: 12.25, rowH: [0.44, 0.5, 0.5, 0.5], ...TBL });
 
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 3.4, w: 12.25, h: 1.72,
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 3.44, w: 12.25, h: 1.72,
     rectRadius: 0.09, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.25 } });
   s.addText("이것이 '앞단에 작은 모듈을 두면 되지 않나'에 대한 답입니다", {
-    x: 0.85, y: 3.56, w: 11.7, h: 0.32, fontFace: F, fontSize: 13.5, bold: true,
+    x: 0.85, y: 3.6, w: 11.7, h: 0.32, fontFace: F, fontSize: 13.5, bold: true,
     color: C.navy, margin: 0 });
   s.addText([
-    { text: "앞단 selector는 이미지 단위로 all-or-nothing 결정을 내립니다. 그런데 최적 정책은 질문 유형에 따라 갈립니다 — 존재 확인에서는 무관 이미지의 읽기를 막아야 하고, 비교에서는 이미지 간 attention을 살려둬야 합니다.", options: { fontSize: 11.5, color: C.navy, breakLine: true } },
+    { text: "앞단 selector는 이미지 단위로 all-or-nothing 결정을 내립니다. 그런데 최적 정책은 질문 유형에 따라 갈립니다 — 존재 확인에서는 무관 이미지의 읽기를 막아야 하고, 비교에서는 이미지 간 attention을 살려둬야 합니다. all-of-3처럼 모든 이미지가 정답에 관여하는 질문에서는 애초에 버릴 대상이 없습니다.", options: { fontSize: 11.5, color: C.navy, breakLine: true } },
     { text: "게다가 selector가 틀려서 관련 이미지를 버리면 AUC가 0.015~0.043으로 붕괴합니다 — 복구 불가능한 오류입니다. 모델 내부 개입은 층·경로·강도를 연속적으로 조절할 수 있습니다.", options: { fontSize: 11.5, color: C.navy } },
-  ], { x: 0.85, y: 3.96, w: 11.7, h: 1.1, fontFace: F, margin: 0, paraSpaceAfter: 6 });
-  foot(s, "any 태스크는 AUC 0.99로 천장에 가까워 증거력이 제한적 — 더 어려운 need-all 셋(all-of-3)을 현재 측정 중");
+  ], { x: 0.85, y: 4.0, w: 11.7, h: 1.1, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+  foot(s, "all-of-3에서는 어떤 이미지도 버릴 수 없다는 것이 설계상 자명하며, 이는 고립 비용과 무관하게 성립합니다");
   takeaway(s, "→ 무엇을 언제 막을지는 질문이 정합니다. 이미지만 보고 미리 거를 수 있는 문제가 아닙니다");
   s.addNotes("교수님께서 물어보실 만한 것을 미리 답해두었습니다. CLIP 같은 작은 모듈로 앞에서 걸러내면 되지 않느냐는 질문인데, 두 가지로 답합니다. 첫째, 최적 정책이 질문 유형에 따라 다릅니다. 둘째, 앞단 selector의 오판은 복구가 안 됩니다.");
 }
@@ -304,16 +308,26 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
      m("아니오", { bold: true, color: C.green }), m("검증 완료")],
     [m("(참고) 1장만 준 상한", { bold: true, color: C.gray }), m("0.9078", { color: C.gray }),
      m("< 1×", { color: C.gray }), m("—"), m("—")],
-  ], { x: 0.55, y: 1.45, w: 12.25, rowH: [0.48, 0.42, 0.42, 0.46, 0.46, 0.42], ...TBL });
+  ], { x: 0.55, y: 1.42, w: 12.25, rowH: [0.44, 0.38, 0.38, 0.42, 0.42, 0.38], ...TBL });
 
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.2, w: 12.25, h: 1.85,
+  s.addText("개입 강도는 연속입니다 — 앞단 selector에는 없는 축 (방해 1장, 3B, n=300)", {
+    x: 0.55, y: 3.94, w: 12.25, h: 0.28, fontFace: F, fontSize: 11.5, bold: true,
+    color: C.navy, margin: 0 });
+  s.addTable([
+    [m("λ (억제 강도)", hd), m("0 무개입", hd), m("1", hd), m("2", hd), m("4", hd),
+     m("8", hd), m("∞ 하드", hd)],
+    [m("AUC", { bold: true }), m("0.6978"), m("0.7729"), m("0.8092"),
+     m("0.8513"), m("0.9036"), m("0.9058", { bold: true })],
+  ], { x: 0.55, y: 4.28, w: 12.25, rowH: [0.4, 0.4], ...TBL });
+  s.addText("λ=4만 줘도 손상의 74%를 회수합니다. selector의 오판은 AUC 0.015~0.043으로 복구 불가지만, 개입은 강도를 낮춰 비용을 비례적으로 줄일 수 있습니다.", {
+    x: 0.55, y: 5.16, w: 12.25, h: 0.3, fontFace: F, fontSize: 11, color: C.gray, margin: 0 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.52, w: 12.25, h: 1.0,
     rectRadius: 0.09, fill: { color: C.lightgreen }, line: { color: C.green, width: 1.25 } });
   s.addText("대조 디코딩이 '1장만 준 상한'을 넘습니다 — 제거가 아니라 오염의 크기를 증거로 쓰기 때문", {
-    x: 0.85, y: 4.36, w: 11.7, h: 0.3, fontFace: F, fontSize: 13, bold: true, color: C.green, margin: 0 });
-  s.addText([
-    { text: "margin_CD = (1+β)·margin(차단) − β·margin(무개입).  두 끝점을 빼기만 한 '차이 신호'도 단독으로 AUC 0.9370입니다 — 차단본(0.9041)보다도 높습니다.", options: { fontSize: 11.5, color: C.navy, breakLine: true } },
-    { text: "방해 이미지가 답을 많이 밀어낸 문항이 곧 틀릴 뻔한 문항이기 때문입니다. 제거는 오염을 없애고, 대조는 오염의 크기를 정보로 씁니다. 7B에서는 지울 오염이 적어 β를 키우면 오히려 손해입니다 (β=2에서 0.828).", options: { fontSize: 11.5, color: C.navy } },
-  ], { x: 0.85, y: 4.74, w: 11.7, h: 1.2, fontFace: F, margin: 0, paraSpaceAfter: 6 });
+    x: 0.85, y: 5.62, w: 11.7, h: 0.3, fontFace: F, fontSize: 13, bold: true, color: C.green, margin: 0 });
+  s.addText("두 끝점을 빼기만 한 '차이 신호'도 단독으로 AUC 0.9370 — 차단본(0.9041)보다 높습니다. 방해가 답을 많이 밀어낸 문항이 곧 틀릴 뻔한 문항이기 때문입니다.", {
+    x: 0.85, y: 5.96, w: 11.7, h: 0.46, fontFace: F, fontSize: 11, color: C.navy, margin: 0 });
   takeaway(s, "→ 가설 정정에 따라 'neg attention으로 뒤쪽 층에서 분리'는 폐기합니다 — 분리할 대상이 문제가 아니었습니다");
   s.addNotes("방법은 여러 개를 시험했고 트레이드오프가 분명합니다. 하드 차단은 계산을 줄이지만 오라클이 필요합니다. 대조 디코딩은 정확도가 가장 좋지만 forward가 두 번입니다. 반사실 컨트롤러는 오라클이 필요 없지만 N+1번입니다. 그리고 처음에 생각했던 negative attention은 폐기합니다. 조사해보니 GPAM 계열은 전부 아키텍처 변경과 학습이 필요하고, 학습 없이 할 수 있는 건 결국 저희 마스크의 연속판이었습니다.");
 }
