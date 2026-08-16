@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_sel
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 앞단 selector(CLIP) vs 모델 내부 반사실 — 직접 비교
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export PYTHONHASHSEED=42
+date
+python scripts/26_selector_headtohead.py || echo "26 FAILED"
+date
