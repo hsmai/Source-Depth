@@ -40,6 +40,17 @@ class KVBlockController:
         """rules = [(block_from, (s, e)), ...] — 이미지별로 서로 다른 exit depth 배분.
         per-image adaptive depth의 실제 구현체 (예: distractor L=4, relevant L=28)."""
         self.block_from, self.cols = None, None
+        self.rules = [(bf, None, sp) for bf, sp in rules]
+
+    def configure_pathway(self, rules):
+        """rules = [(block_from, qspan | None, kspan), ...] — 경로 지정 차단.
+        qspan=None 이면 모든 query에 대해 kspan 열 차단 (기존 동작과 동일).
+        qspan=(qs, qe) 이면 해당 query 행에서만 kspan 열 차단 — 예:
+          (0, img2_span, img1_span)  → 이미지2가 이미지1을 보는 경로만 차단
+          (0, text_span, img2_span)  → 질문 토큰이 이미지2를 읽는 경로만 차단
+        decode 단계(q_len=1)에서는 prefill 좌표가 어긋나므로 이 실험은 prefill 단발
+        forward(use_cache=False)에서만 사용한다."""
+        self.block_from, self.cols = None, None
         self.rules = list(rules)
 
     def disable(self):
@@ -61,20 +72,23 @@ class KVBlockController:
     def _make(self, idx: int):
         def hook(module, args, kwargs):
             if self.rules is not None:
-                active = [sp for bf, sp in self.rules if idx >= bf]
+                active = [(q, k) for bf, q, k in self.rules if idx >= bf]
                 if not active:
                     return None
             elif self.block_from is None or idx < self.block_from:
                 return None                  # 무개입
             else:
-                active = [self.cols]
+                active = [(None, self.cols)]
             mask, loc = _find_4d_mask(args, kwargs)
             if mask is None:
                 blocked("mask", "4D attention_mask 미발견 (kwargs·args 모두)",
                         {"layer": idx, "kwargs_keys": sorted(kwargs.keys())})
             m = mask.clone()                 # 원본은 전 layer 공유 — in-place 금지
-            for s, e in active:
-                m[:, :, :, s:e + 1] = torch.finfo(m.dtype).min
+            for q, (s, e) in active:
+                if q is None:
+                    m[:, :, :, s:e + 1] = torch.finfo(m.dtype).min
+                else:
+                    m[:, :, q[0]:q[1] + 1, s:e + 1] = torch.finfo(m.dtype).min
             self.fired[idx] += 1
             if loc[0] == "kw":
                 kwargs[loc[1]] = m
