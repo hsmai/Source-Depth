@@ -146,37 +146,41 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
   const s = pres.addSlide();
   kicker(s, "결과 2 — 원인 특정 (오늘의 핵심)");
   headline(s, "해악은 '이미지가 섞여서'가 아니라 '질문이 잘못 읽어서' 생깁니다");
-  s.addText("입력 순서 [이미지1, 이미지2, 질문]에서 정보가 흐르는 경로는 둘뿐입니다 (이미지1은 이미지2를 볼 수 없음)", {
-    x: 0.55, y: 1.36, w: 12.25, h: 0.3, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+  s.addText("입력 순서를 바꿔 두 배치에서 각각 잽니다. 뒤집은 순서에서는 관련 이미지가 방해를 볼 수 있어 표현 오염 경로가 실제로 존재합니다.", {
+    x: 0.55, y: 1.3, w: 12.25, h: 0.3, fontFace: F, fontSize: 11, color: C.gray, margin: 0 });
   s.addTable([
-    [m("", hd), m("개입 없음", hd), m("경로 A 차단\n이미지2 → 이미지1", hd),
-     m("경로 B 차단\n질문 → 이미지2", hd), m("전면 차단", hd)],
-    [m("3B", { bold: true }), m("0.6970"), m("0.4030", { bold: true, color: C.red }),
-     m("0.9057", { bold: true, color: C.green }), m("0.9057")],
-    [m("7B", { bold: true }), m("0.8690"), m("0.4471", { bold: true, color: C.red }),
-     m("0.8993", { bold: true, color: C.green }), m("0.8993")],
-  ], { x: 0.55, y: 1.76, w: 12.25, rowH: [0.72, 0.5, 0.5], ...TBL });
+    [m("", hd), m("배치", hd), m("개입 없음", hd),
+     m("혼합 차단\n(이미지 → 이미지)", hd), m("읽기 차단\n(질문 → 방해)", hd), m("전면 차단", hd)],
+    [m("3B", { bold: true }), m("원순서", { fontSize: 10.5 }), m("0.6970"),
+     m("0.4030", { bold: true, color: C.red }), m("0.9057", { bold: true, color: C.green }), m("0.9057")],
+    [m("", {}), m("뒤집기", { fontSize: 10.5 }), m("0.8000"),
+     m("0.5679", { bold: true, color: C.red }), m("0.9078", { bold: true, color: C.green }), m("0.8894")],
+    [m("7B", { bold: true }), m("원순서", { fontSize: 10.5 }), m("0.8690"),
+     m("0.4471", { bold: true, color: C.red }), m("0.8993", { bold: true, color: C.green }), m("0.8993")],
+    [m("", {}), m("뒤집기", { fontSize: 10.5 }), m("0.8781"),
+     m("0.4480", { bold: true, color: C.red }), m("0.8983", { bold: true, color: C.green }), m("0.8949")],
+  ], { x: 0.55, y: 1.68, w: 12.25, rowH: [0.6, 0.38, 0.38, 0.38, 0.38], ...TBL });
 
   const box = (x, w, title, body, fill, line, tcol) => {
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 3.6, w, h: 1.62, rectRadius: 0.08,
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 3.86, w, h: 1.62, rectRadius: 0.08,
       fill: { color: fill }, line: { color: line, width: 1.25 } });
-    s.addText(title, { x: x + 0.25, y: 3.74, w: w - 0.5, h: 0.3, fontFace: F,
-      fontSize: 13, bold: true, color: tcol, margin: 0 });
-    s.addText(body, { x: x + 0.25, y: 4.1, w: w - 0.5, h: 1.0, fontFace: F,
-      fontSize: 11, color: C.navy, margin: 0, lineSpacingMultiple: 1.2 });
+    s.addText(title, { x: x + 0.25, y: 3.99, w: w - 0.5, h: 0.3, fontFace: F,
+      fontSize: 12.5, bold: true, color: tcol, margin: 0 });
+    s.addText(body, { x: x + 0.25, y: 4.33, w: w - 0.5, h: 1.05, fontFace: F,
+      fontSize: 10.5, color: C.navy, margin: 0, lineSpacingMultiple: 1.2 });
   };
-  box(0.55, 6.05, "① 이 배치에서는 해악의 경로가 '읽기' 하나뿐",
-      "읽기 차단 = 전면 차단, 차이 0.0000 (CI [0,0]).\n관련 이미지가 방해보다 앞이라 방해를 볼 수 없기 때문 —\n구조상 예상되며, 구현 정확성 검증을 겸합니다.",
-      C.lightgreen, C.green, C.green);
-  box(6.78, 6.02, "② 예상 밖 — 이미지 간 혼합을 끊으면 크게 나빠짐",
-      "3B −0.294 · 7B −0.422.\n방해가 관련 이미지를 보고 맥락화되면 오히려 덜 해롭습니다.\n고립시키면 더 도드라져 침입합니다. 이것이 실제 발견입니다.",
+  box(0.55, 6.05, "① 이미지 간 흐름은 오염원이 아니라 보호막",
+      "혼합을 끊으면 네 조건 모두 크게 나빠집니다 (−0.23 ~ −0.43).\n뒤집은 배치에는 표현 오염 경로가 실제로 존재하는데도\n그렇습니다 — 자명한 결과가 아니라 측정된 사실입니다.",
       C.lightred, C.red, C.red);
-  s.addText("→ 정정된 가설: 환각은 표현의 오염(contamination)이 아니라 읽기 단계의 출처 오귀속(source misattribution)이다", {
-    x: 0.55, y: 5.42, w: 12.25, h: 0.32, fontFace: F, fontSize: 12.5, bold: true,
+  box(6.78, 6.02, "② 읽기만 끊는 것이 통째로 지우는 것보다 낫다",
+      "뒤집은 배치 3B: 읽기 차단 0.9078 > 전면 차단 0.8894\nCI [+0.007, +0.031], 회복률 121%.\n지우면 유익한 맥락화까지 함께 잃습니다.",
+      C.lightgreen, C.green, C.green);
+  s.addText("→ 최적 개입은 '무관 이미지를 제거'가 아니라 '다른 이미지에게는 보이게 두고, 질문의 읽기 경로만 끊는 것'입니다", {
+    x: 0.55, y: 5.62, w: 12.25, h: 0.32, fontFace: F, fontSize: 12.5, bold: true,
     color: C.navy, margin: 0 });
-  foot(s, "n=300 · AUC · 4D mask의 (질의 행 × 키 열) 사각형 단위 개입. 순서를 뒤집으면 관련 이미지가 방해를 볼 수 있어 표현 오염 경로가 생김 — 현재 측정 중");
-  takeaway(s, "→ 개입해야 할 곳은 '이미지를 서로 떼어놓는 것'이 아니라 '읽기 경로를 제어하는 것'입니다");
-  s.addNotes("이 슬라이드가 오늘의 핵심입니다. 왼쪽 박스는 솔직히 말씀드리면 구조상 예상되는 결과입니다. 관련 이미지가 방해보다 앞에 있으면 방해를 볼 수 없으니, 경로가 읽기 하나로 강제됩니다. 저희 구현이 정확하다는 검증으로 봐주시면 됩니다. 진짜 발견은 오른쪽입니다. 이미지끼리 보는 경로를 끊으면 크게 나빠집니다. 방해 이미지가 관련 이미지를 보고 맥락화되면 오히려 덜 해롭고, 고립시키면 더 도드라져서 침입한다는 뜻입니다. 그리고 순서를 뒤집으면 관련 이미지가 방해를 볼 수 있게 되어 표현 오염 경로가 실제로 생깁니다. 그 배치에서 다시 재고 있습니다.");
+  foot(s, "n=300/조건 · AUC · 4D mask의 (질의 행 × 키 열) 사각형 단위 개입 · 사전 예측 2개가 틀렸고 그 방향이 결론을 강화");
+  takeaway(s, "→ 기존 연구의 '제거'와 '개방' 어느 쪽과도 다른 처방입니다. 경로를 나누면 둘 다 설명됩니다");
+  s.addNotes("이 슬라이드가 핵심입니다. 두 배치에서 각각 쟀습니다. 뒤집은 배치에서는 관련 이미지가 방해 이미지를 볼 수 있으므로 표현 오염 경로가 실제로 존재합니다. 그런데 그 경로를 끊으면 파국적으로 나빠집니다. 즉 이미지끼리 정보를 주고받는 것은 오염원이 아니라 보호막입니다. 그리고 더 중요한 건 오른쪽입니다. 질문의 읽기 경로만 끊는 것이 무관 이미지를 통째로 지우는 것보다 낫습니다. 지우면 유익한 맥락화까지 잃기 때문입니다. 사전에 적어둔 예측 두 개가 모두 틀렸는데, 틀린 방향이 저희 결론을 오히려 강하게 만들었습니다.");
 }
 
 // ═══════════════ 5. 경계 ═══════════════
@@ -200,7 +204,7 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
      m("필요", { bold: true, color: C.red })],
   ], { x: 0.55, y: 1.45, w: 12.25, rowH: [0.44, 0.5, 0.5, 0.5], ...TBL });
 
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 3.44, w: 12.25, h: 2.1,
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 3.44, w: 12.25, h: 2.42,
     rectRadius: 0.09, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.25 } });
   s.addText("통합은 앞쪽 16층에서 끝납니다 — 설계 가설('뒤쪽에서 통합')과 반대이고, 이것이 효율 트랙의 근거가 됩니다", {
     x: 0.85, y: 3.6, w: 11.7, h: 0.3, fontFace: F, fontSize: 12.5, bold: true, color: C.blue, margin: 0 });
@@ -208,9 +212,9 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
     x: 0.85, y: 3.96, w: 11.7, h: 0.32, fontFace: F, fontSize: 13.5, bold: true,
     color: C.navy, margin: 0 });
   s.addText([
-    { text: "앞단 selector는 이미지 단위로 all-or-nothing 결정을 내립니다. 그런데 최적 정책은 질문 유형에 따라 갈립니다 — 존재 확인에서는 무관 이미지의 읽기를 막아야 하고, 비교에서는 이미지 간 attention을 살려둬야 합니다. all-of-3처럼 모든 이미지가 정답에 관여하는 질문에서는 애초에 버릴 대상이 없습니다.", options: { fontSize: 11.5, color: C.navy, breakLine: true } },
-    { text: "실제로 CLIP selector는 우연 수준입니다 (N=1·2·3에서 0.51 / 0.39 / 0.33, 무작위 0.50 / 0.33 / 0.25). 방해 이미지가 질의 객체를 담고 있으면 의미 유사도는 오히려 방해 쪽을 고릅니다 — 오염이 일어나는 바로 그 상황에서 틀립니다. 같은 문항에서 반사실 컨트롤러는 0.69 / 0.71 / 0.73입니다.", options: { fontSize: 11.5, color: C.navy } },
-  ], { x: 0.85, y: 4.34, w: 11.7, h: 1.0, fontFace: F, margin: 0, paraSpaceAfter: 5 });
+    { text: "앞단 selector는 이미지 단위 all-or-nothing이지만, 최적 정책은 질문 유형과 층에 따라 갈립니다. all-of-3처럼 모든 이미지가 정답에 관여하는 질문에서는 버릴 대상 자체가 없습니다.", options: { fontSize: 11, color: C.navy, breakLine: true } },
+    { text: "실제로 CLIP selector는 우연 수준입니다 — N=1·2·3에서 0.51 / 0.39 / 0.33 (무작위 0.50 / 0.33 / 0.25). 방해 이미지가 질의 객체를 담고 있으면 의미 유사도는 오히려 방해 쪽을 고릅니다. 오염이 일어나는 바로 그 상황에서 틀립니다. 같은 문항에서 반사실 컨트롤러는 0.69 / 0.71 / 0.73입니다.", options: { fontSize: 11, color: C.navy } },
+  ], { x: 0.85, y: 4.32, w: 11.7, h: 1.4, fontFace: F, margin: 0, paraSpaceAfter: 5 });
   foot(s, "단, 현 벤치마크는 관련도를 위치로 정의하므로 텍스트를 파싱하는 selector는 100%입니다 — 이 비교는 '의미 유사도로는 안 된다'까지만 보입니다 (슬라이드 9 한계①)");
   takeaway(s, "→ 무엇을·언제 막을지는 질문 유형과 층이 함께 정합니다. 이미지만 보고 미리 거를 수 있는 문제가 아닙니다");
   s.addNotes("교수님께서 물어보실 만한 것을 미리 답해두었습니다. CLIP 같은 작은 모듈로 앞에서 걸러내면 되지 않느냐는 질문인데, 두 가지로 답합니다. 첫째, 최적 정책이 질문 유형에 따라 다릅니다. 둘째, 앞단 selector의 오판은 복구가 안 됩니다.");
