@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_cost
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONHASHSEED=42
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+date
+echo "===== 스모크 4문항 ====="
+python scripts/31_cost_bench.py --limit 4
+echo "===== 본 측정 (3B) ====="
+python scripts/31_cost_bench.py || echo "31-3B FAILED"
+echo "===== 본 측정 (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/31_cost_bench.py || echo "31-7B FAILED"
+date

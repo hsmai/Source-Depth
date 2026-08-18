@@ -69,11 +69,16 @@ def main():
                 try: model(**inputs, use_cache=False)
                 finally: ctrl.disable()
             rec["t_kvmask"].append(timeit(kvmask))
-            # FOCUS 방식: 방해 이미지를 노이즈로 덮고 processor부터 다시
+            # FOCUS 방식: 방해 이미지를 노이즈로 덮고 **vision encoder부터 다시**.
+            # chat template(= input_ids, placeholder)은 그대로 두고 pixel_values만 새로 만든다
+            # → "같은 프롬프트 구조에서 다른 픽셀을 재인코딩"하는 비용을 정확히 잰다.
             noisy = [ims[0]] + [Image.effect_noise(im.size, 64).convert("RGB") for im in ims[1:]]
             def pixel():
-                inp = processor(text=[q_multi], images=noisy, return_tensors="pt").to(DEV)
-                model(**inp, use_cache=False)
+                enc = processor.image_processor(images=noisy, return_tensors="pt")
+                inp2 = dict(inputs)
+                inp2["pixel_values"] = enc["pixel_values"].to(DEV, dtype=pv.dtype)
+                inp2["image_grid_thw"] = enc["image_grid_thw"].to(DEV)
+                model(**inp2, use_cache=False)
             rec["t_pixel"].append(timeit(pixel))
             del inputs
             torch.cuda.empty_cache()
