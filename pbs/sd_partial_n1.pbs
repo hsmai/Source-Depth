@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_par
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=03:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 부분 관련 — selection이 잘못된 추상임을 보이는 실험 (docs/28)
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONHASHSEED=42
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+date; nvidia-smi || true
+echo "===== 스모크 6문항 ====="
+python scripts/32_partial_relevance.py --limit 6
+echo "===== 스모크 통과 ====="
+echo "===== 32 부분관련 (3B) ====="
+python scripts/32_partial_relevance.py || echo "32-3B FAILED"
+echo "===== 32 부분관련 (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/32_partial_relevance.py || echo "32-7B FAILED"
+date
