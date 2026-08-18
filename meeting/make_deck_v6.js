@@ -1,0 +1,526 @@
+// SourceDepth 미팅 덱 v6 — 서사 중심 재설계
+// 원칙: 슬라이드 1장 = 질문 1개 / 용어는 그림으로 정의 / 숫자보다 "무엇을 했는지" 먼저
+const pptxgen = require("pptxgenjs");
+const pres = new pptxgen();
+pres.layout = "LAYOUT_WIDE";
+
+const C = {
+  navy: "1F3B57", darkbg: "142638", blue: "1F77B4", red: "D62728",
+  green: "2E8B57", orange: "E8890C", gray: "6B7280", white: "FFFFFF",
+  light: "EFF4F9", lightred: "FBEAEA", lightgray: "F3F4F6",
+  lightgreen: "E9F4EE", lightblue: "E8F1FA", line: "D5DEE8", mute: "AAB4BF",
+};
+const F = "Arial";
+
+const kicker = (s, t, d) => s.addText(t, { x: 0.55, y: 0.26, w: 11.5, h: 0.3,
+  fontFace: F, fontSize: 11, bold: true, color: d ? "9FB8CE" : C.blue, margin: 0 });
+const headline = (s, t, d) => s.addText(t, { x: 0.55, y: 0.54, w: 12.2, h: 0.74,
+  fontFace: F, fontSize: 22, bold: true, color: d ? C.white : C.navy, margin: 0 });
+const takeaway = (s, t, col) => {
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 6.6, w: 12.25, h: 0.62,
+    rectRadius: 0.08, fill: { color: col || C.navy } });
+  s.addText(t, { x: 0.85, y: 6.6, w: 11.75, h: 0.62, fontFace: F, fontSize: 12.5,
+    bold: true, color: C.white, margin: 0, valign: "middle" });
+};
+const foot = (s, t) => s.addText(t, { x: 0.55, y: 6.16, w: 12.2, h: 0.36,
+  fontFace: F, fontSize: 10, italic: true, color: C.gray, margin: 0 });
+
+// ── 앵커 그림: [이미지1][이미지2][질문] + 두 경로 ────────────────
+// mix / read : "on" | "cut" | "keep"
+function anchor(s, x, y, mix, read, caption, k) {
+  k = k || 1;
+  const bw = 1.45 * k, bh = 0.8 * k, gap = 0.28 * k;
+  const boxes = [
+    ["이미지 1", "질문 대상", C.lightblue, C.blue],
+    ["이미지 2", "무관", C.lightgray, C.gray],
+    ["질문", "\"1번에 개가\n있나?\"", C.light, C.navy],
+  ];
+  boxes.forEach((b, i) => {
+    const bx = x + i * (bw + gap);
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: bx, y, w: bw, h: bh,
+      rectRadius: 0.06, fill: { color: b[2] }, line: { color: b[3], width: 1 } });
+    s.addText(b[0], { x: bx, y: y + 0.08 * k, w: bw, h: 0.26 * k, align: "center",
+      fontFace: F, fontSize: 11 * k, bold: true, color: b[3], margin: 0 });
+    s.addText(b[1], { x: bx, y: y + 0.34 * k, w: bw, h: 0.42 * k, align: "center",
+      fontFace: F, fontSize: 8.5 * k, color: C.gray, margin: 0 });
+  });
+  const style = (st) => st === "cut" ? { col: C.red, dash: "dash" }
+                      : st === "keep" ? { col: C.green, dash: "solid" }
+                      : { col: C.mute, dash: "solid" };
+  // 경로 A: 이미지2 → 이미지1  (혼합)
+  const a = style(mix), ay = y + bh + 0.3 * k;
+  s.addShape(pres.shapes.LINE, { x, y: ay, w: bw + gap, h: 0,
+    line: { color: a.col, width: 2, dashType: a.dash, beginArrowType: "triangle" } });
+  s.addText("경로 A · 이미지끼리 봄", { x: x - 0.05, y: ay + 0.06, w: bw + gap + 0.1,
+    h: 0.24, align: "center", fontFace: F, fontSize: 8.5 * k, bold: true, color: a.col, margin: 0 });
+  if (mix === "cut") s.addText("✕", { x: x + (bw + gap) / 2 - 0.12, y: ay - 0.24, w: 0.24,
+    h: 0.24, align: "center", fontFace: F, fontSize: 14, bold: true, color: C.red, margin: 0 });
+  // 경로 B: 질문 → 이미지2  (읽기)
+  const b2 = style(read), by = y + bh + 0.78 * k;
+  s.addShape(pres.shapes.LINE, { x: x + bw + gap, y: by, w: bw + gap, h: 0,
+    line: { color: b2.col, width: 2, dashType: b2.dash, beginArrowType: "triangle" } });
+  s.addText("경로 B · 질문이 이미지를 읽음", { x: x + bw + gap - 0.3, y: by + 0.06,
+    w: bw + gap + 0.6, h: 0.24, align: "center", fontFace: F, fontSize: 8.5 * k,
+    bold: true, color: b2.col, margin: 0 });
+  if (read === "cut") s.addText("✕", { x: x + bw + gap + (bw + gap) / 2 - 0.12, y: by - 0.24,
+    w: 0.24, h: 0.24, align: "center", fontFace: F, fontSize: 14, bold: true, color: C.red, margin: 0 });
+  if (caption) s.addText(caption, { x: x - 0.1, y: y + bh + 1.24 * k, w: 3 * bw + 2 * gap + 0.2,
+    h: 0.3, align: "center", fontFace: F, fontSize: 11, bold: true, color: C.navy, margin: 0 });
+}
+
+// ═════════ 1. 표지 ═════════
+{
+  const s = pres.addSlide();
+  s.background = { color: C.darkbg };
+  s.addText("SOURCEDEPTH · 연구 방향 보고 · 한상민 · 2026-08-14", { x: 0.6, y: 0.55,
+    w: 12.2, h: 0.3, fontFace: F, fontSize: 11.5, bold: true, color: "7EC8F5", margin: 0 });
+  s.addText("여러 장의 사진을 함께 주면\n모델이 엉뚱한 사진을 보고 답합니다", { x: 0.6, y: 1.15,
+    w: 12.2, h: 1.35, fontFace: F, fontSize: 30, bold: true, color: C.white,
+    margin: 0, lineSpacingMultiple: 1.15 });
+  s.addText("이 보고는 세 가지를 다룹니다 — 그 현상이 실제로 있는지, 왜 생기는지, 어떻게 고치는지", {
+    x: 0.6, y: 2.72, w: 12.2, h: 0.34, fontFace: F, fontSize: 13.5, color: "AFC6DA", margin: 0 });
+  const q = [
+    ["Q1", "정말 그런 일이 일어나는가?", "일어납니다. 무관한 사진 3장이면\n작은 모델은 사실상 찍는 수준이 됩니다"],
+    ["Q2", "왜 그런가?", "사진끼리 섞여서가 아니라,\n질문이 엉뚱한 사진을 읽기 때문입니다"],
+    ["Q3", "그럼 어떻게 고치는가?", "사진을 지우지 말고,\n질문만 못 읽게 하면 됩니다"],
+  ];
+  q.forEach((c, i) => {
+    const x = 0.6 + i * 4.15, y = 3.4, w = 3.95, h = 2.9;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1,
+      fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
+    s.addText(c[0], { x: x + 0.25, y: y + 0.22, w: 1, h: 0.3, fontFace: F,
+      fontSize: 12, bold: true, color: "7EC8F5", margin: 0 });
+    s.addText(c[1], { x: x + 0.25, y: y + 0.58, w: w - 0.5, h: 0.6, fontFace: F,
+      fontSize: 15, bold: true, color: C.white, margin: 0, lineSpacingMultiple: 1.1 });
+    s.addText(c[2], { x: x + 0.25, y: y + 1.5, w: w - 0.5, h: 1.1, fontFace: F,
+      fontSize: 12, color: "AFC6DA", margin: 0, lineSpacingMultiple: 1.25 });
+  });
+  s.addNotes("오늘 보고는 세 질문으로 구성했습니다. 현상이 실제로 있는지, 왜 생기는지, 어떻게 고치는지입니다. 결론부터 말씀드리면 두 번째가 예상과 반대로 나왔고, 그게 이번 연구의 중심입니다.");
+}
+
+// ═════════ 2. 문제 정의 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q1 — 어떤 문제인가");
+  headline(s, "사진을 한 장 더 넣었을 뿐인데 답이 바뀝니다");
+
+  const cases = [
+    ["사진 1장만 줬을 때", ["개가 없는 거실 사진"], "\"이 사진에 개가 있나요?\"", "아니오", true, C.green],
+    ["무관한 사진을 한 장 더 넣었을 때", ["개가 없는 거실 사진", "+ 개가 있는 공원 사진 (질문과 무관)"],
+      "\"첫 번째 사진에 개가 있나요?\"", "있습니다", false, C.red],
+  ];
+  cases.forEach((c, i) => {
+    const x = 0.55 + i * 6.23, w = 6.02;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.42, w, h: 2.85, rectRadius: 0.09,
+      fill: { color: i ? C.lightred : C.lightgreen }, line: { color: c[5], width: 1.25 } });
+    s.addText(c[0], { x: x + 0.25, y: 1.56, w: w - 0.5, h: 0.3, fontFace: F,
+      fontSize: 13, bold: true, color: c[5], margin: 0 });
+    c[1].forEach((im, j) => {
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x + 0.25, y: 1.94 + j * 0.5, w: w - 0.5,
+        h: 0.42, rectRadius: 0.05, fill: { color: C.white }, line: { color: C.line, width: 0.75 } });
+      s.addText(im, { x: x + 0.4, y: 1.94 + j * 0.5, w: w - 0.8, h: 0.42, fontFace: F,
+        fontSize: 11, color: C.navy, margin: 0, valign: "middle" });
+    });
+    s.addText(c[2], { x: x + 0.25, y: 3.02, w: w - 0.5, h: 0.3, fontFace: F,
+      fontSize: 11.5, italic: true, color: C.gray, margin: 0 });
+    s.addText([{ text: "모델 답변:  ", options: { fontSize: 12, color: C.gray } },
+               { text: c[3], options: { fontSize: 16, bold: true, color: c[5] } },
+               { text: c[4] ? "   (정답)" : "   (오답)", options: { fontSize: 12, bold: true, color: c[5] } }],
+      { x: x + 0.25, y: 3.44, w: w - 0.5, h: 0.4, fontFace: F, margin: 0, valign: "middle" });
+  });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.5, w: 12.25, h: 1.5,
+    rectRadius: 0.09, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText("두 번째 사진은 질문 대상이 아닙니다. 그런데 거기 있던 개가 첫 번째 사진으로 '옮겨붙습니다'.", {
+    x: 0.85, y: 4.66, w: 11.7, h: 0.3, fontFace: F, fontSize: 13.5, bold: true, color: C.navy, margin: 0 });
+  s.addText("실제 응용에서 이 상황은 예외가 아니라 기본값입니다 — 문서 여러 장을 함께 읽을 때, 영상에서 프레임을 여러 개 볼 때,\n검색으로 가져온 이미지들을 함께 넣을 때. 대부분의 입력은 질문과 무관하고, 그 무관한 것들이 답을 흔듭니다.", {
+    x: 0.85, y: 5.04, w: 11.7, h: 0.8, fontFace: F, fontSize: 12, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.25 });
+  takeaway(s, "→ 이 연구가 정의한 문제: 여러 입력이 함께 들어올 때, 무관한 입력이 답을 오염시키는 현상");
+  s.addNotes("먼저 문제가 무엇인지부터 말씀드립니다. 개가 없는 사진 한 장만 주면 모델이 맞게 답합니다. 그런데 질문과 상관없는 사진을 한 장 더 넣으면, 거기 있던 개가 첫 번째 사진으로 옮겨붙습니다. 실제 응용에서는 이런 상황이 예외가 아니라 기본입니다.");
+}
+
+// ═════════ 3. 문제 실재 확인 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q1 — 정말 그런가");
+  headline(s, "무관한 사진을 늘려가며 재봤습니다");
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.36, w: 5.9, h: 2.05,
+    rectRadius: 0.08, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText("먼저 — '판별력 점수'가 무엇인가", { x: 0.78, y: 1.48, w: 5.4, h: 0.28,
+    fontFace: F, fontSize: 12.5, bold: true, color: C.navy, margin: 0 });
+  s.addText("맞다/아니다를 얼마나 잘 가려내는지를 0.5~1.0으로 나타낸 값.\n정답률과 달리 \"예\"라고 자주 답해서 점수가 오르는 착시가 없습니다.", {
+    x: 0.78, y: 1.8, w: 5.4, h: 0.55, fontFace: F, fontSize: 10.5, color: C.gray,
+    margin: 0, lineSpacingMultiple: 1.2 });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0.95, y: 2.62, w: 5.05, h: 0.16,
+    fill: { color: "D9E2EC" }, line: { color: C.line, width: 0.5 } });
+  [["0.5", 0.95, "찍기와 같음", C.red], ["1.0", 6.0, "완벽", C.green]].forEach(v => {
+    s.addShape(pres.shapes.OVAL, { x: v[1] - 0.06, y: 2.56, w: 0.28, h: 0.28, fill: { color: v[3] } });
+    s.addText(v[0], { x: v[1] - 0.35, y: 2.86, w: 0.9, h: 0.22, align: "center",
+      fontFace: F, fontSize: 10, bold: true, color: v[3], margin: 0 });
+    s.addText(v[2], { x: v[1] - 0.75, y: 3.06, w: 1.7, h: 0.22, align: "center",
+      fontFace: F, fontSize: 9, color: C.gray, margin: 0 });
+  });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.68, y: 1.36, w: 6.12, h: 2.05,
+    rectRadius: 0.08, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText("어떻게 쟀나", { x: 6.91, y: 1.48, w: 5.6, h: 0.28, fontFace: F,
+    fontSize: 12.5, bold: true, color: C.navy, margin: 0 });
+  s.addText("· 같은 질문 300개를 두 종류로 준비 — 정답이 \"있다\"인 것 150개,\n  \"없다\"인 것 150개 (한쪽으로 찍어도 이득이 없게)\n· 무관한 사진을 0장 → 3장까지 늘려가며 같은 질문을 반복\n· 모델 두 개(3B·7B)에서 각각 3,000회 측정", {
+    x: 6.91, y: 1.8, w: 5.66, h: 1.4, fontFace: F, fontSize: 10.5, color: C.gray,
+    margin: 0, lineSpacingMultiple: 1.28 });
+
+  const bars = [["사진 1장만", 0.9078, C.green], ["+ 무관 1장", 0.6978, C.orange],
+                ["+ 무관 2장", 0.6063, C.orange], ["+ 무관 3장", 0.5213, C.red]];
+  s.addText("작은 모델(3B)의 판별력 점수", { x: 0.55, y: 3.56, w: 6, h: 0.3, fontFace: F,
+    fontSize: 12.5, bold: true, color: C.navy, margin: 0 });
+  bars.forEach((b, i) => {
+    const y = 3.94 + i * 0.56, full = 9.0;
+    const wdt = Math.max(0.05, (b[1] - 0.5) / 0.5) * full;
+    s.addText(b[0], { x: 0.55, y, w: 1.75, h: 0.42, fontFace: F, fontSize: 11.5,
+      bold: true, color: C.navy, margin: 0, valign: "middle" });
+    s.addShape(pres.shapes.RECTANGLE, { x: 2.4, y: y + 0.08, w: full, h: 0.26,
+      fill: { color: "EDF1F5" } });
+    s.addShape(pres.shapes.RECTANGLE, { x: 2.4, y: y + 0.08, w: wdt, h: 0.26, fill: { color: b[2] } });
+    s.addText(b[1].toFixed(2), { x: 2.4 + full + 0.15, y, w: 1.2, h: 0.42, fontFace: F,
+      fontSize: 12, bold: true, color: b[2], margin: 0, valign: "middle" });
+  });
+  s.addText("← 0.5 (찍기)", { x: 2.4, y: 6.2, w: 1.6, h: 0.24, fontFace: F, fontSize: 9,
+    color: C.gray, margin: 0 });
+  takeaway(s, "→ 무관한 사진 3장이면 작은 모델의 판별력이 찍는 것과 구분되지 않습니다. 큰 모델(7B)은 훨씬 덜합니다");
+  s.addNotes("문제가 실제로 있는지 재봤습니다. 먼저 지표를 설명드리면, 판별력 점수는 맞다 아니다를 얼마나 잘 가려내는지를 0.5에서 1.0으로 나타낸 값입니다. 정답률만 보면 예라고 자주 답해서 점수가 오르는 착시가 있는데, 이 지표는 그게 없습니다. 결과는 오른쪽입니다. 무관한 사진이 늘수록 판별력이 떨어지고 3장이면 사실상 찍는 수준입니다.");
+}
+
+// ═════════ 4. 가설 두 개 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q2 — 왜 그런가");
+  headline(s, "정보가 흐를 수 있는 길은 두 개뿐입니다");
+  s.addText("모델은 [이미지1] [이미지2] [질문] 순서로 읽습니다. 앞쪽은 뒤쪽을 볼 수 없으므로, 무관한 이미지2가 답에 닿는 길은 다음 둘뿐입니다.", {
+    x: 0.55, y: 1.3, w: 12.25, h: 0.3, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+  anchor(s, 1.0, 1.75, "on", "on");
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.9, y: 1.72, w: 5.9, h: 1.15,
+    rectRadius: 0.08, fill: { color: C.lightgray }, line: { color: C.gray, width: 1 } });
+  s.addText("가설 A — 사진끼리 섞여서", { x: 7.13, y: 1.84, w: 5.4, h: 0.28, fontFace: F,
+    fontSize: 13, bold: true, color: C.navy, margin: 0 });
+  s.addText("이미지2를 보면서 이미지1의 표현이 오염된다.\n→ 그렇다면 경로 A를 끊으면 좋아져야 한다.", {
+    x: 7.13, y: 2.16, w: 5.4, h: 0.6, fontFace: F, fontSize: 11, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.2 });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.9, y: 3.0, w: 5.9, h: 1.15,
+    rectRadius: 0.08, fill: { color: C.lightgray }, line: { color: C.gray, width: 1 } });
+  s.addText("가설 B — 질문이 잘못 읽어서", { x: 7.13, y: 3.12, w: 5.4, h: 0.28, fontFace: F,
+    fontSize: 13, bold: true, color: C.navy, margin: 0 });
+  s.addText("이미지1은 멀쩡한데, 질문이 답을 만들 때\n이미지2에서 본 것을 1번 것으로 착각한다.\n→ 그렇다면 경로 B를 끊으면 좋아져야 한다.", {
+    x: 7.13, y: 3.44, w: 5.4, h: 0.66, fontFace: F, fontSize: 11, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.2 });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.62, w: 12.25, h: 1.32,
+    rectRadius: 0.09, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.25 } });
+  s.addText("이 구분이 왜 중요한가", { x: 0.85, y: 4.76, w: 11.7, h: 0.28, fontFace: F,
+    fontSize: 13, bold: true, color: C.blue, margin: 0 });
+  s.addText("처방이 정반대가 되기 때문입니다. A가 맞으면 사진들을 서로 떼어놓아야 하고, B가 맞으면 붙여두되 질문이 읽는 것만 막아야 합니다.\n그리고 실제로 기존 연구들이 이 지점에서 갈려 있습니다 — 어떤 팀은 사진 간 연결을 늘렸고, 어떤 팀은 끊었습니다. (9번 슬라이드)", {
+    x: 0.85, y: 5.08, w: 11.7, h: 0.7, fontFace: F, fontSize: 11.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.25 });
+  takeaway(s, "→ 지금까지 아무도 이 둘을 나눠서 재지 않았습니다. 그래서 우리가 하나씩 끊어봤습니다");
+  s.addNotes("왜 그런지 알아보려면 정보가 흐를 수 있는 길을 먼저 봐야 합니다. 모델은 왼쪽부터 순서대로 읽고 앞쪽은 뒤쪽을 볼 수 없으므로, 무관한 이미지가 답에 닿는 길은 두 개뿐입니다. 사진끼리 보는 길과 질문이 사진을 읽는 길입니다. 이 둘 중 어느 쪽이 범인이냐에 따라 처방이 정반대가 됩니다.");
+}
+
+// ═════════ 5. 방법 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q2 — 어떻게 구분하는가");
+  headline(s, "사진은 그대로 두고, 길만 하나씩 끊어봅니다");
+
+  const steps = [
+    ["1", "사진은 손대지 않는다", "입력에는 두 장이 그대로 들어있습니다.\n지우거나 흐리게 만들지 않습니다."],
+    ["2", "'누가 무엇을 볼 수 있는지'만 바꾼다", "모델 내부에서 각 토큰이 서로를 보는 표를\n한 칸씩 막습니다 (attention mask)."],
+    ["3", "한 번에 하나의 길만 끊는다", "경로 A만 끊은 조건, 경로 B만 끊은 조건을\n따로 만들어 비교합니다."],
+  ];
+  steps.forEach((st, i) => {
+    const y = 1.4 + i * 1.02;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 6.05, h: 0.9,
+      rectRadius: 0.07, fill: { color: C.light }, line: { color: C.line, width: 0.75 } });
+    s.addShape(pres.shapes.OVAL, { x: 0.75, y: y + 0.25, w: 0.4, h: 0.4, fill: { color: C.blue } });
+    s.addText(st[0], { x: 0.75, y: y + 0.25, w: 0.4, h: 0.4, align: "center", valign: "middle",
+      fontFace: F, fontSize: 12, bold: true, color: C.white, margin: 0 });
+    s.addText(st[1], { x: 1.3, y: y + 0.1, w: 5.1, h: 0.28, fontFace: F, fontSize: 12,
+      bold: true, color: C.navy, margin: 0 });
+    s.addText(st[2], { x: 1.3, y: y + 0.4, w: 5.1, h: 0.44, fontFace: F, fontSize: 10,
+      color: C.gray, margin: 0, lineSpacingMultiple: 1.15 });
+  });
+
+  anchor(s, 7.15, 1.5, "cut", "on", "조건 ①  경로 A만 끊음");
+  anchor(s, 7.15, 3.6, "on", "cut", "조건 ②  경로 B만 끊음");
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.62, w: 6.05, h: 1.32,
+    rectRadius: 0.08, fill: { color: C.lightgreen }, line: { color: C.green, width: 1.25 } });
+  s.addText("왜 이 방법이면 '원인'이라 말할 수 있나", { x: 0.78, y: 4.74, w: 5.6, h: 0.28,
+    fontFace: F, fontSize: 12, bold: true, color: C.green, margin: 0 });
+  s.addText("두 조건에서 사진·질문·모델이 전부 동일하고,\n바뀐 것은 '어느 길이 열려 있는가' 하나뿐입니다.\n따라서 결과 차이는 그 길 때문입니다.", {
+    x: 0.78, y: 5.06, w: 5.6, h: 0.72, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.2 });
+  foot(s, "이 마스킹이 '토큰을 실제로 지운 것'과 예측이 100% 일치함을 별도로 확인했습니다 (부록)");
+  takeaway(s, "→ 상관관계가 아니라 개입 실험입니다. 길을 끊었을 때 결과가 바뀌면, 그 길이 원인입니다");
+  s.addNotes("구분하는 방법은 단순합니다. 사진은 그대로 두고 모델 내부에서 누가 누구를 볼 수 있는지만 바꿉니다. 두 조건에서 사진도 질문도 모델도 같고 열린 길만 다르므로, 결과 차이는 그 길 때문이라고 말할 수 있습니다. 상관관계가 아니라 개입 실험입니다.");
+}
+
+// ═════════ 6. 결과 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q2 — 결과");
+  headline(s, "범인은 '읽기'였습니다. 그리고 '섞임'은 오히려 도움이었습니다");
+
+  const res = [
+    ["아무것도 안 함", "on", "on", 0.70, C.gray, "기준"],
+    ["경로 A (섞임) 끊음", "cut", "on", 0.40, C.red, "훨씬 나빠짐"],
+    ["경로 B (읽기) 끊음", "on", "cut", 0.91, C.green, "거의 완전 회복"],
+  ];
+  res.forEach((r, i) => {
+    const x = 0.55 + i * 4.13, w = 3.95;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.36, w, h: 3.55, rectRadius: 0.09,
+      fill: { color: i === 1 ? C.lightred : i === 2 ? C.lightgreen : C.lightgray },
+      line: { color: r[4], width: 1.25 } });
+    s.addText(r[0], { x: x + 0.2, y: 1.5, w: w - 0.4, h: 0.3, align: "center", fontFace: F,
+      fontSize: 12.5, bold: true, color: r[4], margin: 0 });
+    anchor(s, x + 0.28, 1.94, r[1], r[2], null, 0.72);
+    s.addText(r[3].toFixed(2), { x: x + 0.2, y: 3.98, w: w - 0.4, h: 0.5, align: "center",
+      fontFace: F, fontSize: 26, bold: true, color: r[4], margin: 0 });
+    s.addText(r[5], { x: x + 0.2, y: 4.5, w: w - 0.4, h: 0.28, align: "center", fontFace: F,
+      fontSize: 11, bold: true, color: r[4], margin: 0 });
+  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.04, w: 12.25, h: 1.0,
+    rectRadius: 0.09, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.25 } });
+  s.addText("사진끼리 보는 것은 오염원이 아니라 보호막이었습니다", { x: 0.85, y: 5.16,
+    w: 11.7, h: 0.28, fontFace: F, fontSize: 13, bold: true, color: C.blue, margin: 0 });
+  s.addText("무관한 사진이 옆 사진을 함께 보면 '맥락 속의 한 장면'이 되지만, 혼자 떨어져 있으면 더 도드라져서 질문을 끌어당깁니다.\n같은 결과가 모델 두 개 × 사진 순서 두 가지 = 네 조건 모두에서 나왔습니다. 우연이 아닙니다.", {
+    x: 0.85, y: 5.46, w: 11.7, h: 0.55, fontFace: F, fontSize: 11.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.2 });
+  foot(s, "판별력 점수 · 문항 300개 · 3B 기준. 7B에서도 방향 동일 (0.87 / 0.45 / 0.90) — 상세는 부록");
+  takeaway(s, "→ 처음 세운 가설(섞여서 생긴다)을 우리 손으로 반증했습니다. 원인은 읽기 단계의 출처 착각입니다");
+  s.addNotes("결과입니다. 왼쪽이 기준, 가운데가 사진끼리 보는 길을 끊은 것, 오른쪽이 질문이 읽는 길을 끊은 것입니다. 가운데를 보시면 훨씬 나빠졌습니다. 즉 사진끼리 보는 건 오염원이 아니라 보호막이었습니다. 오른쪽처럼 읽기만 끊으면 거의 완전히 회복됩니다. 저희가 처음 세운 가설이 틀렸고, 그걸 저희 실험으로 확인했습니다.");
+}
+
+// ═════════ 7. 제안 방법 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q3 — 그래서 어떻게 푸는가");
+  headline(s, "무관한 사진을 지우지 말고, 질문만 못 읽게 합니다");
+  s.addText("가장 자연스러운 처방은 \"무관하면 빼버리자\"입니다. 그런데 그렇게 하면 보호막까지 같이 사라집니다.", {
+    x: 0.55, y: 1.3, w: 12.25, h: 0.3, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+  const opt = [
+    ["흔한 방법 — 통째로 뺀다", "cut", "cut", 0.889, C.orange,
+     "사진 자체를 입력에서 제거.\n해로운 읽기는 막히지만\n이로운 맥락도 함께 사라집니다."],
+    ["우리 방법 — 남기고 못 읽게 한다", "on", "cut", 0.908, C.green,
+     "사진은 그대로 두어 옆 사진이 볼 수 있게 하고,\n질문이 그것을 읽는 길만 막습니다."],
+  ];
+  opt.forEach((o, i) => {
+    const x = 0.55 + i * 6.23, w = 6.02;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.68, w, h: 3.5, rectRadius: 0.09,
+      fill: { color: i ? C.lightgreen : C.lightgray }, line: { color: o[4], width: 1.25 } });
+    s.addText(o[0], { x: x + 0.2, y: 1.82, w: w - 0.4, h: 0.3, align: "center", fontFace: F,
+      fontSize: 13, bold: true, color: o[4], margin: 0 });
+    anchor(s, x + 1.15, 2.24, o[1], o[2]);
+    s.addText(o[5], { x: x + 0.3, y: 4.3, w: w - 0.6, h: 0.7, align: "center", fontFace: F,
+      fontSize: 10.5, color: C.navy, margin: 0, lineSpacingMultiple: 1.2 });
+  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.3, w: 12.25, h: 0.74,
+    rectRadius: 0.08, fill: { color: C.white }, line: { color: C.green, width: 1.5 } });
+  s.addText([
+    { text: "판별력 점수:   통째로 뺌 0.889   <   남기고 못 읽게 함 0.908", options: { fontSize: 14, bold: true, color: C.green } },
+    { text: "     (차이 +0.018, 통계적으로 유의 · 문항 300개)", options: { fontSize: 11, color: C.gray } },
+  ], { x: 0.85, y: 5.3, w: 11.7, h: 0.74, fontFace: F, margin: 0, valign: "middle" });
+  takeaway(s, "→ 무관한 사진은 '증거로는 해롭고 맥락으로는 이롭다'는 두 얼굴을 갖습니다. 지우면 절반을 버립니다", C.green);
+  s.addNotes("그래서 저희가 제안하는 방법은 지우지 않는 것입니다. 사진은 그대로 두어서 옆 사진이 볼 수 있게 하고, 질문이 그걸 읽는 길만 막습니다. 실제로 통째로 빼는 것보다 이 쪽이 더 낫습니다. 무관한 사진은 증거로는 해롭지만 맥락으로는 이롭다는 두 얼굴을 갖고 있어서, 지우면 절반을 버리는 셈입니다.");
+}
+
+// ═════════ 8. 무관한 사진 판별 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q3 — 어느 사진이 무관한지는 어떻게 아는가");
+  headline(s, "하나씩 빼보고, 답이 가장 크게 흔들리는 쪽이 진짜 필요한 사진입니다");
+
+  const st = [
+    ["시도 1 — 실패", "모델이 각 사진에 얼마나 주목하는지 본다",
+     "겉보기엔 99.8% 정확했지만, 사진 순서를 뒤집자 0.2%가 됐습니다.\n'관련 있는 사진'이 아니라 '첫 번째 사진'을 찾고 있었습니다.", C.red, C.lightred],
+    ["시도 2 — 채택", "사진을 하나씩 빼보고 답이 얼마나 흔들리는지 본다",
+     "위치를 아예 참조하지 않으므로 같은 함정에 빠질 수 없습니다.\n사진 3장일 때 73% 정확 — 무관한 사진이 많을수록 더 정확해집니다.", C.green, C.lightgreen],
+  ];
+  st.forEach((v, i) => {
+    const y = 1.36 + i * 1.42;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 7.5, h: 1.28,
+      rectRadius: 0.08, fill: { color: v[4] }, line: { color: v[3], width: 1.25 } });
+    s.addText(v[0], { x: 0.78, y: y + 0.1, w: 2.0, h: 0.28, fontFace: F, fontSize: 12,
+      bold: true, color: v[3], margin: 0 });
+    s.addText(v[1], { x: 2.85, y: y + 0.1, w: 5.0, h: 0.28, fontFace: F, fontSize: 12,
+      bold: true, color: C.navy, margin: 0 });
+    s.addText(v[2], { x: 0.78, y: y + 0.44, w: 7.05, h: 0.7, fontFace: F, fontSize: 10.5,
+      color: C.navy, margin: 0, lineSpacingMultiple: 1.2 });
+  });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 8.28, y: 1.36, w: 4.52, h: 2.7,
+    rectRadius: 0.08, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText("외부 모듈로는 안 되는 이유", { x: 8.5, y: 1.48, w: 4.1, h: 0.28, fontFace: F,
+    fontSize: 12, bold: true, color: C.navy, margin: 0 });
+  s.addText("\"CLIP 같은 걸 앞에 두면 되지 않나?\"\n\n실제로 재봤습니다 — 사실상 찍는 수준입니다.\n무관한 사진에도 질문 속 물건이 들어있으면,\n의미가 비슷하다는 이유로 오히려 그쪽을 고릅니다.\n\n중요한 건 \"의미가 가까운가\"가 아니라\n\"이 모델의 답을 바꾸는가\"이고,\n그건 모델을 통과시켜야만 알 수 있습니다.", {
+    x: 8.5, y: 1.8, w: 4.1, h: 2.2, fontFace: F, fontSize: 10, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.22 });
+
+  s.addTable([
+    [{ text: "사진 수", options: { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 } },
+     { text: "외부 모듈 (CLIP)", options: { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 } },
+     { text: "우리 방법 (하나씩 빼보기)", options: { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 } },
+     { text: "무작위로 찍으면", options: { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 11 } }],
+    [{ text: "2장", options: { fontSize: 11, color: C.navy, bold: true } }, { text: "51%", options: { fontSize: 11, color: C.red } },
+     { text: "69%", options: { fontSize: 11, bold: true, color: C.green } }, { text: "50%", options: { fontSize: 11, color: C.gray } }],
+    [{ text: "3장", options: { fontSize: 11, color: C.navy, bold: true } }, { text: "39%", options: { fontSize: 11, color: C.red } },
+     { text: "71%", options: { fontSize: 11, bold: true, color: C.green } }, { text: "33%", options: { fontSize: 11, color: C.gray } }],
+    [{ text: "4장", options: { fontSize: 11, color: C.navy, bold: true } }, { text: "35%", options: { fontSize: 11, color: C.red } },
+     { text: "73%", options: { fontSize: 11, bold: true, color: C.green } }, { text: "25%", options: { fontSize: 11, color: C.gray } }],
+  ], { x: 0.55, y: 4.3, w: 7.5, rowH: [0.34, 0.3, 0.3, 0.3], fontFace: F, align: "center",
+       valign: "middle", border: { pt: 0.75, color: "E2E8F0" } });
+  s.addText("사진이 많아질수록 우리 쪽은 좋아지고 외부 모듈은 나빠집니다 — 무관한 후보가 늘기 때문입니다.", {
+    x: 0.55, y: 5.66, w: 7.5, h: 0.4, fontFace: F, fontSize: 10.5, color: C.gray,
+    margin: 0, lineSpacingMultiple: 1.15 });
+  foot(s, "판별 정확도 · 문항 300개 · 3B. 이 방식은 사진 수만큼 추가 계산이 필요합니다 (정확도를 얻는 대신 비용을 씁니다)");
+  takeaway(s, "→ 관련도는 '의미'가 아니라 '이 모델의 답을 바꾸는가'로 정의됩니다");
+  s.addNotes("어느 사진이 무관한지 아는 방법입니다. 처음에는 모델이 어디를 주목하는지 봤는데 실패했습니다. 사진 순서를 뒤집으니 정확도가 99.8에서 0.2로 떨어졌습니다. 관련도가 아니라 위치를 보고 있었던 겁니다. 그래서 방법을 바꿔서, 사진을 하나씩 빼보고 답이 가장 크게 흔들리는 쪽을 필요한 사진으로 봅니다. 위치를 아예 안 보니 같은 함정에 빠지지 않습니다.");
+}
+
+// ═════════ 9. 기존 연구 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "왜 가치 있는가 (1) — 기존 연구와의 관계");
+  headline(s, "기존 연구는 정반대 처방을 내놓았고, 양쪽 다 개선을 보고했습니다");
+  s.addText("한쪽은 '늘리라', 다른 쪽은 '끊으라' — 그런데 둘 다 성능이 올랐다고 보고합니다. 아무도 이유를 설명하지 못했습니다.", {
+    x: 0.55, y: 1.3, w: 12.25, h: 0.32, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+  const camps = [
+    ["\"연결을 늘려라\"", ["CAPL (2026.03)", "SoFA (CVPR 2025)"],
+     "사진 간 정보가 부족해서 문제라고 진단.\n서로 더 잘 보게 만듭니다.", C.blue, C.lightblue],
+    ["\"연결을 끊어라\"", ["MIMIC (2026.01)", "FOCUS (2025.08)"],
+     "사진 간 정보가 오염시킨다고 진단.\n일괄로 막거나 아예 지웁니다.", C.red, C.lightred],
+  ];
+  camps.forEach((c, i) => {
+    const x = 0.55 + i * 3.35, w = 3.15;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.68, w, h: 2.0, rectRadius: 0.08,
+      fill: { color: c[4] }, line: { color: c[3], width: 1.25 } });
+    s.addText(c[0], { x: x + 0.15, y: 1.8, w: w - 0.3, h: 0.3, align: "center", fontFace: F,
+      fontSize: 13, bold: true, color: c[3], margin: 0 });
+    c[1].forEach((p, j) => s.addText("· " + p, { x: x + 0.25, y: 2.14 + j * 0.28, w: w - 0.5,
+      h: 0.26, fontFace: F, fontSize: 10.5, color: C.navy, margin: 0 }));
+    s.addText(c[2], { x: x + 0.25, y: 2.78, w: w - 0.5, h: 0.7, fontFace: F, fontSize: 10,
+      color: C.gray, margin: 0, lineSpacingMultiple: 1.2 });
+  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 7.3, y: 1.68, w: 5.5, h: 2.0, rectRadius: 0.08,
+    fill: { color: C.lightgreen }, line: { color: C.green, width: 1.5 } });
+  s.addText("우리 답 — 둘 다 맞았습니다", { x: 7.5, y: 1.8, w: 5.1, h: 0.3, fontFace: F,
+    fontSize: 13, bold: true, color: C.green, margin: 0 });
+  s.addText("서로 다른 길을 건드리고 있었습니다.\n\n· 사진끼리 보는 길 → 도움이 된다 (늘려라가 맞음)\n· 질문이 읽는 길 → 해롭다 (끊어라가 맞음)\n\n두 길을 나눠 재기 전에는 구분할 수 없었습니다.", {
+    x: 7.5, y: 2.14, w: 5.1, h: 1.4, fontFace: F, fontSize: 11, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.25 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 3.86, w: 6.05, h: 2.14,
+    rectRadius: 0.08, fill: { color: C.lightred }, line: { color: C.red, width: 1 } });
+  s.addText("우리가 쓸 수 없는 주장 (조사로 확인)", { x: 0.78, y: 3.98, w: 5.6, h: 0.28,
+    fontFace: F, fontSize: 12, bold: true, color: C.red, margin: 0 });
+  s.addText("· \"학습 없이 추론 때 개입한다\" — 이미 세 편이 함\n· \"층 단위로 개입한다\" — 네 편 모두 이미 함\n· \"개입으로 원인을 검증한다\" — 한 편이 이미 함\n\n→ 이 셋은 novelty로 쓰지 않습니다.", {
+    x: 0.78, y: 4.3, w: 5.6, h: 1.5, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.3 });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.78, y: 3.86, w: 6.02, h: 2.14,
+    rectRadius: 0.08, fill: { color: C.lightgreen }, line: { color: C.green, width: 1 } });
+  s.addText("아직 비어 있는 자리", { x: 7.01, y: 3.98, w: 5.6, h: 0.28, fontFace: F,
+    fontSize: 12, bold: true, color: C.green, margin: 0 });
+  s.addText("· 사진끼리 보는 길만 따로 끊어본 연구 — 0편\n  (기존은 전부 모달리티 사이 연결만 끊음)\n· 여러 사진 중 특정 한 장만 골라 끊은 연구 — 0편\n· 무관한 사진이 섞인 상황 자체를 CAPL·SoFA는\n  실험한 적이 없음", {
+    x: 7.01, y: 4.3, w: 5.6, h: 1.5, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.3 });
+  takeaway(s, "→ 새 방법 하나를 더하는 게 아니라, 분야가 갈려 있던 지점을 정리하는 결과입니다");
+  s.addNotes("기존 연구를 조사했더니 두 진영으로 갈려 있었습니다. 한쪽은 사진 간 연결을 늘리라 하고 한쪽은 끊으라 하는데, 양쪽 다 개선을 보고합니다. 저희 경로 분해가 이 모순을 설명합니다. 그리고 조사 과정에서 저희가 처음에 novelty로 생각했던 세 가지는 쓸 수 없다는 것도 확인했습니다. 그건 슬라이드에 그대로 적어뒀습니다.");
+}
+
+// ═════════ 10. 기여 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "왜 가치 있는가 (2) — 기여");
+  headline(s, "이 연구가 새로 밝힌 것 세 가지");
+  const con = [
+    ["1", "원인을 경로 수준에서 특정했다",
+     "\"정보가 섞인다\"를 두 개의 구분 가능한 길로 나누고, 하나씩 끊어 어느 쪽이 해로운지 인과적으로 가렸습니다.",
+     "사진끼리 보는 길을 끊으면 오히려 크게 나빠짐 · 모델 2개 × 사진 순서 2가지 전부 일관", C.blue],
+    ["2", "그래서 처방이 달라진다",
+     "무관한 사진을 지우는 것보다, 남겨두고 질문만 못 읽게 하는 편이 낫습니다. 기존 어느 진영과도 다른 제3의 처방입니다.",
+     "통째로 뺌 0.889 < 남기고 못 읽게 함 0.908 (유의) · 문항 300개", C.green],
+    ["3", "관련도는 '의미'가 아니라 '모델 상대적'이다",
+     "무엇이 무관한지는 의미 유사도로 판별되지 않습니다. 이 모델의 답을 바꾸는지로 정의되고, 그건 모델을 통과시켜야 알 수 있습니다.",
+     "외부 모듈(CLIP) 35~51% (찍기 수준) vs 우리 69~73%", C.orange],
+  ];
+  con.forEach((c, i) => {
+    const y = 1.36 + i * 1.5;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 1.36,
+      rectRadius: 0.08, fill: { color: C.light }, line: { color: C.line, width: 0.75 } });
+    s.addShape(pres.shapes.OVAL, { x: 0.85, y: y + 0.45, w: 0.46, h: 0.46, fill: { color: c[4] } });
+    s.addText(c[0], { x: 0.85, y: y + 0.45, w: 0.46, h: 0.46, align: "center", valign: "middle",
+      fontFace: F, fontSize: 14, bold: true, color: C.white, margin: 0 });
+    s.addText(c[1], { x: 1.5, y: y + 0.14, w: 11.0, h: 0.3, fontFace: F, fontSize: 13.5,
+      bold: true, color: C.navy, margin: 0 });
+    s.addText(c[2], { x: 1.5, y: y + 0.46, w: 11.0, h: 0.46, fontFace: F, fontSize: 11,
+      color: C.navy, margin: 0, lineSpacingMultiple: 1.15 });
+    s.addText("근거   " + c[3], { x: 1.5, y: y + 0.98, w: 11.0, h: 0.3, fontFace: F,
+      fontSize: 10, bold: true, color: c[4], margin: 0 });
+  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.9, w: 12.25, h: 0.6,
+    rectRadius: 0.08, fill: { color: C.lightblue }, line: { color: C.blue, width: 1 } });
+  s.addText("공통점: 셋 다 '사진을 넣을지 말지'라는 이진 선택으로는 표현할 수 없는 것입니다. 그래서 앞단에 모듈을 두는 방식으로는 도달할 수 없습니다.", {
+    x: 0.85, y: 5.9, w: 11.7, h: 0.6, fontFace: F, fontSize: 11.5, bold: true,
+    color: C.navy, margin: 0, valign: "middle" });
+  takeaway(s, "→ selection은 관련도가 이진이고 미리 계산된다고 가정합니다. 우리 측정은 둘 다 아니라고 말합니다");
+  s.addNotes("기여는 세 가지입니다. 첫째, 원인을 경로 수준에서 특정했습니다. 둘째, 그래서 처방이 달라집니다. 지우는 것보다 남기고 못 읽게 하는 게 낫습니다. 셋째, 관련도가 의미가 아니라 모델 상대적이라는 것입니다. 이 셋의 공통점은 사진을 넣을지 말지라는 이진 선택으로 표현할 수 없다는 겁니다. 그래서 앞단 모듈로는 도달할 수 없습니다.");
+}
+
+// ═════════ 11. 한계와 계획 ═════════
+{
+  const s = pres.addSlide();
+  s.background = { color: C.darkbg };
+  kicker(s, "남은 일", true);
+  headline(s, "지금 이 연구를 무너뜨릴 수 있는 것과, 그것을 확인할 계획", true);
+  const risk = [
+    ["지금 벤치마크는 질문이 \"첫 번째 사진\"이라고 위치를 알려준다",
+     "그러면 앞단 모듈이 글자만 읽어도 맞힙니다. 내부 개입이어야 하는 이유를 증명할 수 없습니다."],
+    ["아직 공개 벤치마크에서 재현하지 않았다",
+     "CAPL은 \"추론 때 손대는 건 일시적 개선일 뿐\"이라고 미리 반론을 걸어뒀습니다."],
+    ["판별에 사진 수만큼 추가 계산이 든다",
+     "정확도는 얻지만 속도 이득은 없습니다. 어디까지 줄일 수 있는지 측정 중입니다."],
+  ];
+  risk.forEach((r, i) => {
+    const y = 1.36 + i * 0.92;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 0.8, rectRadius: 0.07,
+      fill: { color: "3A2430" }, line: { color: "6B3A4A", width: 1 } });
+    s.addText(String(i + 1), { x: 0.82, y: y + 0.2, w: 0.35, h: 0.4, align: "center",
+      fontFace: F, fontSize: 13, bold: true, color: "FF9E80", margin: 0 });
+    s.addText(r[0], { x: 1.3, y: y + 0.09, w: 11.2, h: 0.3, fontFace: F, fontSize: 12.5,
+      bold: true, color: C.white, margin: 0 });
+    s.addText(r[1], { x: 1.3, y: y + 0.42, w: 11.2, h: 0.3, fontFace: F, fontSize: 10.5,
+      color: "D0BCC4", margin: 0 });
+  });
+  const plan = [["1주", "질문이 위치를 알려주지 않는 벤치마크로 교체", "앞단 모듈이 원리적으로 못 푸는가"],
+                ["2주", "공개 벤치마크(BLINK·MUIRBench)에서 재현", "CAPL의 반론을 막을 수 있는가"],
+                ["3주", "판별 비용 줄이기 + FOCUS와 직접 비교", "같은 비용에서 우리가 나은가"],
+                ["4주", "모델 3계열로 확장 · 논문 초안", "—"]];
+  plan.forEach((p, i) => {
+    const y = 4.2 + i * 0.52;
+    s.addText(p[0], { x: 0.75, y, w: 0.8, h: 0.44, fontFace: F, fontSize: 12, bold: true,
+      color: "7EC8F5", margin: 0, valign: "middle" });
+    s.addText(p[1], { x: 1.75, y, w: 6.0, h: 0.44, fontFace: F, fontSize: 11.5,
+      color: C.white, margin: 0, valign: "middle" });
+    s.addText("→ " + p[2], { x: 7.9, y, w: 4.9, h: 0.44, fontFace: F, fontSize: 10.5,
+      color: "8CE0B0", margin: 0, valign: "middle" });
+  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 6.4, w: 12.25, h: 0.8,
+    rectRadius: 0.08, fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
+  s.addText([
+    { text: "중단 조건을 미리 정해둡니다 — 2주차에 공개 벤치마크에서 재현되지 않으면 이 방향은 접겠습니다.", options: { bold: true, fontSize: 12, color: "FFC94D", breakLine: true } },
+    { text: "지금까지 실험 전에 판정 기준을 먼저 적어두고 실행한 것이 6건이고, 그중 3건은 기준 미달로 실패 처리했습니다. GPU 1장, 기존 코드·데이터 재사용.", options: { fontSize: 10.5, color: "9FB8CE" } },
+  ], { x: 0.85, y: 6.46, w: 11.7, h: 0.7, fontFace: F, margin: 0, paraSpaceAfter: 3 });
+  s.addNotes("마지막으로 불리한 것을 말씀드립니다. 가장 큰 문제는 지금 벤치마크가 질문에서 첫 번째 사진이라고 위치를 알려준다는 겁니다. 그러면 앞단 모듈이 글자만 읽어도 맞힙니다. 이건 설계 결함이고 1주차에 바꿉니다. 그리고 2주차에 공개 벤치마크에서 재현되지 않으면 접겠습니다. 지금까지 판정 기준을 먼저 적어두고 실행한 게 여섯 번이고 그중 세 번은 실패로 기록했습니다.");
+}
+
+pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/_generated/deck_v6.pptx" })
+  .then(() => console.log("DECK v6 WRITTEN"));
