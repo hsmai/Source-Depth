@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_sum
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=00:30:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 밤새 결과 자동 요약 — 다음날 바로 확인용
+set +e
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+date
+python scripts/33_overnight_summary.py
+echo "===== 결과 파일 목록 ====="
+ls -la results/*.jsonl results/*.json 2>/dev/null | tail -20
+echo "===== 디스크 ====="
+df -h /data3 | tail -1
+date
