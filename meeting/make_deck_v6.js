@@ -522,5 +522,203 @@ function anchor(s, x, y, mix, read, caption, k) {
   s.addNotes("마지막으로 불리한 것을 말씀드립니다. 가장 큰 문제는 지금 벤치마크가 질문에서 첫 번째 사진이라고 위치를 알려준다는 겁니다. 그러면 앞단 모듈이 글자만 읽어도 맞힙니다. 이건 설계 결함이고 1주차에 바꿉니다. 그리고 2주차에 공개 벤치마크에서 재현되지 않으면 접겠습니다. 지금까지 판정 기준을 먼저 적어두고 실행한 게 여섯 번이고 그중 세 번은 실패로 기록했습니다.");
 }
 
+
+// ═════════════════ 부록 ═════════════════
+const AH = { bold: true, color: C.white, fill: { color: C.navy }, fontSize: 10.5 };
+const AC = { fontSize: 10.5, color: C.navy, fill: { color: C.white } };
+const am = (t, o) => ({ text: t, options: Object.assign({}, AC, o || {}) });
+const ATBL = { fontFace: F, align: "center", valign: "middle",
+               border: { pt: 0.75, color: "E2E8F0" } };
+function apx(title, sub) {
+  const s = pres.addSlide();
+  kicker(s, "APPENDIX");
+  headline(s, title);
+  if (sub) s.addText(sub, { x: 0.55, y: 1.28, w: 12.25, h: 0.3, fontFace: F,
+    fontSize: 10.5, color: C.gray, margin: 0 });
+  return s;
+}
+
+// A1 — 실험 설계
+{
+  const s = apx("실험 설계 — 오염이 생길 수밖에 없는 문항을 만든다",
+    "질문: \"In the first image, is there {물건}?\"  ·  COCO val2014에서 구성  ·  seed 고정  ·  사전 등록 후 실행");
+  s.addTable([
+    [am("", AH), am("정답", AH), am("무관 사진에 질문 속 물건이", AH), am("어느 방향으로 미는가", AH), am("문항 수", AH)],
+    [am("셀 1", { bold: true }), am("없다"), am("있음", { bold: true, color: C.red }), am("\"있다\"고 답하게"), am("150")],
+    [am("셀 2", { bold: true }), am("있다"), am("없음", { bold: true, color: C.blue }), am("\"없다\"고 답하게"), am("150")],
+  ], { x: 0.55, y: 1.7, w: 12.25, rowH: [0.44, 0.42, 0.42], ...ATBL });
+  s.addText("양쪽 모두 무관한 사진이 '오답 방향'으로 밉니다. 한쪽만 보면 큰 모델에서 현상이 사라진 것처럼 보입니다 — 실제로 저희가 처음에 그 실수를 했습니다.", {
+    x: 0.55, y: 3.1, w: 12.25, h: 0.34, fontFace: F, fontSize: 11, italic: true, color: C.gray, margin: 0 });
+  const items = [["규모", "모델 2개(3B·7B) × 문항 300 × 무관 사진 0~3장 × 조건 10종 = 모델당 3,000회"],
+                 ["통제", "모든 조건에서 사진이 물리적으로 전부 입력에 존재. 바뀌는 것은 '누가 무엇을 볼 수 있는가' 하나뿐"],
+                 ["지표", "판별력 점수(AUC) 주 지표. 정답률은 보고하되 판정 근거로 쓰지 않음"],
+                 ["재현", "체크포인트 재개, 코드·데이터 전부 git 기록, 사전 등록 문서 6건"]];
+  items.forEach((it, i) => {
+    const y = 3.6 + i * 0.68;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 0.6, rectRadius: 0.06,
+      fill: { color: i % 2 ? C.light : C.lightgray } });
+    s.addText(it[0], { x: 0.8, y, w: 1.3, h: 0.6, fontFace: F, fontSize: 11, bold: true,
+      color: C.navy, margin: 0, valign: "middle" });
+    s.addText(it[1], { x: 2.2, y, w: 10.4, h: 0.6, fontFace: F, fontSize: 10.5,
+      color: C.navy, margin: 0, valign: "middle" });
+  });
+}
+
+// A2 — 마스킹 타당성
+{
+  const s = apx("이 마스킹이 '진짜로 지운 것'과 같은가",
+    "개입이 흉내가 아니라 실제 삭제와 동일함을 별도로 검증했습니다");
+  s.addTable([
+    [am("확인 항목", AH), am("방법", AH), am("결과", AH)],
+    [am("예측 일치", { bold: true }), am("마스킹한 경우 vs 토큰을 실제로 제거한 경우의 예측 비교"),
+     am("100% 일치", { bold: true, color: C.green })],
+    [am("차단 확인", { bold: true }), am("차단한 층에서 해당 이미지가 받는 주목량을 직접 관측"),
+     am("정확히 0", { bold: true, color: C.green })],
+    [am("채점 타당성", { bold: true }), am("사진 1장만 줬을 때의 정답률을 공개 보고치와 비교"),
+     am("~80%대로 일치", { color: C.green })],
+    [am("위치 영향", { bold: true }), am("사진 순서를 뒤집어 전체 재측정 (문항 600개)"),
+     am("결론 방향 동일", { color: C.green })],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.42, 0.44, 0.44, 0.44, 0.44], ...ATBL });
+  s.addText("마스킹은 softmax 이전 단계에서 해당 열에 −∞를 더하는 방식입니다. 수학적으로 그 토큰이 없는 것과 동일하며, 위 첫 줄이 그것을 실측으로 확인한 것입니다.", {
+    x: 0.55, y: 4.1, w: 12.25, h: 0.4, fontFace: F, fontSize: 11, color: C.navy, margin: 0 });
+}
+
+// A3 — 경로 분해 전체
+{
+  const s = apx("경로 분해 — 전체 수치",
+    "판별력 점수 · 문항 300개 · 사진 순서를 바꿔 두 배치에서 각각 측정");
+  s.addTable([
+    [am("", AH), am("배치", AH), am("아무것도\n안 함", AH), am("경로 A 끊음\n(사진끼리)", AH),
+     am("경로 B 끊음\n(질문의 읽기)", AH), am("통째로 뺌", AH)],
+    [am("3B", { bold: true }), am("원래 순서"), am("0.6970"), am("0.4030", { bold: true, color: C.red }),
+     am("0.9057", { bold: true, color: C.green }), am("0.9057")],
+    [am(""), am("뒤집은 순서"), am("0.8000"), am("0.5679", { bold: true, color: C.red }),
+     am("0.9078", { bold: true, color: C.green }), am("0.8894")],
+    [am("7B", { bold: true }), am("원래 순서"), am("0.8690"), am("0.4471", { bold: true, color: C.red }),
+     am("0.8993", { bold: true, color: C.green }), am("0.8993")],
+    [am(""), am("뒤집은 순서"), am("0.8781"), am("0.4480", { bold: true, color: C.red }),
+     am("0.8983", { bold: true, color: C.green }), am("0.8949")],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.56, 0.4, 0.4, 0.4, 0.4], ...ATBL });
+  s.addText([
+    { text: "원래 순서에서 '경로 B 끊음 = 통째로 뺌'이 소수점까지 같은 것은 구조상 당연합니다", options: { fontSize: 11, bold: true, color: C.navy, breakLine: true } },
+    { text: "질문 대상 사진이 앞에 있으면 무관한 사진을 볼 수 없으므로, 남는 길이 읽기 하나뿐입니다. 저희 구현이 정확하다는 검증으로 보시면 됩니다.", options: { fontSize: 10.5, color: C.gray, breakLine: true } },
+    { text: "뒤집은 순서에서는 질문 대상 사진이 뒤에 있어 무관한 사진을 볼 수 있습니다 — 즉 '섞임' 경로가 실제로 존재합니다. 그런데도 그 경로를 끊으면 크게 나빠지고(−0.23), 읽기만 끊는 편이 통째로 빼는 것보다 낫습니다(+0.018, 유의).", options: { fontSize: 10.5, color: C.navy } },
+  ], { x: 0.55, y: 4.06, w: 12.25, h: 1.3, fontFace: F, margin: 0, paraSpaceAfter: 5 });
+  s.addText("사전에 적어둔 예측 두 개가 모두 틀렸고(읽기만으로는 부족할 것 / 섞임 차단이 도움될 것), 틀린 방향이 결론을 강화했습니다.", {
+    x: 0.55, y: 5.5, w: 12.25, h: 0.34, fontFace: F, fontSize: 10.5, italic: true, color: C.gray, margin: 0 });
+}
+
+// A4 — 판별력 손상 전체
+{
+  const s = apx("무관한 사진이 늘어날 때 — 전체 수치",
+    "판별력 점수 · 문항 300개 · 정답 균형 150/150 · '차단'은 어느 것이 무관한지 알려준 조건(상한값)");
+  s.addTable([
+    [am("무관한 사진 수", AH), am("3B 아무것도 안 함", AH), am("3B 차단", AH), am("회복률", AH),
+     am("7B 아무것도 안 함", AH), am("7B 차단", AH)],
+    [am("0 (한 장만)", { bold: true }), am("0.9078", { bold: true }), am("—"), am("—"),
+     am("0.9033", { bold: true }), am("—")],
+    [am("1", { bold: true }), am("0.6978"), am("0.9058"), am("99%", { bold: true, color: C.green }),
+     am("0.8690"), am("0.8993")],
+    [am("2", { bold: true }), am("0.6063"), am("0.9037"), am("99%", { bold: true, color: C.green }),
+     am("0.8723"), am("0.8970")],
+    [am("3", { bold: true }), am("0.5213", { bold: true, color: C.red }), am("0.9041"),
+     am("99%", { bold: true, color: C.green }), am("0.8740"), am("0.8957")],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.5, 0.4, 0.4, 0.4, 0.44], ...ATBL });
+  const notes = [
+    ["손상이 사진 수에 비례하는가", "3B는 예 (사진 3장에서 −0.386, 95%CI [−0.217, −0.136]로 유의). 7B는 아니오 — 손상이 −0.03로 고정되어 늘지 않음"],
+    ["정답률로 보면", "3B는 사진 3장에서 0.460 — 찍기(0.50)보다도 낮습니다. 차단하면 0.820으로 복귀"],
+    ["회복률이 일정한 이유", "정보가 파괴된 것이 아니라 가려져 있었기 때문입니다. 몇 장이 가리든 걷어내면 원래대로 돌아옵니다"],
+  ];
+  notes.forEach((n, i) => {
+    const y = 4.1 + i * 0.72;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 0.64, rectRadius: 0.06,
+      fill: { color: i % 2 ? C.light : C.lightgray } });
+    s.addText(n[0], { x: 0.8, y, w: 3.1, h: 0.64, fontFace: F, fontSize: 10.5, bold: true,
+      color: C.navy, margin: 0, valign: "middle" });
+    s.addText(n[1], { x: 4.0, y, w: 8.6, h: 0.64, fontFace: F, fontSize: 10,
+      color: C.navy, margin: 0, valign: "middle" });
+  });
+}
+
+// A5 — 하나씩 빼보기 상세
+{
+  const s = apx("'하나씩 빼보기' 판별 — 상세",
+    "각 사진을 하나씩 빼보고 답이 가장 크게 흔들리는 것을 '필요한 사진'으로 판정. 위치를 참조하지 않음");
+  s.addTable([
+    [am("", AH), am("무관한\n사진 수", AH), am("판별 정확도", AH), am("무작위로\n찍으면", AH),
+     am("이만큼은 맞혀야\n이득 (손익 기준선)", AH), am("아무것도\n안 했을 때", AH), am("판별기까지\n포함한 성능", AH)],
+    [am("3B", { bold: true }), am("1"), am("0.693"), am("0.500"), am("0.761", { color: C.red }),
+     am("0.6978"), am("0.6669  (−3.1%p)", { color: C.red })],
+    [am(""), am("2"), am("0.707"), am("0.333"), am("0.661"), am("0.6063"),
+     am("0.7126  (+10.6%p)", { bold: true, color: C.green })],
+    [am(""), am("3"), am("0.730", { bold: true }), am("0.250"), am("0.569", { bold: true, color: C.green }),
+     am("0.5213"), am("0.7028  (+18.2%p)", { bold: true, color: C.green })],
+    [am("7B", { bold: true }), am("1"), am("0.953", { bold: true, color: C.blue }), am("0.500"),
+     am("0.966", { color: C.red }), am("0.8690"), am("0.8884  (+1.9%p)")],
+    [am(""), am("3"), am("0.937", { bold: true, color: C.blue }), am("0.250"),
+     am("0.975", { color: C.red }), am("0.8740"), am("0.8928  (+1.9%p)")],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.58, 0.38, 0.38, 0.42, 0.38, 0.38], ...ATBL });
+  s.addText([
+    { text: "두 곡선이 반대로 움직입니다 (3B)", options: { fontSize: 11.5, bold: true, color: C.navy, breakLine: true } },
+    { text: "무관한 사진이 늘수록 판별은 정확해지고(0.693 → 0.730), 이득을 내기 위해 넘어야 할 기준선은 내려갑니다(0.761 → 0.569). 손상이 클수록 잘못 골랐을 때의 상대적 손해가 작아지고, 동시에 '빼봤을 때의 흔들림' 신호가 강해지기 때문입니다.", options: { fontSize: 10.5, color: C.navy, breakLine: true } },
+    { text: "7B는 판별이 0.95로 훨씬 정확한데도 기준선이 0.97이라 순이득이 남지 않습니다 — 고칠 손상 자체가 작기 때문입니다. 이 방법의 가치는 작은 모델 + 무관 입력이 많은 상황에 있습니다.", options: { fontSize: 10.5, color: C.navy } },
+  ], { x: 0.55, y: 4.42, w: 12.25, h: 1.5, fontFace: F, margin: 0, paraSpaceAfter: 5 });
+  s.addText("'판별기까지 포함한 성능'의 2·3장 값은 잘못 골랐을 때의 조건을 근사한 낙관값입니다. 판별 정확도와 기준선은 정확한 값이며, 0.730 > 0.569 판정은 근사에 의존하지 않습니다.", {
+    x: 0.55, y: 6.06, w: 12.25, h: 0.4, fontFace: F, fontSize: 9.5, italic: true, color: C.gray, margin: 0 });
+}
+
+// A6 — 선행연구
+{
+  const s = apx("선행연구 5편 — 원문 대조 결과",
+    "고위협 논문은 초록이 아니라 본문까지 확인했습니다");
+  s.addTable([
+    [am("", AH), am("무엇을 하나", AH), am("층 단위\n개입", AH), am("학습\n불필요", AH),
+     am("무관 사진\n실험", AH), am("우리와의 관계", AH)],
+    [am("FOCUS\n2508.13744", { bold: true }), am("타깃 외 사진을 픽셀 노이즈로 덮고 N+1회 실행", { fontSize: 9.5 }),
+     am("없음", { color: C.red }), am("예"), am("없음", { color: C.red }),
+     am("사진을 통째로 지움 — 우리 처방을 표현 불가", { fontSize: 9.5 })],
+    [am("MIMIC\n2601.07812", { bold: true }), am("12~23층에서 사진 간 연결을 일괄 차단", { fontSize: 9.5 }),
+     am("예"), am("아니오", { color: C.red }), am("있음"),
+     am("모든 사진 간 연결을 균일하게 막음", { fontSize: 9.5 })],
+    [am("CAPL\n2603.07048", { bold: true }), am("사진 간 연결을 오히려 늘림 + 선호학습", { fontSize: 9.5 }),
+     am("예"), am("아니오", { color: C.red }), am("없음", { color: C.red }),
+     am("진단이 정반대 — 무관 사진 상황 미실험", { fontSize: 9.5 })],
+    [am("SoFA\nCVPR 2025", { bold: true }), am("두 종류 마스크를 섞어 2개 층마다 삽입", { fontSize: 9.5 }),
+     am("예"), am("예"), am("없음", { color: C.red }),
+     am("역시 '늘리는' 방향", { fontSize: 9.5 })],
+    [am("RSCD\n2603.23934", { bold: true }), am("중간 층에서 글자끼리의 연결을 차단", { fontSize: 9.5 }),
+     am("예"), am("예"), am("있음"),
+     am("대상이 사진이 아니라 글자 — 개입 대상이 다름", { fontSize: 9.5 })],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.54, 0.5, 0.44, 0.44, 0.44, 0.44], ...ATBL });
+  s.addText("조사 결과 저희가 처음에 새롭다고 생각했던 세 가지 — 학습 없는 개입, 층 단위 개입, 개입을 통한 원인 검증 — 는 모두 선점되어 있었습니다. 그래서 novelty의 무게중심을 '무엇을 끊는가'로 옮겼습니다.", {
+    x: 0.55, y: 4.6, w: 12.25, h: 0.5, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.2 });
+}
+
+// A7 — 사전등록 이력
+{
+  const s = apx("사전 등록 이력 — 실패도 그대로 기록했습니다",
+    "실험 전에 판정 기준을 문서로 고정하고 커밋한 뒤 실행했습니다");
+  s.addTable([
+    [am("무엇을 물었나", AH), am("미리 정한 기준", AH), am("결과", AH), am("판정", AH)],
+    [am("무관 사진이 늘면 오염도 늘어나는가 (7B)", { fontSize: 10 }), am("10%p 이상 & 유의", { fontSize: 10 }),
+     am("+2.7%p, p=0.28", { fontSize: 10 }), am("실패", { bold: true, color: C.red })],
+    [am("판별력 손상이 사진 수에 비례하는가 (7B)", { fontSize: 10 }), am("−0.020 이하 & 유의", { fontSize: 10 }),
+     am("+0.005, 0 포함", { fontSize: 10 }), am("실패", { bold: true, color: C.red })],
+    [am("같은 질문 (3B)", { fontSize: 10 }), am("동일", { fontSize: 10 }),
+     am("−0.177, 유의", { fontSize: 10 }), am("통과", { bold: true, color: C.green })],
+    [am("얕은 층에서 무관 사진을 판별할 수 있는가", { fontSize: 10 }), am("16층 이하에서 0.80 이상", { fontSize: 10 }),
+     am("최고 0.517", { fontSize: 10 }), am("실패", { bold: true, color: C.red })],
+    [am("섞임 경로가 해로운가 (뒤집은 배치)", { fontSize: 10 }), am("차단 시 개선될 것", { fontSize: 10 }),
+     am("−0.232 악화", { fontSize: 10 }), am("예측 반대", { bold: true, color: C.orange })],
+    [am("모두 필요한 질문에서 사진 고립이 무해한가", { fontSize: 10 }), am("−0.02 이내", { fontSize: 10 }),
+     am("−0.055 (유의)", { fontSize: 10 }), am("불성립", { bold: true, color: C.orange })],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.44, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42], ...ATBL });
+  s.addText([
+    { text: "6건 중 3건이 기준 미달, 2건은 예측과 반대 방향이었습니다.", options: { fontSize: 11.5, bold: true, color: C.navy, breakLine: true } },
+    { text: "특히 다섯 번째는 저희 가설을 정면으로 반박한 결과인데, 그 반박이 오히려 지금의 결론(섞임은 보호막)을 만들었습니다. 결과를 보고 기준을 바꾸지 않았고, 실패한 것은 실패로 두었습니다.", options: { fontSize: 10.5, color: C.navy } },
+  ], { x: 0.55, y: 4.86, w: 12.25, h: 0.9, fontFace: F, margin: 0, paraSpaceAfter: 5 });
+}
+
 pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/_generated/deck_v6.pptx" })
   .then(() => console.log("DECK v6 WRITTEN"));
