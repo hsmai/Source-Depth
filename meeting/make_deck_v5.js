@@ -68,6 +68,62 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
   s.addNotes("오늘 보고는 세 가지입니다. 문제가 실재한다는 인과 증거, 그 원인이 정확히 어느 경로인지, 그리고 오라클 없이 작동하는 컨트롤러를 찾았다는 것입니다. 특히 두 번째가 이번 연구의 중심 기여입니다.");
 }
 
+// ═══════════════ 2. 연구 질문 · 기여 (판단용) ═══════════════
+{
+  const s = pres.addSlide();
+  kicker(s, "이 연구를 계속할 가치가 있는가");
+  headline(s, "기존 연구가 정반대 처방을 내놓은 지점 — 그 모순을 우리가 풀었습니다");
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 1.32, w: 12.25, h: 1.02,
+    rectRadius: 0.08, fill: { color: C.navy } });
+  s.addText([
+    { text: "연구 질문   ", options: { bold: true, fontSize: 11, color: "9FB8CE" } },
+    { text: "멀티이미지 입력에서 무관한 이미지가 모델을 망칠 때,", options: { bold: true, fontSize: 14, color: C.white, breakLine: true } },
+    { text: "그 해악은 어느 attention 경로로 흐르며, 어디를 끊어야 회복되는가?", options: { bold: true, fontSize: 14, color: C.white } },
+  ], { x: 0.9, y: 1.42, w: 11.6, h: 0.85, fontFace: F, margin: 0, paraSpaceAfter: 2 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 2.5, w: 6.05, h: 1.62,
+    rectRadius: 0.08, fill: { color: C.lightred }, line: { color: C.red, width: 1.25 } });
+  s.addText("문제 상황 — 문헌이 갈려 있다", { x: 0.78, y: 2.62, w: 5.6, h: 0.28,
+    fontFace: F, fontSize: 12.5, bold: true, color: C.red, margin: 0 });
+  s.addText("CAPL · SoFA :  \"cross-image 정보가 부족하다\" → attention을 연다\nMIMIC :  \"cross-image가 오염시킨다\" → 균일하게 막는다\n\n정반대 처방인데 양쪽 다 개선을 보고합니다. 아무도 이유를 설명하지 못했습니다.", {
+    x: 0.78, y: 2.94, w: 5.6, h: 1.1, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.15 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.78, y: 2.5, w: 6.02, h: 1.62,
+    rectRadius: 0.08, fill: { color: C.lightgreen }, line: { color: C.green, width: 1.25 } });
+  s.addText("우리 답 — 경로를 나누면 둘 다 맞다", { x: 7.01, y: 2.62, w: 5.6, h: 0.28,
+    fontFace: F, fontSize: 12.5, bold: true, color: C.green, margin: 0 });
+  s.addText("이미지 → 이미지 (혼합) :  도움이 된다. 끊으면 −0.23 ~ −0.43\n질문 → 이미지 (읽기) :  해악이 전부 여기. 끊으면 회복\n\n→ 최적 개입은 '제거'도 '개방'도 아닌 제3의 처방입니다", {
+    x: 7.01, y: 2.94, w: 5.6, h: 1.1, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.15 });
+
+  const contrib = [
+    ["C1", "경로 분해", "해악은 읽기 경로에만. 혼합은 보호막", "2배치 × 2모델 = 4조건 전부 일관"],
+    ["C2", "경로 선택적 개입", "읽기만 끊는 것 > 통째로 지우기", "+0.018  CI [+.007,+.031]  회복 121%"],
+    ["C3", "층 경계 특정", "통합은 앞쪽 16층에서 끝난다", "ISO0 −0.055(유의) vs ISO16 −0.005"],
+    ["C4", "모델 상대적 관련도", "의미 유사도로는 못 푼다", "CLIP 0.51/0.39/0.33 vs 우리 0.69/0.71/0.73"],
+    ["C5", "오라클 없는 컨트롤러", "반사실 신호가 손익분기를 넘는다", "3B N=3 무개입 대비 +18.2%p"],
+  ];
+  s.addText("기여 5가지 — 전부 실측 (n=300, 사전 등록 후 실행)", { x: 0.55, y: 4.28, w: 12.25,
+    h: 0.28, fontFace: F, fontSize: 12.5, bold: true, color: C.navy, margin: 0 });
+  contrib.forEach((c, i) => {
+    const y = 4.62 + i * 0.41;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 0.37,
+      rectRadius: 0.05, fill: { color: i % 2 ? C.light : C.lightgray } });
+    s.addText(c[0], { x: 0.72, y, w: 0.5, h: 0.37, fontFace: F, fontSize: 11,
+      bold: true, color: C.blue, margin: 0, valign: "middle" });
+    s.addText(c[1], { x: 1.3, y, w: 2.5, h: 0.37, fontFace: F, fontSize: 11,
+      bold: true, color: C.navy, margin: 0, valign: "middle" });
+    s.addText(c[2], { x: 3.9, y, w: 4.3, h: 0.37, fontFace: F, fontSize: 10.5,
+      color: C.navy, margin: 0, valign: "middle" });
+    s.addText(c[3], { x: 8.3, y, w: 4.4, h: 0.37, fontFace: F, fontSize: 10,
+      color: C.gray, margin: 0, valign: "middle" });
+  });
+  takeaway(s, "→ 차별성: 이미지↔이미지 edge의 layer 분해 knockout은 문헌에 0편. 무관 이미지 레짐 자체를 CAPL·SoFA는 실험한 적이 없습니다");
+  s.addNotes("이 슬라이드가 판단용입니다. 기존 연구가 정반대 처방을 냈는데 양쪽 다 개선을 보고했습니다. 아무도 그 이유를 설명하지 못했고, 저희가 경로를 나눠서 재니 둘 다 맞았다는 게 나왔습니다. 기여는 다섯 가지이고 전부 측정된 숫자입니다. 특히 C2가 새롭습니다 — 무관한 이미지를 지우는 것보다 질문의 읽기만 끊는 게 낫다는 건 기존 어느 진영과도 다른 처방입니다.");
+}
+
 // ═══════════════ 2. 실험 설계 ═══════════════
 {
   const s = pres.addSlide();
@@ -346,10 +402,10 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
   const risks = [
     ["1", "벤치마크가 위치로 대상을 지목한다",
      "질문이 \"첫 번째 이미지에\"로 시작하므로, 앞단 모듈이 텍스트만 파싱해도 100% 맞힙니다.\n현 벤치마크로는 '내부 개입이어야 하는 이유'를 증명할 수 없습니다.",
-     "대응: 관련도가 추론의 결과인 질문으로 교체 — all-of-3 세트 측정 중"],
+     "대응: all-of-3 세트를 만들어 측정 완료 (AUC 0.99 → 0.65로 천장 제거). 다음은 관련도가 추론의 결과인 질문"],
     ["2", "실현 성능이 아직 오라클 상한에 크게 못 미친다",
      "N=3에서 오라클 0.904 vs 실현 0.703. 손상의 절반만 회수합니다.\n그리고 forward N+1회라 효율 이득이 없습니다.",
-     "대응: 컨트롤러 신호 개선 + 소프트 개입(λ)으로 오판 비용 완화"],
+     "대응: λ 스윕 측정 완료 — λ=4에서 손상의 74% 회수. 컨트롤러 신호 개선이 다음"],
     ["3", "표준 벤치마크에서 아직 보이지 않았다",
      "CAPL은 \"추론시 attention 수정만으로는 일시적 개선\"이라고 선점 반론을 폈습니다.\nBLINK·MUIRBench 같은 공개 벤치에서 재현해야 이 반론을 막습니다.",
      "대응: 다음 단계 1순위"],
@@ -401,7 +457,7 @@ const TBL = { fontFace: F, align: "center", valign: "middle",
     rectRadius: 0.08, fill: { color: "1D3850" }, line: { color: "2E4E6B", width: 1 } });
   s.addText([
     { text: "중단 조건: W2에서 표준 벤치 재현이 실패하면 이 방향은 접습니다.", options: { bold: true, fontSize: 12.5, color: "FFC94D", breakLine: true } },
-    { text: "자원: GPU 1장 · 기존 코드·데이터 전부 재사용 · 지금까지 사전 등록 4건, 그중 2건은 실패로 기록했습니다", options: { fontSize: 11, color: "9FB8CE" } },
+    { text: "자원: GPU 1장 · 기존 코드·데이터 전부 재사용  ·  지금까지 사전 등록 5건, 그중 주 종점 실패 3건을 그대로 기록했습니다", options: { fontSize: 11, color: "9FB8CE" } },
   ], { x: 0.85, y: 6.34, w: 11.7, h: 0.78, fontFace: F, margin: 0, paraSpaceAfter: 4 });
   s.addNotes("4주 계획입니다. 가장 중요한 건 2주차입니다. 공개 벤치마크에서 재현되지 않으면 접겠습니다. 지금까지 사전 등록을 네 번 했고 그중 두 번은 실패로 기록했습니다. 이번에도 같은 방식으로 하겠습니다.");
 }
