@@ -1,0 +1,32 @@
+{
+ "t_full": 867.77,
+ "t_vision": 591.13,
+ "t_kvmask": 885.0,
+ "t_pixel": 953.34,
+ "n_items": 4,
+ "n_images": 4,
+ "n_layers": 36,
+ "t_llm": 276.64,
+ "vision_share_pct": 68.1,
+ "pipeline_L0": {
+  "FOCUS_ms": 3813.4,
+  "ours_ms": 1697.7,
+  "saving_pct": 55.5
+ },
+ "pipeline_L8": {
+  "FOCUS_ms": 3813.4,
+  "ours_ms": 1513.3,
+  "saving_pct": 60.3
+ },
+ "pipeline_L16": {
+  "FOCUS_ms": 3813.4,
+  "ours_ms": 1328.8,
+  "saving_pct": 65.2
+ },
+ "pipeline_L24": {
+  "FOCUS_ms": 3813.4,
+  "ours_ms": 1144.4,
+  "saving_pct": 70.0
+ },
+ "ts": "2026-08-18T20:08:39+09:00"
+}

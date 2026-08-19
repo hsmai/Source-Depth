@@ -333,6 +333,69 @@ function anchor(s, x, y, mix, read, caption, k) {
   s.addNotes("그래서 저희가 제안하는 방법은 지우지 않는 것입니다. 사진은 그대로 두어서 옆 사진이 볼 수 있게 하고, 질문이 그걸 읽는 길만 막습니다. 실제로 통째로 빼는 것보다 이 쪽이 더 낫습니다. 무관한 사진은 증거로는 해롭지만 맥락으로는 이롭다는 두 얼굴을 갖고 있어서, 지우면 절반을 버리는 셈입니다.");
 }
 
+
+// ═════════ 7b. 어느 층에서 개입하나 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q3 — 그럼 어느 시점에 막아야 하는가");
+  headline(s, "중요한 일은 전부 앞쪽 절반에서 끝납니다");
+  s.addText("모델은 여러 층을 거치며 답을 만듭니다. 막는 시점을 바꿔가며 재보니, 세 가지가 모두 앞쪽에서 결정됐습니다.", {
+    x: 0.55, y: 1.28, w: 12.25, h: 0.3, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+
+  const X0 = 2.3, XW = 10.1, NL = 36;
+  const LX = (l) => X0 + (l / NL) * XW;
+  // 층 눈금
+  s.addShape(pres.shapes.LINE, { x: X0, y: 1.78, w: XW, h: 0, line: { color: C.line, width: 1 } });
+  [0, 8, 16, 24, 36].forEach(l => {
+    s.addShape(pres.shapes.LINE, { x: LX(l), y: 1.72, w: 0, h: 0.12, line: { color: C.gray, width: 1 } });
+    s.addText(String(l), { x: LX(l) - 0.3, y: 1.5, w: 0.6, h: 0.22, align: "center",
+      fontFace: F, fontSize: 9.5, color: C.gray, margin: 0 });
+  });
+  s.addText("층 →", { x: X0 + XW + 0.1, y: 1.66, w: 0.7, h: 0.24, fontFace: F,
+    fontSize: 9.5, color: C.gray, margin: 0 });
+
+  const bands = [
+    ["해로운 읽기가 쌓인다", 0, 16, C.red, C.lightred,
+     "8층까지 막으면 효과의 97%.  16층부터면 68%,  24층부터면 9%밖에 못 건집니다.",
+     "→ 개입은 늦어도 8층 전에"],
+    ["이미지끼리 정보를 주고받는다", 0, 16, C.blue, C.lightblue,
+     "0층부터 떼어놓으면 −0.055로 손해.  16층부터 떼어놓으면 −0.005로 사실상 무해합니다.",
+     "→ 16층 이후엔 서로 안 봐도 됨"],
+    ["무관한 사진을 가려낼 단서가 남아 있다", 0, 16, C.green, C.lightgreen,
+     "16층부터만 다시 계산해도 판별 정확도가 0.730 → 0.720.  24층부터면 0.640으로 무너집니다.",
+     "→ 판별은 16층부터 다시 계산해도 됨"],
+  ];
+  bands.forEach((b, i) => {
+    const y = 2.12 + i * 1.28;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y, w: 12.25, h: 1.16,
+      rectRadius: 0.07, fill: { color: b[4] }, line: { color: b[3], width: 1 } });
+    s.addText(b[0], { x: 0.78, y: y + 0.1, w: 5.3, h: 0.28, fontFace: F, fontSize: 12,
+      bold: true, color: b[3], margin: 0 });
+    s.addText(b[5], { x: 0.78, y: y + 0.42, w: 8.6, h: 0.5, fontFace: F, fontSize: 10.5,
+      color: C.navy, margin: 0, lineSpacingMultiple: 1.15 });
+    s.addText(b[6], { x: 9.5, y: y + 0.42, w: 3.1, h: 0.5, fontFace: F, fontSize: 11,
+      bold: true, color: b[3], margin: 0, valign: "middle" });
+    // 구간 막대
+    s.addShape(pres.shapes.RECTANGLE, { x: LX(b[1]) - 0.55 + 6.0, y: y + 0.1, w: 0.001, h: 0.001,
+      fill: { color: b[3] } });
+  });
+  // 축 위 구간 표시
+  bands.forEach((b, i) => {
+    s.addShape(pres.shapes.RECTANGLE, { x: LX(b[1]), y: 1.84 + i * 0.075, w: LX(b[2]) - LX(b[1]),
+      h: 0.06, fill: { color: b[3] } });
+  });
+  s.addShape(pres.shapes.LINE, { x: LX(8), y: 1.66, w: 0, h: 0.42,
+    line: { color: C.red, width: 2, dashType: "dash" } });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.98, w: 12.25, h: 0.5,
+    rectRadius: 0.07, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText("모델 두 개 모두에서 같은 그림입니다 — 3B는 8/36층(22% 지점), 7B는 8/28층(29% 지점)까지가 결정적이었습니다.", {
+    x: 0.85, y: 5.98, w: 11.7, h: 0.5, fontFace: F, fontSize: 11, color: C.navy,
+    margin: 0, valign: "middle" });
+  takeaway(s, "→ '가려내는 일'은 늦게 해도 되고, '고치는 일'은 일찍 해야 합니다. 이 둘의 시점이 다르다는 게 방법 설계의 핵심입니다");
+  s.addNotes("어느 층에서 막아야 하느냐는 질문에 답하는 슬라이드입니다. 세 가지를 각각 재봤는데 모두 앞쪽 절반에서 결정됐습니다. 중요한 건 마지막 줄입니다. 어느 사진이 무관한지 가려내는 일은 16층부터 계산해도 되는데, 실제로 고치는 일은 8층 전에 시작해야 합니다. 이 둘의 시점이 다르기 때문에, 가려내는 계산은 절반만 해도 되고 그만큼 비용이 절약됩니다.");
+}
+
 // ═════════ 8. 무관한 사진 판별 ═════════
 {
   const s = pres.addSlide();
@@ -447,7 +510,7 @@ function anchor(s, x, y, mix, read, caption, k) {
      "사진끼리 보는 길을 끊으면 오히려 크게 나빠짐 · 모델 2개 × 사진 순서 2가지 전부 일관", C.blue],
     ["2", "그래서 처방이 달라진다",
      "무관한 사진을 지우는 것보다, 남겨두고 질문만 못 읽게 하는 편이 낫습니다. 기존 어느 진영과도 다른 제3의 처방입니다.",
-     "통째로 뺌 0.889 < 남기고 못 읽게 함 0.908 (유의) · 문항 300개", C.green],
+     "통째로 뺌 0.889 < 남기고 못 읽게 함 0.908 (유의) · 그리고 8층 전에만 막으면 효과의 97%", C.green],
     ["3", "관련도는 '의미'가 아니라 '모델 상대적'이다",
      "무엇이 무관한지는 의미 유사도로 판별되지 않습니다. 이 모델의 답을 바꾸는지로 정의되고, 그건 모델을 통과시켜야 알 수 있습니다.",
      "외부 모듈(CLIP) 35~51% (찍기 수준) vs 우리 69~73%", C.orange],
@@ -487,7 +550,7 @@ function anchor(s, x, y, mix, read, caption, k) {
     ["아직 공개 벤치마크에서 재현하지 않았다",
      "CAPL은 \"추론 때 손대는 건 일시적 개선일 뿐\"이라고 미리 반론을 걸어뒀습니다."],
     ["판별에 사진 수만큼 추가 계산이 든다",
-     "정확도는 얻지만 속도 이득은 없습니다. 어디까지 줄일 수 있는지 측정 중입니다."],
+     "16층부터만 다시 계산해도 판별이 유지되고(0.720), 이미지 인코딩은 전체 비용의 68%라 재사용 여지가 큽니다 — 다만 그 구현은 아직 안 했습니다."],
   ];
   risk.forEach((r, i) => {
     const y = 1.36 + i * 0.92;
@@ -718,6 +781,80 @@ function apx(title, sub) {
     { text: "6건 중 3건이 기준 미달, 2건은 예측과 반대 방향이었습니다.", options: { fontSize: 11.5, bold: true, color: C.navy, breakLine: true } },
     { text: "특히 다섯 번째는 저희 가설을 정면으로 반박한 결과인데, 그 반박이 오히려 지금의 결론(섞임은 보호막)을 만들었습니다. 결과를 보고 기준을 바꾸지 않았고, 실패한 것은 실패로 두었습니다.", options: { fontSize: 10.5, color: C.navy } },
   ], { x: 0.55, y: 4.86, w: 12.25, h: 0.9, fontFace: F, margin: 0, paraSpaceAfter: 5 });
+}
+
+// A8 — 층별 상세 수치
+{
+  const s = apx("층별 개입 시점 — 상세 수치",
+    "판별력 점수 · 문항 300개 · '몇 층부터 막기 시작하는가'를 바꿔가며 측정");
+  s.addTable([
+    [am("", AH), am("아무것도\n안 함", AH), am("0층부터", AH), am("8층부터", AH),
+     am("16층부터", AH), am("24층부터", AH), am("전면 차단", AH)],
+    [am("3B (36층)", { bold: true }), am("0.6970"), am("0.9057", { bold: true }),
+     am("0.8992"), am("0.8394"), am("0.7153", { color: C.red }), am("0.9057")],
+    [am("효과 잔존", { fontSize: 9.5, color: C.gray }), am("0%", { fontSize: 9.5, color: C.gray }),
+     am("100%", { fontSize: 9.5, color: C.gray }), am("97%", { fontSize: 10, bold: true, color: C.green }),
+     am("68%", { fontSize: 9.5, color: C.orange }), am("9%", { fontSize: 9.5, color: C.red }),
+     am("100%", { fontSize: 9.5, color: C.gray })],
+    [am("7B (28층)", { bold: true }), am("0.8690"), am("0.8993", { bold: true }),
+     am("0.8925"), am("0.8542"), am("0.8693", { color: C.red }), am("0.8993")],
+    [am("효과 잔존", { fontSize: 9.5, color: C.gray }), am("0%", { fontSize: 9.5, color: C.gray }),
+     am("100%", { fontSize: 9.5, color: C.gray }), am("78%", { fontSize: 10, bold: true, color: C.green }),
+     am("−48%", { fontSize: 9.5, color: C.red }), am("1%", { fontSize: 9.5, color: C.red }),
+     am("100%", { fontSize: 9.5, color: C.gray })],
+  ], { x: 0.55, y: 1.7, w: 12.25, rowH: [0.5, 0.36, 0.28, 0.36, 0.28], ...ATBL });
+
+  s.addText("판별용 반사실은 몇 층부터 다시 계산해도 되는가 (3B, 무관 사진 3장)", { x: 0.55, y: 3.6,
+    w: 12.25, h: 0.28, fontFace: F, fontSize: 12, bold: true, color: C.navy, margin: 0 });
+  s.addTable([
+    [am("다시 계산 시작 층", AH), am("0층 (전체)", AH), am("8층", AH), am("16층", AH), am("24층", AH)],
+    [am("판별 정확도", { bold: true }), am("0.7300"), am("0.7200"),
+     am("0.7200", { bold: true, color: C.green }), am("0.6400", { color: C.red })],
+    [am("반사실 1회 비용", { bold: true }), am("100%"), am("78%"),
+     am("56%", { bold: true, color: C.green }), am("33%")],
+  ], { x: 0.55, y: 3.94, w: 12.25, rowH: [0.36, 0.34, 0.34], ...ATBL });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.1, w: 12.25, h: 1.0,
+    rectRadius: 0.08, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.25 } });
+  s.addText([
+    { text: "두 표가 서로 다른 것을 말합니다", options: { fontSize: 12, bold: true, color: C.blue, breakLine: true } },
+    { text: "위 표(고치는 일): 손상은 앞쪽부터 쌓이므로 8층 전에 막아야 합니다.   아래 표(가려내는 일): 판별 단서는 16층까지 남아 있어 절반만 다시 계산해도 됩니다.\n같은 '층'이지만 목적이 다르면 필요한 시점이 다릅니다 — 이것이 파이프라인을 싸게 만드는 근거입니다.", options: { fontSize: 10.5, color: C.navy } },
+  ], { x: 0.85, y: 5.18, w: 11.7, h: 0.86, fontFace: F, margin: 0, paraSpaceAfter: 4 });
+}
+
+// A9 — 비용 구조
+{
+  const s = apx("비용 구조 — 왜 픽셀을 건드리면 비싼가",
+    "3B · 이미지 4장 · 같은 하드웨어에서 각 부분을 따로 측정");
+  s.addTable([
+    [am("측정 항목", AH), am("시간", AH), am("설명", AH)],
+    [am("전체 forward 1회", { bold: true }), am("867.8 ms"), am("이미지 인코딩 + 언어모델 전체")],
+    [am("이미지 인코딩만", { bold: true }), am("591.1 ms", { bold: true, color: C.red }),
+     am("전체의 68.1% — 여기가 대부분입니다", { bold: true })],
+    [am("언어모델 부분만", { bold: true }), am("276.6 ms"), am("나머지 31.9%")],
+  ], { x: 0.55, y: 1.72, w: 12.25, rowH: [0.4, 0.38, 0.42, 0.38], ...ATBL });
+
+  const cmp = [
+    ["기존 방식 (픽셀을 노이즈로 덮음)", "이미지를 바꾸므로 매번 인코딩을 다시 해야 합니다.\n판별에 4번 실행하면 인코딩 비용 68%를 네 번 지불합니다.", C.red, C.lightred],
+    ["우리 방식 (attention만 막음)", "픽셀이 그대로이므로 인코딩을 재사용할 수 있고,\n판별용 계산은 16층부터만 하면 됩니다.", C.green, C.lightgreen],
+  ];
+  cmp.forEach((c, i) => {
+    const x = 0.55 + i * 6.23;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 3.5, w: 6.02, h: 1.3, rectRadius: 0.08,
+      fill: { color: c[3] }, line: { color: c[2], width: 1.25 } });
+    s.addText(c[0], { x: x + 0.22, y: 3.62, w: 5.6, h: 0.28, fontFace: F, fontSize: 12,
+      bold: true, color: c[2], margin: 0 });
+    s.addText(c[1], { x: x + 0.22, y: 3.94, w: 5.6, h: 0.72, fontFace: F, fontSize: 10.5,
+      color: C.navy, margin: 0, lineSpacingMultiple: 1.2 });
+  });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 4.96, w: 12.25, h: 1.4,
+    rectRadius: 0.08, fill: { color: C.lightred }, line: { color: C.red, width: 1.5 } });
+  s.addText("여기서 멈춰야 합니다 — 아직 \"더 싸다\"고 말할 수 없습니다", { x: 0.85, y: 5.08,
+    w: 11.7, h: 0.28, fontFace: F, fontSize: 12.5, bold: true, color: C.red, margin: 0 });
+  s.addText("측정한 것은 '이미지 인코딩이 전체의 68%를 차지한다'까지입니다. 그것을 건너뛰는 구현(인코딩 캐시 재사용 + 층 절단)은 아직 만들지 않았고,\n따라서 절감률은 부품 값에서 계산한 추정치일 뿐 종단 측정이 아닙니다. 이전에 이론 42% 절감이 실측 9.7%로 줄어든 경험이 있어, 구현 전에는 수치를 주장하지 않습니다.", {
+    x: 0.85, y: 5.42, w: 11.7, h: 0.86, fontFace: F, fontSize: 10.5, color: C.navy,
+    margin: 0, lineSpacingMultiple: 1.25 });
 }
 
 pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/_generated/deck_v6.pptx" })
