@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N 1_4_isangmin_sd_rt
+#PBS -q pleiades1
+#PBS -l select=1:ncpus=4:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -o /home/isangmin/sourcedepth/logs/pbs/
+# 경로 대비 재현 — 새 문항 (docs/30)
+set -eo pipefail
+ROOT=/home/isangmin/sourcedepth
+cd $ROOT
+source $ROOT/.venv/bin/activate
+set -u
+export HF_HOME=$ROOT/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONHASHSEED=42
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+date; nvidia-smi || true
+echo "===== 스모크 6문항 ====="
+python scripts/34_routing_contrast.py --limit 6
+echo "===== 스모크 통과 ====="
+echo "===== 34 경로대비 (3B) ====="
+python scripts/34_routing_contrast.py || echo "34-3B FAILED"
+echo "===== 34 경로대비 (7B) ====="
+SD_MODEL_ID=Qwen/Qwen2.5-VL-7B-Instruct SD_TAG=_7b python scripts/34_routing_contrast.py || echo "34-7B FAILED"
+date
