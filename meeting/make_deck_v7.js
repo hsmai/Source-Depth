@@ -156,7 +156,7 @@ const txt = (s,t,x,y,w,h,o) => s.addText(t,Object.assign({x,y,w,h,fontFace:F,mar
     [mm("사진 수",th),mm("의미 유사도 (CLIP)",th),mm("하나씩 빼보기 (우리)",th),mm("찍으면",th)],
     [mm("2장",{bold:true}),mm("51%",{color:C.red}),mm("69%",{bold:true,color:C.green}),mm("50%",{color:C.gray})],
     [mm("3장",{bold:true}),mm("39%",{color:C.red}),mm("71%",{bold:true,color:C.green}),mm("33%",{color:C.gray})],
-    [mm("4장",{bold:true}),mm("35%",{color:C.red}),mm("73%",{bold:true,color:C.green}),mm("25%",{color:C.gray})],
+    [mm("4장",{bold:true}),mm("33%",{color:C.red}),mm("73%",{bold:true,color:C.green}),mm("25%",{color:C.gray})],
   ],{x:0.8,y:2.52,w:5.55,rowH:[0.32,0.3,0.3,0.3],fontFace:F,align:"center",valign:"middle",border:{pt:0.75,color:"E2E8F0"}});
   txt(s,"CLIP은 무관한 사진에 질문 속 물건이 있으면 오히려 그쪽을 고름 — 관련도는 '의미'가 아니라 '이 모델의 답을 바꾸는가'",0.8,3.86,5.6,0.42,{fontSize:9.5,italic:true,color:C.gray,lineSpacingMultiple:1.15});
   // 우: 대비
