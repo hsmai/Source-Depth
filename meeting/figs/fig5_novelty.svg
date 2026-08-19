@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#FFFFFF"/>
+<text x="40" y="54" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" fill="#1F3B57" text-anchor="start" font-weight="bold">기존 연구와 우리는 서로 다른 곳에 손을 댑니다</text>
+<text x="40" y="82" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">● = 그 연구가 개입하는 지점</text>
+<line x1="40" y1="104" x2="1560" y2="104" stroke="#D8E0E8" stroke-width="1.2"/>
+<rect x="40" y="214" width="1520" height="114" rx="8" fill="#F4F6F8"/>
+<rect x="72" y="241.36" width="78" height="59.28" rx="4" fill="#EDF1F5" stroke="#9AA6B2" stroke-width="1.6"/>
+<clipPath id="cp1"><rect x="72" y="241.36" width="78" height="59.28" rx="4"/></clipPath>
+<g clip-path="url(#cp1)">
+<line x1="44" y1="241.36" x2="20" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="51" y1="241.36" x2="27" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="58" y1="241.36" x2="34" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="65" y1="241.36" x2="41" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="72" y1="241.36" x2="48" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="79" y1="241.36" x2="55" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="86" y1="241.36" x2="62" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="93" y1="241.36" x2="69" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="100" y1="241.36" x2="76" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="107" y1="241.36" x2="83" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="114" y1="241.36" x2="90" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="121" y1="241.36" x2="97" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="128" y1="241.36" x2="104" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="135" y1="241.36" x2="111" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="142" y1="241.36" x2="118" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="149" y1="241.36" x2="125" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="156" y1="241.36" x2="132" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+<line x1="163" y1="241.36" x2="139" y2="300.64" stroke="#D62728" stroke-width="2.2"/>
+</g>
+<rect x="72" y="241.36" width="78" height="59.28" rx="4" fill="none" stroke="#D62728" stroke-width="2"/>
+<text x="178" y="276" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">입력 사진을 바꾼다</text>
+<rect x="40" y="342" width="1520" height="114" rx="8" fill="#FFFFFF"/>
+<rect x="72.0" y="360.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="360.0" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="360.0" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="360.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="379.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="379.5" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="379.5" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="379.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="399.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="399.0" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="399.0" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="399.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="418.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="418.5" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="418.5" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="418.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<text x="178" y="404" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">연결을 통째로 바꾼다</text>
+<rect x="40" y="470" width="1520" height="114" rx="8" fill="#F4F6F8"/>
+<rect x="75.12" y="502.04" width="20.28" height="49.92" rx="3" fill="#EDF1F5" stroke="#9AA6B2" stroke-width="1.6"/>
+<rect x="75.12" y="520.76" width="20.28" height="31.200000000000003" rx="3" fill="#1F77B4"/>
+<text x="111.0" y="536.36" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" fill="#D62728" text-anchor="middle" font-weight="bold">−</text>
+<rect x="126.6" y="502.04" width="20.28" height="49.92" rx="3" fill="#EDF1F5" stroke="#9AA6B2" stroke-width="1.6"/>
+<rect x="126.6" y="533.24" width="20.28" height="18.72" rx="3" fill="#D62728"/>
+<text x="178" y="532" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">출력을 보정한다</text>
+<rect x="40" y="598" width="1520" height="114" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.6"/>
+<rect x="72.0" y="616.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="616.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="616.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="616.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="635.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="635.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="635.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="635.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="655.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="655.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="655.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="655.0" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="72.0" y="674.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="91.5" y="674.5" width="18.0" height="18.0" rx="0" fill="#8B1A1A" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="111.0" y="674.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="130.5" y="674.5" width="18.0" height="18.0" rx="0" fill="#EDF1F5" stroke="#FFFFFF" stroke-width="1"/>
+<text x="178" y="660" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#2E8B57" text-anchor="start" font-weight="bold">연결 중 한 칸만 바꾼다</text>
+<line x1="776" y1="196" x2="776" y2="712" stroke="#DDE3E9" stroke-width="1"/>
+<line x1="972" y1="196" x2="972" y2="712" stroke="#DDE3E9" stroke-width="1"/>
+<line x1="1168" y1="196" x2="1168" y2="712" stroke="#DDE3E9" stroke-width="1"/>
+<line x1="1364" y1="196" x2="1364" y2="712" stroke="#DDE3E9" stroke-width="1"/>
+<rect x="1356" y="152" width="212" height="562" rx="10" fill="none" stroke="#2E8B57" stroke-width="2.4"/>
+<circle cx="678.0" cy="271.0" r="16" fill="#9AA6B2"/>
+<circle cx="874.0" cy="271.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1070.0" cy="271.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1266.0" cy="271.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1462.0" cy="271.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="678.0" cy="399.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="874.0" cy="399.0" r="16" fill="#9AA6B2"/>
+<circle cx="1070.0" cy="399.0" r="16" fill="#9AA6B2"/>
+<circle cx="1266.0" cy="399.0" r="16" fill="#9AA6B2"/>
+<circle cx="1462.0" cy="399.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="678.0" cy="527.0" r="16" fill="#9AA6B2"/>
+<circle cx="874.0" cy="527.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1070.0" cy="527.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1266.0" cy="527.0" r="16" fill="#9AA6B2"/>
+<circle cx="1462.0" cy="527.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="678.0" cy="655.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="874.0" cy="655.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1070.0" cy="655.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1266.0" cy="655.0" r="5" fill="none" stroke="#DDE3E9" stroke-width="2"/>
+<circle cx="1462.0" cy="655.0" r="23" fill="#2E8B57"/>
+<circle cx="1462.0" cy="655.0" r="9.5" fill="#FFFFFF"/>
+<text x="678.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="middle" font-weight="bold">VCD · FOCUS</text>
+<text x="874.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="middle" font-weight="bold">MIMIC</text>
+<text x="1070.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="middle" font-weight="bold">CAPL · SoFA</text>
+<text x="1266.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="middle" font-weight="bold">RSCD</text>
+<text x="1462.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#2E8B57" text-anchor="middle" font-weight="bold">우리</text>
+<rect x="40" y="742" width="1520" height="64" rx="8" fill="#142638"/>
+<text x="70" y="782" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="start" font-weight="bold">맨 아래 줄은 비어 있었습니다.</text>
+<text x="370" y="782" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#9FC7E8" text-anchor="start">여러 사진 중 한 장으로 가는 경로만 끊은 연구는 아직 없습니다.</text>
+<text x="40" y="848" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start" font-style="italic">VCD(2023) · FOCUS(2025) · MIMIC(2026) · CAPL(2026) · SoFA(CVPR 2025) · RSCD(2026) — 원문 대조 결과. 빈 원 = 그 지점에 개입하지 않음.</text>
+</svg>
