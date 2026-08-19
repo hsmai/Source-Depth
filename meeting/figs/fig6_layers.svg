@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#FFFFFF"/>
+<text x="40" y="52" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="25" fill="#1F3B57" text-anchor="start" font-weight="bold">층 차원에서는? — 같은 사각형을 모든 층에 겁니다</text>
+<text x="40" y="80" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start">attention 행렬은 층마다 새로 계산됩니다. 그래서 개입도 층마다 새로 걸어야 합니다.</text>
+<line x1="40" y1="102" x2="1560" y2="102" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="40" y="138" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">모든 층에 같은 사각형</text>
+<rect x="70" y="172" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="108" y="172" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="127.0" y="197.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="172" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="197.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="210" width="38" height="38" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.1"/>
+<rect x="108" y="210" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="146" y="210" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="235.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="248" width="38" height="38" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.1"/>
+<rect x="108" y="248" width="38" height="38" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="127.0" y="273.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="248" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="196" y="234" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start" font-weight="bold">0층</text>
+<text x="196" y="252" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#8B1A1A" text-anchor="start">질문 → 방해 차단</text>
+<rect x="70" y="290" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="108" y="290" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="127.0" y="315.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="290" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="315.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="328" width="38" height="38" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.1"/>
+<rect x="108" y="328" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="146" y="328" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="353.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="366" width="38" height="38" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.1"/>
+<rect x="108" y="366" width="38" height="38" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="127.0" y="391.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="366" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="196" y="352" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start" font-weight="bold">1층</text>
+<text x="196" y="370" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#8B1A1A" text-anchor="start">질문 → 방해 차단</text>
+<rect x="126" y="402" width="5" height="5" rx="2.5" fill="#9AA6B2"/>
+<rect x="126" y="416" width="5" height="5" rx="2.5" fill="#9AA6B2"/>
+<rect x="126" y="430" width="5" height="5" rx="2.5" fill="#9AA6B2"/>
+<rect x="70" y="452" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="108" y="452" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="127.0" y="477.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="452" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="477.2928" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="490" width="38" height="38" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.1"/>
+<rect x="108" y="490" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="146" y="490" width="38" height="38" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="165.0" y="515.2927999999999" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="70" y="528" width="38" height="38" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.1"/>
+<rect x="108" y="528" width="38" height="38" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="127.0" y="553.2927999999999" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17.48" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="146" y="528" width="38" height="38" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="196" y="514" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start" font-weight="bold">35층</text>
+<text x="196" y="532" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#8B1A1A" text-anchor="start">질문 → 방해 차단</text>
+<line x1="52" y1="168" x2="52" y2="574" stroke="#9AA6B2" stroke-width="1.8" marker-end="url(#ah)"/>
+<text x="70" y="596" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">정보는 0층에서 35층 방향으로 흐릅니다</text>
+<rect x="40" y="614" width="460" height="92" rx="6" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="1"/>
+<text x="56" y="638" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start" font-weight="bold">가중치는 전혀 바꾸지 않습니다.</text>
+<text x="56" y="660" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="start">층마다 만들어지는 attention mask에 같은 위치의 사각형을</text>
+<text x="56" y="680" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="start">−∞ 로 더할 뿐입니다. 층 수만큼 반복되지만 비용은 사실상 0.</text>
+<text x="540" y="138" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">그럼 몇 층부터 걸어야 하나 — 실측으로 확인</text>
+<text x="540" y="158" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="start">Qwen2.5-VL-3B · 36개 층 · 문항 300</text>
+<text x="668" y="190" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">0층</text>
+<text x="1268" y="190" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">35층</text>
+<text x="728" y="190" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#9AA6B2" text-anchor="middle">← 앞쪽</text>
+<text x="1208" y="190" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#9AA6B2" text-anchor="middle">뒤쪽 →</text>
+<rect x="532" y="204" width="1020" height="60" rx="7" fill="#F2FAF5" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="544" y="242" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#2E8B57" text-anchor="start" font-weight="bold">0층부터  (우리)</text>
+<rect x="668.0" y="220" width="600.0" height="34" rx="3" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.2"/>
+<text x="968.0" y="242" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#2E8B57" text-anchor="middle" font-weight="bold">읽기 차단</text>
+<text x="1324" y="242" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.906</text>
+<text x="1418" y="242" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#2E8B57" text-anchor="middle" font-weight="bold">100%</text>
+<text x="544" y="316" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">8층부터</text>
+<rect x="668" y="294" width="133.33333333333334" height="34" rx="3" fill="#F6DADA" stroke="#D62728" stroke-width="1.2"/>
+<text x="734.6666666666666" y="316" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#D62728" text-anchor="middle" font-weight="bold">그대로 읽힘</text>
+<rect x="801.3333333333334" y="294" width="466.66666666666663" height="34" rx="3" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.2"/>
+<text x="1034.6666666666667" y="316" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#2E8B57" text-anchor="middle" font-weight="bold">읽기 차단</text>
+<text x="1324" y="316" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.899</text>
+<text x="1418" y="316" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="middle" font-weight="bold">97%</text>
+<text x="544" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">16층부터</text>
+<rect x="668" y="368" width="266.6666666666667" height="34" rx="3" fill="#F6DADA" stroke="#D62728" stroke-width="1.2"/>
+<text x="801.3333333333334" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#D62728" text-anchor="middle" font-weight="bold">그대로 읽힘</text>
+<rect x="934.6666666666667" y="368" width="333.3333333333333" height="34" rx="3" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.2"/>
+<text x="1101.3333333333335" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#2E8B57" text-anchor="middle" font-weight="bold">읽기 차단</text>
+<text x="1324" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.839</text>
+<text x="1418" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#B06A00" text-anchor="middle" font-weight="bold">68%</text>
+<text x="544" y="464" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">24층부터</text>
+<rect x="668" y="442" width="400.0" height="34" rx="3" fill="#F6DADA" stroke="#D62728" stroke-width="1.2"/>
+<text x="868.0" y="464" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#D62728" text-anchor="middle" font-weight="bold">그대로 읽힘</text>
+<rect x="1068.0" y="442" width="200.0" height="34" rx="3" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.2"/>
+<text x="1168.0" y="464" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#2E8B57" text-anchor="middle" font-weight="bold">읽기 차단</text>
+<text x="1324" y="464" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.715</text>
+<text x="1418" y="464" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#D62728" text-anchor="middle" font-weight="bold">9%</text>
+<text x="544" y="538" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">아예 안 걸면</text>
+<rect x="668" y="516" width="600.0" height="34" rx="3" fill="#F6DADA" stroke="#D62728" stroke-width="1.2"/>
+<text x="968.0" y="538" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#D62728" text-anchor="middle" font-weight="bold">그대로 읽힘</text>
+<text x="1324" y="538" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.697</text>
+<text x="1418" y="538" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#D62728" text-anchor="middle" font-weight="bold">0%</text>
+<text x="1324" y="200" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">판별력</text>
+<text x="1418" y="200" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">회복률</text>
+<rect x="540" y="596" width="1020" height="58" rx="6" fill="#FBEAEA" stroke="#D62728" stroke-width="1.4"/>
+<text x="556" y="622" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#1F3B57" text-anchor="start" font-weight="bold">앞쪽 8층을 놓치면 아직 97%가 남지만, 16층까지 놓치면 68%, 24층까지 놓치면 사실상 0입니다.</text>
+<text x="556" y="643" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#D62728" text-anchor="start" font-weight="bold">오염은 앞쪽 층에서 일어납니다. 이미 섞인 뒤에 끊는 것은 늦습니다 — 되돌릴 수 없습니다.</text>
+<rect x="540" y="666" width="1020" height="40" rx="6" fill="#FFF8E8" stroke="#B06A00" stroke-width="1.2"/>
+<text x="556" y="691" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="start">7B(28층)도 같은 방향입니다. 다만 16층부터 걸면 무개입(0.869)보다 낮은 0.854 — 늦은 개입은 도움이 아니라 해가 됩니다.</text>
+<rect x="40" y="734" width="1520" height="58" rx="8" fill="#142638"/>
+<text x="70" y="770" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#FFFFFF" text-anchor="start" font-weight="bold">특정 층만 고르는 게 아닙니다. 0층부터 끝까지 전부 겁니다 — 앞쪽을 놓치면 뒤에서 아무리 막아도 소용없기 때문입니다.</text>
+<text x="40" y="834" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="start" font-style="italic">판별력 점수(AUC) · 문항 300 · 회복률 = (해당 조건 − 무개입) / (0층부터 − 무개입). 사전 등록 후 측정.</text>
+</svg>
