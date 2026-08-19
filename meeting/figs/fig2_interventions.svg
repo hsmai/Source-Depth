@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 730" font-family="Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <rect x="0" y="0" width="1280" height="730" fill="#FFFFFF"/>
+
+  <text x="50" y="52" font-size="30" font-weight="bold" fill="#1F3B57">칸을 하나씩 지워본 결과</text>
+  <text x="50" y="84" font-size="15" fill="#6B7280">판별력 점수 (0.5 = 찍기 · 1.0 = 완벽) · 3B 모델 · 문항 300개 · 참고: 사진을 1장만 주면 0.91</text>
+
+  <!-- 범례 -->
+  <rect x="855" y="30" width="14" height="14" fill="#E8F1FA" stroke="#1F77B4"/>
+  <text x="875" y="42" font-size="12" fill="#1F3B57">경로 A (사진끼리)</text>
+  <rect x="1000" y="30" width="14" height="14" fill="#FBEAEA" stroke="#D62728"/>
+  <text x="1020" y="42" font-size="12" fill="#1F3B57">경로 B (질문→무관)</text>
+  <rect x="855" y="54" width="14" height="14" fill="#8B1A1A"/>
+  <text x="875" y="66" font-size="12" fill="#1F3B57">지운 칸 (✕)</text>
+  <rect x="1000" y="54" width="14" height="14" fill="#F3F4F6" stroke="#D5DEE8"/>
+  <text x="1020" y="66" font-size="12" fill="#1F3B57">그 외 / 읽기불가</text>
+
+  <!-- ══ 미니 행렬 3개: 셀 92px, 3x3 ══ -->
+  <!-- 공통 축 라벨용 매크로는 없으니 각자 그림. 행: 1,2,Q / 열: 1,2,Q -->
+
+  <!-- A. 무개입 (x=105) -->
+  <text x="248" y="132" font-size="17" font-weight="bold" fill="#1F3B57" text-anchor="middle">① 아무것도 안 지움</text>
+  <g>
+    <text x="95" y="215" font-size="12" fill="#6B7280" text-anchor="end">1이 읽음</text>
+    <text x="95" y="312" font-size="12" fill="#6B7280" text-anchor="end">2가 읽음</text>
+    <text x="95" y="409" font-size="12" fill="#6B7280" text-anchor="end">Q가 읽음</text>
+    <text x="151" y="158" font-size="12" fill="#6B7280" text-anchor="middle">1을</text>
+    <text x="248" y="158" font-size="12" fill="#6B7280" text-anchor="middle">2를</text>
+    <text x="345" y="158" font-size="12" fill="#6B7280" text-anchor="middle">Q를</text>
+    <rect x="105" y="168" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="202" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="299" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="105" y="265" width="92" height="92" fill="#E8F1FA" stroke="#1F77B4" stroke-width="2"/>
+    <text x="151" y="316" font-size="13" font-weight="bold" fill="#1F77B4" text-anchor="middle">A</text>
+    <rect x="202" y="265" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="299" y="265" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="105" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="202" y="362" width="92" height="92" fill="#FBEAEA" stroke="#D62728" stroke-width="2"/>
+    <text x="248" y="413" font-size="13" font-weight="bold" fill="#D62728" text-anchor="middle">B</text>
+    <rect x="299" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+  </g>
+  <text x="248" y="512" font-size="34" font-weight="bold" fill="#6B7280" text-anchor="middle">0.70</text>
+  <text x="248" y="540" font-size="13" fill="#1F3B57" text-anchor="middle">무관한 사진이 답을 흔든다</text>
+
+  <!-- B. 경로 A 삭제 (x=505) -->
+  <text x="648" y="132" font-size="17" font-weight="bold" fill="#1F77B4" text-anchor="middle">② 경로 A(섞임)를 지움</text>
+  <g>
+    <rect x="505" y="168" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="602" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="699" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="505" y="265" width="92" height="92" fill="#8B1A1A"/>
+    <text x="551" y="318" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle">✕</text>
+    <rect x="602" y="265" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="699" y="265" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="505" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="602" y="362" width="92" height="92" fill="#FBEAEA" stroke="#D62728" stroke-width="2"/>
+    <text x="648" y="413" font-size="13" font-weight="bold" fill="#D62728" text-anchor="middle">B</text>
+    <rect x="699" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+  </g>
+  <text x="648" y="512" font-size="34" font-weight="bold" fill="#D62728" text-anchor="middle">0.40 ▼</text>
+  <text x="648" y="540" font-size="13" font-weight="bold" fill="#D62728" text-anchor="middle">훨씬 나빠짐 — 섞임은 보호막이었다</text>
+  <text x="648" y="560" font-size="12" fill="#6B7280" text-anchor="middle">(우리가 처음 세운 가설이 반증된 지점)</text>
+
+  <!-- C. 경로 B 삭제 (x=905) -->
+  <text x="1048" y="132" font-size="17" font-weight="bold" fill="#2E8B57" text-anchor="middle">③ 경로 B(읽기)를 지움 — 우리 방법</text>
+  <g>
+    <rect x="905" y="168" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="1002" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="1099" y="168" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="905" y="265" width="92" height="92" fill="#E8F1FA" stroke="#1F77B4" stroke-width="2"/>
+    <text x="951" y="316" font-size="13" font-weight="bold" fill="#1F77B4" text-anchor="middle">A</text>
+    <rect x="1002" y="265" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="1099" y="265" width="92" height="92" fill="#FBFBFB" stroke="#EDEEF0"/>
+    <rect x="905" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+    <rect x="1002" y="362" width="92" height="92" fill="#8B1A1A"/>
+    <text x="1048" y="415" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle">✕</text>
+    <rect x="1099" y="362" width="92" height="92" fill="#F3F4F6" stroke="#D5DEE8"/>
+  </g>
+  <text x="1048" y="512" font-size="34" font-weight="bold" fill="#2E8B57" text-anchor="middle">0.91 ▲</text>
+  <text x="1048" y="540" font-size="13" font-weight="bold" fill="#2E8B57" text-anchor="middle">거의 완전 회복 — 범인은 읽기 경로</text>
+  <text x="1048" y="560" font-size="12" fill="#6B7280" text-anchor="middle">(사진 1장만 준 0.91과 같은 수준)</text>
+
+  <!-- 통째 삭제 노트 -->
+  <rect x="50" y="588" width="1195" height="62" rx="8" fill="#EFF4F9" stroke="#D5DEE8"/>
+  <text x="72" y="612" font-size="13" font-weight="bold" fill="#1F3B57">"그냥 2번 사진을 통째로 지우면 되지 않나?"  —  2번 '열' 전체를 지우면 이 배치에선 ③과 완전히 동일 (배달로가 경로 B뿐이므로).</text>
+  <text x="72" y="636" font-size="13" fill="#1F3B57">그러나 무관 사진이 앞에 오는 배치에선  통째 삭제 0.889  &lt;  칸만 삭제 0.908 (유의)  —  경로 A(맥락)까지 함께 지워버리기 때문.</text>
+
+  <rect x="50" y="662" width="1195" height="50" rx="8" fill="#1F3B57"/>
+  <text x="75" y="693" font-size="16" font-weight="bold" fill="#FFFFFF">해악은 「질문 → 무관 사진」 칸 하나에 있다.  우리 방법 = 사진은 두고, 그 칸만 지운다.</text>
+</svg>

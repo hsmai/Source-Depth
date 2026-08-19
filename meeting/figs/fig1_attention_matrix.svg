@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <rect x="0" y="0" width="1280" height="800" fill="#FFFFFF"/>
+
+  <text x="50" y="52" font-size="30" font-weight="bold" fill="#1F3B57">모델이 입력을 읽는 방식 — 누가 무엇을 볼 수 있는가</text>
+  <text x="50" y="84" font-size="15" fill="#6B7280">행(가로줄) = 읽는 쪽 · 열(세로줄) = 읽히는 쪽 · 순서상 앞에 있는 것만 읽을 수 있음 (causal attention)</text>
+
+  <!-- 입력 순서 스트립 -->
+  <text x="360" y="122" font-size="13" font-weight="bold" fill="#6B7280">입력 순서 →</text>
+  <rect x="360" y="130" width="200" height="52" rx="6" fill="#E8F1FA" stroke="#1F77B4" stroke-width="1.5"/>
+  <text x="460" y="151" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="middle">1번 사진 · 거실</text>
+  <text x="460" y="170" font-size="12" fill="#6B7280" text-anchor="middle">개 없음 (질문 대상)</text>
+  <rect x="570" y="130" width="200" height="52" rx="6" fill="#F3F4F6" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="670" y="151" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="middle">2번 사진 · 공원</text>
+  <text x="670" y="170" font-size="12" fill="#6B7280" text-anchor="middle">개 있음 (질문과 무관)</text>
+  <rect x="780" y="130" width="200" height="52" rx="6" fill="#EFF4F9" stroke="#1F3B57" stroke-width="1.5"/>
+  <text x="880" y="151" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="middle">질문</text>
+  <text x="880" y="170" font-size="12" fill="#6B7280" text-anchor="middle">"1번 사진에 개가 있나?"</text>
+
+  <!-- 행 라벨 -->
+  <text x="345" y="270" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="end">1번 사진이</text>
+  <text x="345" y="288" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="end">읽을 때</text>
+  <text x="345" y="410" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="end">2번 사진이</text>
+  <text x="345" y="428" font-size="14" font-weight="bold" fill="#1F3B57" text-anchor="end">읽을 때</text>
+  <text x="345" y="550" font-size="14" font-weight="bold" fill="#D62728" text-anchor="end">질문이</text>
+  <text x="345" y="568" font-size="14" font-weight="bold" fill="#D62728" text-anchor="end">읽을 때</text>
+  <text x="345" y="586" font-size="11" fill="#6B7280" text-anchor="end">(답이 만들어지는 곳)</text>
+
+  <!-- 1행 -->
+  <rect x="360" y="200" width="200" height="130" rx="4" fill="#F3F4F6" stroke="#D5DEE8"/>
+  <text x="460" y="270" font-size="13" fill="#6B7280" text-anchor="middle">자기 자신</text>
+  <rect x="570" y="200" width="200" height="130" rx="4" fill="#FBFBFB" stroke="#E5E7EB"/>
+  <text x="670" y="258" font-size="16" fill="#B9BFC7" text-anchor="middle">✕ 읽을 수 없음</text>
+  <text x="670" y="280" font-size="12" fill="#B9BFC7" text-anchor="middle">(2번은 뒤에 있음)</text>
+  <rect x="780" y="200" width="200" height="130" rx="4" fill="#FBFBFB" stroke="#E5E7EB"/>
+  <text x="880" y="270" font-size="16" fill="#B9BFC7" text-anchor="middle">✕</text>
+
+  <!-- 2행 -->
+  <rect x="360" y="340" width="200" height="130" rx="4" fill="#E8F1FA" stroke="#1F77B4" stroke-width="2.5"/>
+  <text x="460" y="385" font-size="15" font-weight="bold" fill="#1F77B4" text-anchor="middle">경로 A</text>
+  <text x="460" y="408" font-size="13" fill="#1F3B57" text-anchor="middle">2번 사진이 1번을 읽음</text>
+  <text x="460" y="428" font-size="12" fill="#6B7280" text-anchor="middle">(사진끼리 섞임)</text>
+  <rect x="570" y="340" width="200" height="130" rx="4" fill="#F3F4F6" stroke="#D5DEE8"/>
+  <text x="670" y="410" font-size="13" fill="#6B7280" text-anchor="middle">자기 자신</text>
+  <rect x="780" y="340" width="200" height="130" rx="4" fill="#FBFBFB" stroke="#E5E7EB"/>
+  <text x="880" y="410" font-size="16" fill="#B9BFC7" text-anchor="middle">✕</text>
+
+  <!-- 3행 -->
+  <rect x="360" y="480" width="200" height="130" rx="4" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="460" y="535" font-size="13" font-weight="bold" fill="#2E8B57" text-anchor="middle">질문이 1번을 읽음</text>
+  <text x="460" y="556" font-size="12" fill="#6B7280" text-anchor="middle">정상 — 꼭 필요한 읽기</text>
+  <rect x="570" y="480" width="200" height="130" rx="4" fill="#FBEAEA" stroke="#D62728" stroke-width="3"/>
+  <text x="670" y="525" font-size="15" font-weight="bold" fill="#D62728" text-anchor="middle">경로 B</text>
+  <text x="670" y="548" font-size="13" fill="#1F3B57" text-anchor="middle">질문이 2번(무관)을 읽음</text>
+  <text x="670" y="570" font-size="13" font-weight="bold" fill="#D62728" text-anchor="middle">← 사고 지점</text>
+  <rect x="780" y="480" width="200" height="130" rx="4" fill="#F3F4F6" stroke="#D5DEE8"/>
+  <text x="880" y="550" font-size="13" fill="#6B7280" text-anchor="middle">자기 자신</text>
+
+  <!-- 우측 주석 -->
+  <rect x="1005" y="480" width="240" height="130" rx="8" fill="#FBEAEA" stroke="#D62728" stroke-width="1.5"/>
+  <text x="1020" y="505" font-size="13" font-weight="bold" fill="#D62728">무슨 일이 벌어지나</text>
+  <text x="1020" y="527" font-size="12" fill="#1F3B57">답은 이 행에서 만들어지는데,</text>
+  <text x="1020" y="545" font-size="12" fill="#1F3B57">빨간 칸을 통해 2번 사진의</text>
+  <text x="1020" y="563" font-size="12" fill="#1F3B57">'개'가 흘러들어와</text>
+  <text x="1020" y="583" font-size="13" font-weight="bold" fill="#D62728">"있다" (오답)</text>
+  <line x1="1005" y1="545" x2="985" y2="545" stroke="#D62728" stroke-width="2"/>
+
+  <rect x="1005" y="340" width="240" height="120" rx="8" fill="#E8F1FA" stroke="#1F77B4" stroke-width="1.5"/>
+  <text x="1020" y="365" font-size="13" font-weight="bold" fill="#1F77B4">경로 A는 배달로가 아님</text>
+  <text x="1020" y="387" font-size="12" fill="#1F3B57">1번은 2번을 못 보므로(✕),</text>
+  <text x="1020" y="405" font-size="12" fill="#1F3B57">2번의 내용이 답으로 가는 길은</text>
+  <text x="1020" y="423" font-size="12" fill="#1F3B57">경로 B뿐. 경로 A는 2번이</text>
+  <text x="1020" y="441" font-size="12" fill="#1F3B57">맥락을 얻는 통로다.</text>
+
+  <!-- 하단 요약 -->
+  <rect x="50" y="650" width="1195" height="64" rx="8" fill="#1F3B57"/>
+  <text x="75" y="676" font-size="16" font-weight="bold" fill="#FFFFFF">무관한 사진이 답에 영향을 주는 통로 = 이 행렬의 '칸'.  실험 = 칸을 하나씩 지우고 결과를 비교하는 것.</text>
+  <text x="75" y="700" font-size="13" fill="#AFC6DA">사진 · 질문 · 모델 전부 동일하고 지운 칸 하나만 다르므로, 결과 차이는 그 칸 때문 (인과 개입)</text>
+
+  <text x="50" y="748" font-size="12" fill="#6B7280">실제로는 사진 한 장이 토큰 수백 개 → 각 '칸'은 사각형 블록.  '지우기' = 해당 블록의 attention 점수에 −∞를 더해 0으로 만드는 것 (토큰을 실제 삭제한 것과 예측 100% 일치 검증됨)</text>
+</svg>

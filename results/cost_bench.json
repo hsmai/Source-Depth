@@ -1,32 +1,32 @@
 {
- "t_full": 867.77,
- "t_vision": 591.13,
- "t_kvmask": 885.0,
- "t_pixel": 953.34,
- "n_items": 4,
+ "t_full": 910.06,
+ "t_vision": 604.65,
+ "t_kvmask": 908.64,
+ "t_pixel": 964.8,
+ "n_items": 40,
  "n_images": 4,
  "n_layers": 36,
- "t_llm": 276.64,
- "vision_share_pct": 68.1,
+ "t_llm": 305.41,
+ "vision_share_pct": 66.4,
  "pipeline_L0": {
-  "FOCUS_ms": 3813.4,
-  "ours_ms": 1697.7,
-  "saving_pct": 55.5
+  "FOCUS_ms": 3859.2,
+  "ours_ms": 1826.3,
+  "saving_pct": 52.7
  },
  "pipeline_L8": {
-  "FOCUS_ms": 3813.4,
-  "ours_ms": 1513.3,
-  "saving_pct": 60.3
+  "FOCUS_ms": 3859.2,
+  "ours_ms": 1622.7,
+  "saving_pct": 58.0
  },
  "pipeline_L16": {
-  "FOCUS_ms": 3813.4,
-  "ours_ms": 1328.8,
-  "saving_pct": 65.2
+  "FOCUS_ms": 3859.2,
+  "ours_ms": 1419.1,
+  "saving_pct": 63.2
  },
  "pipeline_L24": {
-  "FOCUS_ms": 3813.4,
-  "ours_ms": 1144.4,
-  "saving_pct": 70.0
+  "FOCUS_ms": 3859.2,
+  "ours_ms": 1215.5,
+  "saving_pct": 68.5
  },
- "ts": "2026-08-18T20:08:39+09:00"
+ "ts": "2026-08-18T20:22:13+09:00"
 }
