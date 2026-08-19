@@ -396,6 +396,57 @@ function anchor(s, x, y, mix, read, caption, k) {
   s.addNotes("어느 층에서 막아야 하느냐는 질문에 답하는 슬라이드입니다. 세 가지를 각각 재봤는데 모두 앞쪽 절반에서 결정됐습니다. 중요한 건 마지막 줄입니다. 어느 사진이 무관한지 가려내는 일은 16층부터 계산해도 되는데, 실제로 고치는 일은 8층 전에 시작해야 합니다. 이 둘의 시점이 다르기 때문에, 가려내는 계산은 절반만 해도 되고 그만큼 비용이 절약됩니다.");
 }
 
+
+// ═════════ 7c. 경로 대비 — 읽기 차단 + 빼기 ═════════
+{
+  const s = pres.addSlide();
+  kicker(s, "Q3 — 한 걸음 더");
+  headline(s, "같은 사진으로 '가장 깨끗한 상태'와 '가장 오염된 상태'를 만들어 뺍니다");
+  s.addText("앞에서 두 경로를 각각 끊어봤습니다. 그 두 결과를 버리지 않고 같이 쓰면, 사진 한 장만 줬을 때보다도 좋아집니다.", {
+    x: 0.55, y: 1.28, w: 12.25, h: 0.3, fontFace: F, fontSize: 11.5, color: C.gray, margin: 0 });
+
+  const br = [
+    ["깨끗한 쪽", "질문이 무관한 사진을 못 읽게", "on", "cut", 0.906, C.green, C.lightgreen],
+    ["오염된 쪽", "사진끼리 못 보게 (무관한 사진이 가장 도드라짐)", "cut", "on", 0.403, C.red, C.lightred],
+  ];
+  br.forEach((b, i) => {
+    const x = 0.55 + i * 4.3, w = 4.1;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.66, w, h: 3.4, rectRadius: 0.09,
+      fill: { color: b[6] }, line: { color: b[5], width: 1.25 } });
+    s.addText(b[0], { x: x + 0.2, y: 1.78, w: w - 0.4, h: 0.28, align: "center", fontFace: F,
+      fontSize: 13, bold: true, color: b[5], margin: 0 });
+    s.addText(b[1], { x: x + 0.2, y: 2.08, w: w - 0.4, h: 0.4, align: "center", fontFace: F,
+      fontSize: 10, color: C.navy, margin: 0, lineSpacingMultiple: 1.15 });
+    anchor(s, x + 0.32, 2.54, b[2], b[3], null, 0.74);
+    s.addText(b[4].toFixed(3), { x: x + 0.2, y: 4.42, w: w - 0.4, h: 0.44, align: "center",
+      fontFace: F, fontSize: 20, bold: true, color: b[5], margin: 0 });
+  });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 9.15, y: 1.66, w: 3.65, h: 3.4,
+    rectRadius: 0.09, fill: { color: C.lightblue }, line: { color: C.blue, width: 1.5 } });
+  s.addText("두 결과를 뺀다", { x: 9.35, y: 1.78, w: 3.25, h: 0.28, align: "center",
+    fontFace: F, fontSize: 13, bold: true, color: C.blue, margin: 0 });
+  s.addText("깨끗한 쪽을 밀고\n오염된 쪽을 빼면\n오염의 크기가\n오히려 단서가 됩니다", {
+    x: 9.35, y: 2.16, w: 3.25, h: 1.0, align: "center", fontFace: F, fontSize: 11,
+    color: C.navy, margin: 0, lineSpacingMultiple: 1.25 });
+  s.addText("0.974", { x: 9.35, y: 3.3, w: 3.25, h: 0.6, align: "center", fontFace: F,
+    fontSize: 30, bold: true, color: C.blue, margin: 0 });
+  s.addText("사진 한 장만 줬을 때(0.908)\n보다도 높습니다", { x: 9.35, y: 3.96, w: 3.25, h: 0.5,
+    align: "center", fontFace: F, fontSize: 10, bold: true, color: C.blue, margin: 0 });
+  s.addText("2모델 × 2배치 = 4조건\n전부 통계적으로 유의", { x: 9.35, y: 4.5, w: 3.25, h: 0.44,
+    align: "center", fontFace: F, fontSize: 9.5, color: C.gray, margin: 0 });
+
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.55, y: 5.2, w: 12.25, h: 0.84,
+    rectRadius: 0.08, fill: { color: C.light }, line: { color: C.line, width: 1 } });
+  s.addText([
+    { text: "두 갈래의 사진은 완전히 똑같습니다. 다른 건 '어느 길이 열려 있는가'뿐입니다.", options: { fontSize: 12, bold: true, color: C.navy, breakLine: true } },
+    { text: "기존 방법들은 음의 기준을 만들려고 사진에 노이즈를 씌웁니다(손상된 입력). 우리는 사진을 그대로 두고 내부 경로만 바꿉니다 — 입력을 건드리는 방식으로는 이 두 상태를 만들 수 없습니다.", options: { fontSize: 10.5, color: C.navy } },
+  ], { x: 0.85, y: 5.28, w: 11.7, h: 0.7, fontFace: F, margin: 0, paraSpaceAfter: 3 });
+  foot(s, "판별력 점수 · n=300 · 3B 원래 배치 기준. 두 갈래를 만들려면 무엇이 무관한지 알아야 하고, forward가 2회 필요합니다");
+  takeaway(s, "→ '오염을 없애는 것'을 넘어 '오염의 크기를 증거로 쓰는' 단계입니다. 이건 경로를 나눠 봤기 때문에 가능해졌습니다", C.blue);
+  s.addNotes("앞에서 두 경로를 각각 끊어본 결과를 버리지 않고 같이 씁니다. 질문이 못 읽게 한 쪽은 가장 깨끗한 상태이고, 사진끼리 못 보게 한 쪽은 무관한 사진이 가장 도드라진 상태입니다. 두 결과를 빼면 오염의 크기 자체가 단서가 되어서, 사진 한 장만 줬을 때보다도 높아집니다. 중요한 건 두 갈래의 사진이 완전히 같다는 점입니다. 기존 방법들은 노이즈를 씌워서 음의 기준을 만드는데, 그 방식으로는 이 두 상태를 만들 수 없습니다.");
+}
+
 // ═════════ 8. 무관한 사진 판별 ═════════
 {
   const s = pres.addSlide();
@@ -508,9 +559,9 @@ function anchor(s, x, y, mix, read, caption, k) {
     ["1", "원인을 경로 수준에서 특정했다",
      "\"정보가 섞인다\"를 두 개의 구분 가능한 길로 나누고, 하나씩 끊어 어느 쪽이 해로운지 인과적으로 가렸습니다.",
      "사진끼리 보는 길을 끊으면 오히려 크게 나빠짐 · 모델 2개 × 사진 순서 2가지 전부 일관", C.blue],
-    ["2", "그래서 처방이 달라진다",
-     "무관한 사진을 지우는 것보다, 남겨두고 질문만 못 읽게 하는 편이 낫습니다. 기존 어느 진영과도 다른 제3의 처방입니다.",
-     "통째로 뺌 0.889 < 남기고 못 읽게 함 0.908 (유의) · 그리고 8층 전에만 막으면 효과의 97%", C.green],
+    ["2", "그래서 처방이 달라지고, 한 걸음 더 갈 수 있다",
+     "지우는 것보다 남겨두고 못 읽게 하는 편이 낫고, 나아가 '가장 깨끗한 경로'와 '가장 오염된 경로'를 만들어 빼면 사진 한 장만 줬을 때보다도 좋아집니다.",
+     "통째로 뺌 0.889 < 못 읽게 함 0.908 < 경로 대비 0.974 · 2모델 × 2배치 전부 유의", C.green],
     ["3", "관련도는 '의미'가 아니라 '모델 상대적'이다",
      "무엇이 무관한지는 의미 유사도로 판별되지 않습니다. 이 모델의 답을 바꾸는지로 정의되고, 그건 모델을 통과시켜야 알 수 있습니다.",
      "외부 모듈(CLIP) 35~51% (찍기 수준) vs 우리 69~73%", C.orange],
