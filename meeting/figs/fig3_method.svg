@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1F77B4"/></marker></defs>
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#FFFFFF"/>
+<text x="40" y="50" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="25" fill="#1F3B57" text-anchor="start" font-weight="bold">제안 방법 — 무관한 사진을 지우지 않고, 질문이 그것을 읽는 경로만 끊습니다</text>
+<text x="40" y="78" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start">입력·모델·가중치를 전혀 바꾸지 않고, attention 행렬 안의 사각형 하나에만 개입합니다</text>
+<line x1="40" y1="100" x2="1560" y2="100" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="40" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#1F77B4" text-anchor="start" font-weight="bold">1</text>
+<text x="60" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">무관한 사진 찾기 — 하나씩 빼보기</text>
+<rect x="51" y="166" width="94" height="42" rx="4" fill="#E8F1FA" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="98.0" y="192" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진 1</text>
+<text x="98.0" y="224" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F77B4" text-anchor="middle">관련</text>
+<rect x="153" y="166" width="94" height="42" rx="4" fill="#F1F3F5" stroke="#6B7280" stroke-width="1.4"/>
+<text x="200.0" y="192" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진 2</text>
+<text x="200.0" y="224" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">무관</text>
+<rect x="255" y="166" width="94" height="42" rx="4" fill="#F1F3F5" stroke="#6B7280" stroke-width="1.4"/>
+<text x="302.0" y="192" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진 3</text>
+<text x="302.0" y="224" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">무관</text>
+<rect x="357" y="166" width="94" height="42" rx="4" fill="#1F3B57" stroke="#1F3B57" stroke-width="1.4"/>
+<text x="404.0" y="192" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="51" y="158" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">입력 순서 →</text>
+<text x="51" y="254" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start">각 사진을 하나씩 빼고 다시 계산해, 답이 얼마나 흔들리는지 잽니다</text>
+<rect x="51" y="274" width="17" height="17" rx="2" fill="#F5F6F7" stroke="#EDF0F3" stroke-width="0.8"/>
+<line x1="54" y1="277" x2="65" y2="288" stroke="#D62728" stroke-width="1.6"/>
+<line x1="65" y1="277" x2="54" y2="288" stroke="#D62728" stroke-width="1.6"/>
+<rect x="71" y="274" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="91" y="274" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="111" y="274" width="17" height="17" rx="2" fill="#1F3B57" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="136" y="287" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">→</text>
+<rect x="156" y="277" width="210" height="12" rx="2" fill="#EDF1F5"/>
+<rect x="156" y="277" width="193" height="12" rx="2" fill="#1F77B4"/>
+<text x="156" y="272" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">사진 1을 빼면</text>
+<text x="374" y="287" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F77B4" text-anchor="start" font-weight="bold">★ 가장 큼</text>
+<rect x="51" y="314" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="71" y="314" width="17" height="17" rx="2" fill="#F5F6F7" stroke="#EDF0F3" stroke-width="0.8"/>
+<line x1="74" y1="317" x2="85" y2="328" stroke="#D62728" stroke-width="1.6"/>
+<line x1="85" y1="317" x2="74" y2="328" stroke="#D62728" stroke-width="1.6"/>
+<rect x="91" y="314" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="111" y="314" width="17" height="17" rx="2" fill="#1F3B57" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="136" y="327" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">→</text>
+<rect x="156" y="317" width="210" height="12" rx="2" fill="#EDF1F5"/>
+<rect x="156" y="317" width="34" height="12" rx="2" fill="#B6BDC6"/>
+<text x="156" y="312" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">사진 2를 빼면</text>
+<rect x="51" y="354" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="71" y="354" width="17" height="17" rx="2" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="91" y="354" width="17" height="17" rx="2" fill="#F5F6F7" stroke="#EDF0F3" stroke-width="0.8"/>
+<line x1="94" y1="357" x2="105" y2="368" stroke="#D62728" stroke-width="1.6"/>
+<line x1="105" y1="357" x2="94" y2="368" stroke="#D62728" stroke-width="1.6"/>
+<rect x="111" y="354" width="17" height="17" rx="2" fill="#1F3B57" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="136" y="367" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">→</text>
+<rect x="156" y="357" width="210" height="12" rx="2" fill="#EDF1F5"/>
+<rect x="156" y="357" width="19" height="12" rx="2" fill="#B6BDC6"/>
+<text x="156" y="352" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">사진 3를 빼면</text>
+<text x="51" y="412" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start" font-weight="bold">답이 가장 크게 흔들리는 사진 = 모델이 실제로 쓰는 사진.</text>
+<text x="51" y="430" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">나머지는 무관한 사진으로 판정합니다. 사진의 위치를 전혀 보지 않으므로</text>
+<text x="51" y="447" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">위치 편향이 원천적으로 불가능합니다.  비용: forward N+1회.</text>
+<rect x="51" y="468" width="415" height="104" rx="6" fill="#FAFBFC" stroke="#D5DEE8" stroke-width="1"/>
+<text x="66" y="490" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start" font-weight="bold">무관한 사진을 맞히는 정확도</text>
+<text x="220" y="509" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">사진 2장</text>
+<text x="298" y="509" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">3장</text>
+<text x="370" y="509" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">4장</text>
+<text x="66" y="531" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F3B57" text-anchor="start" font-weight="bold">이 방법 (하나씩 빼보기)</text>
+<text x="220" y="531" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.69</text>
+<text x="298" y="531" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.71</text>
+<text x="370" y="531" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.73</text>
+<text x="66" y="546" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="start">의미 유사도 (CLIP)</text>
+<text x="220" y="546" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#D62728" text-anchor="middle">0.51</text>
+<text x="298" y="546" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#D62728" text-anchor="middle">0.39</text>
+<text x="370" y="546" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#D62728" text-anchor="middle">0.33</text>
+<text x="66" y="561" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="start">찍으면</text>
+<text x="220" y="561" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">0.50</text>
+<text x="298" y="561" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">0.33</text>
+<text x="370" y="561" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">0.25</text>
+<line x1="474" y1="360" x2="504" y2="360" stroke="#6B7280" stroke-width="2.2" marker-end="url(#ah)"/>
+<text x="512" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#D62728" text-anchor="start" font-weight="bold">2</text>
+<text x="532" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">칸 하나만 지우기 — 사진은 입력에 그대로 둡니다</text>
+<text x="730" y="166" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">읽히는 쪽  (key)</text>
+<text x="542" y="312" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle" transform="rotate(-90 542 312)">읽는 쪽  (query)</text>
+<text x="643.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진1</text>
+<text x="604" y="229.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="end" font-weight="bold">사진1</text>
+<text x="701.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진2</text>
+<text x="604" y="287.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="end" font-weight="bold">사진2</text>
+<text x="759.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진3</text>
+<text x="604" y="345.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="end" font-weight="bold">사진3</text>
+<text x="817.0" y="188" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="middle" font-weight="bold">질문</text>
+<text x="604" y="403.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="end" font-weight="bold">질문</text>
+<rect x="614" y="196" width="58" height="58" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="672" y="196" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="701.0" y="233.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="730" y="196" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="759.0" y="233.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="788" y="196" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="817.0" y="233.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="614" y="254" width="58" height="58" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="672" y="254" width="58" height="58" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="730" y="254" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="759.0" y="291.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="788" y="254" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="817.0" y="291.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="614" y="312" width="58" height="58" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="672" y="312" width="58" height="58" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="730" y="312" width="58" height="58" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="788" y="312" width="58" height="58" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="817.0" y="349.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="614" y="370" width="58" height="58" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.3"/>
+<rect x="672" y="370" width="58" height="58" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="701.0" y="407.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="730" y="370" width="58" height="58" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="759.0" y="407.7696" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24.36" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="788" y="370" width="58" height="58" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="643.0" y="287.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#1F77B4" text-anchor="middle" font-weight="bold">유지</text>
+<text x="643.0" y="345.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#1F77B4" text-anchor="middle" font-weight="bold">유지</text>
+<text x="701.0" y="345.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#1F77B4" text-anchor="middle" font-weight="bold">유지</text>
+<text x="643.0" y="403.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#2E8B57" text-anchor="middle" font-weight="bold">필요</text>
+<rect x="672" y="370" width="116" height="58" rx="0" fill="none" stroke="#D62728" stroke-width="2.6"/>
+<text x="730" y="448" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#D62728" text-anchor="middle" font-weight="bold">이 두 칸만 지웁니다</text>
+<rect x="520" y="460" width="13" height="13" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1"/>
+<text x="540" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F3B57" text-anchor="start">차단 — 질문이 무관한 사진을 읽는 칸</text>
+<rect x="812" y="460" width="13" height="13" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1"/>
+<text x="832" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F3B57" text-anchor="start">필요 — 질문이 관련 사진을 읽는 칸</text>
+<rect x="520" y="484" width="13" height="13" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1"/>
+<text x="540" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F3B57" text-anchor="start">유지 — 사진끼리 보는 칸</text>
+<rect x="812" y="484" width="13" height="13" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="1"/>
+<text x="832" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F3B57" text-anchor="start">순서상 읽을 수 없음 (causal)</text>
+<text x="520" y="516" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#1F77B4" text-anchor="start" font-weight="bold">사진끼리 보는 칸은 끊으면 오히려 나빠집니다 (0.70 → 0.40). 그래서 유지합니다.</text>
+<rect x="534" y="530" width="258" height="146" rx="6" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<text x="548" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start" font-weight="bold">사진을 통째로 뺀다</text>
+<text x="778" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="end">흔한 방식</text>
+<rect x="550" y="562" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="574" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="586.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="598" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="610.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="622" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="634.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="550" y="586" width="24" height="24" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="574" y="586" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="586.0" y="601.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="598" y="586" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="610.0" y="601.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="622" y="586" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="634.0" y="601.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="550" y="610" width="24" height="24" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="574" y="610" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="586.0" y="625.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="598" y="610" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="610.0" y="625.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="622" y="610" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="634.0" y="625.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="550" y="634" width="24" height="24" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.3"/>
+<rect x="574" y="634" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="586.0" y="649.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="598" y="634" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="610.0" y="649.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="622" y="634" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="674" y="614" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="27" fill="#6B7280" text-anchor="start" font-weight="bold">0.889</text>
+<text x="674" y="634" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">맥락까지 함께 사라짐</text>
+<rect x="814" y="530" width="258" height="146" rx="6" fill="#FFFFFF" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="828" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#2E8B57" text-anchor="start" font-weight="bold">읽는 칸만 지운다</text>
+<text x="1058" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="end">이 방법</text>
+<rect x="830" y="562" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="854" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="866.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="878" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="890.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="902" y="562" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="914.0" y="577.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="830" y="586" width="24" height="24" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="854" y="586" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="878" y="586" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="890.0" y="601.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="902" y="586" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="914.0" y="601.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="830" y="610" width="24" height="24" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="854" y="610" width="24" height="24" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="878" y="610" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="902" y="610" width="24" height="24" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="914.0" y="625.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="830" y="634" width="24" height="24" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.3"/>
+<rect x="854" y="634" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="866.0" y="649.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="878" y="634" width="24" height="24" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="890.0" y="649.6288" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.08" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="902" y="634" width="24" height="24" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="954" y="614" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="27" fill="#2E8B57" text-anchor="start" font-weight="bold">0.908</text>
+<text x="954" y="634" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#2E8B57" text-anchor="start">유의하게 더 높음</text>
+<text x="520" y="700" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start" font-weight="bold">무관한 사진은 입력에서 빠지지 않습니다. 그 사진의 열 전체가 아니라,</text>
+<text x="520" y="718" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start" font-weight="bold">(질문 행 × 무관한 사진 열) 사각형에만 −∞를 더해 attention을 0으로 만듭니다.</text>
+<text x="520" y="738" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">0층부터 걸어야 합니다 — 8층부터 걸면 효과의 97%가 남지만, 16층부터면 68%로 떨어집니다.</text>
+<line x1="1098" y1="360" x2="1128" y2="360" stroke="#6B7280" stroke-width="2.2" marker-end="url(#ah)"/>
+<text x="1136" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#1F77B4" text-anchor="start" font-weight="bold">3</text>
+<text x="1156" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">두 경로 상태를 빼기</text>
+<rect x="1314" y="126" width="58" height="18" rx="4" fill="#FFF4E0" stroke="#E8890C" stroke-width="1"/>
+<text x="1343" y="139" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#B06A00" text-anchor="middle" font-weight="bold">예비 결과</text>
+<rect x="1136" y="168" width="424" height="170" rx="7" fill="#FFFFFF" stroke="#2E8B57" stroke-width="1.8"/>
+<text x="1152" y="192" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2E8B57" text-anchor="start" font-weight="bold">양의 갈래 — 가장 깨끗한 상태</text>
+<text x="1152" y="210" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">질문이 무관한 사진을 못 읽음</text>
+<rect x="1154" y="222" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1182" y="222" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1196.0" y="240.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1210" y="222" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1224.0" y="240.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1238" y="222" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="240.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="250" width="28" height="28" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="1182" y="250" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1210" y="250" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1224.0" y="268.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1238" y="250" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="268.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="278" width="28" height="28" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="1182" y="278" width="28" height="28" rx="0" fill="#CBE0F5" stroke="#1F77B4" stroke-width="1.3"/>
+<rect x="1210" y="278" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1238" y="278" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="296.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="306" width="28" height="28" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.3"/>
+<rect x="1182" y="306" width="28" height="28" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="1196.0" y="324.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1210" y="306" width="28" height="28" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="1224.0" y="324.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1238" y="306" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="1436" y="272" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="30" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.906</text>
+<rect x="1136" y="352" width="424" height="170" rx="7" fill="#FFFFFF" stroke="#D62728" stroke-width="1.8"/>
+<text x="1152" y="376" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#D62728" text-anchor="start" font-weight="bold">음의 갈래 — 가장 오염된 상태</text>
+<text x="1152" y="394" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">사진끼리 못 봄 → 무관한 사진이 가장 도드라짐</text>
+<rect x="1154" y="406" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1182" y="406" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1196.0" y="424.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1210" y="406" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1224.0" y="424.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1238" y="406" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="424.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="434" width="28" height="28" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="1168.0" y="452.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1182" y="434" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1210" y="434" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1224.0" y="452.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1238" y="434" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="452.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="462" width="28" height="28" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="1168.0" y="480.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1182" y="462" width="28" height="28" rx="0" fill="#8B1A1A" stroke="#8B1A1A" stroke-width="1.0"/>
+<text x="1196.0" y="480.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1210" y="462" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<rect x="1238" y="462" width="28" height="28" rx="0" fill="#FAFBFC" stroke="#EDF0F3" stroke-width="0.8"/>
+<text x="1252.0" y="480.2336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.76" fill="#C3C9D0" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1154" y="490" width="28" height="28" rx="0" fill="#CFE9DC" stroke="#2E8B57" stroke-width="1.3"/>
+<rect x="1182" y="490" width="28" height="28" rx="0" fill="#F6CFCF" stroke="#D62728" stroke-width="1.3"/>
+<rect x="1210" y="490" width="28" height="28" rx="0" fill="#F6CFCF" stroke="#D62728" stroke-width="1.3"/>
+<rect x="1238" y="490" width="28" height="28" rx="0" fill="#F1F3F5" stroke="#D5DEE8" stroke-width="0.8"/>
+<text x="1436" y="456" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="30" fill="#D62728" text-anchor="middle" font-weight="bold">0.403</text>
+<line x1="1348" y1="522" x2="1348" y2="546" stroke="#6B7280" stroke-width="2.2" marker-end="url(#ah)"/>
+<rect x="1136" y="552" width="424" height="56" rx="7" fill="#F5F8FB" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="1348" y="578" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle" font-weight="bold">점수  =  ( 1 + β ) · 양의 갈래  −  β · 음의 갈래</text>
+<text x="1348" y="596" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="middle">β = 1  (사전 고정)</text>
+<rect x="1136" y="622" width="424" height="84" rx="7" fill="#E9F4EE" stroke="#2E8B57" stroke-width="2"/>
+<text x="1244" y="672" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="38" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.974</text>
+<text x="1336" y="655" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="start">사진을 한 장만 줬을 때의</text>
+<text x="1336" y="672" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#1F3B57" text-anchor="start" font-weight="bold">상한 0.908 보다도 높습니다</text>
+<text x="1336" y="690" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10" fill="#6B7280" text-anchor="start">2모델 × 2배치 = 4조건 전부 유의</text>
+<text x="1136" y="730" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#1F3B57" text-anchor="start" font-weight="bold">두 갈래가 보는 사진은 완전히 동일합니다. 다른 것은 어느 경로가</text>
+<text x="1136" y="748" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">열려 있는가뿐입니다. 사진에 노이즈를 씌워 음의 기준을 만드는</text>
+<text x="1136" y="766" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#6B7280" text-anchor="start">기존 방식으로는 이 두 상태를 어느 쪽도 만들 수 없습니다.</text>
+<rect x="40" y="796" width="1520" height="58" rx="8" fill="#142638"/>
+<text x="70" y="832" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">무관한 사진은 입력에서 절대 제거되지 않습니다.  개입은 attention 행렬 안의 사각형 하나입니다.</text>
+<text x="40" y="876" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="10.5" fill="#6B7280" text-anchor="start" font-style="italic">판별력 점수(AUC) · Qwen2.5-VL-3B · 문항 300 · 사진 2장 기준 · 1·2단계는 사전 등록 후 측정. 3단계는 저장된 로그의 사후 분석에 근거한 예비 결과이며, 새 문항 재현이 사전 등록되어 있습니다.</text>
+</svg>
