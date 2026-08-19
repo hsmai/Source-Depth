@@ -26,7 +26,7 @@ DEV = "cuda:0"
 OUT = RESULTS_DIR / f"routing{TAG}.jsonl"
 ITEMS = RESULTS_DIR / "routing_items.json"
 CONDS = ["M", "B0", "B1", "READ1", "READ2", "XIMG", "NOISE2"]
-N_PER = 150
+N_PER = 100   # 적대 2셀 + 대조 2셀 = 400문항
 
 
 def build_items():
@@ -47,12 +47,16 @@ def build_items():
         if len(withc) < 2 or len(without) < 2:
             continue
         art = "an" if name[0] in "aeiou" else "a"
-        for kind in ("c1", "c2"):
+        for kind in ("c1", "c2", "c3", "c4"):
             for _ in range(6):
-                if kind == "c1":          # 정답 없다 · 방해에 객체 있음
+                if kind == "c1":          # 적대적: 정답 없다 · 방해에 객체 있음
                     im1, im2, gt = rng.choice(without), rng.choice(withc), "no"
-                else:                      # 정답 있다 · 방해에 객체 없음
+                elif kind == "c2":        # 적대적: 정답 있다 · 방해에 객체 없음
                     im1, im2, gt = rng.choice(withc), rng.choice(without), "yes"
+                elif kind == "c3":        # 대조: 정답 없다 · 방해에도 없음 (방해가 정답 방향)
+                    im1, im2, gt = rng.choice(without), rng.choice(without), "no"
+                else:                      # 대조: 정답 있다 · 방해에도 있음 (방해가 정답 방향)
+                    im1, im2, gt = rng.choice(withc), rng.choice(withc), "yes"
                 if im1 == im2 or (im1, im2) in seen:
                     continue
                 seen.add((im1, im2))
@@ -60,12 +64,12 @@ def build_items():
                              "article": art, "object": name, "category_id": cat,
                              "image1_id": int(im1), "image2_id": int(im2)})
     final = []
-    for k in ("c1", "c2"):
+    for k in ("c1", "c2", "c3", "c4"):
         sub = [r for r in rows if r["kind"] == k]
         rng.shuffle(sub)
         final += sub[:N_PER]
-    print("새 문항:", {k: sum(r["kind"] == k for r in final) for k in ("c1", "c2")})
-    if len(final) < 200:
+    print("새 문항:", {k: sum(r["kind"] == k for r in final) for k in ("c1", "c2", "c3", "c4")})
+    if len(final) < 280:
         blocked("34_routing", f"문항 부족 {len(final)}", {})
     ITEMS.write_text(json.dumps(final, ensure_ascii=False))
     return final
