@@ -54,6 +54,13 @@ class KVBlockController:
         self.block_from, self.cols = None, None
         self.rules = list(rules)
 
+    def configure_band(self, rules):
+        """rules = [(lo, hi, qspan | None, kspan), ...] — **층 구간** [lo, hi] 에서만 차단.
+        MIMIC 류의 '중간 층 구간 균일 차단' 재현용. configure_pathway 는 lo 이후 전부이지만
+        이쪽은 hi 에서 다시 열린다."""
+        self.block_from, self.cols, self.soft = None, None, None
+        self.rules = [(lo, q, k, hi) for lo, hi, q, k in rules]
+
     def configure_soft(self, rules):
         """rules = [(block_from, kspan, lam), ...] — 하드 차단(-inf) 대신 **유한한 음수 bias**.
         softmax 전에 λ를 빼므로 해당 열의 가중치가 e^-λ 배로 줄되 0은 아니다.
@@ -97,7 +104,8 @@ class KVBlockController:
                     args = tuple(m if i == loc[1] else a for i, a in enumerate(args))
                 return (args, kwargs)
             if self.rules is not None:
-                active = [(q, k) for bf, q, k in self.rules if idx >= bf]
+                active = [(r[1], r[2]) for r in self.rules
+                          if idx >= r[0] and (len(r) < 4 or idx <= r[3])]
                 if not active:
                     return None
             elif self.block_from is None or idx < self.block_from:
