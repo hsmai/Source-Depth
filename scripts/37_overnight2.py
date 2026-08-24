@@ -103,6 +103,62 @@ if clip:
         s = [x for x in clip if x["k"] == k]
         if s: L.append(f"\nCLIP selector K={k}: {sum(x['clip_correct'] for x in s)/len(s):.3f} (n={len(s)}, 찍기 {1/k:.2f})")
 
+# 3b. 기존 연구 직접 비교 (docs/34)
+for tag, lab in (("", "3B"), ("_7b", "7B")):
+    b = rd(f"baselines{tag}.jsonl")
+    if not b: continue
+    e = rd(f"endtoend{tag}.jsonl")
+    L.append(f"\n## FOCUS식·VCD식 직접 비교 {lab} (docs/34)\n")
+    L.append("| N | M | FOCUS식 FKEEP | VCD식 | 우리 REAL_READ | 우리−FOCUS CI | 판별정확도 우리/FOCUS |\n|---|---|---|---|---|---|---|")
+    for n in (1, 3):
+        D = collections.defaultdict(dict)
+        for x in b:
+            if x["n_dist"] == n: D[x["question_id"]][x["condition"]] = x
+        E = collections.defaultdict(dict)
+        for x in e:
+            if x["n_dist"] == n: E[x["question_id"]][x["condition"]] = x
+        it = []
+        for q, v in D.items():
+            if all(c in v for c in ("M", "ALLN", "FKEEP")) and "REAL_READ" in E.get(q, {}):
+                v = dict(v); v["REAL_READ"] = E[q]["REAL_READ"]
+                v["VCD"] = {"margin": 2*v["M"]["margin"] - v["ALLN"]["margin"], "gt": v["M"]["gt"]}
+                it.append(v)
+        if len(it) < 50: continue
+        lo, hi = ci(it, "REAL_READ", "FKEEP", 90 + n)
+        fp = sum(1 for v in it if v["FKEEP"].get("pick_correct")) / len(it)
+        op = [v["REAL_READ"].get("pick_correct") for v in it]
+        opa = sum(1 for x in op if x) / len(op) if any(x is not None for x in op) else float("nan")
+        L.append(f"| {n} | {A(it,'M'):.4f} | {A(it,'FKEEP'):.4f} | {A(it,'VCD'):.4f} "
+                 f"| {A(it,'REAL_READ'):.4f} | [{lo:+.4f},{hi:+.4f}] | {opa:.3f} / {fp:.3f} |")
+
+# 3c. 일반화·안전성·통합 (docs/35)
+for tag, lab in (("", "3B"), ("_7b", "7B")):
+    g = rd(f"generalize{tag}.jsonl")
+    if not g: continue
+    L.append(f"\n## 일반화·통합 {lab} (docs/35)\n")
+    DA = collections.defaultdict(dict)
+    for x in g:
+        if x.get("part") == "A": DA[x["question_id"]][x["condition"]] = x
+    ia = [v for v in DA.values() if all(c in v for c in ("M3", "PIPE1", "PIPE2"))]
+    if len(ia) >= 50:
+        l1, h1 = ci(ia, "PIPE1", "M3", 95); l2, h2 = ci(ia, "PIPE2", "M3", 96)
+        L.append(f"**A. 전부 필요한 질문(need-all)** n={len(ia)}: 무개입 {A(ia,'M3'):.4f} · "
+                 f"top-1만 {A(ia,'PIPE1'):.4f} (Δ [{l1:+.4f},{h1:+.4f}]) · "
+                 f"top-2 유지 {A(ia,'PIPE2'):.4f} (Δ [{l2:+.4f},{h2:+.4f}])")
+        v1 = "위험 확인 — 게이트 필수" if h1 < 0 else "top-1도 해롭지 않음"
+        v2 = "★일반화 성공" if l2 > -0.02 else "일반화 실패 — 단일 관련 전용"
+        L.append(f"→ {v1} / {v2}\n")
+    DB = collections.defaultdict(dict)
+    for x in g:
+        if x.get("part") == "B": DB[x["question_id"]][x["condition"]] = x
+    ib = [v for v in DB.values() if all(c in v for c in ("M", "MIMIC", "XIMG0", "READ"))]
+    if len(ib) >= 50:
+        lm, hm = ci(ib, "MIMIC", "M", 97); lr, hr = ci(ib, "READ", "MIMIC", 98)
+        L.append(f"**B. 통합 주장** n={len(ib)}: M {A(ib,'M'):.4f} · MIMIC식(12~23층) {A(ib,'MIMIC'):.4f} "
+                 f"(vs M [{lm:+.4f},{hm:+.4f}]) · 전면 XIMG0 {A(ib,'XIMG0'):.4f} · READ(우리) {A(ib,'READ'):.4f} "
+                 f"(vs MIMIC [{lr:+.4f},{hr:+.4f}])")
+        L.append(f"→ {'★통합 성립' if lm > 0 and lr > 0 else ('부분 — MIMIC 이득 없음' if hm <= 0 else '검토 필요')}\n")
+
 # 4. 7B 절단 반사실
 t = rd("trunc_cf_7b.jsonl")
 if t:
