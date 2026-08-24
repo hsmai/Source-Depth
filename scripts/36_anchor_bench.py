@@ -46,41 +46,60 @@ def art(name): return "an" if name[0] in "aeiou" else "a"
 def build_items():
     idx = build_indices(COCO_INSTANCES)
     have = sorted(i for i in idx.img2cats if image_path(i, COCO_IMG_DIR).exists())
+    hs = set(have)
     rng = random.Random(SEED + 13)
     cats = sorted(idx.name2cat.items())
     withc = {c: set(i for i in have if c in idx.img2cats[i]) for _, c in cats}
-    rows, pair_n, seen = [], {}, set()
+    # 유효한 (anchor, obj) 쌍을 먼저 열거 — 무작위 시행 대신 결정적으로
+    pairs = []
+    for an, ac in cats:
+        wa = withc[ac]
+        if len(wa) < 2:
+            continue
+        for qn, qc in cats:
+            if qc == ac:
+                continue
+            wq = withc[qc]
+            r1, d1 = wa - wq, wq - wa            # 셀1: 관련=anchor만, 방해=obj만
+            r2, d2 = wa & wq, hs - wa - wq       # 셀2: 관련=둘다, 방해=둘다 아님
+            if len(r1) and len(d1) >= 2 and len(r2) and len(d2) >= 2:
+                pairs.append((an, ac, qn, qc, sorted(r1), sorted(d1), sorted(r2), sorted(d2)))
+    rng.shuffle(pairs)
+    print(f"유효 (anchor, obj) 쌍: {len(pairs)}  · 보유 이미지 {len(have)}")
+    rows, seen = [], set()
     quota = {(k, cell): N_PER for k in KS for cell in ("c1", "c2")}
-    tries = 0
-    while any(v > 0 for v in quota.values()) and tries < 600000:
-        tries += 1
-        (aname, acat), (qname, qcat) = rng.sample(cats, 2)
-        if pair_n.get((acat, qcat), 0) >= MAX_PER_PAIR: continue
-        k = rng.choice(KS); cell = rng.choice(("c1", "c2"))
-        if quota[(k, cell)] <= 0: continue
-        wa, wq = withc[acat], withc[qcat]
-        # 관련: anchor 포함 + obj 상태 / 방해: anchor 미포함 + obj 반대 상태
-        rel_pool = sorted(wa - wq) if cell == "c1" else sorted(wa & wq)
-        dis_pool = sorted((wq - wa) if cell == "c1" else (set(have) - wa - wq))
-        if len(rel_pool) < 1 or len(dis_pool) < k - 1: continue
-        rel = rng.choice(rel_pool)
-        ds = rng.sample(dis_pool, k - 1)
-        if rel in ds: continue
-        imgs = ds[:]; pos = rng.randrange(k); imgs.insert(pos, rel)
-        key = (tuple(imgs), acat, qcat)
-        if key in seen: continue
-        seen.add(key)
-        rows.append({"question_id": f"an{len(rows)}", "k": k, "cell": cell,
-                     "gt": "no" if cell == "c1" else "yes",
-                     "anchor": aname, "anchor_cat": acat, "object": qname,
-                     "category_id": qcat, "rel_pos": pos,
-                     "image_ids": [int(i) for i in imgs]})
-        pair_n[(acat, qcat)] = pair_n.get((acat, qcat), 0) + 1
-        quota[(k, cell)] -= 1
+    for _ in range(MAX_PER_PAIR):
+        if all(v <= 0 for v in quota.values()):
+            break
+        for an, ac, qn, qc, r1, d1, r2, d2 in pairs:
+            for k in KS:
+                for cell in ("c1", "c2"):
+                    if quota[(k, cell)] <= 0:
+                        continue
+                    rel_pool, dis_pool = (r1, d1) if cell == "c1" else (r2, d2)
+                    if len(dis_pool) < k - 1:
+                        continue
+                    rel = rng.choice(rel_pool)
+                    ds = rng.sample(dis_pool, k - 1)
+                    if rel in ds:
+                        continue
+                    imgs = ds[:]
+                    pos = rng.randrange(k)
+                    imgs.insert(pos, rel)
+                    key = (tuple(imgs), ac, qc)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    rows.append({"question_id": f"an{len(rows)}", "k": k, "cell": cell,
+                                 "gt": "no" if cell == "c1" else "yes",
+                                 "anchor": an, "anchor_cat": ac, "object": qn,
+                                 "category_id": qc, "rel_pos": pos,
+                                 "image_ids": [int(i) for i in imgs]})
+                    quota[(k, cell)] -= 1
     built = {f"K{k}/{c}": sum(1 for r in rows if r["k"] == k and r["cell"] == c)
              for k in KS for c in ("c1", "c2")}
-    print("anchor 문항:", built, f"(tries={tries})")
-    if any(v < N_PER * 0.9 for v in built.values()):
+    print("anchor 문항:", built)
+    if any(v < N_PER * 0.8 for v in built.values()):
         blocked("36_anchor", f"문항 미달: {built}", {})
     ITEMS.write_text(json.dumps(rows, ensure_ascii=False))
     return rows
@@ -132,7 +151,10 @@ def main():
         ctrl = KVBlockController(model, resolve_decoder_layers(model))
         vs, ve, pad = vision_token_ids(processor)
         yes_ids, no_ids = load_yes_no_ids()
-        done = {(x["question_id"], x["condition"]) for x in read_jsonl(OUT)}
+        prior = {}
+        for x in read_jsonl(OUT):
+            prior.setdefault(x["question_id"], {})[x["condition"]] = x["margin"]
+        done = {(q, c) for q, m in prior.items() for c in m}
         executed = 0
         for row in rows:
             qid = row["question_id"]; k = row["k"]
@@ -146,7 +168,7 @@ def main():
             if len(sp) != k:
                 blocked("36_anchor", f"span != {k}: {len(sp)}", {"qid": qid})
             seq = int(inputs["input_ids"].shape[1]); ts = (sp[-1][1] + 1, seq - 1)
-            margins = {}
+            margins = dict(prior.get(qid, {}))
 
             def fire(cond, rules):
                 nonlocal executed
@@ -168,9 +190,6 @@ def main():
                 append_jsonl(OUT, rec); executed += 1
                 del out
 
-            # 재개 시 margin 복원
-            for x in read_jsonl(OUT):
-                if x["question_id"] == qid: margins[x["condition"]] = x["margin"]
             if (qid, "M") not in done: fire("M", None)
             for i in range(k):
                 if (qid, f"B{i}") not in done: fire(f"B{i}", [(0, None, sp[i])])

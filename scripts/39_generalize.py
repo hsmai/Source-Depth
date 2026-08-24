@@ -48,7 +48,10 @@ def main():
         ctrl = KVBlockController(model, resolve_decoder_layers(model))
         vs, ve, pad = vision_token_ids(processor)
         yes_ids, no_ids = load_yes_no_ids()
-        done = {(x["question_id"], x["condition"]) for x in read_jsonl(OUT)}
+        prior = {}
+        for x in read_jsonl(OUT):
+            prior.setdefault(x["question_id"], {})[x["condition"]] = x["margin"]
+        done = {(q, c) for q, m in prior.items() for c in m}
         executed = 0
 
         def run(qid, meta, paths, q, conds_fn):
@@ -58,9 +61,7 @@ def main():
             if len(sp) != len(paths):
                 blocked("39_gen", f"span != {len(paths)}: {len(sp)}", {"qid": qid})
             seq = int(inputs["input_ids"].shape[1]); ts = (sp[-1][1] + 1, seq - 1)
-            margins = {}
-            for x in read_jsonl(OUT):
-                if x["question_id"] == qid: margins[x["condition"]] = x["margin"]
+            margins = dict(prior.get(qid, {}))
 
             def fire(cond, setup):
                 nonlocal executed

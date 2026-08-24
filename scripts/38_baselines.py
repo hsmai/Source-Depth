@@ -63,7 +63,10 @@ def main():
         nlay = num_layers(model)
         vs, ve, pad = vision_token_ids(processor)
         yes_ids, no_ids = load_yes_no_ids()
-        done = {(x["question_id"], x["condition"], x["n_dist"]) for x in read_jsonl(OUT)}
+        prior = {}
+        for x in read_jsonl(OUT):
+            prior.setdefault((x["question_id"], x["n_dist"]), {})[x["condition"]] = x["margin"]
+        done = {(q, c, n) for (q, n), m in prior.items() for c in m}
         executed = 0
         for row in rows:
             qid = row["question_id"]
@@ -79,10 +82,7 @@ def main():
                 if len(sp) != n + 1:
                     blocked("38_base", f"span != {n+1}: {len(sp)}", {"qid": qid})
                 seq = int(base["input_ids"].shape[1]); dt = base["pixel_values"].dtype
-                margins = {}
-                for x in read_jsonl(OUT):
-                    if x["question_id"] == qid and x["n_dist"] == n:
-                        margins[x["condition"]] = x["margin"]
+                margins = dict(prior.get((qid, n), {}))
 
                 def fire(cond, which):
                     nonlocal executed
