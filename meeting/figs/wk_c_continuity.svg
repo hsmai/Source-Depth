@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="820" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">한계 — 관련도는 '있다/없다'로 나뉘지 않습니다</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">지금 우리 방법은 가장 영향이 큰 사진 1장만 남기고 나머지를 무관으로 처리합니다</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="50" y="150" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">사진 4장을 넣고, 각 사진을 빼봤을 때 답이 흔들린 정도 (가장 큰 것을 1.0으로)</text>
+<rect x="50" y="172" width="650" height="268" rx="10" fill="#F3F5F7" stroke="#D5DEE8" stroke-width="1"/>
+<text x="74" y="204" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">이런 문항이 대부분 — 한 장이 압도적</text>
+<text x="74" y="254" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 1</text>
+<rect x="150" y="234" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="150" y="234" width="420.0" height="28" rx="4" fill="#2E8B57"/>
+<text x="584" y="255" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start" font-weight="bold">1.00</text>
+<text x="74" y="302" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 2</text>
+<rect x="150" y="282" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="150" y="282" width="63.0" height="28" rx="4" fill="#9AA6B2"/>
+<text x="584" y="303" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.15</text>
+<text x="74" y="350" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 3</text>
+<rect x="150" y="330" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="150" y="330" width="33.6" height="28" rx="4" fill="#9AA6B2"/>
+<text x="584" y="351" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.08</text>
+<text x="74" y="398" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 4</text>
+<rect x="150" y="378" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="150" y="378" width="12.6" height="28" rx="4" fill="#9AA6B2"/>
+<text x="584" y="399" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.03</text>
+<text x="480" y="204" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#2E8B57" text-anchor="start" font-weight="bold">판별 정확도 0.96</text>
+<rect x="730" y="172" width="650" height="268" rx="10" fill="#FBEAEA" stroke="#D62728" stroke-width="1.4"/>
+<text x="754" y="204" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#D62728" text-anchor="start" font-weight="bold">그런데 3B는 3문항 중 1문항이 이렇다</text>
+<text x="754" y="254" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 1</text>
+<rect x="830" y="234" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="830" y="234" width="420.0" height="28" rx="4" fill="#D62728"/>
+<text x="1264" y="255" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start" font-weight="bold">1.00</text>
+<text x="754" y="302" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 2</text>
+<rect x="830" y="282" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="830" y="282" width="302.4" height="28" rx="4" fill="#B06A00"/>
+<text x="1264" y="303" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.72</text>
+<text x="754" y="350" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 3</text>
+<rect x="830" y="330" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="830" y="330" width="189.0" height="28" rx="4" fill="#B06A00"/>
+<text x="1264" y="351" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.45</text>
+<text x="754" y="398" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">사진 4</text>
+<rect x="830" y="378" width="420" height="28" rx="4" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="830" y="378" width="84.0" height="28" rx="4" fill="#9AA6B2"/>
+<text x="1264" y="399" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">0.20</text>
+<text x="1160" y="204" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#D62728" text-anchor="start" font-weight="bold">판별 정확도 0.49</text>
+<text x="50" y="486" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">두 번째로 영향이 큰 사진이 첫 번째와 비슷할수록, 판별이 정확히 그만큼 무너집니다</text>
+<rect x="50" y="506" width="406" height="150" rx="10" fill="#FFFFFF" stroke="#2E8B57" stroke-width="2"/>
+<text x="253" y="536" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle" font-weight="bold">1·2위 차이가 큼</text>
+<text x="253" y="556" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle">(명확한 문항)</text>
+<text x="253" y="624" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="38" fill="#2E8B57" text-anchor="middle" font-weight="bold">0.96</text>
+<text x="466" y="596" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#9AA6B2" text-anchor="middle">▶</text>
+<rect x="486" y="506" width="406" height="150" rx="10" fill="#FFFFFF" stroke="#B06A00" stroke-width="2"/>
+<text x="689" y="536" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle" font-weight="bold">중간</text>
+<text x="689" y="624" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="38" fill="#B06A00" text-anchor="middle" font-weight="bold">0.73</text>
+<text x="902" y="596" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#9AA6B2" text-anchor="middle">▶</text>
+<rect x="922" y="506" width="406" height="150" rx="10" fill="#FFFFFF" stroke="#D62728" stroke-width="2"/>
+<text x="1125" y="536" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle" font-weight="bold">1·2위 차이가 작음</text>
+<text x="1125" y="556" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="middle">(애매한 문항)</text>
+<text x="1125" y="624" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="38" fill="#D62728" text-anchor="middle" font-weight="bold">0.49</text>
+<text x="50" y="684" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">작은 모델(3B) · 사진 4장 · 문항 300개 · '판별 정확도' = 관련 있는 사진을 맞게 고른 비율</text>
+<rect x="50" y="706" width="1300" height="96" rx="10" fill="#E8F1FA" stroke="#1F77B4" stroke-width="1.8"/>
+<text x="76" y="738" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F77B4" text-anchor="start" font-weight="bold">그래서 다음 단계는</text>
+<text x="76" y="768" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start">① 두 사진이 비슷하게 중요하면 둘 다 남긴다 (문항마다 몇 장 남길지 다르게)</text>
+<text x="76" y="792" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start">② 아예 끊거나 안 끊거나가 아니라, 관련도에 비례해 차단 강도를 조절한다</text>
+</svg>

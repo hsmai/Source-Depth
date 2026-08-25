@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="800" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">기존 최신 연구(FOCUS)와의 비교</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">같은 문항·같은 모델에서, 원 논문 수식 그대로 재구성했습니다 (이미지 2장 조건)</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="50" y="150" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#1F3B57" text-anchor="start" font-weight="bold">두 방법이 무엇을 하는가</text>
+<rect x="50" y="175" width="1300" height="112" rx="10" fill="#F3F5F7" stroke="#9AA6B2" stroke-width="1.6"/>
+<text x="76" y="215" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="21" fill="#9AA6B2" text-anchor="start" font-weight="bold">FOCUS</text>
+<text x="230" y="209" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">· 사진을 하나씩만 남기고 나머지는 노이즈로 덮음</text>
+<text x="230" y="235" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">· 그 결과를 전부 합산 + 노이즈만 넣은 결과를 뺌</text>
+<text x="230" y="269" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9AA6B2" text-anchor="start" font-weight="bold">무관한 사진을 고르지 않음 — 전부 합침</text>
+<rect x="50" y="303" width="1300" height="112" rx="10" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="76" y="343" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="21" fill="#2E8B57" text-anchor="start" font-weight="bold">우리</text>
+<text x="230" y="337" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">· 사진을 하나씩 빼보고 답이 흔들리는 정도로 무관한 사진을 찾음</text>
+<text x="230" y="363" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="start">· 그 사진을 '질문이 읽는 경로'만 차단 (사진은 그대로 둠)</text>
+<text x="230" y="397" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#2E8B57" text-anchor="start" font-weight="bold">무관한 사진을 특정해서 그 경로만 끊음</text>
+<text x="50" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#1F3B57" text-anchor="start" font-weight="bold">결과 — 판별력 점수</text>
+<text x="250" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">FOCUS에게는 하이퍼파라미터를 가장 유리한 값으로 맞춰줬습니다</text>
+<text x="74" y="506" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">작은 모델 (3B)</text>
+<text x="220" y="554" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="end">아무것도 안 함</text>
+<rect x="234" y="522" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="234" y="522" width="183.86666666666662" height="42" rx="5" fill="#9AA6B2"/>
+<text x="664" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.697</text>
+<text x="220" y="616" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="end">FOCUS</text>
+<rect x="234" y="584" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="234" y="584" width="77.46666666666663" height="42" rx="5" fill="#D62728"/>
+<text x="664" y="614" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#D62728" text-anchor="start" font-weight="bold">0.583</text>
+<text x="220" y="678" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="end" font-weight="bold">우리</text>
+<rect x="234" y="646" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="234" y="646" width="238.93333333333334" height="42" rx="5" fill="#2E8B57"/>
+<text x="664" y="676" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#2E8B57" text-anchor="start" font-weight="bold">0.756</text>
+<line x1="234" y1="516" x2="234" y2="694" stroke="#9AA6B2" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="234" y="512" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#9AA6B2" text-anchor="middle">0.5</text>
+<text x="754" y="506" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="start" font-weight="bold">큰 모델 (7B)</text>
+<text x="900" y="554" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="end">아무것도 안 함</text>
+<rect x="914" y="522" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="914" y="522" width="344.4" height="42" rx="5" fill="#9AA6B2"/>
+<text x="1344" y="552" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.869</text>
+<text x="900" y="616" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="end">FOCUS</text>
+<rect x="914" y="584" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="914" y="584" width="330.4" height="42" rx="5" fill="#D62728"/>
+<text x="1344" y="614" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#D62728" text-anchor="start" font-weight="bold">0.854</text>
+<text x="900" y="678" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F3B57" text-anchor="end" font-weight="bold">우리</text>
+<rect x="914" y="646" width="420" height="42" rx="5" fill="#EDF1F5"/>
+<rect x="914" y="646" width="370.53333333333336" height="42" rx="5" fill="#2E8B57"/>
+<text x="1344" y="676" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" fill="#2E8B57" text-anchor="start" font-weight="bold">0.897</text>
+<line x1="914" y1="516" x2="914" y2="694" stroke="#9AA6B2" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="914" y="512" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11" fill="#9AA6B2" text-anchor="middle">0.5</text>
+<rect x="50" y="720" width="1300" height="60" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.8"/>
+<text x="76" y="748" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#2E8B57" text-anchor="start" font-weight="bold">두 모델 모두 우리가 유의하게 높습니다.  3B는 FOCUS가 아무것도 안 한 것보다도 낮습니다.</text>
+<text x="76" y="770" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">※ 공식 코드가 아니라 원 논문 수식을 우리 로그로 재구성한 것이고, 노이즈 강도는 FOCUS에 불리한 설정입니다. 논문 주장으로 쓰려면 공식 코드로 다시 재야 합니다.</text>
+</svg>
