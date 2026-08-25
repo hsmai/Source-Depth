@@ -111,23 +111,25 @@ const txt=(s,t,x,y,w,h,o)=>s.addText(t,Object.assign({x,y,w,h,fontFace:F,margin:
 // ═══ 7  다음 계획 ═══
 { const s=pres.addSlide(); s.background={color:C.darkbg};
   kick(s,"다음 계획",true);
-  head(s,"CVPR 2027 마감까지 11주 — 중단 조건을 먼저 둡니다",true);
-  box(s,0.55,1.3,12.25,1.28,"1D3850","3E6E8E",1.6);
-  txt(s,"이번 주 발견에서 바로 나온 다음 실험",0.85,1.42,11.7,0.3,{fontSize:13,bold:true,color:"FFC94D"});
-  txt(s,"① 적응형 개수 — 1·2위 영향도가 비슷하면 두 장 다 남긴다 (문항마다 남길 개수를 다르게)\n② 비례 차단 — 아예 끊거나 안 끊거나가 아니라, 관련도에 비례해 차단 강도를 조절한다",0.85,1.76,11.7,0.68,{fontSize:12,color:C.white,lineSpacingMultiple:1.3});
-  const plan=[["1–2주","공개 벤치마크 검증 (MuirBench · BLINK)","★ 핵심 단계 — 재현 안 되면 접습니다","FF9E80"],
-              ["3–4주","다른 모델군 1개 (LLaVA-OneVision) 포팅","기전이 Qwen 고유물이 아닌가","7EC8F5"],
-              ["5–7주","FOCUS 공식 코드 정식 재현 · 인코더 재사용 구현 후 실측 속도 · 생성 평가","비교의 정당성 확보 / 예-아니오 논문 탈피","7EC8F5"],
-              ["8–11주","초고 → 내부 리뷰 2회 → 초록 11/06 → 제출 11/13","—","8CE0B0"]];
-  plan.forEach((p,i)=>{const y=2.76+i*0.82;
-    box(s,0.55,y,12.25,0.7,"1D3850","2E4E6B",1);
-    txt(s,p[0],0.8,y,1.3,0.7,{fontSize:12.5,bold:true,color:p[3],valign:"middle"});
-    txt(s,p[1],2.25,y,6.5,0.7,{fontSize:11.5,color:C.white,valign:"middle"});
-    txt(s,"→ "+p[2],8.95,y,3.7,0.7,{fontSize:10.5,color:"9FB8CE",valign:"middle"});});
-  box(s,0.55,6.14,12.25,0.86,"3A2430","6B3A4A",1.2);
-  txt(s,"가장 큰 위험: 지금 모든 결과가 저희가 만든 COCO 기반 벤치와 예/아니오 단답에 한정됩니다.",0.85,6.24,11.7,0.28,{fontSize:12,bold:true,color:"FFB4A2"});
-  txt(s,"공개 벤치마크에서 재현되지 않으면 2주차에 접겠습니다. 그 판정 기준을 지금 문서로 고정해두겠습니다.",0.85,6.56,11.7,0.28,{fontSize:11,color:"D0BCC4"});
-  s.addNotes("11주 남았습니다. 이번 주 발견에서 바로 나온 실험 두 가지를 먼저 하고, 1, 2주차 공개 벤치마크가 중단 조건입니다. 지금 결과가 전부 자체 제작 벤치와 예아니오 단답에 한정되어 있어서, 거기서 재현 안 되면 접겠습니다.");
+  head(s,"경쟁 방법과 같은 벤치·같은 모델에서 직접 붙이는 것이 최우선입니다",true);
+  box(s,0.55,1.28,12.25,1.42,"1D3850","3E6E8E",1.6);
+  txt(s,"FOCUS는 우리와 같은 모델(Qwen2.5-VL 3B / 7B)로 공개 벤치마크를 평가했습니다",0.85,1.4,11.7,0.3,{fontSize:13,bold:true,color:"FFC94D"});
+  txt(s,"MuirBench +3.2%p  ·  Mantis-Eval +5.5%p  ·  MIRB +1.7%p  ·  Winoground · VisMin  (공식 코드 공개됨)",0.85,1.74,11.7,0.3,{fontSize:12,color:C.white});
+  txt(s,"→ 같은 벤치에 우리 방법을 올리면 '공개 벤치 검증'과 'FOCUS 직접 비교'가 한 번에 끝납니다. 이게 1순위입니다.",0.85,2.1,11.7,0.32,{fontSize:12.5,bold:true,color:"8CE0B0"});
+  const plan=[["1–2주","MuirBench · Mantis-Eval 에 우리 방법 + FOCUS 공식 코드를 같은 조건으로","★ 여기서 밀리면 방향을 바꿉니다","FF9E80"],
+              ["3주","이번 주 발견에서 나온 개선 — 적응형 개수 / 관련도 비례 차단","실현 0.76 → 상한 0.90 격차 줄이기","FFC94D"],
+              ["4–5주","다른 모델군 (InternVL3 · LLaVA-OneVision — FOCUS가 쓴 것과 동일)","기전이 Qwen 고유물이 아닌가","7EC8F5"],
+              ["6–8주","생성 평가 (Winoground · VisMin) · 인코더 재사용 후 실측 속도","예-아니오 논문 탈피 / 비용 주장 확정","7EC8F5"],
+              ["9–11주","초고 → 내부 리뷰 2회 → 초록 11/06 → 제출 11/13","—","8CE0B0"]];
+  plan.forEach((p,i)=>{const y=2.86+i*0.66;
+    box(s,0.55,y,12.25,0.56,"1D3850","2E4E6B",1);
+    txt(s,p[0],0.8,y,1.25,0.56,{fontSize:12,bold:true,color:p[3],valign:"middle"});
+    txt(s,p[1],2.2,y,6.6,0.56,{fontSize:11,color:C.white,valign:"middle"});
+    txt(s,"→ "+p[2],8.95,y,3.7,0.56,{fontSize:10,color:"9FB8CE",valign:"middle"});});
+  box(s,0.55,6.24,12.25,0.78,"3A2430","6B3A4A",1.2);
+  txt(s,"중단 조건: 같은 벤치·같은 모델에서 FOCUS를 넘지 못하면, 방법 논문이 아니라 기전 분석 논문으로 방향을 바꿉니다.",0.85,6.34,11.7,0.28,{fontSize:11.5,bold:true,color:"FFB4A2"});
+  txt(s,"지금 모든 결과가 저희가 만든 벤치와 예/아니오 단답에 한정되어 있다는 점이 가장 큰 위험입니다.",0.85,6.64,11.7,0.28,{fontSize:10.5,color:"D0BCC4"});
+  s.addNotes("가장 중요한 다음 단계는 경쟁 방법과 같은 벤치, 같은 모델에서 직접 붙는 것입니다. 다행히 FOCUS가 저희와 같은 Qwen2.5-VL 3B, 7B로 공개 벤치마크를 평가했고 코드도 공개돼 있습니다. 같은 벤치에 저희 방법을 올리면 공개 벤치 검증과 FOCUS 직접 비교가 한 번에 끝납니다. 여기서 밀리면 방법 논문이 아니라 기전 분석 논문으로 방향을 바꾸겠습니다.");
 }
 
 pres.writeFile({ fileName: "/Users/hansangmin/Source-Depth/meeting/_generated/deck_v10.pptx" })
