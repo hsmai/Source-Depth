@@ -1,40 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 780">
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
-<rect x="0" y="0" width="1400" height="760" fill="#FFFFFF"/>
+<rect x="0" y="0" width="1400" height="780" fill="#FFFFFF"/>
 <text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">위치 힌트를 없앤 새 벤치에서 문제가 더 커졌습니다</text>
-<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">관련 사진을 '내용'으로만 특정하고, 위치는 무작위로 섞었습니다</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">관련 사진을 '내용'으로만 특정하고, 위치는 무작위로 섞었습니다 · 새로 만든 600문항</text>
 <line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
-<rect x="50" y="140" width="650" height="300" rx="10" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.6"/>
-<text x="74" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#2E8B57" text-anchor="start" font-weight="bold">사진 1장만 줬을 때</text>
-<rect x="74" y="190" width="602" height="36" rx="5" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
-<text x="90" y="213" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">거실 사진  ·  개 없음</text>
-<text x="74" y="256" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start" font-style="italic">"이 사진에 개가 있나?"</text>
-<text x="74" y="294" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">모델의 답</text>
-<text x="180" y="298" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" fill="#2E8B57" text-anchor="start" font-weight="bold">"아니오"</text>
-<text x="350" y="298" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#2E8B57" text-anchor="start" font-weight="bold">✓ 맞음</text>
-<rect x="730" y="140" width="650" height="300" rx="10" fill="#FBEAEA" stroke="#D62728" stroke-width="1.6"/>
-<text x="754" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#D62728" text-anchor="start" font-weight="bold">사진 3장을 줬을 때</text>
-<rect x="754" y="190" width="602" height="36" rx="5" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
-<text x="770" y="213" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">거실 사진  ·  개 없음</text>
-<rect x="754" y="234" width="602" height="36" rx="5" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
-<text x="770" y="257" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">공원 사진  ·  개 있음</text>
-<rect x="754" y="278" width="602" height="36" rx="5" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1"/>
-<text x="770" y="301" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">주방 사진</text>
-<text x="754" y="344" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start" font-style="italic">"microwave가 있는 사진에 개가 있나?"</text>
-<text x="754" y="382" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">모델의 답</text>
-<text x="860" y="386" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" fill="#D62728" text-anchor="start" font-weight="bold">"있습니다"</text>
-<text x="1030" y="386" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#D62728" text-anchor="start" font-weight="bold">✗ 틀림</text>
-<text x="50" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start" font-weight="bold">판별력 점수 — 맞다/아니다를 얼마나 잘 가려내는가</text>
-<text x="360" y="554" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="end" font-weight="bold">사진 1장만</text>
-<rect x="380" y="520" width="760" height="44" rx="5" fill="#EDF1F5"/>
-<rect x="380" y="520" width="691.6" height="44" rx="5" fill="#2E8B57"/>
-<text x="1087.6" y="551" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#2E8B57" text-anchor="start" font-weight="bold">0.91</text>
-<text x="360" y="628" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="end" font-weight="bold">사진 3장 (새 벤치)</text>
-<rect x="380" y="594" width="760" height="44" rx="5" fill="#EDF1F5"/>
-<rect x="380" y="594" width="342.0" height="44" rx="5" fill="#D62728"/>
-<text x="738.0" y="625" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#D62728" text-anchor="start" font-weight="bold">0.45</text>
-<line x1="760.0" y1="506" x2="760.0" y2="650" stroke="#9AA6B2" stroke-width="1.8" stroke-dasharray="5 4"/>
-<text x="770.0" y="502" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.50 = 동전 던지기</text>
-<rect x="50" y="690" width="1300" height="50" rx="8" fill="#1F3B57"/>
-<text x="76" y="722" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">기존 벤치는 질문이 "첫 번째 사진"이라고 위치를 알려줬습니다. 그것을 없앴더니 문제가 사라지기는커녕 더 커졌습니다.</text>
+<rect x="50" y="136" width="1300" height="150" rx="10" fill="#F3F5F7" stroke="#D5DEE8" stroke-width="1"/>
+<text x="76" y="166" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#6B7280" text-anchor="start" font-weight="bold">문항 예시</text>
+<text x="76" y="198" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">사진 3장  —  ① 주방(microwave 있음, 개 없음)   ② 공원(개 있음)   ③ 거리</text>
+<text x="76" y="230" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-style="italic">"microwave가 있는 사진에 개가 있나요?"</text>
+<text x="76" y="262" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#2E8B57" text-anchor="start" font-weight="bold">정답: 아니오</text>
+<text x="300" y="262" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#D62728" text-anchor="start" font-weight="bold">모델의 답:  "있습니다"  ✗</text>
+<text x="470" y="262" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">— 무관한 사진에 있는 개를 그대로 답합니다</text>
+<text x="50" y="330" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">같은 문항 · 같은 모델 · 개입만 다르게</text>
+<text x="436" y="398" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="end" font-weight="bold">아무것도 안 함</text>
+<rect x="460" y="356" width="660" height="62" rx="6" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="460" y="356" width="298.98" height="62" rx="6" fill="#D62728"/>
+<text x="1140" y="398" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="28" fill="#D62728" text-anchor="start" font-weight="bold">0.453</text>
+<text x="436" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16" fill="#1F3B57" text-anchor="end" font-weight="bold">방해 사진을 알려주고 처리</text>
+<rect x="460" y="452" width="660" height="62" rx="6" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="460" y="452" width="636.24" height="62" rx="6" fill="#2E8B57"/>
+<text x="1140" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="28" fill="#2E8B57" text-anchor="start" font-weight="bold">0.964</text>
+<line x1="790.0" y1="340" x2="790.0" y2="532" stroke="#9AA6B2" stroke-width="1.8" stroke-dasharray="5 4"/>
+<text x="802.0" y="336" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.50 = 동전 던지기</text>
+<text x="460" y="566" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">판별력 점수 — 맞다/아니다를 얼마나 잘 가려내는가 · 작은 모델(3B) · 사진 3장 · 문항 300개</text>
+<text x="460" y="590" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">참고: 기존 벤치(위치를 알려주는 질문)에서 사진 1장만 줬을 때는 0.908 이었습니다</text>
+<rect x="50" y="624" width="1300" height="60" rx="8" fill="#FBEAEA" stroke="#D62728" stroke-width="1.6"/>
+<text x="76" y="662" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#D62728" text-anchor="start" font-weight="bold">아무 처리도 안 하면 동전 던지기보다 못합니다. 정답이 '아니오'인 문항만 보면 정확도 0.267.</text>
+<rect x="50" y="700" width="1300" height="60" rx="8" fill="#1F3B57"/>
+<text x="76" y="738" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">기존 벤치는 질문이 "첫 번째 사진"이라고 위치를 알려줬습니다. 그것을 없앴더니 문제가 사라지기는커녕 더 커졌습니다.</text>
 </svg>
