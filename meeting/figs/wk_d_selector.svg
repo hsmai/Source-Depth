@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 660">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="660" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">판별을 누가 하든, '읽기만 차단'이 '통째 삭제'보다 낫습니다</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">관련 사진 위치가 무작위인 새 벤치 · 사진 3장 · 문항 300개 · 작은 모델(3B)</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="356" y="196" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#6B7280" text-anchor="end">아무것도 안 함</text>
+<rect x="380" y="160" width="520" height="52" rx="6" fill="#F1F4F7" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="380" y="160" width="52.99999999999999" height="52" rx="6" fill="#9AA6B2"/>
+<text x="920" y="196" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.453</text>
+<text x="356" y="272" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#6B7280" text-anchor="end">CLIP이 찾고  →  통째 삭제</text>
+<rect x="380" y="236" width="520" height="52" rx="6" fill="#F1F4F7" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="380" y="236" width="341.99999999999994" height="52" rx="6" fill="#A9B4BF"/>
+<text x="920" y="272" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#A9B4BF" text-anchor="start" font-weight="bold">0.742</text>
+<text x="356" y="348" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="end" font-weight="bold">CLIP이 찾고  →  읽기만 차단</text>
+<rect x="380" y="312" width="520" height="52" rx="6" fill="#F1F4F7" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="380" y="312" width="363.0" height="52" rx="6" fill="#1F77B4"/>
+<text x="920" y="348" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#1F77B4" text-anchor="start" font-weight="bold">0.763</text>
+<text x="356" y="424" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="end" font-weight="bold">우리가 찾고  →  읽기만 차단</text>
+<rect x="380" y="388" width="520" height="52" rx="6" fill="#F1F4F7" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="380" y="388" width="458.99999999999994" height="52" rx="6" fill="#2E8B57"/>
+<text x="920" y="424" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#2E8B57" text-anchor="start" font-weight="bold">0.859</text>
+<line x1="1020" y1="236" x2="1038" y2="236" stroke="#2E8B57" stroke-width="2.2"/>
+<line x1="1038" y1="236" x2="1038" y2="312" stroke="#2E8B57" stroke-width="2.2"/>
+<line x1="1020" y1="312" x2="1038" y2="312" stroke="#2E8B57" stroke-width="2.2"/>
+<rect x="1050" y="240" width="290" height="68" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="1066" y="266" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#2E8B57" text-anchor="start" font-weight="bold">차이 [+0.007, +0.036]  ★ 유의</text>
+<text x="1066" y="292" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start">7B도 동일:  [+0.003, +0.046] ★</text>
+<text x="356" y="486" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="start" font-weight="bold">판별자를 CLIP으로 바꿔도 결과가 유지됩니다  →  기여는 '판별'이 아니라 '개입 방식'입니다</text>
+<text x="356" y="510" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">※ 사진 2장 조건에서는 차이가 없습니다 — 차단할 사진이 한 장뿐이라 여지가 없기 때문입니다</text>
+<rect x="50" y="548" width="1300" height="84" rx="10" fill="#1F3B57"/>
+<text x="76" y="582" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#FFFFFF" text-anchor="start" font-weight="bold">사진을 지우면 나머지 사진들이 서로 참고하던 맥락까지 함께 사라집니다.</text>
+<text x="76" y="610" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#AFC6DA" text-anchor="start">읽기 경로만 끊으면 그 맥락은 남고, 방해가 되는 통로만 막힙니다.</text>
+</svg>
