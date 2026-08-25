@@ -117,7 +117,7 @@ const TBL={fontFace:F,align:"center",valign:"middle",border:{pt:0.75,color:"E2E8
   box(s,0.55,3.92,12.25,1.16,C.lightblue,C.blue,1.4);
   txt(s,"그래서 주장을 이렇게 좁힙니다",0.85,4.04,11.7,0.3,{fontSize:13,bold:true,color:C.blue});
   txt(s,"\"우리 개입이 더 낫다\"  (X)   →   \"마스킹 기반 반사실이 픽셀 노이즈보다 정확한 판별자다\"  (O)",0.85,4.38,11.7,0.32,{fontSize:13,bold:true,color:C.navy});
-  txt(s,"그리고 판별과 개입에 같은 수단(attention 마스크)을 쓰기 때문에, 이미지 인코딩(비용의 66%)을 N+1회 전부 재사용할 수 있습니다 — 픽셀을 바꾸는 방식은 매번 다시 인코딩해야 합니다.",0.85,4.74,11.7,0.28,{fontSize:10.5,color:C.navy});
+  txt(s,"판별과 개입에 같은 수단(attention 마스크)을 쓰므로 이미지 인코딩(비용의 66%)을 N+1회 재사용할 수 있습니다. 픽셀을 바꾸면 매번 재인코딩해야 합니다.",0.85,4.72,11.7,0.32,{fontSize:10,color:C.navy});
   box(s,0.55,5.24,12.25,0.8,C.light,C.line,1);
   txt(s,"정직하게 붙이는 조건:  원 논문 하이퍼파라미터를 그대로 옮긴 재현이 아니라 \"N+1 반사실 + 개입 수단\"만 통제한 비교입니다.\n인코딩 재사용은 아직 구현하지 않았으므로 \"더 빠르다\"는 주장하지 않습니다.",0.85,5.24,11.7,0.8,{fontSize:10.5,color:C.navy,valign:"middle",lineSpacingMultiple:1.2});
   take(s,"→ 우위 지점이 어디인지 정확히 특정했습니다. 이게 논문의 주장 범위가 됩니다","1F77B4");
