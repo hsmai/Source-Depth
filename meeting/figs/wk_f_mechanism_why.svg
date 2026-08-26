@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="820" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">왜 하필 '읽기' 경로인가  —  통념과 반대였습니다</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">처방을 먼저 정한 게 아니라, 두 경로를 각각 끊어보고 원인을 특정했습니다</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<rect x="50" y="136" width="630" height="148" rx="10" fill="#F3F5F7" stroke="#9AA6B2" stroke-width="1.4"/>
+<text x="76" y="168" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#6B7280" text-anchor="start" font-weight="bold">기존 통념</text>
+<text x="76" y="202" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">"여러 이미지가 서로 섞여서 환각이 생긴다"</text>
+<text x="76" y="232" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start">→ 처방: 이미지끼리 보는 연결을 막아라  (MIMIC 등)</text>
+<text x="76" y="258" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#6B7280" text-anchor="start">→ 반대 진영은 오히려 더 열어라  (CAPL · SoFA)</text>
+<rect x="720" y="136" width="630" height="148" rx="10" fill="#FBEAEA" stroke="#D62728" stroke-width="1.6"/>
+<text x="746" y="168" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#D62728" text-anchor="start" font-weight="bold">우리 측정</text>
+<text x="746" y="202" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">이미지끼리 보는 연결을 끊었더니</text>
+<text x="746" y="232" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#D62728" text-anchor="start" font-weight="bold">오히려 0.697 → 0.403 으로 무너졌습니다</text>
+<text x="746" y="258" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start" font-weight="bold">섞임은 오염원이 아니라 오히려 버팀목이었습니다</text>
+<text x="50" y="326" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="start" font-weight="bold">같은 문항 · 같은 모델 · 끊는 경로만 다르게</text>
+<text x="406" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="end">아무것도 안 함</text>
+<rect x="430" y="352" width="660" height="56" rx="6" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="430" y="352" width="381.70000000000005" height="56" rx="6" fill="#9AA6B2"/>
+<text x="1110" y="390" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.697</text>
+<text x="406" y="474" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="end" font-weight="bold">이미지 ↔ 이미지 를 끊음</text>
+<rect x="430" y="436" width="660" height="56" rx="6" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="430" y="436" width="58.300000000000054" height="56" rx="6" fill="#D62728"/>
+<text x="1110" y="474" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#D62728" text-anchor="start" font-weight="bold">0.403</text>
+<text x="1216" y="474" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#D62728" text-anchor="start" font-weight="bold">▼ 통념대로 했더니 무너짐</text>
+<text x="406" y="558" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F3B57" text-anchor="end" font-weight="bold">질문 → 무관 이미지 를 끊음</text>
+<rect x="430" y="520" width="660" height="56" rx="6" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="430" y="520" width="611.6" height="56" rx="6" fill="#2E8B57"/>
+<text x="1110" y="558" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="24" fill="#2E8B57" text-anchor="start" font-weight="bold">0.906</text>
+<text x="1216" y="558" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#2E8B57" text-anchor="start" font-weight="bold">▲ 사진 1장만 준 수준으로 회복</text>
+<text x="430" y="624" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">판별력 점수 · 작은 모델(3B) · 사진 2장 · 문항 300개 · 7B도 같은 방향 (0.869 → 0.447 / 0.899)</text>
+<rect x="50" y="652" width="1300" height="64" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="76" y="682" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16.5" fill="#2E8B57" text-anchor="start" font-weight="bold">배치·모델·질문 유형을 바꿔 10개 설정에서 재봤고, 이미지끼리 차단이 이득인 설정은 하나도 없었습니다.</text>
+<text x="76" y="706" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#1F3B57" text-anchor="start">층 구간을 12~23층으로 한정한 MIMIC 방식도 마찬가지였습니다 (3B 0.412 · 7B 0.852, 둘 다 아무것도 안 한 것보다 낮음).</text>
+<rect x="50" y="732" width="1300" height="68" rx="10" fill="#1F3B57"/>
+<text x="76" y="762" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#FFFFFF" text-anchor="start" font-weight="bold">그래서 우리 처방은 휴리스틱이 아니라 원인 규명에서 나온 것입니다.</text>
+<text x="76" y="788" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#AFC6DA" text-anchor="start">무관한 사진을 지우면 버팀목까지 사라집니다. 그래서 지우지 않고, 해악이 흐르는 '읽기' 통로만 막습니다.</text>
+</svg>
