@@ -154,3 +154,89 @@ R(o,50,548,1300,84,NAVY,None,0,10)
 T(o,"사진을 지우면 나머지 사진들이 서로 참고하던 맥락까지 함께 사라집니다.",76,582,18,"#FFFFFF",b=True)
 T(o,"읽기 경로만 끊으면 그 맥락은 남고, 방해가 되는 통로만 막힙니다.",76,610,15,"#AFC6DA")
 save(o,"wk_d_selector.svg")
+
+# ───────── 그림 E : FOCUS vs 우리, 방식 자체 비교 ─────────
+o=new(1400,890)
+T(o,"두 방법이 실제로 무엇을 하는가  —  사진 3장 예시",50,56,28,NAVY,b=True)
+L(o,50,86,1350,86,LINE,1.2)
+CW,CH,GP=76,52,8
+def imgrow(x,y,states,ans=None,ansc=NAVY):
+    """states: 'ok' 원본 / 'noise' 픽셀 노이즈 / 'cut' attention 차단"""
+    for i,st in enumerate(states):
+        bx=x+i*(CW+GP)
+        if st=="ok":
+            R(o,bx,y,CW,CH,"#DCE9F7",BLUE,1.4,5)
+            T(o,f"사진{i+1}",bx+CW/2,y+CH/2+5,13,NAVY,"middle",b=True)
+        elif st=="noise":
+            R(o,bx,y,CW,CH,"#F6DADA",RED,1.4,5)
+            o.append(f'<clipPath id="cp{x}{y}{i}"><rect x="{bx}" y="{y}" width="{CW}" height="{CH}" rx="5"/></clipPath>')
+            o.append(f'<g clip-path="url(#cp{x}{y}{i})">')
+            for k in range(-2,9): L(o,bx+k*11,y,bx+k*11-18,y+CH,RED,1.6)
+            o.append('</g>')
+            R(o,bx,y,CW,CH,"none",RED,1.4,5)
+        else:
+            R(o,bx,y,CW,CH,"#DCE9F7",BLUE,1.4,5)
+            T(o,f"사진{i+1}",bx+CW/2,y+CH/2+5,13,"#9BB6D4","middle",b=True)
+            R(o,bx,y,CW,CH,"#5A6570",None,0,5)
+            o.append(f'<rect x="{bx}" y="{y}" width="{CW}" height="{CH}" rx="5" fill="#5A6570" opacity="0.72"/>')
+            T(o,"✕",bx+CW/2,y+CH/2+8,22,"#FFFFFF","middle",b=True)
+    qx=x+3*(CW+GP)+6
+    R(o,qx,y,64,CH,NAVY,None,0,5)
+    T(o,"질문",qx+32,y+CH/2+5,13,"#FFFFFF","middle",b=True)
+    if ans:
+        T(o,"→",qx+76,y+CH/2+7,18,MUTE,"middle")
+        T(o,ans,qx+100,y+CH/2+7,15,ansc,b=True)
+
+# ── 왼쪽: FOCUS ──
+PX=50
+R(o,PX,106,640,652,"#FFFFFF",RED,1.8,12)
+T(o,"FOCUS",PX+24,146,23,RED,b=True)
+T(o,"한 장만 남기고 나머지를 노이즈로 덮음  →  전부 합산",PX+24,172,14,GRAY)
+rows=[(["ok","noise","noise"],"답 A"),(["noise","ok","noise"],"답 B"),
+      (["noise","noise","ok"],"답 C"),(["noise","noise","noise"],"답 D")]
+for i,(st,ans) in enumerate(rows):
+    y=196+i*72
+    T(o,f"{i+1}회차",PX+24,y+CH/2+5,12,GRAY)
+    imgrow(PX+84,y,st,ans,NAVY if i<3 else MUTE)
+T(o,"↑ 아무것도 안 보고 하는 말 (모델의 원래 편향)",PX+84,494,11.5,MUTE,i=True)
+R(o,PX+24,512,592,74,LR,RED,1.5,8)
+T(o,"최종 답  =  A + B + C  −  α × D",PX+320,548,17,RED,"middle",b=True)
+T(o,"모든 사진에 똑같이 한 번씩 기회를 주고 전부 더합니다",PX+320,572,12,NAVY,"middle")
+R(o,PX+24,600,592,86,"#FFF4F4",RED,1.5,8)
+T(o,"무관한 사진을 고르는 단계가 없습니다.",PX+44,628,15,RED,b=True)
+T(o,"\"이 사진은 관계없으니 버리자\"는 판단을 하지 않고,",PX+44,652,13,NAVY)
+T(o,"모든 사진의 의견을 그대로 합칩니다.",PX+44,674,13,NAVY)
+T(o,"픽셀을 망가뜨리므로 매번 이미지 인코딩을 다시 해야 합니다",PX+24,712,12,GRAY,i=True)
+
+# ── 오른쪽: 우리 ──
+QX=710
+R(o,QX,106,640,652,"#FFFFFF",GREEN,1.8,12)
+T(o,"우리",QX+24,146,23,GREEN,b=True)
+T(o,"하나씩 가려보고 무관한 사진을 특정  →  그 읽기 경로만 차단",QX+24,172,14,GRAY)
+rows2=[(["ok","ok","ok"],"기준 답",MUTE),(["cut","ok","ok"],"조금 흔들림",MUTE),
+       (["ok","cut","ok"],"크게 흔들림",GREEN),(["ok","ok","cut"],"조금 흔들림",MUTE)]
+for i,(st,ans,c) in enumerate(rows2):
+    y=196+i*72
+    T(o,"기준" if i==0 else f"{i}회차",QX+24,y+CH/2+5,12,GRAY)
+    imgrow(QX+84,y,st,ans,c)
+T(o,"↑ 가장 크게 흔들린 사진 2 = 실제로 답에 쓰이는 사진",QX+84,494,11.5,GREEN,i=True,b=True)
+R(o,QX+24,512,592,74,LG,GREEN,1.5,8)
+T(o,"최종 답  =  사진 3장 전부 그대로 넣고 한 번만 계산",QX+320,544,15.5,GREEN,"middle",b=True)
+T(o,"질문이 사진 1·3을 읽는 칸만 −∞ 로 막음",QX+320,570,13,NAVY,"middle")
+R(o,QX+24,600,592,86,LG,GREEN,1.5,8)
+T(o,"사진을 지우지 않습니다.",QX+44,628,15,GREEN,b=True)
+T(o,"픽셀은 그대로 두고 attention 행렬에서",QX+44,652,13,NAVY)
+T(o,"'질문 → 무관 사진' 칸만 막습니다.",QX+44,674,13,NAVY)
+T(o,"픽셀을 안 바꾸므로 이미지 인코딩을 한 번만 하면 됩니다",QX+24,712,12,GRAY,i=True)
+
+# ── 범례 (두 패널 아래, 가운데 정렬) ──
+lg=[("#DCE9F7",BLUE,"원본 사진"),("#F6DADA",RED,"픽셀을 노이즈로 덮음"),("#5A6570","#5A6570","attention만 차단 — 사진은 그대로")]
+tot=sum(len(l)*13+92 for _,_,l in lg)
+lx=(1400-tot)//2
+for f,st,lab in lg:
+    R(o,lx,776,24,24,f,st,1.5,4)
+    T(o,lab,lx+34,794,13.5,NAVY)
+    lx+=len(lab)*13+92
+R(o,50,822,1300,58,NAVY,None,0,10)
+T(o,"FOCUS는 사진을 망가뜨려 한 장씩 따로 물어보고 합칩니다.  우리는 사진을 그대로 두고, 무관한 사진으로 가는 '읽기 통로'만 막습니다.",76,858,16.5,"#FFFFFF",b=True)
+save(o,"wk_e_mechanism.svg")

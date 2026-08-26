@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 890">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="890" fill="#FFFFFF"/>
+<text x="50" y="56" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="28" fill="#1F3B57" text-anchor="start" font-weight="bold">두 방법이 실제로 무엇을 하는가  —  사진 3장 예시</text>
+<line x1="50" y1="86" x2="1350" y2="86" stroke="#D5DEE8" stroke-width="1.2"/>
+<rect x="50" y="106" width="640" height="652" rx="12" fill="#FFFFFF" stroke="#D62728" stroke-width="1.8"/>
+<text x="74" y="146" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="23" fill="#D62728" text-anchor="start" font-weight="bold">FOCUS</text>
+<text x="74" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">한 장만 남기고 나머지를 노이즈로 덮음  →  전부 합산</text>
+<text x="74" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">1회차</text>
+<rect x="134" y="196" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="172.0" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진1</text>
+<rect x="218" y="196" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1341961"><rect x="218" y="196" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1341961)">
+<line x1="196" y1="196" x2="178" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="207" y1="196" x2="189" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="218" y1="196" x2="200" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="229" y1="196" x2="211" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="240" y1="196" x2="222" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="251" y1="196" x2="233" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="262" y1="196" x2="244" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="273" y1="196" x2="255" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="284" y1="196" x2="266" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="295" y1="196" x2="277" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="306" y1="196" x2="288" y2="248" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="218" y="196" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="302" y="196" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1341962"><rect x="302" y="196" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1341962)">
+<line x1="280" y1="196" x2="262" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="291" y1="196" x2="273" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="302" y1="196" x2="284" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="313" y1="196" x2="295" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="324" y1="196" x2="306" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="335" y1="196" x2="317" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="346" y1="196" x2="328" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="357" y1="196" x2="339" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="368" y1="196" x2="350" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="379" y1="196" x2="361" y2="248" stroke="#D62728" stroke-width="1.6"/>
+<line x1="390" y1="196" x2="372" y2="248" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="302" y="196" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="392" y="196" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="424" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="468" y="229.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="492" y="229.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start" font-weight="bold">답 A</text>
+<text x="74" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">2회차</text>
+<rect x="134" y="268" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1342680"><rect x="134" y="268" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1342680)">
+<line x1="112" y1="268" x2="94" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="123" y1="268" x2="105" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="134" y1="268" x2="116" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="145" y1="268" x2="127" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="156" y1="268" x2="138" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="167" y1="268" x2="149" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="178" y1="268" x2="160" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="189" y1="268" x2="171" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="200" y1="268" x2="182" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="211" y1="268" x2="193" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="222" y1="268" x2="204" y2="320" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="134" y="268" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="218" y="268" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="256.0" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진2</text>
+<rect x="302" y="268" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1342682"><rect x="302" y="268" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1342682)">
+<line x1="280" y1="268" x2="262" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="291" y1="268" x2="273" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="302" y1="268" x2="284" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="313" y1="268" x2="295" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="324" y1="268" x2="306" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="335" y1="268" x2="317" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="346" y1="268" x2="328" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="357" y1="268" x2="339" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="368" y1="268" x2="350" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="379" y1="268" x2="361" y2="320" stroke="#D62728" stroke-width="1.6"/>
+<line x1="390" y1="268" x2="372" y2="320" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="302" y="268" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="392" y="268" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="424" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="468" y="301.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="492" y="301.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start" font-weight="bold">답 B</text>
+<text x="74" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">3회차</text>
+<rect x="134" y="340" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1343400"><rect x="134" y="340" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1343400)">
+<line x1="112" y1="340" x2="94" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="123" y1="340" x2="105" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="134" y1="340" x2="116" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="145" y1="340" x2="127" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="156" y1="340" x2="138" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="167" y1="340" x2="149" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="178" y1="340" x2="160" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="189" y1="340" x2="171" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="200" y1="340" x2="182" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="211" y1="340" x2="193" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="222" y1="340" x2="204" y2="392" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="134" y="340" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="218" y="340" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1343401"><rect x="218" y="340" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1343401)">
+<line x1="196" y1="340" x2="178" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="207" y1="340" x2="189" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="218" y1="340" x2="200" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="229" y1="340" x2="211" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="240" y1="340" x2="222" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="251" y1="340" x2="233" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="262" y1="340" x2="244" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="273" y1="340" x2="255" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="284" y1="340" x2="266" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="295" y1="340" x2="277" y2="392" stroke="#D62728" stroke-width="1.6"/>
+<line x1="306" y1="340" x2="288" y2="392" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="218" y="340" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="302" y="340" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="340.0" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진3</text>
+<rect x="392" y="340" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="424" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="468" y="373.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="492" y="373.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#1F3B57" text-anchor="start" font-weight="bold">답 C</text>
+<text x="74" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">4회차</text>
+<rect x="134" y="412" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1344120"><rect x="134" y="412" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1344120)">
+<line x1="112" y1="412" x2="94" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="123" y1="412" x2="105" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="134" y1="412" x2="116" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="145" y1="412" x2="127" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="156" y1="412" x2="138" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="167" y1="412" x2="149" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="178" y1="412" x2="160" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="189" y1="412" x2="171" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="200" y1="412" x2="182" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="211" y1="412" x2="193" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="222" y1="412" x2="204" y2="464" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="134" y="412" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="218" y="412" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1344121"><rect x="218" y="412" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1344121)">
+<line x1="196" y1="412" x2="178" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="207" y1="412" x2="189" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="218" y1="412" x2="200" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="229" y1="412" x2="211" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="240" y1="412" x2="222" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="251" y1="412" x2="233" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="262" y1="412" x2="244" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="273" y1="412" x2="255" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="284" y1="412" x2="266" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="295" y1="412" x2="277" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="306" y1="412" x2="288" y2="464" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="218" y="412" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="302" y="412" width="76" height="52" rx="5" fill="#F6DADA" stroke="#D62728" stroke-width="1.4"/>
+<clipPath id="cp1344122"><rect x="302" y="412" width="76" height="52" rx="5"/></clipPath>
+<g clip-path="url(#cp1344122)">
+<line x1="280" y1="412" x2="262" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="291" y1="412" x2="273" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="302" y1="412" x2="284" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="313" y1="412" x2="295" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="324" y1="412" x2="306" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="335" y1="412" x2="317" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="346" y1="412" x2="328" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="357" y1="412" x2="339" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="368" y1="412" x2="350" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="379" y1="412" x2="361" y2="464" stroke="#D62728" stroke-width="1.6"/>
+<line x1="390" y1="412" x2="372" y2="464" stroke="#D62728" stroke-width="1.6"/>
+</g>
+<rect x="302" y="412" width="76" height="52" rx="5" fill="none" stroke="#D62728" stroke-width="1.4"/>
+<rect x="392" y="412" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="424" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="468" y="445.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="492" y="445.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#9AA6B2" text-anchor="start" font-weight="bold">답 D</text>
+<text x="134" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#9AA6B2" text-anchor="start" font-style="italic">↑ 아무것도 안 보고 하는 말 (모델의 원래 편향)</text>
+<rect x="74" y="512" width="592" height="74" rx="8" fill="#FBEAEA" stroke="#D62728" stroke-width="1.5"/>
+<text x="370" y="548" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#D62728" text-anchor="middle" font-weight="bold">최종 답  =  A + B + C  −  α × D</text>
+<text x="370" y="572" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="middle">모든 사진에 똑같이 한 번씩 기회를 주고 전부 더합니다</text>
+<rect x="74" y="600" width="592" height="86" rx="8" fill="#FFF4F4" stroke="#D62728" stroke-width="1.5"/>
+<text x="94" y="628" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#D62728" text-anchor="start" font-weight="bold">무관한 사진을 고르는 단계가 없습니다.</text>
+<text x="94" y="652" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">"이 사진은 관계없으니 버리자"는 판단을 하지 않고,</text>
+<text x="94" y="674" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">모든 사진의 의견을 그대로 합칩니다.</text>
+<text x="74" y="712" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start" font-style="italic">픽셀을 망가뜨리므로 매번 이미지 인코딩을 다시 해야 합니다</text>
+<rect x="710" y="106" width="640" height="652" rx="12" fill="#FFFFFF" stroke="#2E8B57" stroke-width="1.8"/>
+<text x="734" y="146" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="23" fill="#2E8B57" text-anchor="start" font-weight="bold">우리</text>
+<text x="734" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">하나씩 가려보고 무관한 사진을 특정  →  그 읽기 경로만 차단</text>
+<text x="734" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">기준</text>
+<rect x="794" y="196" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="832.0" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진1</text>
+<rect x="878" y="196" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="916.0" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진2</text>
+<rect x="962" y="196" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="1000.0" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진3</text>
+<rect x="1052" y="196" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="1084" y="227.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="1128" y="229.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="1152" y="229.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#9AA6B2" text-anchor="start" font-weight="bold">기준 답</text>
+<text x="734" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">1회차</text>
+<rect x="794" y="268" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="832.0" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9BB6D4" text-anchor="middle" font-weight="bold">사진1</text>
+<rect x="794" y="268" width="76" height="52" rx="5" fill="#5A6570"/>
+<rect x="794" y="268" width="76" height="52" rx="5" fill="#5A6570" opacity="0.72"/>
+<text x="832.0" y="302.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="878" y="268" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="916.0" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진2</text>
+<rect x="962" y="268" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="1000.0" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진3</text>
+<rect x="1052" y="268" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="1084" y="299.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="1128" y="301.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="1152" y="301.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#9AA6B2" text-anchor="start" font-weight="bold">조금 흔들림</text>
+<text x="734" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">2회차</text>
+<rect x="794" y="340" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="832.0" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진1</text>
+<rect x="878" y="340" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="916.0" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9BB6D4" text-anchor="middle" font-weight="bold">사진2</text>
+<rect x="878" y="340" width="76" height="52" rx="5" fill="#5A6570"/>
+<rect x="878" y="340" width="76" height="52" rx="5" fill="#5A6570" opacity="0.72"/>
+<text x="916.0" y="374.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="962" y="340" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="1000.0" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진3</text>
+<rect x="1052" y="340" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="1084" y="371.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="1128" y="373.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="1152" y="373.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">크게 흔들림</text>
+<text x="734" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">3회차</text>
+<rect x="794" y="412" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="832.0" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진1</text>
+<rect x="878" y="412" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="916.0" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle" font-weight="bold">사진2</text>
+<rect x="962" y="412" width="76" height="52" rx="5" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="1000.0" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#9BB6D4" text-anchor="middle" font-weight="bold">사진3</text>
+<rect x="962" y="412" width="76" height="52" rx="5" fill="#5A6570"/>
+<rect x="962" y="412" width="76" height="52" rx="5" fill="#5A6570" opacity="0.72"/>
+<text x="1000.0" y="446.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="bold">✕</text>
+<rect x="1052" y="412" width="64" height="52" rx="5" fill="#1F3B57"/>
+<text x="1084" y="443.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">질문</text>
+<text x="1128" y="445.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#9AA6B2" text-anchor="middle">→</text>
+<text x="1152" y="445.0" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#9AA6B2" text-anchor="start" font-weight="bold">조금 흔들림</text>
+<text x="794" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#2E8B57" text-anchor="start" font-weight="bold" font-style="italic">↑ 가장 크게 흔들린 사진 2 = 실제로 답에 쓰이는 사진</text>
+<rect x="734" y="512" width="592" height="74" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.5"/>
+<text x="1030" y="544" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#2E8B57" text-anchor="middle" font-weight="bold">최종 답  =  사진 3장 전부 그대로 넣고 한 번만 계산</text>
+<text x="1030" y="570" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="middle">질문이 사진 1·3을 읽는 칸만 −∞ 로 막음</text>
+<rect x="734" y="600" width="592" height="86" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.5"/>
+<text x="754" y="628" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">사진을 지우지 않습니다.</text>
+<text x="754" y="652" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">픽셀은 그대로 두고 attention 행렬에서</text>
+<text x="754" y="674" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">'질문 → 무관 사진' 칸만 막습니다.</text>
+<text x="734" y="712" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start" font-style="italic">픽셀을 안 바꾸므로 이미지 인코딩을 한 번만 하면 됩니다</text>
+<rect x="308" y="776" width="24" height="24" rx="4" fill="#DCE9F7" stroke="#1F77B4" stroke-width="1.5"/>
+<text x="342" y="794" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">원본 사진</text>
+<rect x="465" y="776" width="24" height="24" rx="4" fill="#F6DADA" stroke="#D62728" stroke-width="1.5"/>
+<text x="499" y="794" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">픽셀을 노이즈로 덮음</text>
+<rect x="700" y="776" width="24" height="24" rx="4" fill="#5A6570" stroke="#5A6570" stroke-width="1.5"/>
+<text x="734" y="794" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start">attention만 차단 — 사진은 그대로</text>
+<rect x="50" y="822" width="1300" height="58" rx="10" fill="#1F3B57"/>
+<text x="76" y="858" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">FOCUS는 사진을 망가뜨려 한 장씩 따로 물어보고 합칩니다.  우리는 사진을 그대로 두고, 무관한 사진으로 가는 '읽기 통로'만 막습니다.</text>
+</svg>
