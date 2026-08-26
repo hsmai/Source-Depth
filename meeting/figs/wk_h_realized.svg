@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="760" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">방해 사진을 알려주지 않아도 작동합니다</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">모델이 스스로 무관한 사진을 찾아서 처리한 결과 · 사진 4장 · 문항 300개 · 3B</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<text x="396" y="200" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#6B7280" text-anchor="end">아무것도 안 함</text>
+<rect x="420" y="156" width="640" height="70" rx="7" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="420" y="156" width="90.88000000000001" height="70" rx="7" fill="#9AA6B2"/>
+<text x="1084" y="202" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="30" fill="#9AA6B2" text-anchor="start" font-weight="bold">0.521</text>
+<text x="396" y="304" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#1F3B57" text-anchor="end" font-weight="bold">Ours  (스스로 찾아서 처리)</text>
+<rect x="420" y="260" width="640" height="70" rx="7" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="420" y="260" width="401.92" height="70" rx="7" fill="#2E8B57"/>
+<text x="1084" y="306" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="30" fill="#2E8B57" text-anchor="start" font-weight="bold">0.764</text>
+<text x="396" y="408" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#6B7280" text-anchor="end">상한  (정답을 알려준 경우)</text>
+<rect x="420" y="364" width="640" height="70" rx="7" fill="#EDF1F5" stroke="#D5DEE8" stroke-width="1"/>
+<rect x="420" y="364" width="579.84" height="70" rx="7" fill="#A9B4BF"/>
+<text x="1084" y="410" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="30" fill="#A9B4BF" text-anchor="start" font-weight="bold">0.903</text>
+<line x1="420" y1="146" x2="420" y2="470" stroke="#9AA6B2" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="420" y="140" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#9AA6B2" text-anchor="middle">0.45</text>
+<text x="420" y="494" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#6B7280" text-anchor="start" font-style="italic">판별력 점수 — 0.5 = 동전 던지기</text>
+<rect x="50" y="528" width="406" height="124" rx="10" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.5"/>
+<text x="253" y="562" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#2E8B57" text-anchor="middle" font-weight="bold">방해 사진이 많을수록 이득이 커짐</text>
+<text x="253" y="608" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#1F3B57" text-anchor="middle" font-weight="bold">1장 +0.06    2장 +0.17    3장 +0.24</text>
+<rect x="486" y="528" width="406" height="124" rx="10" fill="#E8F1FA" stroke="#1F77B4" stroke-width="1.5"/>
+<text x="689" y="562" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#1F77B4" text-anchor="middle" font-weight="bold">고정 임계값 정확도로 봐도</text>
+<text x="689" y="608" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.477  →  0.697</text>
+<rect x="922" y="528" width="406" height="124" rx="10" fill="#FFF8E8" stroke="#B06A00" stroke-width="1.5"/>
+<text x="1125" y="562" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#B06A00" text-anchor="middle" font-weight="bold">남은 격차는 전부 판별 오류</text>
+<text x="1125" y="608" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="18" fill="#1F3B57" text-anchor="middle" font-weight="bold">0.764   vs   상한 0.903</text>
+<rect x="50" y="676" width="1300" height="60" rx="10" fill="#1F3B57"/>
+<text x="76" y="714" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">6개 조건 중 5개에서 통계적으로 유의 — 컨트롤러를 포함한 실현 수치를 처음 쟀습니다</text>
+</svg>
