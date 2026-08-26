@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 830">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<rect x="0" y="0" width="1400" height="830" fill="#FFFFFF"/>
+<text x="50" y="58" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="29" fill="#1F3B57" text-anchor="start" font-weight="bold">이 수치들을 어디까지 믿을 수 있나</text>
+<text x="50" y="88" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14" fill="#6B7280" text-anchor="start">벤치마크가 자체 제작이라는 점 때문에, 증거의 성격을 둘로 나눠서 봐야 합니다</text>
+<line x1="50" y1="110" x2="1350" y2="110" stroke="#D5DEE8" stroke-width="1.2"/>
+<rect x="50" y="134" width="640" height="540" rx="12" fill="#FFFFFF" stroke="#2E8B57" stroke-width="1.8"/>
+<text x="76" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#2E8B57" text-anchor="start" font-weight="bold">벤치마크와 무관하게 성립</text>
+<text x="76" y="196" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">모델 내부의 인과 개입이므로</text>
+<rect x="76" y="214" width="588" height="72" rx="8" fill="#E9F4EE" stroke="#2E8B57" stroke-width="1.3"/>
+<text x="96" y="242" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">기전 발견 — 해악은 '읽기' 경로로만 흐르고</text>
+<text x="96" y="268" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">이미지끼리 섞임은 오히려 버팀목이다</text>
+<text x="76" y="318" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#1F3B57" text-anchor="start" font-weight="bold">왜 벤치마크에 흔들리지 않는가</text>
+<rect x="76" y="344" width="588" height="80" rx="7" fill="#FAFCFB" stroke="#D5DEE8" stroke-width="1"/>
+<text x="96" y="374" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">1</text>
+<text x="118" y="374" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start" font-weight="bold">같은 문항 · 같은 모델 · 같은 가중치.</text>
+<text x="118" y="400" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">다른 것은 attention 마스크의 사각형 하나뿐 → 결과 차이의 원인이 그 칸으로 특정됨</text>
+<rect x="76" y="440" width="588" height="80" rx="7" fill="#FAFCFB" stroke="#D5DEE8" stroke-width="1"/>
+<text x="96" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">2</text>
+<text x="118" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start" font-weight="bold">10개 설정에서 재현했고 이득이 나는 설정 0개.</text>
+<text x="118" y="496" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">배치 2 × 모델 2 × 질문 유형 3 × 층 구간 2 를 바꿔가며 확인</text>
+<rect x="76" y="536" width="588" height="80" rx="7" fill="#FAFCFB" stroke="#D5DEE8" stroke-width="1"/>
+<text x="96" y="566" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15" fill="#2E8B57" text-anchor="start" font-weight="bold">3</text>
+<text x="118" y="566" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13.5" fill="#1F3B57" text-anchor="start" font-weight="bold">마스킹이 '실제로 지운 것'과 같은지 검증됨.</text>
+<text x="118" y="592" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">무관 이미지를 마스킹한 것과 입력에서 아예 뺀 것이 98.3% 같은 답</text>
+<rect x="76" y="640" width="588" height="20" rx="0" fill="#FFFFFF"/>
+<text x="76" y="654" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="11.5" fill="#6B7280" text-anchor="start" font-style="italic">※ 단, '이 태스크에서'라는 조건은 붙습니다. 다른 태스크로의 일반화는 별개 문제입니다.</text>
+<rect x="710" y="134" width="640" height="540" rx="12" fill="#FFFFFF" stroke="#B06A00" stroke-width="1.8"/>
+<text x="736" y="172" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="19" fill="#B06A00" text-anchor="start" font-weight="bold">벤치마크에 의존 — 외부 검증 필요</text>
+<text x="736" y="196" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#6B7280" text-anchor="start">우리가 만든 문항의 난이도가 그대로 반영되므로</text>
+<rect x="736" y="222" width="588" height="80" rx="7" fill="#FFF8E8" stroke="#B06A00" stroke-width="1"/>
+<text x="756" y="252" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#B06A00" text-anchor="start" font-weight="bold">실현 성능  0.52 → 0.76</text>
+<text x="756" y="278" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">문항이 쉬우면 이득이 과대, 어려우면 과소</text>
+<rect x="736" y="318" width="588" height="80" rx="7" fill="#FFF8E8" stroke="#B06A00" stroke-width="1"/>
+<text x="756" y="348" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#B06A00" text-anchor="start" font-weight="bold">문제 심각도  0.45</text>
+<text x="756" y="374" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">우리가 만든 적대적 문항의 난이도</text>
+<rect x="736" y="414" width="588" height="80" rx="7" fill="#FFF8E8" stroke="#B06A00" stroke-width="1"/>
+<text x="756" y="444" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#B06A00" text-anchor="start" font-weight="bold">FOCUS 대비 우위</text>
+<text x="756" y="470" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#1F3B57" text-anchor="start">공식 코드 아님 · 논문 수식 재구성 · 사진 2장 조건만 · 노이즈 설정이 FOCUS에 불리</text>
+<rect x="736" y="516" width="588" height="138" rx="8" fill="#F5F8FB" stroke="#1F77B4" stroke-width="1.4"/>
+<text x="756" y="548" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="15.5" fill="#1F77B4" text-anchor="start" font-weight="bold">→ 2주 안에 셋 다 외부 검증합니다</text>
+<text x="756" y="576" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">MuirBench · Mantis-Eval 에 우리 방법을 올리고,</text>
+<text x="756" y="600" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13" fill="#1F3B57" text-anchor="start">FOCUS 공식 코드를 같은 조건으로 돌립니다.</text>
+<text x="756" y="626" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">FOCUS가 우리와 같은 Qwen2.5-VL로 평가했으므로</text>
+<text x="756" y="646" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">공개 벤치 검증과 baseline 비교가 한 번에 끝납니다.</text>
+<rect x="50" y="694" width="1300" height="60" rx="8" fill="#F3F5F7" stroke="#D5DEE8" stroke-width="1.4"/>
+<text x="76" y="722" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="14.5" fill="#1F3B57" text-anchor="start" font-weight="bold">검증 규율:  실험 전에 판정 기준을 문서로 고정하고 실행했고, 그중 절반 이상이 기준 미달이거나 예측과 반대였습니다. 전부 기록했습니다.</text>
+<text x="76" y="744" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="12" fill="#6B7280" text-anchor="start">이번 주에도 유리하게 나온 결과를 스스로 분해해 주장 범위를 좁혔습니다 — 읽기차단 > 통째삭제 는 판별이 맞으면 이 배치에서 구조적으로 동일했습니다.</text>
+<rect x="50" y="768" width="1300" height="52" rx="10" fill="#1F3B57"/>
+<text x="76" y="800" font-family="Helvetica Neue, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="16.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">기전은 지금 단단합니다. 성능 수치는 아직 우리 벤치 안의 값이고, 그것을 밖에서 확인하는 것이 다음 2주의 전부입니다.</text>
+</svg>
